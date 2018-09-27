@@ -123,7 +123,7 @@ int probability_1(int count)
 	int num;
 	for (i = 0; i < 5; i++)
 	{
-		Repet:
+	Repet:
 		num = rand() % 361;
 		if (num == 228)
 		{
@@ -228,7 +228,7 @@ int VoucherCenter()
 		printf("***5.|---   680点券 ---|* * 6.|---  1180点券  ---|* * 7.|---  1980点券  ---|* * 8.|---  3480点券  ---|***\n");
 		printf("***  |**购买 ￥ 68RMB**|* *   |**购买 ￥ 118RMB**|* *   |**购买 ￥ 198RMB**|* *   |**购买 ￥ 348RMB**|***\n");
 		printf("************************* ************************* ************************* ***************************\n");
-recharge:
+	recharge:
 		printf("请选择充值的金额(直接输入数字即可单位RMB)：");//(直接输入数字即可单位RMB)
 		scanf("%d", &jine);
 		//printf("元\n");
@@ -242,7 +242,7 @@ recharge:
 		case 118:
 		case 198:
 		case 348:
-			printf("%d RMB充值中请稍后...\n",jine);
+			printf("%d RMB充值中请稍后...\n", jine);
 			//调用充值函数(单位ms)请等待...
 			Sleep(3000);
 			printf("\n");
@@ -266,7 +266,7 @@ int main()
 	int integral_1 = 0;//选择方式
 	int integral = 0;//一定可以抽到荣耀水晶所需积分(14445)
 	int count;//幸运值
-//	int set;//用来接收当抽到荣耀水晶时返回count（幸运值为0）
+			  //	int set;//用来接收当抽到荣耀水晶时返回count（幸运值为0）
 	count = 0;
 	srand((unsigned int)time(NULL));
 	menu(count);
