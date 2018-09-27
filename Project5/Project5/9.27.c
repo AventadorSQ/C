@@ -42,7 +42,7 @@ MZ:
 			printf("********************\n");
 			printf("******荣耀水晶******\n");
 			printf("********************\n");
-			return count=0;
+			return 0;
 		}
 		else if (num > 0 && num < 90)
 		{
@@ -111,6 +111,7 @@ MZ:
 			printf("3级铭文:致命\n");
 		}
 	}
+	return count;
 }
 //方式2抽奖
 int probability_1(int count)
@@ -130,7 +131,7 @@ int probability_1(int count)
 			printf("********************\n");
 			printf("******荣耀水晶******\n");
 			printf("********************\n");
-			return count=0;
+			return 0;
 		}
 		else if (num > 0 && num < 80)
 		{
@@ -206,6 +207,7 @@ int probability_1(int count)
 		}
 	}
 	printf("\n");
+	return count;
 }
 //充值函数
 int VoucherCenter()
@@ -226,10 +228,11 @@ int VoucherCenter()
 		printf("***5.|---   680点券 ---|* * 6.|---  1180点券  ---|* * 7.|---  1980点券  ---|* * 8.|---  3480点券  ---|***\n");
 		printf("***  |**购买 ￥ 68RMB**|* *   |**购买 ￥ 118RMB**|* *   |**购买 ￥ 198RMB**|* *   |**购买 ￥ 348RMB**|***\n");
 		printf("************************* ************************* ************************* ***************************\n");
+recharge:
 		printf("请选择充值的金额(直接输入数字即可单位RMB)：");//(直接输入数字即可单位RMB)
 		scanf("%d", &jine);
 		//printf("元\n");
-		switch (jine >= 0)
+		switch (jine)
 		{
 		case 1:
 		case 6:
@@ -240,7 +243,7 @@ int VoucherCenter()
 		case 198:
 		case 348:
 			printf("%d RMB充值中请稍后...\n",jine);
-			//调用充值等待函数(单位ms)
+			//调用充值函数(单位ms)请等待...
 			Sleep(3000);
 			printf("\n");
 			printf("*****************\n");
@@ -248,17 +251,20 @@ int VoucherCenter()
 			printf("*****************\n");
 			printf("\n");
 			break;
+		default:
+			printf("输入错误请重新选择:\n");
+			goto recharge;
 		}
 
 	}
-	return jine * 10;
+	return jine * 10;//转换为点券
 }
 
 int main()
 {
 	int Luck_val = 0;
 	int integral_1 = 0;//选择方式
-	int integral = 100;//一定可以抽到荣耀水晶所需积分(14445)
+	int integral = 0;//一定可以抽到荣耀水晶所需积分(14445)
 	int count;//幸运值
 //	int set;//用来接收当抽到荣耀水晶时返回count（幸运值为0）
 	count = 0;
@@ -269,7 +275,7 @@ int main()
 	while (1)
 	{
 		printf("剩余积分:%d\n", integral);
-		printf("请选择要购买的方式:>");
+		printf("请选择要抽奖的方式:>");
 		scanf("%d", &integral_1);
 		if (integral_1 == 0)
 		{
@@ -282,7 +288,7 @@ int main()
 			if (integral >= 45)
 			{
 				count++;
-				probability(count);
+				count = probability(count);//调用抽奖函数1
 				menu(count);
 				integral -= 45;
 			}
