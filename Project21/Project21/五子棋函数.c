@@ -648,6 +648,7 @@ int IsRulePlaScore(char arr[ROW][COL], int row, int col, int MaxPlaScore)
 			}
 		}
 	}
+	
 	//(八) 冲四得5分
 	//8.1.先判断横排
 	for (row = 0; row < ROW; row++)
