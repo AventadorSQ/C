@@ -1,79 +1,79 @@
-////1.猜数字小游戏
-//#define _CRT_SECURE_NO_WARNINGS
-//#include<stdio.h>
-//#include<stdlib.h>
-//#include<time.h>
-//
-//void SuiJiZhongZi()
-//{
-//	srand((unsigned int)time(NULL));
-//}
-//void menu()
-//{
-//	printf("************************************************************************\n");
-//	printf("**                           猜数字游戏                               **\n");
-//	printf("************************************************************************\n");
-//	printf("**                       所猜数字在0～99之间                          **\n");
-//	printf("************************************************************************\n");
-//	printf("**                         1 Play    0 Exit                           **\n");
-//	printf("************************************************************************\n");
-//	printf("请选择：\n");
-//}
-//
-//void Game()
-//{
-//	int SuiJiShu = 0;
-//	SuiJiShu = rand() % 100;
-//	int input = 0;
-//	printf("请猜数字:");
-//	while (1)
-//	{
-//		scanf("%d", &input);
-//		if (input > SuiJiShu)
-//		{
-//			printf("猜大了\n");
-//		}
-//		else if (input < SuiJiShu)
-//		{
-//			printf("猜小了\n");
-//		}
-//		else
-//		{
-//			printf("恭喜你猜对了\n");
-//			break;
-//		}
-//	}
-//}
-//
-//void IsPlay()
-//{
-//	int Switch = 0;
-//	do
-//	{
-//		scanf("%d", &Switch);
-//		if (Switch == 1)
-//		{
-//			Game();
-//			break;
-//		}
-//		else if (Switch == 0)
-//		{
-//			break;
-//		}
-//		else
-//		{
-//			printf("请重新输入:\n");
-//		}
-//	} while (Switch);
-//}
-//int main()
-//{
-//	SuiJiZhongZi();//产生随机生成数种子
-//	menu();//打印菜单
-//	IsPlay();//开始游戏
-//	system("pause");
-//	return 0;
-//}
+//1.猜数字小游戏
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+void SuiJiZhongZi()
+{
+	srand((unsigned int)time(NULL));
+}
+void menu()
+{
+	printf("************************************************************************\n");
+	printf("**                           猜数字游戏                               **\n");
+	printf("************************************************************************\n");
+	printf("**                       所猜数字在0～99之间                          **\n");
+	printf("************************************************************************\n");
+	printf("**                         1 Play    0 Exit                           **\n");
+	printf("************************************************************************\n");
+	printf("请选择：\n");
+}
+
+void Game()
+{
+	int SuiJiShu = 0;
+	SuiJiShu = rand() % 100;
+	int input = 0;
+	printf("请猜数字:");
+	while (1)
+	{
+		scanf("%d", &input);
+		if (input > SuiJiShu)
+		{
+			printf("猜大了\n");
+		}
+		else if (input < SuiJiShu)
+		{
+			printf("猜小了\n");
+		}
+		else
+		{
+			printf("恭喜你猜对了\n");
+			break;
+		}
+	}
+}
+
+void IsPlay()
+{
+	int Switch = 0;
+	do
+	{
+		scanf("%d", &Switch);
+		if (Switch == 1)
+		{
+			Game();
+			break;
+		}
+		else if (Switch == 0)
+		{
+			break;
+		}
+		else
+		{
+			printf("请重新输入:\n");
+		}
+	} while (Switch);
+}
+int main()
+{
+	SuiJiZhongZi();//产生随机生成数种子
+	menu();//打印菜单
+	IsPlay();//开始游戏
+	system("pause");
+	return 0;
+}
 
 ////2.在有序数组中找想要查询的数字
 //#define _CRT_SECURE_NO_WARNINGS
