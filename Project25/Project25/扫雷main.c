@@ -9,12 +9,12 @@ void Game()
 	srand((unsigned int)time(NULL));
 	InitQiPan(ArrLeiMap, ROW, COL);//初始化雷盘
 	InitShowPan(ArrShowMap, ROW, COL);//初始化用户界面盘
-	PrintShow(ArrShowMap, ROW, COL);//打印展示的界面棋盘
+	PrintShow(ArrShowMap, ArrLeiMap, ROW, COL);//打印展示的界面棋盘
 	while (1)
 	{
 		Scanf(ArrShowMap, ArrLeiMap, ROW, COL, &count);//玩家猜游戏
 		IsWin(ArrShowMap, ArrLeiMap, ROW, COL, &count);//判断输赢
-		PrintShow(ArrShowMap, ROW, COL);//打印更新的界面棋盘
+		PrintShow(ArrShowMap, ArrLeiMap, ROW, COL);//打印更新的界面棋盘
 	}
 }
 int main()

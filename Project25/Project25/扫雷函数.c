@@ -48,9 +48,10 @@ void IsPlay(int* Select)
 void InitQiPan(char ArrLeiMap[ROW][COL], int row, int col)//初始化雷盘
 {
 	memset(ArrLeiMap, ' ', col*row * sizeof(ArrLeiMap[0][0]));
-	int count1 = 0;//记录雷的个数
-	int num = 0;
-	for (int i = 0; i < (COL * ROW); i++)
+	int LeiCount = 0;//记录雷的个数
+	int i = 0;
+	int LeiNum = 0;//标记周围雷的个数
+	for ( i = 0; i < (COL * ROW); i++)
 	{
 		row = rand() % 10;
 		col = rand() % 10;
@@ -58,29 +59,27 @@ void InitQiPan(char ArrLeiMap[ROW][COL], int row, int col)//初始化雷盘
 		{
 			ArrLeiMap[row][col] = '*';
 
-			count1++;//记录已布雷的个数
-			//标记周围的雷数
-			num = num + 1;
-			//ArrLeiMap[row - 1][col - 1] = num;
-			//ArrLeiMap[row - 1][col] = num;
-			//ArrLeiMap[row - 1][col + 1] = num;
-			//ArrLeiMap[row][col - 1] = num;
-			//ArrLeiMap[row][col + 1] = num;
-			//ArrLeiMap[row + 1][col - 1] = num;
-			//ArrLeiMap[row + 1][col] = num;
-			//ArrLeiMap[row + 1][col + 1] = num;
-			ArrLeiMap[row - 1][col - 1] = 'num';
-			ArrLeiMap[row - 1][col] = 'num';
-			ArrLeiMap[row - 1][col + 1] = 'num';
-			ArrLeiMap[row][col - 1] = 'num';
-			ArrLeiMap[row][col + 1] = 'num';
-			ArrLeiMap[row + 1][col - 1] = 'num';
-			ArrLeiMap[row + 1][col] = 'num';
-			ArrLeiMap[row + 1][col + 1] = 'num';
+			LeiCount++;//记录已布雷的个数
 		}
-		if (count1 == (2 * ROW))
+		if (LeiCount == (2 * ROW))
 		{
 			break;
+		}
+	}
+	//统计周围雷的个数
+	for (i = 0; i < COL*ROW; i++)
+	{
+		if (ArrLeiMap[row][col] != '*')
+		{
+			LeiNum =( (ArrLeiMap[row - 1][col - 1] - ' ') +
+			(ArrLeiMap[row - 1][col] - ' ') +
+			(ArrLeiMap[row - 1][col + 1] - ' ') +
+			(ArrLeiMap[row][col - 1] - ' ') +
+			(ArrLeiMap[row][col + 1] - ' ') +
+			(ArrLeiMap[row + 1][col - 1] - ' ') +
+			(ArrLeiMap[row + 1][col] - ' ') +
+			(ArrLeiMap[row + 1][col + 1] - ' '))/10;
+			ArrLeiMap[row][col] =  '0' + LeiNum;
 		}
 	}
 }
@@ -89,7 +88,7 @@ void InitShowPan(char ArrShowMap[ROW][COL], int row, int col)//初始化用户界面盘
 {
 	memset(ArrShowMap, '9', col*row * sizeof(ArrShowMap[0][0]));
 }
-void PrintShow(char ArrShowMap[ROW][COL], int row, int col)//打印展示的界面棋盘
+void PrintShow(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int row, int col)//打印展示的界面棋盘
 {
 	system("cls");
 	int i = 0;
@@ -108,6 +107,7 @@ void PrintShow(char ArrShowMap[ROW][COL], int row, int col)//打印展示的界面棋盘
 		{
 			for (j = 0; j < COL; j++)
 			{
+				//printf("| %c ", ArrLeiMap[i][j]);
 				printf("| %c ", ArrShowMap[i][j]);
 			}
 			printf("|%2d\n", i + 1);
@@ -146,7 +146,7 @@ void Scanf(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int row, int col
 		}
 		else
 		{
-			printf("请重新输入下标：\n");
+			printf("请再次输入下标：\n");
 		}
 	}
 }
@@ -161,7 +161,7 @@ void IsWin(char ArrShowMap[ROW][COL],char ArrLeiMap[ROW][COL], int row, int col,
 			if (ArrShowMap[row][col] == '*')
 			{
 				printf("您踩雷了\n");
-				PrintShow(ArrLeiMap, ROW, COL);
+				PrintShow(ArrShowMap,ArrLeiMap, ROW, COL);
 				break;
 			}
 			else
