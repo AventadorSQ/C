@@ -11,23 +11,6 @@
 //#define ROW 100
 //void JiOuSort(int arr[ROW],int count)
 //{
-//	//int temp = 0;
-//	//for (int i = 0; i < count; i++)
-//	//{
-//	//	if (arr[i] % 2 == 0)
-//	//	{
-//	//		for (int j=count; j >= 0; j--)
-//	//		{
-//	//			if (arr[j - 1] % 2 == 1)
-//	//			{
-//	//				temp = arr[i];
-//	//				arr[i] = arr[j - 1];
-//	//				arr[j - 1] = temp;
-//	//				break;
-//	//			}
-//	//		}
-//	//	}
-//	//}
 //	int count1 = 0;
 //	int i = 0,j=0;
 //	int temp = 0;
@@ -92,42 +75,98 @@
 //7 8 9
 //*****************************************************************
 #include<Aventador_SQ.h>
-#define ROW 3
-#define COL 3
+#define ROW 5
+#define COL 5
 void Seek(int arr[ROW][COL],int n)
 {
 	int left = 0;
-	int right = ROW;
-	int mid = 0;
-	while (left <= right)
+	int right = ROW - 1;
+	while ((left < ROW) && (right >= 0))
 	{
-		mid = (right - left) / 2 + left;
-		if (arr[mid][mid] == n)
+		if (arr[left][right] < n)
+		{
+			left++;
+		}
+		else if (arr[left][right] > n)
+		{
+			right--;
+		}
+		else if (arr[left][right] == n)
 		{
 			printf("找到了\n");
 			break;
 		}
-		if (arr[mid][mid] > n)
-		{
-			right = mid - 1;
-		}
-		if (arr[mid][mid] < n)
-		{
-			left = mid + 1;
-		}
 	}
-	if (left > right)
+	if ((left >= ROW) || (right < 0))
 	{
 		printf("没找到\n");
 	}
-
 }
+
 int main()
 {
 	int n = 0;
-	int arr[ROW][COL] = { {1,2,3},{2,3,4},{3,4,5} };
+	int arr[ROW][COL] = { {1,2,3,5,6},
+	                      {4,5,6,7,8},
+	                      {7,8,9,10,12}, 
+	                      {9,10,12,13,14},
+	                      {12,23,45,56,78 } };
 	scanf("%d", &n);
 	Seek(arr,n);
 	system("pause");
 	return 0;
 }
+//int left = 0;
+//int right = ROW;
+//int mid = 0;
+//mid = (right - left) / 2 + left;
+//while (left <= right)
+//{
+//	//mid = (right - left) / 2 + left;
+//	if (arr[mid][mid] == n)
+//	{
+//		printf("找到了\n");
+//		break;
+//	}
+//	if (arr[mid][mid] > n)
+//	{
+//		right = mid - 1;
+//		mid = (right - left) / 2 + left;
+//		if (arr[mid][mid] < n)
+//		{
+//			if ((arr[mid + 1][mid] == n) || (arr[mid][mid + 1] == 1))
+//			{
+//				printf("找到了\n");
+//				break;
+//			}
+//			else
+//			{
+//				printf("没找到\n");
+//				break;
+//			}
+//		}
+//	}
+
+//	if (arr[mid][mid] < n)
+//	{
+//		left = mid + 1;
+//		mid = (right - left) / 2 + left;
+//		if (arr[mid][mid] > n)
+//		{
+//			if ((arr[mid][mid - 1] == n) || (arr[mid - 1][mid] == 1))
+//			{
+//				printf("找到了\n");
+//				break;
+//			}
+//			else
+//			{
+//				printf("没找到\n");
+//				break;
+//			}
+//		}
+//	}
+//}
+//if (left > right)
+//{
+//	printf("没找到\n");
+//}
