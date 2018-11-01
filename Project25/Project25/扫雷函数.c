@@ -45,9 +45,11 @@ void IsPlay(int* Select)
 	}
 }
 
-void InitQiPan(char ArrLeiMap[ROW][COL], int row, int col)//初始化雷盘
+void InitQiPan(char ArrLeiMap[ROW][COL])//初始化雷盘
 {
-	memset(ArrLeiMap, ' ', col*row * sizeof(ArrLeiMap[0][0]));
+	int col = 0;
+	int row = 0;
+	memset(ArrLeiMap, ' ', ROW*COL * sizeof(ArrLeiMap[0][0]));
 	int LeiCount = 0;//记录雷的个数
 	int i = 0;
 	int LeiNum = 0;//标记周围雷的个数
@@ -66,22 +68,25 @@ void InitQiPan(char ArrLeiMap[ROW][COL], int row, int col)//初始化雷盘
 			break;
 		}
 	}
-	//统计周围雷的个数
-	for (i = 0; i < COL*ROW; i++)
-	{
-		if (ArrLeiMap[row][col] != '*')
-		{
-			LeiNum =( (ArrLeiMap[row - 1][col - 1] - ' ') +
-			(ArrLeiMap[row - 1][col] - ' ') +
-			(ArrLeiMap[row - 1][col + 1] - ' ') +
-			(ArrLeiMap[row][col - 1] - ' ') +
-			(ArrLeiMap[row][col + 1] - ' ') +
-			(ArrLeiMap[row + 1][col - 1] - ' ') +
-			(ArrLeiMap[row + 1][col] - ' ') +
-			(ArrLeiMap[row + 1][col + 1] - ' '))/10;
-			ArrLeiMap[row][col] =  '0' + LeiNum;
-		}
-	}
+	////统计周围雷的个数
+	//for (row = 0;row < ROW; row++)
+	//{
+	//	for (col = 0; col < COL; col++)
+	//	{
+	//		if (ArrLeiMap[row][col] != '*')
+	//		{
+	//			LeiNum = ((ArrLeiMap[row - 1][col - 1] - ' ') +
+	//				(ArrLeiMap[row - 1][col] - ' ') +
+	//				(ArrLeiMap[row - 1][col + 1] - ' ') +
+	//				(ArrLeiMap[row][col - 1] - ' ') +
+	//				(ArrLeiMap[row][col + 1] - ' ') +
+	//				(ArrLeiMap[row + 1][col - 1] - ' ') +
+	//				(ArrLeiMap[row + 1][col] - ' ') +
+	//				(ArrLeiMap[row + 1][col + 1] - ' ')) / 10 + 16;
+	//			ArrLeiMap[row][col] = ' ' + LeiNum;
+	//		}
+	//	}
+	//}
 }
 
 void InitShowPan(char ArrShowMap[ROW][COL], int row, int col)//初始化用户界面盘
@@ -107,8 +112,8 @@ void PrintShow(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int row, int
 		{
 			for (j = 0; j < COL; j++)
 			{
-				//printf("| %c ", ArrLeiMap[i][j]);
-				printf("| %c ", ArrShowMap[i][j]);
+				printf("| %c ", ArrLeiMap[i][j]);
+			//	printf("| %c ", ArrShowMap[i][j]);
 			}
 			printf("|%2d\n", i + 1);
 			for (j = 0; j < COL; j++)
@@ -125,8 +130,10 @@ void PrintShow(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int row, int
 	printf("\n");
 }
 
-void Scanf(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int row, int col,int* count)
+
+void Scanf(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int* ScanfRow, int* ScanfCol,int* count)
 {
+	int row = 0, col = 0;
 	printf("请输入要猜的下标:");
 	while (1)
 	{
@@ -137,6 +144,8 @@ void Scanf(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int row, int col
 			{
 				ArrShowMap[row - 1][col - 1] = ArrLeiMap[row - 1][col - 1];
 				*count++;
+				*ScanfRow = row;
+				*ScanfCol = col;
 				break;
 			}
 			if (ArrShowMap[row - 1][col - 1] != '9')
@@ -151,18 +160,14 @@ void Scanf(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int row, int col
 	}
 }
 
-//判断是否踩雷并判断输赢
-void IsWin(char ArrShowMap[ROW][COL],char ArrLeiMap[ROW][COL], int row, int col, int* count)
+//判断是否踩雷并判断输赢(测试版)
+void IsWin(char ArrShowMap[ROW][COL], char ArrLeiMap[ROW][COL], int* ScanfRow, int* ScanfCol, int* count)
 {
-	for (row = 0; row < ROW; row++)
-	{
-		for (col = 0; col < COL; col++)
-		{
-			if (ArrShowMap[row][col] == '*')
+
+			if (ArrLeiMap[*ScanfRow][*ScanfCol] == '*')
 			{
 				printf("您踩雷了\n");
-				PrintShow(ArrShowMap,ArrLeiMap, ROW, COL);
-				break;
+				PrintShow(ArrShowMap, ArrLeiMap, ROW, COL);
 			}
 			else
 			{
@@ -171,6 +176,28 @@ void IsWin(char ArrShowMap[ROW][COL],char ArrLeiMap[ROW][COL], int row, int col,
 					printf("玩家胜利\n");
 				}
 			}
-		}
-	}
 }
+
+////判断是否踩雷并判断输赢
+//void IsWin(char ArrShowMap[ROW][COL],char ArrLeiMap[ROW][COL], int row, int col, int* count)
+//{
+//	for (row = 0; row < ROW; row++)
+//	{
+//		for (col = 0; col < COL; col++)
+//		{
+//			if (ArrShowMap[row][col] == '*')
+//			{
+//				printf("您踩雷了\n");
+//				PrintShow(ArrShowMap,ArrLeiMap, ROW, COL);
+//				break;
+//			}
+//			else
+//			{
+//				if (*count == (ROW*COL - 2 * ROW))
+//				{
+//					printf("玩家胜利\n");
+//				}
+//			}
+//		}
+//	}
+//}

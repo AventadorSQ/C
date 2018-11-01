@@ -1,5 +1,6 @@
 #include"扫雷头文件.h"
-
+int ScanfRow = 0;//输入的左下标
+int ScanfCol = 0;//输入的右下标
 int count = 0;
 void Game()
 {
@@ -7,13 +8,13 @@ void Game()
 	char ArrLeiMap[ROW][COL];
 	char ArrShowMap[ROW][COL];
 	srand((unsigned int)time(NULL));
-	InitQiPan(ArrLeiMap, ROW, COL);//初始化雷盘
+	InitQiPan(ArrLeiMap);//初始化雷盘
 	InitShowPan(ArrShowMap, ROW, COL);//初始化用户界面盘
 	PrintShow(ArrShowMap, ArrLeiMap, ROW, COL);//打印展示的界面棋盘
 	while (1)
 	{
-		Scanf(ArrShowMap, ArrLeiMap, ROW, COL, &count);//玩家猜游戏
-		IsWin(ArrShowMap, ArrLeiMap, ROW, COL, &count);//判断输赢
+		Scanf(ArrShowMap, ArrLeiMap, &ScanfRow, &ScanfCol, &count);//玩家猜游戏
+		IsWin(ArrShowMap, ArrLeiMap, &ScanfRow, &ScanfCol, &count);//判断输赢
 		PrintShow(ArrShowMap, ArrLeiMap, ROW, COL);//打印更新的界面棋盘
 	}
 }
