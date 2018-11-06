@@ -55,7 +55,7 @@ int SodaWater(int money)
 {
 	int bottle = money;
 	static int yu = 0;
-	if ((money % 2 == 0)&&(money != 0))
+	if ((money % 2 == 0) && (money != 0))
 	{
 		return bottle + SodaWater(bottle / 2);
 	}
@@ -75,7 +75,7 @@ int main()
 {
 	int Money = 20;
 	int num = 0;
-	num=SodaWater(Money);
+	num = SodaWater(Money);
 	printf("¿ÉÒÔºÈ%dÆ¿ÆûË®\n", num);
 	system("pause");
 	return 0;
