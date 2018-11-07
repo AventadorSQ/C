@@ -1,0 +1,120 @@
+Xshell 5 (Build 1339)
+Copyright (c) 2002-2017 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[c:\~]$ 
+
+Connecting to 192.168.124.129:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Nov  6 20:59:03 2018 from 192.168.124.1
+[chuxia@localhost ~]$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  workspace
+[chuxia@localhost ~]$ cd workspace/40/command/
+[chuxia@localhost command]$ ls
+abc.txt  passwd  test
+[chuxia@localhost command]$ echo "abcdfge"
+abcdfge
+[chuxia@localhost command]$ echo "abcdfge" >> passwd
+[chuxia@localhost command]$ echo "hehecaiji" >> passwd
+[chuxia@localhost command]$ echo "leiershishabi" >> abc.txt
+[chuxia@localhost command]$ cat abc.txt
+leiershishabi
+[chuxia@localhost command]$ ls -l
+total 8
+-rw-r--r--. 1 chuxia cen   14 Nov  6 22:14 abc.txt
+-rw-r--r--. 1 chuxia cen 1931 Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen    6 Nov  6 19:32 test
+[chuxia@localhost command]$ dd if=/dev/zero of=./hello.txt bs=100M count=1
+1+0 records in
+1+0 records out
+104857600 bytes (105 MB) copied, 2.54087 s, 41.3 MB/s
+[chuxia@localhost command]$ ls -l
+total 102408
+-rw-r--r--. 1 chuxia cen        14 Nov  6 22:14 abc.txt
+-rw-r--r--. 1 chuxia cen 104857600 Nov  6 22:22 hello.txt
+-rw-r--r--. 1 chuxia cen      1931 Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen         6 Nov  6 19:32 test
+[chuxia@localhost command]$ ls -lh
+total 101M
+-rw-r--r--. 1 chuxia cen   14 Nov  6 22:14 abc.txt
+-rw-r--r--. 1 chuxia cen 100M Nov  6 22:22 hello.txt
+-rw-r--r--. 1 chuxia cen 1.9K Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen    6 Nov  6 19:32 test
+[chuxia@localhost command]$ zip hello.zip hello.txt
+  adding: hello.txt (deflated 100%)
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ rm hello.zip
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt  passwd  test
+[chuxia@localhost command]$ ls -l
+total 102408
+-rw-r--r--. 1 chuxia cen        14 Nov  6 22:14 abc.txt
+-rw-r--r--. 1 chuxia cen 104857600 Nov  6 22:22 hello.txt
+-rw-r--r--. 1 chuxia cen      1931 Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen         6 Nov  6 19:32 test
+[chuxia@localhost command]$ zip hello.zip abc.txt hello.txt passwd
+  adding: abc.txt (stored 0%)
+  adding: hello.txt (deflated 100%)
+  adding: passwd (deflated 60%)
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ rm abc.txt hello.txt passwd
+[chuxia@localhost command]$ ls
+hello.zip  test
+[chuxia@localhost command]$ unzip hello.zip
+Archive:  hello.zip
+ extracting: abc.txt                 
+  inflating: hello.txt               
+  inflating: passwd                  
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ ls -lh
+total 101M
+-rw-r--r--. 1 chuxia cen   14 Nov  6 22:14 abc.txt
+-rw-r--r--. 1 chuxia cen 100M Nov  6 22:22 hello.txt
+-rw-r--r--. 1 chuxia cen 101K Nov  6 22:27 hello.zip
+-rw-r--r--. 1 chuxia cen 1.9K Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen    6 Nov  6 19:32 test
+[chuxia@localhost command]$ gzip helo.txt
+gzip: helo.txt: No such file or directory
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ gzip hello.txt
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt.gz  hello.zip  passwd  test
+[chuxia@localhost command]$ ls -lh
+total 212K
+-rw-r--r--. 1 chuxia cen   14 Nov  6 22:14 abc.txt
+-rw-r--r--. 1 chuxia cen 100K Nov  6 22:22 hello.txt.gz
+-rw-r--r--. 1 chuxia cen 101K Nov  6 22:27 hello.zip
+-rw-r--r--. 1 chuxia cen 1.9K Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen    6 Nov  6 19:32 test
+[chuxia@localhost command]$ gunzip hello.txt.gz
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ bzip2 hello.txt
+[chuxia@localhost command]$ ls -lh
+total 116K
+-rw-r--r--. 1 chuxia cen   14 Nov  6 22:14 abc.txt
+-rw-r--r--. 1 chuxia cen  113 Nov  6 22:22 hello.txt.bz2
+-rw-r--r--. 1 chuxia cen 101K Nov  6 22:27 hello.zip
+-rw-r--r--. 1 chuxia cen 1.9K Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen    6 Nov  6 19:32 test
+[chuxia@localhost command]$ bunzip2 hello.txt.bz2
+[chuxia@localhost command]$ ls
+abc.txt  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ tar -czvf hello.tar.gz hello.txt
+hello.txt
+[chuxia@localhost command]$ ls
+abc.txt  hello.tar.gz  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ rm hello.txt
+[chuxia@localhost command]$ ls
+abc.txt  hello.tar.gz  hello.zip  passwd  test
+[chuxia@localhost command]$ tar -xzvf hello.tar.gz
+hello.txt
+[chuxia@localhost command]$ ls
+abc.txt  hello.tar.gz  hello.txt  hello.zip  passwd  test
+[chuxia@localhost command]$ 
