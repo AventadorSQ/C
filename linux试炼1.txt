@@ -1,0 +1,50 @@
+
+Last login: Tue Nov  6 22:03:27 2018 from 192.168.124.1
+[chuxia@localhost ~]$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  workspace
+[chuxia@localhost ~]$ cd /workspace
+-bash: cd: /workspace: No such file or directory
+[chuxia@localhost ~]$ cd workspace/40/command/
+[chuxia@localhost command]$ ls
+abc.txt  passwd  test
+[chuxia@localhost command]$ tail -f passwd
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+chuxia:x:1000:1000:Linux:/home/chuxia:/bin/bash
+abcdfge
+
+
+
+hehecaiji
+^C
+[chuxia@localhost command]$ touch abc.txt
+[chuxia@localhost command]$ ls -l
+total 4
+-rw-r--r--. 1 chuxia cen    0 Nov  6 22:11 abc.txt
+-rw-r--r--. 1 chuxia cen 1931 Nov  6 22:11 passwd
+drwxr-xr-x. 2 chuxia cen    6 Nov  6 19:32 test
+[chuxia@localhost command]$ tial -f abc.txt
+bash: tial: command not found...
+Similar command is: 'tail'
+[chuxia@localhost command]$ tail -f abc.txt
+leiershishabi
+
+
+^C
+[chuxia@localhost command]$ su root
+Password: 
+su: Authentication failure
+[chuxia@localhost command]$ su root
+Password: 
+su: Authentication failure
+[chuxia@localhost command]$ su root
+Password: 
+
+
+
