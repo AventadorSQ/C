@@ -21,6 +21,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<time.h>
 
 
 //查找输入的班级是否有误
@@ -55,28 +56,40 @@ void Game(int* OnOff)
 {
 	typedef struct BitStu {
 		int num;
-		char arr[100];
+		char arr[16];
 	}BitStu;
 
-	int weizhi = 0;//记录首次出现班级的位置
+	int weizhiclass = 0;//记录首次出现班级的位置
+	int weizhinum = 0;//记录首次出现学生学号的位置
 	char ArrClasses[1024] = "40 java6 JAVA6";//记录所有的班级
 	char ArrClassScanf[200];//记录输入的班级
-	BitStu ArrClass[1024];//记录班级的学生信息
+	BitStu ArrClass[1024];//记录班级的学生信息（将文件数据存入该数组）
+	int Rand = 0;//记录产生的随机数
+	int TempStrstr1 = 0;//函数有返回值
 	while (1)
 	{
 		printf("请选择班级：");
 		scanf("%s%*c", ArrClassScanf);
-		int TempStrstr = Strstr(ArrClasses, ArrClassScanf, &weizhi);//用于判断输入班级是否有误
+		int TempStrstr = Strstr(ArrClasses, ArrClassScanf, &weizhiclass);//用于判断输入班级是否有误
 		if (TempStrstr != 0)
 		{
 			if (strcmp(ArrClassScanf, "40") == 0)
 			{
+				
+				//开始摇奖
+				Rand = rand() % 53 + 1;
+				char ArrRand[100] = "Rand";
 				//将网页源文档进行字符串查找得到学生信息，并存入文档
 				//读取文件
-				//将文件存入所查班级数组
-				//开始摇奖
-				//通过摇奖的数字在数组里面查找
+				//将文件数据存入所查班级数组
+				//通过摇奖的数字在数组里面查找相应位置
+				TempStrstr1 = Strstr(ArrClass, ArrRand, &weizhinum);//寻找该学号对应的位置
 				//输出到界面
+				for (int i = weizhinum; i < weizhinum + 20; i++)//循环打印该学号后面的10位（一条学生信息20个字节）
+				{
+					printf("%c", ArrClass[i - 1]);
+				}
+				printf("\n");
 				//printf("haha\n");
 				printf("****************************************************\n");
 				printf("***       1,继续抽奖         0，结束游戏         ***\n");
@@ -87,8 +100,6 @@ void Game(int* OnOff)
 					break;
 				}
 			}
-			
-
 		}
 	}
 }
@@ -96,10 +107,11 @@ int main()
 {
 
 	int OnOff = 0;//是否开始游戏
+	srand((unsigned int)time(NULL));
 	while (1)
 	{
 		printf("****************************************************\n");
-		printf("***       1开始游戏          0退出游戏           ***\n");
+		printf("***       1,继续抽奖         0，结束游戏         ***\n");
 		printf("****************************************************\n");
 		printf("***请输入：");
 		scanf("%d", &OnOff);
