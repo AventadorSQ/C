@@ -1,5 +1,5 @@
-#include<Aventador_SQ.h>
 #include<stdint.h>
+#include<Aventador_SQ.h>
 
 //Ä£ÄâÊµÏÖmemcpy
 void* Memcpy(void* dest, void* src, size_t count)
@@ -41,31 +41,30 @@ void* Memmove(void* dest, void* src, size_t count)
 	return ret;
 }
 
-//
-union IP {
-	uint32_t ip;
-	struct {
-		uint8_t a;
-		uint8_t b;
-		uint8_t c;
-		uint8_t d;
-	} ip_;
-};
 int main()
 {
-	union IP ip;
-	ip.ip = 0x12345678;
-	printf("%d.%d.%d.%d\n", ip.ip_.a, ip.ip_.b, ip.ip_.c, ip.ip_.d);
-	//typedef struct student {
-	//	int mun;
-	//	char name
-	//}stu;
-	//char arr[] = "acdbsa";
-	//char arr1[1024] = "0";
-	//int x = strlen(arr);
-	//char* p=Memcpy(arr1, arr, x);
-	//char* p1 = Memmove(arr1, arr, x);
-	//printf("%s\n", p1);
+	char arr[] = "2jin2gmin8gzhen";
+	char arr1[1024] = "0";
+	int x = strlen(arr);
+	char* p=Memcpy(arr1, arr, x);
+	printf("%s\n", p);
+	printf("%s\n", arr);
+	char* p1 = Memmove(arr1, arr, x);
+	printf("%s\n", p1);
+	printf("%s\n", arr1);
 	system("pause");
 	return 0;
 }
+////
+//union IP {
+//	uint32_t ip;
+//	struct {
+//		uint8_t a;
+//		uint8_t b;
+//		uint8_t c;
+//		uint8_t d;
+//	} ip_;
+//};
+//union IP ip;
+//ip.ip = 0x12345678;
+//printf("%d.%d.%d.%d\n", ip.ip_.a, ip.ip_.b, ip.ip_.c, ip.ip_.d);

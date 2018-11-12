@@ -1,0 +1,371 @@
+Microsoft Windows [°æ±¾ 10.0.17134.345]
+(c) 2018 Microsoft Corporation¡£±£ÁôËùÓÐÈ¨Àû¡£
+
+C:\Users\admin>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.7.21-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bitestudent        |
+| chuxiadatabase     |
+| db1                |
+| db2                |
+| db3                |
+| mysql              |
+| mytest             |
+| performance_schema |
+| sys                |
+| test1              |
+| test2              |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use chuxaidatabase;
+ERROR 1049 (42000): Unknown database 'chuxaidatabase'
+mysql> use chuxiadatabase;
+Database changed
+mysql> select * from table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table' at line 1
+mysql> select * from tables;
+ERROR 1146 (42S02): Table 'chuxiadatabase.tables' doesn't exist
+mysql> select * from chuxiadatabase;
+ERROR 1146 (42S02): Table 'chuxiadatabase.chuxiadatabase' doesn't exist
+mysql> select * from chuxiadatabases;
+ERROR 1146 (42S02): Table 'chuxiadatabase.chuxiadatabases' doesn't exist
+mysql> create table votes (username varchar(13), hobby set('µÇÉ½','ÓÎÓ¾','ÀºÇò','ÎäÊõ'), gender enum ('ÄÐ','Å®');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table votes (username varchar(13), hobby set('µÇÉ½','ÓÎÓ¾','ÀºÇò','ÎäÊõ'), gender enum ('ÄÐ','Å®');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table votes (username varchar(13), hobby set('µÇÉ½','ÓÎÓ¾','ÀºÇò','ÎäÊõ'), gender enum ('ÄÐ','Å®');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table votes (username varchar(13), hobby set('µÇÉ½','ÓÎÓ¾','ÀºÇò','ÎäÊõ'), gender enum ('ÄÐ','Å®'));
+Query OK, 0 rows affected (0.39 sec)
+
+mysql> desc votes;
++----------+----------------------------------+------+-----+---------+-------+
+| Field    | Type                             | Null | Key | Default | Extra |
++----------+----------------------------------+------+-----+---------+-------+
+| username | varchar(13)                      | YES  |     | NULL    |       |
+| hobby    | set('µÇÉ½','ÓÎÓ¾','ÀºÇò','ÎäÊõ') | YES  |     | NULL    |       |
+| gender   | enum('ÄÐ','Å®')                  | YES  |     | NULL    |       |
++----------+----------------------------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into votes (username, hobby,gender) values('´ó¸ç','µÇÉ½','ÄÐ'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> insert into votes (username, hobby,gender) values('´ó¸ç','µÇÉ½','ÄÐ');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> desc votes;
++----------+----------------------------------+------+-----+---------+-------+
+| Field    | Type                             | Null | Key | Default | Extra |
++----------+----------------------------------+------+-----+---------+-------+
+| username | varchar(13)                      | YES  |     | NULL    |       |
+| hobby    | set('µÇÉ½','ÓÎÓ¾','ÀºÇò','ÎäÊõ') | YES  |     | NULL    |       |
+| gender   | enum('ÄÐ','Å®')                  | YES  |     | NULL    |       |
++----------+----------------------------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from votes;
++----------+-------+--------+
+| username | hobby | gender |
++----------+-------+--------+
+| ´ó¸ç     | µÇÉ½  | ÄÐ     |
++----------+-------+--------+
+1 row in set (0.03 sec)
+
+mysql> use chuxiadatabase;
+Database changed
+mysql> select * from tables;
+ERROR 1146 (42S02): Table 'chuxiadatabase.tables' doesn't exist
+mysql> select * from votes;
++----------+-------+--------+
+| username | hobby | gender |
++----------+-------+--------+
+| ´ó¸ç     | µÇÉ½  | ÄÐ     |
++----------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into votes (username, hobby,gender) values('Peter','µÇÉ½,ÎäÊõ','ÄÐ');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from votes where hobby='ÎäÊõ';
+Empty set (0.06 sec)
+
+mysql> select * from votes where hobby='µÇÉ½';
++----------+-------+--------+
+| username | hobby | gender |
++----------+-------+--------+
+| ´ó¸ç     | µÇÉ½  | ÄÐ     |
++----------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select find_in_set('a','a,b,c');
++--------------------------+
+| find_in_set('a','a,b,c') |
++--------------------------+
+|                        1 |
++--------------------------+
+1 row in set (0.06 sec)
+
+mysql> select * from votes where find_in_set('ÎäÊõ',hobby);
++----------+-----------+--------+
+| username | hobby     | gender |
++----------+-----------+--------+
+| Peter    | µÇÉ½,ÎäÊõ | ÄÐ     |
++----------+-----------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from votes where gender=1;
++----------+-----------+--------+
+| username | hobby     | gender |
++----------+-----------+--------+
+| ´ó¸ç     | µÇÉ½      | ÄÐ     |
+| Peter    | µÇÉ½,ÎäÊõ | ÄÐ     |
++----------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from votes where gender=2;
+Empty set (0.00 sec)
+
+mysql> select null;
++------+
+| NULL |
++------+
+| NULL |
++------+
+1 row in set (0.00 sec)
+
+mysql> select nuu+100;
+ERROR 1054 (42S22): Unknown column 'nuu' in 'field list'
+mysql> select null+100;
++----------+
+| null+100 |
++----------+
+|     NULL |
++----------+
+1 row in set (0.00 sec)
+
+mysql> create table tt11 (class_name varchar(32) not null,class_room varchar(32) not null);
+Query OK, 0 rows affected (0.59 sec)
+
+mysql> desc tt11;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| class_name | varchar(32) | NO   |     | NULL    |       |
+| class_room | varchar(32) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> insert into tt12 (ID) values (12);
+ERROR 1146 (42S02): Table 'chuxiadatabase.tt12' doesn't exist
+mysql> insert into chuxiadatabase (ID) values (12);
+ERROR 1146 (42S02): Table 'chuxiadatabase.chuxiadatabase' doesn't exist
+mysql> insert into votes (ID) values (12);
+ERROR 1054 (42S22): Unknown column 'ID' in 'field list'
+mysql> insert into ^CID) values (12);
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bitestudent        |
+| chuxiadatabase     |
+| db1                |
+| db2                |
+| db3                |
+| mysql              |
+| mytest             |
+| performance_schema |
+| sys                |
+| test1              |
+| test2              |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use db1;
+Database changed
+mysql> create table tt12;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table tt12 (id char(32) not null);
+Query OK, 0 rows affected (0.44 sec)
+
+mysql> insert into tt12 (id) values(12);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from tt12;
++----+
+| id |
++----+
+| 12 |
++----+
+1 row in set (0.00 sec)
+
+mysql> select tables;
+ERROR 1054 (42S22): Unknown column 'tables' in 'field list'
+mysql> select db1  tables;
+ERROR 1054 (42S22): Unknown column 'db1' in 'field list'
+mysql>  create table tt13;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> use db1;
+Database changed
+mysql>  create table tt12;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql>  create table tt13;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql>  create table tt13
+    -> (
+    -> id int(10));
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> insert into tt12 (id) values(12);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * of tt13;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of tt13' at line 1
+mysql>  insert into tt13 (id) values(12);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * of tt13;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of tt13' at line 1
+mysql> desc tt13;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| id    | int(10) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into tt13 (id) values(12);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from tt13;
++------+
+| id   |
++------+
+|   12 |
+|   12 |
++------+
+2 rows in set (0.00 sec)
+
+mysql> create table tt16 (id int primary key , name varchar(32) not null);
+Query OK, 0 rows affected (0.38 sec)
+
+mysql> desc tt16;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(32) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into tt16 (id ,name) values (1,'Jack');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into tt16 (id ,name) values (1,'Jack');
+ERROR 1062 (23000): Duplicate entry '1' for key 'PRIMARY'
+mysql> insert into tt16 (id ,name) values (2,'Jack');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into tt16 (id ,name) values (2,'Jac');
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+mysql> insert into tt16 (id ,name) values (3,'Jack');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> alter table tt16 add column email varchar(128) ;
+Query OK, 0 rows affected (1.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tt16;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int(11)      | NO   | PRI | NULL    |       |
+| name  | varchar(32)  | NO   |     | NULL    |       |
+| email | varchar(128) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table tt16 modify email varchar(128) primary key;
+ERROR 1068 (42000): Multiple primary key defined
+mysql> alter table tt16 modify email varchar(128) primary key;^C
+mysql> create table tt18 (id int primary key auto_increment , name varchar(32));
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> desc tt18;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(32) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.03 sec)
+
+mysql> insert into tt18 (name) values ('Peter');
+Query OK, 1 row affected (0.34 sec)
+
+mysql> select * of tt18;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of tt18' at line 1
+mysql> select * from tt18;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | Peter |
++----+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into tt18 (name) values ('jack');
+Query OK, 1 row affected (0.09 sec)
+
+mysql>  select * from tt18;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | Peter |
+|  2 | jack  |
++----+-------+
+2 rows in set (0.00 sec)
+
+mysql> delete from tt18 where id=2;
+Query OK, 1 row affected (0.12 sec)
+
+mysql>  select * from tt18;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | Peter |
++----+-------+
+1 row in set (0.00 sec)
+
+mysql>  insert into tt18 (name) values ('jack');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from tt18;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | Peter |
+|  3 | jack  |
++----+-------+
+2 rows in set (0.00 sec)
+
+mysql> quit
+Bye
+
+C:\Users\admin>
