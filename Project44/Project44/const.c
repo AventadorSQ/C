@@ -23,12 +23,10 @@ void Auto()
 	auto num2 = 5;
 	auto num3 = 'a';
 	auto* num4 = "abcdef";
-	printf("typeid(num).name()\n");
-	printf("typeid(num2).name()\n");
-	printf("typeid(num3).name()\n");
 	printf("%d %d %c %s\n", num, num2, num3, num4);
 
 }
+
 //void Auto1()
 //{
 //	auto num = 12;
