@@ -30,12 +30,13 @@ int main()
 		return 0;
 	}
 	int a;
+	//stdin就是FILE* =>标准输入
 	while ((a = fgetc(stdin)) != EOF)
 	{
 		fputc(a, stdout);
 		fputc(a, fp1);
 	}
-	fflush(fp1);
+	fflush(fp1);//刷新缓冲区
 	fclose(fp1);
 	//zhizhen();
 	system("pause");
