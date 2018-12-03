@@ -1,7 +1,7 @@
 #include "LinkList.h"
 
 //1.创建链表结点
-LinkList* CreateLinkListNode(DataType data)
+LinkListNode* CreateLinkListNode(DataType data)
 {
 	LinkListNode* NewNode = (LinkListNode*)malloc(sizeof(LinkListNode));
 	assert(NewNode);
@@ -30,19 +30,41 @@ void DestoryLinkList(LinkList* first)
 	}
 }
 
-//4.增加结点
-//4.1.头插
+//4.查找链表结点（不管重复多少只返回遇到的第一个要查询的数据位置）
+LinkListNode* FindLinkList(LinkList* first, DataType data)
+{
+	assert(first);
+	for (; first->head != NULL; first->head = first->head->next)
+	{
+		if (first->head->data == data)
+		{
+			return first->head;
+		}
+	}
+	return first->head;
+}
+
+//5.增加结点
+//5.1.头插
 void HeadAddLinkList(LinkList* first, DataType data)
 {
 	assert(first);
 	//创建一个结点
 	LinkListNode* NewNode = CreateLinkListNode(data);
 	assert(NewNode);
-	NewNode->next = first->head->next;
-	first->head = NewNode;
+	if (first->head != NULL)
+	{
+		NewNode->next = first->head->next;
+		first->head = NewNode;
+	}
+	else
+	{
+		first->head = NewNode;
+		first->head = first->head->next;//*****************************************
+	}
 }
 
-//4.2.尾插
+//5.2.尾插
 void WeiChaLinkList(LinkList* first, DataType data)
 {
 	assert(first);
@@ -60,32 +82,19 @@ void WeiChaLinkList(LinkList* first, DataType data)
 	first->head->next = NewNode;
 }
 
-////6.查找链表结点（不管重复多少只返回遇到的第一个要查询的数据位置）
-//LinkListNode* FindLinkList(LinkList* first, DataType data)
-//{
-//	assert(first);
-//	for (; first->head != NULL; first->head = first->head->next)
-//	{
-//		if (first->head->data == data)
-//		{
-//			return first->head;
-//		}
-//	}
-//}
-
-//4.3.任意pos位置后插入（pos代表第N个结点）（从1开始）
-void RenYiChaLinkList(LinkListNode* pos, DataType data)
+//5.3.任意pos位置后插入（pos代表第N个结点）（从1开始）
+void RenYiChaLinkList(LinkList* first, LinkListNode* pos, DataType data)
 {
 	assert(pos);
 	LinkListNode* NewNode = CreateLinkListNode(data);
 	assert(NewNode);
-	LinkListNode* ptr = FindLinkList(pos, data);
+	LinkListNode* ptr = FindLinkList(first, data);
 	NewNode->next = ptr->next;
 	ptr->next = NewNode;
 }
 
-//5.删除结点
-//5.1.头删
+//6.删除结点
+//6.1.头删
 void HeadDelLinkList(LinkList* first)
 {
 	assert(first);
@@ -98,25 +107,25 @@ void HeadDelLinkList(LinkList* first)
 	first->head = ptr->head->next;
 }
 
-//5.2.尾删
-void WeiShanLinkList(LinkList* first) 
+//6.2.尾删
+void WeiShanLinkList(LinkList* first)
 {
 	assert(first);
 	if (first->head == NULL)
 	{
 		return;
 	}
-	LinkListNode* ptr;
+	LinkListNode* ptr = NULL;
 	for (; first->head->next != NULL; first->head = first->head->next)
 	{
-	    ptr = first->head;
+		ptr = first->head;
 	}
 	free(ptr->next);
 	ptr->next = NULL;
 }
 
-//5.3.任意pos位置删除结点
-//5.3.1.按位置删除
+//6.3.任意pos位置删除结点
+//6.3.1.按位置删除
 void RenYiWeiZhiDelLinkList(LinkList* first, LinkListNode* pos)
 {
 	assert(first);
@@ -149,7 +158,7 @@ void RenYiWeiZhiDelLinkList(LinkList* first, LinkListNode* pos)
 	}
 }
 
-//5.3.2.按数据删除
+//6.3.2.按数据删除
 void RenYiDataDelLinkList(LinkList* first, DataType data)
 {
 	assert(first);
@@ -169,19 +178,6 @@ void RenYiDataDelLinkList(LinkList* first, DataType data)
 		if (first->head == NULL)
 		{
 			return;
-		}
-	}
-}
-
-//6.查找链表结点（不管重复多少只返回遇到的第一个要查询的数据位置）
-LinkListNode* FindLinkList(LinkList* first, DataType data)
-{
-	assert(first);
-	for (; first->head != NULL; first->head = first->head->next)
-	{
-		if (first->head->data == data)
-		{
-			return first->head;
 		}
 	}
 }
@@ -221,7 +217,7 @@ void PintLinkList(LinkList* first)
 	{
 		if (first->head != NULL)
 		{
-			printf("%d ", first->head);
+			printf("%d ", first->head->data);
 			first->head = first->head->next;
 		}
 		else
@@ -231,3 +227,131 @@ void PintLinkList(LinkList* first)
 		}
 	}
 }
+
+////找倒数第k个节点
+//ListNode* FindKthToTail(ListNode* pListHead, unsigned int k)
+//{
+//	assert(pListHead);
+//	ListNode* ptrk = pListHead;
+//	ListNode* ptr = pListNode;
+//	int n = 0;
+//	while (1)
+//	{
+//		if ((ptrk != NULL)&&(n<k))
+//		{
+//			ptrk == ptrk->next; 
+//		}
+//		else
+//		{ 
+//			return NULL;
+//		}
+//	}
+//	while (ptrk != NULL)
+//	{
+//		ptrk = ptrk->next;
+//		ptr = ptr->next;
+//	}
+//	return ptr;
+//}
+//
+////删除重复节点 
+//
+//
+////**********************************
+////*************while循环************
+//{
+//	if (ltTail == NULL)
+//	{
+//		lt = ltTail = cur;
+//	}
+//	else
+//	{
+//		ltTail->next = cur;
+//		ltTail = ltTail->next;
+//	}
+//	cur = cur->next;
+//}
+//
+//{
+//	if (eqTail == NULL)
+//	{
+//		eq = eqTail = cur;
+//	}
+//	else
+//	{
+//		eqTail->next = cur;
+//		eqTail = eqTail->next;
+//	}
+//	cur = cur->next;
+//}
+//
+//{
+//	if (gtTail == NULL)
+//	{
+//		gt = gtTail = cur;
+//	}
+//	else
+//	{
+//		gtTail->next = cur;
+//		gtTail = gtTail->next;
+//	}
+//	cur = cur->next;
+//}
+//
+////*****************************************
+//
+//if (ltTail == NULL)
+//{
+//	if (eqTail == NULL)
+//	{
+//		if (gt == NULL)
+//		{
+//			return lt;
+//		}
+//		else
+//		{
+//			return lt;
+//		}
+//	}
+//	else
+//	{
+//		if (gt == NULL)
+//		{
+//			return eq;
+//		}
+//		else
+//		{
+//			eqTail->next = gt;
+//			return eq;
+//		}
+//	}
+//}
+//else
+//{
+//	if (eqTail == NULL)
+//	{
+//		if (gt == NULL)
+//		{
+//			return lt;
+//		}
+//		else
+//		{
+//			ltTail->next = gt;
+//			return lt;
+//		}
+//	}
+//	else
+//	{
+//		if (gt == NULL)
+//		{
+//			ltTail->next = eq;
+//			return lt;
+//		}
+//		else
+//		{
+//			ltTail->next = eq;
+//			eqTail->next = gt;
+//			return lt;
+//		}
+//	}
+//}
