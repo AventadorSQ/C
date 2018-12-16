@@ -36,7 +36,7 @@
 //：循环套递推的过程
 //  循环是飞叶子结点的循环，递推是要调整的结点所在分支调为最终堆的过程
 //由于最开始的时候是混乱的，所以要从不是叶子节点的最后一个结点开始即下标是：(size-2)/2的结点开始
-void CreateHeap(int array[], int size);
+//void CreateHeap(int array[], int size);
 
 //array[size]代表数组大小
 //root代表要调整的结点的下标
@@ -63,6 +63,8 @@ void ADjustDown(int array[], int size, int root);
 
 //向上调整
 void ADjustUp(int array[], int size, int root);
+
+void CreateHeap(int array[], int size);
 
 //建堆
 void HeapCreateHeap(Heap* heap, int array[], int size, int capacity);
