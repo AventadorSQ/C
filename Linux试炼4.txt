@@ -1,0 +1,351 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Wed Dec 19 05:11:11 2018
+[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd FileTest/
+[shangqi@localhost FileTest]$ ls
+first.txt  passwad.tar.gz  passwd
+[shangqi@localhost FileTest]$ cd -
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c
+[shangqi@localhost c ‘¡∂]$ touch Test2.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ touch -t Test2.c 
+touch: invalid date format °ÆTest2.c°Ø
+[shangqi@localhost c ‘¡∂]$ touch -t
+touch: option requires an argument -- 't'
+Try 'touch --help' for more information.
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ ls -l
+total 4
+-rw-rw-r--. 1 shangqi shangqi 115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi   0 Dec 19 05:22 Test2.c
+[shangqi@localhost c ‘¡∂]$ ls -a
+.  ..  Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ vim Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c
+Test2.c: In function °Æmain°Ø:
+Test2.c:11:18: error: request for member °Æi°Ø in something not a structure or union
+   printf("%d\n",p.i);
+                  ^
+Test2.c:13:8: error: conflicting types for °Æp°Ø
+   int* p = &a;
+        ^
+Test2.c:8:3: note: previous declaration of °Æp°Ø was here
+ }*p;
+   ^
+[shangqi@localhost c ‘¡∂]$ vim Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c
+Test2.c: In function °Æmain°Ø:
+Test2.c:11:18: error: request for member °Æi°Ø in something not a structure or union
+   printf("%d\n",p.i);
+                  ^
+[shangqi@localhost c ‘¡∂]$ vim Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o Test2
+[shangqi@localhost c ‘¡∂]$ ./Test2 
+Segmentation fault (core dumped)
+[shangqi@localhost c ‘¡∂]$ ls
+a.out  Test1.c  Test2  Test2.c
+[shangqi@localhost c ‘¡∂]$ ./a.out
+Segmentation fault (core dumped)
+[shangqi@localhost c ‘¡∂]$ ./Test
+-bash: ./Test: No such file or directory
+[shangqi@localhost c ‘¡∂]$ ls
+a.out  Test1.c  Test2  Test2.c
+[shangqi@localhost c ‘¡∂]$ rm Test2
+[shangqi@localhost c ‘¡∂]$ ls
+a.out  Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ rm a.out
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test1.c -o firstc
+[shangqi@localhost c ‘¡∂]$ ./firstc
+hello world
+hello world
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o secoc
+[shangqi@localhost c ‘¡∂]$ ./secoc
+Segmentation fault (core dumped)
+[shangqi@localhost c ‘¡∂]$ ls
+firstc  secoc  Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ rm firstc secoc 
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ vim Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o TestS
+[shangqi@localhost c ‘¡∂]$ ./TestS
+120
+78
+[shangqi@localhost c ‘¡∂]$ vim Test2.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  TestS
+[shangqi@localhost c ‘¡∂]$ rm TestS
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o main.c
+[shangqi@localhost c ‘¡∂]$ ./main.c 
+120
+78
+–°∂Àƒ£ Ω
+[shangqi@localhost c ‘¡∂]$ ls -l
+total 20
+-rwxrwxr-x. 1 shangqi shangqi 8563 Dec 19 06:18 main.c
+-rw-rw-r--. 1 shangqi shangqi  115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi  238 Dec 19 06:17 Test2.c
+[shangqi@localhost c ‘¡∂]$ rm main.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ pwd
+/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ vim Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o main.c
+[shangqi@localhost c ‘¡∂]$ ./main.c 
+120
+78
+–°∂Àƒ£ Ω
+*****µ⁄∂˛÷÷∑Ω∑®**********
+–°∂Àƒ£ Ω
+[shangqi@localhost c ‘¡∂]$ ls
+main.c  Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ ./main.c 
+120
+78
+–°∂Àƒ£ Ω
+*****µ⁄∂˛÷÷∑Ω∑®**********
+–°∂Àƒ£ Ω
+[shangqi@localhost c ‘¡∂]$ cat main.c                                             ELF>@@x@8	@@@@88@8@@@ ``,0 ((`(`?TT@T@DDP?????Q?R?``??/lib64/ld-linux-x86-64.so.2GNU GNU$u:£§? d]?^S? 
+                       ) libc.so.6putsprintf__libc_start_main__gmon_start__GLIBC_2.2.5ui	8??` `(`0`H 
+                  ?H??.?5
+                         ?%
+                           ?@?%
+                                h????%o
+                                        h????%2
+                                                 h????%a
+                                                          hˆœ??1?ß∞H?√¬TI?@H? @H?@€Ä????@?G`UH-@`H?]?H????`????@`UH-@`H?H?Ha?H¶◊?u]®≤H????@`??=
+                                                        uUHò¥???]?
+ ?H t?H??U? `Hûh]›õ??ªﬂ??UH??E???E???°„@?‹z???E???°‰@?—N???E??
+                                                          ??t??
+??@ΩG????E?E??Ut??}
+                    ??@üÎ??
+??@ú‚????fAWA?AVI???TL%?UH-?SL)?H?·Å??H?L‰†??A??AH9?[]A\A]A^A_|f.?A%d
+%x
+–°∂Àƒ£ Ω¥Û∂Àƒ£ Ω*****µ⁄∂˛÷÷∑Ω∑®**********4H????Pt??°ß(???????zRx 
+                                                             ??zRx 
+                                                                FJ
+                                                                  ?;*3$"D???AC    DdXt??eBEE E(H0H8M@l8A0A(B BB?t??P@0@ 
+@??@0@?@                             @
+D
+ ``?@?@ t??o@???o??t@(`V@f@v@@GCC: (GNU) 4.8.2 20140120 (Red Hat 4.8.2-16).symtab.strtab.shstrtab.interp.note.ABI-tag.note.gnu.build-id.gnu.hash.dynsym.dynstr.gnu.version.gnu.version_r.rela.dyn.rela.plt.init.text.fini.rodata.eh_frame_hdr.eh_frame.ini@8#T@T 1t@t$D?Nray.jcr.dynamic.got.got.plt.data.bss.comment 
+               ?@?V0@0D^???ot@t 
+kt??o@z?@?@?`
+            @@@@P@@	??@?°ß??4?0@? ?(`ﬁ}??`<`<?0<-??-    (K8@T@t@@?@0@t@	?@ 
+?@ 
+  @ 
+@@?@??0@`` `(`??`8`<` 
+@??`?@`?Tf<`m@s|8`3 °ß@??@? 
+  @`+ E 
+       @crtstuff.c__JCR_LIST__deregister_tm_clonesregister_tm_clones__do_global_dtors_auxcompleted.6333__do_global_dtors_aux_fini_array_entryframe_dummy__frame_dummy_init_array_entryTest2.c__FRAME_END____JCR_END____init_array_end_DYNAMIC__init_array_start_GLOBAL_OFFSET_TABLE___libc_csu_fini_ITM_deregisterTMCloneTabledata_startputs@@GLIBC_2.2.5_edata_finiprintf@@GLIBC_2.2.5__libc_start_main@@GLIBC_2.2.5__data_start__gmon_start____dso_handle_IO_stdin_used__libc_csu_init_end_start__bss_startmain_
+[shangqi@localhost c ‘¡∂]$ cat -10
+cat: invalid option -- '1'
+Try 'cat --help' for more information.
+[shangqi@localhost c ‘¡∂]$ cat -10 main.c 
+cat: invalid option -- '1'
+Try 'cat --help' for more information.
+[shangqi@localhost c ‘¡∂]$ ls
+main.c  Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ cd -
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+main.c  Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ cd -
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ mv c ‘¡∂/main.c FileTest/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ cd -
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd FileTest/
+[shangqi@localhost FileTest]$ ls
+first.txt  main.c  passwad.tar.gz  passwd
+[shangqi@localhost FileTest]$ ./main.c 
+120
+78
+–°∂Àƒ£ Ω
+*****µ⁄∂˛÷÷∑Ω∑®**********
+–°∂Àƒ£ Ω
+[shangqi@localhost FileTest]$ tls
+bash: tls: command not found...
+[shangqi@localhost FileTest]$ ls
+first.txt  main.c  passwad.tar.gz  passwd
+[shangqi@localhost FileTest]$ tar -cjvf passmainfirst.tar.bz2 first.txt main.c passw
+first.txt
+main.c
+passwd
+[shangqi@localhost FileTest]$ ls
+first.txt  main.c  passmainfirst.tar.bz2  passwad.tar.gz  passwd
+[shangqi@localhost FileTest]$ rm first.txt  main.c  passwd passwd.tar.gz
+rm: cannot remove °Æpasswd.tar.gz°Ø: No such file or directory
+[shangqi@localhost FileTest]$ rm first.txt  main.c  passwd passwad.tar.gz
+rm: cannot remove °Æfirst.txt°Ø: No such file or directory
+rm: cannot remove °Æmain.c°Ø: No such file or directory
+rm: cannot remove °Æpasswd°Ø: No such file or directory
+[shangqi@localhost FileTest]$ ls
+passmainfirst.tar.bz2
+[shangqi@localhost FileTest]$ tar -xjvf passmainfirst.tar.bz2 
+first.txt
+main.c
+passwd
+[shangqi@localhost FileTest]$ ls
+first.txt  main.c  passmainfirst.tar.bz2  passwd
+[shangqi@localhost FileTest]$ cal -3
+    November 2018         December 2018         January 2019    
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
+             1  2  3                     1         1  2  3  4  5
+ 4  5  6  7  8  9 10   2  3  4  5  6  7  8   6  7  8  9 10 11 12
+11 12 13 14 15 16 17   9 10 11 12 13 14 15  13 14 15 16 17 18 19
+18 19 20 21 22 23 24  16 17 18 19 20 21 22  20 21 22 23 24 25 26
+25 26 27 28 29 30     23 24 25 26 27 28 29  27 28 29 30 31      
+                      30 31                                     
+[shangqi@localhost FileTest]$ cal -y
+                               2018                               
+
+       January               February                 March       
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6                1  2  3                1  2  3
+ 7  8  9 10 11 12 13    4  5  6  7  8  9 10    4  5  6  7  8  9 10
+14 15 16 17 18 19 20   11 12 13 14 15 16 17   11 12 13 14 15 16 17
+21 22 23 24 25 26 27   18 19 20 21 22 23 24   18 19 20 21 22 23 24
+28 29 30 31            25 26 27 28            25 26 27 28 29 30 31
+
+        April                   May                   June        
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7          1  2  3  4  5                   1  2
+ 8  9 10 11 12 13 14    6  7  8  9 10 11 12    3  4  5  6  7  8  9
+15 16 17 18 19 20 21   13 14 15 16 17 18 19   10 11 12 13 14 15 16
+22 23 24 25 26 27 28   20 21 22 23 24 25 26   17 18 19 20 21 22 23
+29 30                  27 28 29 30 31         24 25 26 27 28 29 30
+
+        July                  August                September     
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7             1  2  3  4                      1
+ 8  9 10 11 12 13 14    5  6  7  8  9 10 11    2  3  4  5  6  7  8
+15 16 17 18 19 20 21   12 13 14 15 16 17 18    9 10 11 12 13 14 15
+22 23 24 25 26 27 28   19 20 21 22 23 24 25   16 17 18 19 20 21 22
+29 30 31               26 27 28 29 30 31      23 24 25 26 27 28 29
+                                              30
+       October               November               December      
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6                1  2  3                      1
+ 7  8  9 10 11 12 13    4  5  6  7  8  9 10    2  3  4  5  6  7  8
+14 15 16 17 18 19 20   11 12 13 14 15 16 17    9 10 11 12 13 14 15
+21 22 23 24 25 26 27   18 19 20 21 22 23 24   16 17 18 19 20 21 22
+28 29 30 31            25 26 27 28 29 30      23 24 25 26 27 28 29
+                                              30 31
+
+[shangqi@localhost FileTest]$ cal -j
+       December 2018       
+Sun Mon Tue Wed Thu Fri Sat
+                        335
+336 337 338 339 340 341 342
+343 344 345 346 347 348 349
+350 351 352 353 354 355 356
+357 358 359 360 361 362 363
+364 365
+[shangqi@localhost FileTest]$ cd -
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ ls -a
+.  ..  c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ ls -l
+total 0
+drwxrwxr-x. 2 shangqi shangqi 34 Dec 19 06:40 c ‘¡∂
+drwxrwxr-x. 2 shangqi shangqi 76 Dec 19 06:46 FileTest
+[shangqi@localhost Linux ‘¡∂1]$ find c ‘¡∂/
+c ‘¡∂/
+c ‘¡∂/Test1.c
+c ‘¡∂/Test2.c
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd ~
+[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$ find c ‘¡∂
+find: °Æc ‘¡∂°Ø: No such file or directory
+[shangqi@localhost ~]$ whereis c ‘¡∂
+c ‘¡∂:[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ whereis c ‘¡∂
+c ‘¡∂:[shangqi@localhost Linux ‘¡∂1]$ find c ‘¡∂/
+c ‘¡∂/
+c ‘¡∂/Test1.c
+c ‘¡∂/Test2.c
+[shangqi@localhost Linux ‘¡∂1]$ exit
+logout
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 22:54:28.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Wed Dec 19 05:14:20 2018 from 192.168.166.1
+[shangqi@localhost ~]$ ls -l
+^[[3~total 0
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Downloads
+drwxrwxr-x. 4 shangqi shangqi 35 Dec 18 07:38 Linux ‘¡∂1
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Pictures
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ find -mtime
+find: missing argument to `-mtime'
+[shangqi@localhost Linux ‘¡∂1]$ su root
+Password: 
+[root@localhost Linux ‘¡∂1]# whereis FileTest
+FileTest:[root@localhost Linux ‘¡∂1]# su shangqi
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ 
