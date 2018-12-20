@@ -1,0 +1,358 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Could not connect to '192.168.166.130' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu Dec 20 06:46:03 2018
+[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c
+[shangqi@localhost c ‘¡∂]$ touch Test3.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c
+[shangqi@localhost c ‘¡∂]$ vim Test3.c
+[shangqi@localhost c ‘¡∂]$ gcc Test3.c -o main3
+[shangqi@localhost c ‘¡∂]$ ./main3
+c = 7
+[shangqi@localhost c ‘¡∂]$ ls
+main3  Test1.c  Test2.c  Test3.c
+[shangqi@localhost c ‘¡∂]$ cd -
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ cd -
+/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 23:28:51.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Could not connect to '192.168.166.130' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu Dec 20 07:37:34 2018 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$  cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+main3  Test1.c  Test2.c  Test3.c
+[shangqi@localhost c ‘¡∂]$ rm main3 
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c
+[shangqi@localhost c ‘¡∂]$ touch Test4.c
+[shangqi@localhost c ‘¡∂]$ vim Test4.c
+[shangqi@localhost c ‘¡∂]$ gcc Test4.c -o main.c
+[shangqi@localhost c ‘¡∂]$ ./main.c 
+hello Makefile![shangqi@localhost c ‘¡∂]$ ls
+main.c  Test1.c  Test2.c  Test3.c  Test4.c
+[shangqi@localhost c ‘¡∂]$ rm main.c 
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c
+[shangqi@localhost c ‘¡∂]$ vim Test4.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c
+[shangqi@localhost c ‘¡∂]$ gcc Test4.c -o main4
+[shangqi@localhost c ‘¡∂]$ ./main4
+hello Makefile![shangqi@localhost c ‘¡∂]$ ls
+main4  Test1.c  Test2.c  Test3.c  Test4.c
+[shangqi@localhost c ‘¡∂]$ rm main4
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c
+[shangqi@localhost c ‘¡∂]$ touch Test5.c
+[shangqi@localhost c ‘¡∂]$ vim Test5.c
+[shangqi@localhost c ‘¡∂]$ gcc Test5.c -o main5
+Test5.c: In function °Æmain°Ø:
+Test5.c:9:24: warning: missing terminating " character [enabled by default]
+    const char* lable = "|/-\\°∞;
+                        ^
+Test5.c:9:4: error: missing terminating " character
+    const char* lable = "|/-\\°∞;
+    ^
+Test5.c:10:4: error: expected expression before °Æwhile°Ø
+    while(i<= 100)
+    ^
+[shangqi@localhost c ‘¡∂]$ vim Test5.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c
+[shangqi@localhost c ‘¡∂]$ gcc Test5.c -o main5
+Test5.c: In function °Æmain°Ø:
+Test5.c:9:24: warning: missing terminating " character [enabled by default]
+    const char* lable = "|/-\";
+                        ^
+Test5.c:9:4: error: missing terminating " character
+    const char* lable = "|/-\";
+    ^
+Test5.c:10:4: error: expected expression before °Æwhile°Ø
+    while(i<= 100)
+    ^
+[shangqi@localhost c ‘¡∂]$ vim Test5.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c
+[shangqi@localhost c ‘¡∂]$ gcc Test5.c -o main5
+Test5.c: In function °Æmain°Ø:
+Test5.c:12:6: warning: incompatible implicit declaration of built-in function °Æprintf°Ø [enabled by default]
+      printf("[%-100s][%d%%][%c]\r", bar, i,lable[i%4]);
+      ^
+Test5.c:13:13: error: °Æstdout°Ø undeclared (first use in this function)
+      fflush(stdout);
+             ^
+Test5.c:13:13: note: each undeclared identifier is reported only once for each function it appears in
+Test5.c:17:4: warning: incompatible implicit declaration of built-in function °Æprintf°Ø [enabled by default]
+    printf("\n");
+    ^
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c
+[shangqi@localhost c ‘¡∂]$ vim Test5.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c
+[shangqi@localhost c ‘¡∂]$ cd ~
+[shangqi@localhost ~]$ yum list | grep gcc
+gcc.x86_64                                 4.8.2-16.el7                @anaconda
+libgcc.x86_64                              4.8.2-16.el7                @anaconda
+compat-gcc-44.x86_64                       4.4.7-8.el7                 base     
+compat-gcc-44-c++.x86_64                   4.4.7-8.el7                 base     
+compat-gcc-44-gfortran.x86_64              4.4.7-8.el7                 base     
+gcc.x86_64                                 4.8.5-36.el7                base     
+gcc-c++.x86_64                             4.8.5-36.el7                base     
+gcc-gfortran.x86_64                        4.8.5-36.el7                base     
+gcc-gnat.x86_64                            4.8.5-36.el7                base     
+gcc-go.x86_64                              4.8.5-36.el7                base     
+gcc-objc.x86_64                            4.8.5-36.el7                base     
+gcc-objc++.x86_64                          4.8.5-36.el7                base     
+gcc-plugin-devel.x86_64                    4.8.5-36.el7                base     
+libgcc.i686                                4.8.5-36.el7                base     
+libgcc.x86_64                              4.8.5-36.el7                base     
+relaxngcc.noarch                           1.12-6.el7                  base     
+relaxngcc-javadoc.noarch                   1.12-6.el7                  base     
+[shangqi@localhost ~]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 00:03:47.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Could not connect to '192.168.166.130' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.129:22...
+Could not connect to '192.168.166.129' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu Dec 20 07:37:39 2018 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$ yum list | grep gcc
+gcc.x86_64                                 4.8.2-16.el7                @anaconda
+libgcc.x86_64                              4.8.2-16.el7                @anaconda
+compat-gcc-44.x86_64                       4.4.7-8.el7                 base     
+compat-gcc-44-c++.x86_64                   4.4.7-8.el7                 base     
+compat-gcc-44-gfortran.x86_64              4.4.7-8.el7                 base     
+gcc.x86_64                                 4.8.5-36.el7                base     
+gcc-c++.x86_64                             4.8.5-36.el7                base     
+gcc-gfortran.x86_64                        4.8.5-36.el7                base     
+gcc-gnat.x86_64                            4.8.5-36.el7                base     
+gcc-go.x86_64                              4.8.5-36.el7                base     
+gcc-objc.x86_64                            4.8.5-36.el7                base     
+gcc-objc++.x86_64                          4.8.5-36.el7                base     
+gcc-plugin-devel.x86_64                    4.8.5-36.el7                base     
+libgcc.i686                                4.8.5-36.el7                base     
+libgcc.x86_64                              4.8.5-36.el7                base     
+relaxngcc.noarch                           1.12-6.el7                  base     
+relaxngcc-javadoc.noarch                   1.12-6.el7                  base     
+[shangqi@localhost ~]$ sudo yum install gcc.x86_64
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for shangqi: 
+shangqi is not in the sudoers file.  This incident will be reported.
+[shangqi@localhost ~]$ su root
+Password: 
+[root@localhost shangqi]# yum list | grep gcc
+gcc.x86_64                                 4.8.2-16.el7                @anaconda
+libgcc.x86_64                              4.8.2-16.el7                @anaconda
+compat-gcc-44.x86_64                       4.4.7-8.el7                 base     
+compat-gcc-44-c++.x86_64                   4.4.7-8.el7                 base     
+compat-gcc-44-gfortran.x86_64              4.4.7-8.el7                 base     
+gcc.x86_64                                 4.8.5-36.el7                base     
+gcc-c++.x86_64                             4.8.5-36.el7                base     
+gcc-gfortran.x86_64                        4.8.5-36.el7                base     
+gcc-gnat.x86_64                            4.8.5-36.el7                base     
+gcc-go.x86_64                              4.8.5-36.el7                base     
+gcc-objc.x86_64                            4.8.5-36.el7                base     
+gcc-objc++.x86_64                          4.8.5-36.el7                base     
+gcc-plugin-devel.x86_64                    4.8.5-36.el7                base     
+libgcc.i686                                4.8.5-36.el7                base     
+libgcc.x86_64                              4.8.5-36.el7                base     
+relaxngcc.noarch                           1.12-6.el7                  base     
+relaxngcc-javadoc.noarch                   1.12-6.el7                  base     
+[root@localhost shangqi]# sudo yum install gcc.x86_64
+Loaded plugins: fastestmirror, langpacks
+base                                                        | 3.6 kB  00:00:00     
+extras                                                      | 3.4 kB  00:00:00     
+updates                                                     | 3.4 kB  00:00:00     
+updates/7/x86_64/primary_db                                 | 1.3 MB  00:00:13     
+Loading mirror speeds from cached hostfile
+ * base: mirror.lzu.edu.cn
+ * extras: mirror.lzu.edu.cn
+ * updates: mirrors.nwsuaf.edu.cn
+Resolving Dependencies
+--> Running transaction check
+---> Package gcc.x86_64 0:4.8.2-16.el7 will be updated
+---> Package gcc.x86_64 0:4.8.5-36.el7 will be an update
+--> Processing Dependency: libgomp = 4.8.5-36.el7 for package: gcc-4.8.5-36.el7.x86_64
+--> Processing Dependency: cpp = 4.8.5-36.el7 for package: gcc-4.8.5-36.el7.x86_64
+--> Processing Dependency: libgcc >= 4.8.5-36.el7 for package: gcc-4.8.5-36.el7.x86_64
+--> Running transaction check
+---> Package cpp.x86_64 0:4.8.2-16.el7 will be updated
+---> Package cpp.x86_64 0:4.8.5-36.el7 will be an update
+---> Package libgcc.x86_64 0:4.8.2-16.el7 will be updated
+---> Package libgcc.x86_64 0:4.8.5-36.el7 will be an update
+---> Package libgomp.x86_64 0:4.8.2-16.el7 will be updated
+---> Package libgomp.x86_64 0:4.8.5-36.el7 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================
+ Package           Arch             Version                   Repository      Size
+===================================================================================
+Updating:
+ gcc               x86_64           4.8.5-36.el7              base            16 M
+Updating for dependencies:
+ cpp               x86_64           4.8.5-36.el7              base           5.9 M
+ libgcc            x86_64           4.8.5-36.el7              base           102 k
+ libgomp           x86_64           4.8.5-36.el7              base           157 k
+
+Transaction Summary
+===================================================================================
+Upgrade  1 Package (+3 Dependent packages)
+
+Total size: 22 M
+Is this ok [y/d/N]: y
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/base/packages/cpp-4.8.5-36.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-0.1406.el7.centos.2.3.x86_64 (@anaconda)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : libgcc-4.8.5-36.el7.x86_64                                      1/8 
+  Updating   : libgomp-4.8.5-36.el7.x86_64                                     2/8 
+  Updating   : cpp-4.8.5-36.el7.x86_64                                         3/8 
+  Updating   : gcc-4.8.5-36.el7.x86_64                                         4/8 
+  Cleanup    : gcc-4.8.2-16.el7.x86_64                                         5/8 
+  Cleanup    : cpp-4.8.2-16.el7.x86_64                                         6/8 
+  Cleanup    : libgcc-4.8.2-16.el7.x86_64                                      7/8 
+  Cleanup    : libgomp-4.8.2-16.el7.x86_64                                     8/8 
+  Verifying  : cpp-4.8.5-36.el7.x86_64                                         1/8 
+  Verifying  : libgomp-4.8.5-36.el7.x86_64                                     2/8 
+  Verifying  : gcc-4.8.5-36.el7.x86_64                                         3/8 
+  Verifying  : libgcc-4.8.5-36.el7.x86_64                                      4/8 
+  Verifying  : libgomp-4.8.2-16.el7.x86_64                                     5/8 
+  Verifying  : libgcc-4.8.2-16.el7.x86_64                                      6/8 
+  Verifying  : gcc-4.8.2-16.el7.x86_64                                         7/8 
+  Verifying  : cpp-4.8.2-16.el7.x86_64                                         8/8 
+
+Updated:
+  gcc.x86_64 0:4.8.5-36.el7                                                        
+
+Dependency Updated:
+  cpp.x86_64 0:4.8.5-36.el7                libgcc.x86_64 0:4.8.5-36.el7           
+  libgomp.x86_64 0:4.8.5-36.el7           
+
+Complete!
+[root@localhost shangqi]# sudo yum remove gcc.x86_64
+Loaded plugins: fastestmirror, langpacks
+Resolving Dependencies
+--> Running transaction check
+---> Package gcc.x86_64 0:4.8.5-36.el7 will be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================
+ Package        Arch              Version                   Repository        Size
+===================================================================================
+Removing:
+ gcc            x86_64            4.8.5-36.el7              @base             37 M
+
+Transaction Summary
+===================================================================================
+Remove  1 Package
+
+Installed size: 37 M
+Is this ok [y/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Erasing    : gcc-4.8.5-36.el7.x86_64                                         1/1 
+  Verifying  : gcc-4.8.5-36.el7.x86_64                                         1/1 
+
+Removed:
+  gcc.x86_64 0:4.8.5-36.el7                                                        
+
+Complete!
+[root@localhost shangqi]# su shangqi
+[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$ 
