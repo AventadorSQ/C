@@ -1,0 +1,997 @@
+[shangqi@localhost ~]$ ls -l
+total 0
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Downloads
+drwxrwxr-x. 4 shangqi shangqi 35 Dec 18 07:38 Linux ‘¡∂1
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Pictures
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Videos
+[shangqi@localhost ~]$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  Linux ‘¡∂1  Pictures  Templates
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c
+[shangqi@localhost c ‘¡∂]$ vim Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Test5.c
+[shangqi@localhost c ‘¡∂]$ ls /stc/sudoers -l
+ls: cannot access /stc/sudoers: No such file or directory
+[shangqi@localhost c ‘¡∂]$ ls /etc/sudoers -l
+-r--r-----. 1 root root 4000 Jan 15  2014 /etc/sudoers
+[shangqi@localhost c ‘¡∂]$ ls /root/
+ls: cannot open directory /root/: Permission denied
+[shangqi@localhost c ‘¡∂]$ sudo ls /root/
+[sudo] password for shangqi: 
+shangqi is not in the sudoers file.  This incident will be reported.
+[shangqi@localhost c ‘¡∂]$ su root
+Password: 
+[root@localhost c ‘¡∂]# ls -l /etc/sudoers
+-r--r-----. 1 root root 4000 Jan 15  2014 /etc/sudoers
+[root@localhost c ‘¡∂]# chmodsu root
+bash: chmodsu: command not found...
+[root@localhost c ‘¡∂]# chmod u+w /etc/sudoers
+[root@localhost c ‘¡∂]# vim /etc/sudoers
+[root@localhost c ‘¡∂]# vim /etc/sudoers
+[root@localhost c ‘¡∂]# su shangqi
+[shangqi@localhost c ‘¡∂]$ sudo ls /root/
+[sudo] password for shangqi: 
+Sorry, try again.
+[sudo] password for shangqi: 
+Sorry, try again.
+[sudo] password for shangqi: 
+Sorry, try again.
+sudo: 3 incorrect password attempts
+[shangqi@localhost c ‘¡∂]$ sudo ls /root/
+[sudo] password for shangqi: 
+anaconda-ks.cfg
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Test6.c
+[shangqi@localhost c ‘¡∂]$ ls -a ~/
+.              .bash_logout   .cache   Documents  .ICEauthority  .local    Pictures   Videos    .viminfo.tmp  .Xauthority
+..             .bash_profile  .config  Downloads  .lesshst       .mozilla  Public     .vim      .viminfy.tmp
+.bash_history  .bashrc        Desktop  .esd_auth  Linux ‘¡∂1     Music     Templates  .viminfo  .viminfz.tmp
+[shangqi@localhost c ‘¡∂]$ ls /etc/vimrc
+/etc/vimrc
+[shangqi@localhost c ‘¡∂]$ vim /etc/vimrc
+[shangqi@localhost c ‘¡∂]$ sudo vim /etc/vimrc
+[sudo] password for shangqi: 
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim test.py
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ ls -l
+total 24
+-rw-rw-r--. 1 shangqi shangqi 115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi 421 Dec 19 06:26 Test2.c
+-rw-rw-r--. 1 shangqi shangqi 112 Dec 20 07:16 Test3.c
+-rw-rw-r--. 1 shangqi shangqi 104 Dec 20 07:43 Test4.c
+-rw-rw-r--. 1 shangqi shangqi 326 Dec 20 07:56 Test5.c
+-rw-rw-r--. 1 shangqi shangqi 156 Dec 21 18:07 Test6.c
+[shangqi@localhost c ‘¡∂]$ chmod +x Test6.c
+[shangqi@localhost c ‘¡∂]$ ls -l
+total 24
+-rw-rw-r--. 1 shangqi shangqi 115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi 421 Dec 19 06:26 Test2.c
+-rw-rw-r--. 1 shangqi shangqi 112 Dec 20 07:16 Test3.c
+-rw-rw-r--. 1 shangqi shangqi 104 Dec 20 07:43 Test4.c
+-rw-rw-r--. 1 shangqi shangqi 326 Dec 20 07:56 Test5.c
+-rwxrwxr-x. 1 shangqi shangqi 156 Dec 21 18:07 Test6.c
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Test4.c
+[shangqi@localhost c ‘¡∂]$ gg -E Test4.c -o Test4
+bash: gg: command not found...
+[shangqi@localhost c ‘¡∂]$ gg -E Test4.c -o Test.i
+bash: gg: command not found...
+[shangqi@localhost c ‘¡∂]$ gcc -E Test4.c -o Test.i
+bash: gcc: command not found...
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ ls /lib
+alsa      cups       firmware  java-1.5.0  java-ext     jvm-private  locale          mozilla    sendmail          systemd     udisks2
+binfmt.d  debug      games     java-1.6.0  jvm          kbd          modprobe.d      polkit-1   sendmail.postfix  tmpfiles.d  yum-plugins
+cpp       dracut     grub      java-1.7.0  jvm-commmon  kdump        modules         python2.7  sse2              tuned
+crda      firewalld  java      java-1.8.0  jvm-exports  kernel       modules-load.d  rpm        sysctl.d          udev
+[shangqi@localhost c ‘¡∂]$ ls /lib64
+alsa-lib                                    libgnutls-dane.so.0                    libpixman-1.so.0
+ao                                          libgnutls-dane.so.0.4.1                libpixman-1.so.0.32.4
+audit                                       libgnutls.so.28                        libplc4.so
+autofs                                      libgnutls.so.28.20.4                   libplds4.so
+avahi                                       libgnutls-xssl.so.0                    libplist.so.1
+bluetooth                                   libgnutls-xssl.so.0.0.0                libplist++.so.1
+brltty                                      libgoa-1.0.so.0                        libplist.so.1.1.10
+cifs-utils                                  libgoa-1.0.so.0.0.0                    libplist++.so.1.1.10
+colord-plugins                              libgoa-backend-1.0.so.0                libply-boot-client.so.2
+colord-sensors                              libgoa-backend-1.0.so.0.0.0            libply-boot-client.so.2.1.0
+cracklib_dict.hwm                           libgobject-2.0.so.0                    libply.so.2
+cracklib_dict.pwd                           libgobject-2.0.so.0.3600.3             libply.so.2.1.0
+cracklib_dict.pwi                           libgomp.so.1                           libply-splash-core.so.2
+crt1.o                                      libgomp.so.1.0.0                       libply-splash-core.so.2.1.0
+crti.o                                      libgovirt.so.1                         libply-splash-graphics.so.2
+crtn.o                                      libgovirt.so.1.0.0                     libply-splash-graphics.so.2.1.0
+dbus-1                                      libgpg-error.so.0                      libpng15.so.15
+device-mapper                               libgpg-error.so.0.10.0                 libpng15.so.15.13.0
+dri                                         libgpgme-pthread.so.11                 libpoldiff.so.1
+dyninst                                     libgpgme-pthread.so.11.8.1             libpoldiff.so.1.3.2
+ebtables                                    libgpgme.so.11                         libpolkit-agent-1.so.0
+elfutils                                    libgpgme.so.11.8.1                     libpolkit-agent-1.so.0.0.0
+empathy                                     libgphoto2                             libpolkit-gobject-1.so.0
+enchant                                     libgphoto2_port                        libpolkit-gobject-1.so.0.0.0
+eog                                         libgphoto2_port.so.10                  libpoppler-glib.so.8
+evince                                      libgphoto2_port.so.10.1.1              libpoppler-glib.so.8.6.0
+evolution-data-server                       libgphoto2.so.6                        libpoppler.so.37
+farstream-0.1                               libgphoto2.so.6.0.0                    libpoppler.so.37.0.0
+farstream-0.2                               libgpm.so.2                            libpopt.so.0
+festival                                    libgpm.so.2.1.0                        libpopt.so.0.0.0
+fipscheck                                   libgraphite2.so.3                      libprocps.so.3
+firefox                                     libgraphite2.so.3.0.1                  libprocps.so.3.0.0
+folks                                       libgrilo-0.2.so.1                      libproxy
+freerdp                                     libgrilo-0.2.so.1.3.0                  libproxy.so.1
+frei0r-1                                    libgrlnet-0.2.so.0                     libproxy.so.1.0.0
+games                                       libgrlnet-0.2.so.0.1.4                 libpthread-2.17.so
+GConf                                       libgsf-1.so.114                        libpthread_nonshared.a
+gconv                                       libgsf-1.so.114.0.26                   libpthread.so
+gcrt1.o                                     libgsm.so.1                            libpthread.so.0
+gdk-pixbuf-2.0                              libgsm.so.1.0.12                       libpth.so.20
+gedit                                       libgssapi_krb5.so.2                    libpth.so.20.0.27
+gettext                                     libgssapi_krb5.so.2.2                  libpulsecore-3.0.so
+ghostscript                                 libgssdp-1.0.so.3                      libpulse-mainloop-glib.so.0
+gio                                         libgssdp-1.0.so.3.0.0                  libpulse-mainloop-glib.so.0.0.4
+girepository-1.0                            libgs.so.9                             libpulse-simple.so.0
+gjs                                         libgs.so.9.07                          libpulse-simple.so.0.0.3
+glade                                       libgssrpc.so.4                         libpulse.so.0
+glusterfs                                   libgssrpc.so.4.1                       libpulse.so.0.15.3
+gnome-bluetooth                             libgstapp-0.10.so.0                    libpurple-client.so.0
+gnome-documents                             libgstapp-0.10.so.0.25.0               libpurple-client.so.0.10.7
+gnome-keyring                               libgstapp-1.0.so.0                     libpurple.so.0
+gnome-settings-daemon-3.0                   libgstapp-1.0.so.0.6.0                 libpurple.so.0.10.7
+gnome-shell                                 libgstaudio-0.10.so.0                  libpwquality.so.1
+gnome-weather                               libgstaudio-0.10.so.0.25.0             libpwquality.so.1.0.2
+grilo-0.2                                   libgstaudio-1.0.so.0                   libpyglib-2.0-python.so
+gssproxy                                    libgstaudio-1.0.so.0.6.0               libpyglib-2.0-python.so.0
+gstreamer-0.10                              libgstbase-0.10.so.0                   libpyglib-2.0-python.so.0.0.0
+gstreamer-1.0                               libgstbase-0.10.so.0.30.0              libpyglib-gi-2.0-python.so
+gtk-2.0                                     libgstbase-1.0.so.0                    libpyglib-gi-2.0-python.so.0
+gtk-3.0                                     libgstbase-1.0.so.0.6.0                libpyglib-gi-2.0-python.so.0.0.0
+gutenprint                                  libgstbasecamerabinsrc-0.10.so.23      libpytalloc-util.so.2
+ibus-hangul                                 libgstbasecamerabinsrc-0.10.so.23.0.0  libpytalloc-util.so.2.0.8
+IcedTeaPlugin.so                            libgstbasecamerabinsrc-1.0.so.0        libpython2.7.so.1.0
+imsettings                                  libgstbasecamerabinsrc-1.0.so.0.6.0    libqmi-glib.so.1
+iscsi                                       libgstbasevideo-0.10.so.23             libqmi-glib.so.1.0.0
+krb5                                        libgstbasevideo-0.10.so.23.0.0         libqpdf.so.13
+ld-2.17.so                                  libgstbasevideo-1.0.so.0               libqpdf.so.13.0.1
+ldb                                         libgstbasevideo-1.0.so.0.6.0           libqpol.so.1
+ld-linux-x86-64.so.2                        libgstcdda-0.10.so.0                   libqpol.so.1.6
+libabrt_dbus.so.0                           libgstcdda-0.10.so.0.25.0              libqrencode.so.3
+libabrt_dbus.so.0.0.1                       libgstcheck-1.0.so.0                   libqrencode.so.3.4.1
+libabrt_gui.so.0                            libgstcheck-1.0.so.0.6.0               libquvi.so.7
+libabrt_gui.so.0.0.1                        libgstcodecparsers-0.10.so.23          libquvi.so.7.0.1
+libabrt.so.0                                libgstcodecparsers-0.10.so.23.0.0      libraptor2.so.0
+libabrt.so.0.0.1                            libgstcodecparsers-1.0.so.0            libraptor2.so.0.0.0
+libaccountsservice.so.0                     libgstcodecparsers-1.0.so.0.6.0        librasqal.so.3
+libaccountsservice.so.0.0.0                 libgstcontroller-0.10.so.0             librasqal.so.3.0.0
+libacl.so.1                                 libgstcontroller-0.10.so.0.30.0        libraw1394.so.11
+libacl.so.1.1.0                             libgstcontroller-1.0.so.0              libraw1394.so.11.1.0
+libaio.so.1                                 libgstcontroller-1.0.so.0.6.0          librdf.so.0
+libaio.so.1.0.0                             libgstdataprotocol-0.10.so.0           librdf.so.0.0.0
+libaio.so.1.0.1                             libgstdataprotocol-0.10.so.0.30.0      librdmacm.so.1
+libAnacondaWidgets.so.0                     libgstfft-0.10.so.0                    librdmacm.so.1.0.0
+libAnacondaWidgets.so.0.0.0                 libgstfft-0.10.so.0.25.0               libreadline.so.6
+libanl-2.17.so                              libgstfft-1.0.so.0                     libreadline.so.6.2
+libanl.so                                   libgstfft-1.0.so.0.6.0                 libref_array.so.1
+libanl.so.1                                 libgstinterfaces-0.10.so.0             libref_array.so.1.1.0
+libao.so.4                                  libgstinterfaces-0.10.so.0.25.0        libregistry.so.0
+libao.so.4.0.0                              libgstnet-0.10.so.0                    libregistry.so.0.0.1
+libapol.so.4                                libgstnet-0.10.so.0.30.0               libreoffice
+libapol.so.4.3                              libgstnet-1.0.so.0                     libreport-gtk.so.0
+libarchive.so.13                            libgstnet-1.0.so.0.6.0                 libreport-gtk.so.0.0.1
+libarchive.so.13.1.2                        libgstnetbuffer-0.10.so.0              libreport.so.0
+libasm-0.158.so                             libgstnetbuffer-0.10.so.0.25.0         libreport.so.0.0.1
+libasm.so.1                                 libgstpbutils-0.10.so.0                libreport-web.so.0
+libasound.so.2                              libgstpbutils-0.10.so.0.25.0           libreport-web.so.0.0.1
+libasound.so.2.0.0                          libgstpbutils-1.0.so.0                 libresolv-2.17.so
+libasprintf.so.0                            libgstpbutils-1.0.so.0.6.0             libresolv.so
+libasprintf.so.0.0.0                        libgstphotography-0.10.so.23           libresolv.so.2
+libassuan.so.0                              libgstphotography-0.10.so.23.0.0       librest-0.7.so.0
+libassuan.so.0.4.0                          libgstphotography-1.0.so.0             librest-0.7.so.0.0.0
+libasyncns.so.0                             libgstphotography-1.0.so.0.6.0         librest-extras-0.7.so.0
+libasyncns.so.0.3.1                         libgstreamer-0.10.so.0                 librest-extras-0.7.so.0.0.0
+libatasmart.so.4                            libgstreamer-0.10.so.0.30.0            librols.so.0
+libatasmart.so.4.0.5                        libgstreamer-1.0.so.0                  librols.so.0.0.1
+libatk-1.0.so.0                             libgstreamer-1.0.so.0.6.0              librom1394.so.0
+libatk-1.0.so.0.20809.1                     libgstriff-0.10.so.0                   librom1394.so.0.3.0
+libatk-bridge-2.0.so.0                      libgstriff-0.10.so.0.25.0              librpcsvc.a
+libatk-bridge-2.0.so.0.0.0                  libgstriff-1.0.so.0                    librpmbuild.so.3
+libatkmm-1.6.so.1                           libgstriff-1.0.so.0.6.0                librpmbuild.so.3.2.0
+libatkmm-1.6.so.1.1.0                       libgstrtp-0.10.so.0                    librpmio.so.3
+libatspi.so.0                               libgstrtp-0.10.so.0.25.0               librpmio.so.3.2.0
+libatspi.so.0.0.1                           libgstrtp-1.0.so.0                     librpmsign.so.1
+libattr.so.1                                libgstrtp-1.0.so.0.6.0                 librpmsign.so.1.2.0
+libattr.so.1.1.0                            libgstrtsp-0.10.so.0                   librpm.so.3
+libaudit.so.1                               libgstrtsp-0.10.so.0.25.0              librpm.so.3.2.0
+libaudit.so.1.0.0                           libgstrtsp-1.0.so.0                    librsvg-2.so.2
+libaugeas.so.0                              libgstrtsp-1.0.so.0.6.0                librsvg-2.so.2.39.0
+libaugeas.so.0.17.0                         libgstsdp-0.10.so.0                    librt-2.17.so
+libauparse.so.0                             libgstsdp-0.10.so.0.25.0               librt.so
+libauparse.so.0.0.0                         libgstsdp-1.0.so.0                     librt.so.1
+libavahi-client.so.3                        libgstsdp-1.0.so.0.6.0                 libsamba-credentials.so.0
+libavahi-client.so.3.2.9                    libgstsignalprocessor-0.10.so.23       libsamba-credentials.so.0.0.1
+libavahi-common.so.3                        libgstsignalprocessor-0.10.so.23.0.0   libsamba-hostconfig.so.0
+libavahi-common.so.3.5.3                    libgstsignalprocessor-1.0.so.0         libsamba-hostconfig.so.0.0.1
+libavahi-core.so.7                          libgstsignalprocessor-1.0.so.0.6.0     libsamba-policy.so.0
+libavahi-core.so.7.0.2                      libgsttag-0.10.so.0                    libsamba-policy.so.0.0.1
+libavahi-glib.so.1                          libgsttag-0.10.so.0.25.0               libsamba-util.so.0
+libavahi-glib.so.1.0.2                      libgsttag-1.0.so.0                     libsamba-util.so.0.0.1
+libavahi-gobject.so.0                       libgsttag-1.0.so.0.6.0                 libsamdb.so.0
+libavahi-gobject.so.0.0.4                   libgstvideo-0.10.so.0                  libsamdb.so.0.0.1
+libavahi-ui-gtk3.so.0                       libgstvideo-0.10.so.0.25.0             libsamplerate.so.0
+libavahi-ui-gtk3.so.0.1.4                   libgstvideo-1.0.so.0                   libsamplerate.so.0.1.8
+libavc1394.so.0                             libgstvideo-1.0.so.0.6.0               libsane.so.1
+libavc1394.so.0.3.0                         libgthread-2.0.so.0                    libsane.so.1.0.24
+libbasicobjects.so.0                        libgthread-2.0.so.0.3600.3             libsasl2.so.3
+libbasicobjects.so.0.0.0                    libgtk-3.so.0                          libsasl2.so.3.0.0
+libbfd-2.23.52.0.1-16.el7.so                libgtk-3.so.0.800.8                    libsatyr.so.3
+libbind9.so.90                              libgtkmm-2.4.so.1                      libsatyr.so.3.0.0
+libbind9.so.90.0.8                          libgtkmm-2.4.so.1.1.0                  libsbc.so.1
+libblkid.so.1                               libgtkmm-3.0.so.1                      libsbc.so.1.0.0
+libblkid.so.1.1.0                           libgtkmm-3.0.so.1.1.0                  libSDL-1.2.so.0
+libbluetooth.so.3                           libgtksourceview-3.0.so.1              libSDL-1.2.so.0.11.4
+libbluetooth.so.3.13.0                      libgtksourceview-3.0.so.1.0.0          libseaudit.so.4
+libbluray.so.1                              libgtk-vnc-2.0.so.0                    libseaudit.so.4.4
+libbluray.so.1.2.0                          libgtk-vnc-2.0.so.0.0.2                libseccomp.so.2
+libboost_date_time-mt.so.1.53.0             libgtk-x11-2.0.so.0                    libseccomp.so.2.1.1
+libboost_date_time.so.1.53.0                libgtk-x11-2.0.so.0.2400.22            libsecret-1.so.0
+libboost_system-mt.so.1.53.0                libgtop-2.0.so.7                       libsecret-1.so.0.0.0
+libboost_system.so.1.53.0                   libgtop-2.0.so.7.2.0                   libsefs.so.4
+libbrlapi.so.0.6                            libgucharmap_2_90.so.7                 libsefs.so.4.0.3
+libbrlapi.so.0.6.0                          libgucharmap_2_90.so.7.0.0             libSegFault.so
+libBrokenLocale-2.17.so                     libgudev-1.0.so.0                      libselinux.so.1
+libBrokenLocale.so                          libgudev-1.0.so.0.1.3                  libsemanage.so.1
+libBrokenLocale.so.1                        libguestlib.so.0                       libsensors.so.4
+libbsd.a                                    libguestlib.so.0.0.0                   libsensors.so.4.3.2
+libbsd-compat.a                             libgupnp-1.0.so.4                      libsepol.so.1
+libbtrfs.so.0                               libgupnp-1.0.so.4.0.0                  libsgutils2.so.2
+libbtrfs.so.0.1                             libgupnp-av-1.0.so.2                   libsgutils2.so.2.0.0
+libbz2.so.1                                 libgupnp-av-1.0.so.2.0.0               libshout.so.3
+libbz2.so.1.0.6                             libgupnp-igd-1.0.so.4                  libshout.so.3.2.0
+libc-2.17.so                                libgupnp-igd-1.0.so.4.1.0              libsigc-2.0.so.0
+libcacard.so.0                              libgusb.so.2                           libsigc-2.0.so.0.0.0
+libcacard.so.0.0.0                          libgusb.so.2.0.3                       libslang.so.2
+libcairo-gobject.so.2                       libgutenprint.so.2                     libslang.so.2.2.4
+libcairo-gobject.so.2.11200.14              libgutenprint.so.2.1.0                 libslapi-2.4.so.2
+libcairomm-1.0.so.1                         libgutenprintui2.so.1                  libslapi-2.4.so.2.10.2
+libcairomm-1.0.so.1.4.0                     libgutenprintui2.so.1.0.0              libsmbclient-raw.so.0
+libcairo-script-interpreter.so.2            libgvfscommon.so.0                     libsmbclient-raw.so.0.0.1
+libcairo-script-interpreter.so.2.11200.14   libgvfscommon.so.0.0.0                 libsmbclient.so.0
+libcairo.so.2                               libgvnc-1.0.so.0                       libsmbclient.so.0.2.1
+libcairo.so.2.11200.14                      libgvnc-1.0.so.0.0.1                   libsmbconf.so.0
+libcamel-1.2.so.43                          libgweather-3.so.3                     libsmbldap.so.0
+libcamel-1.2.so.43.0.0                      libgweather-3.so.3.0.3                 libsmbsharemodes.so.0
+libcanberra-0.30                            libgxps.so.2                           libsmime3.so
+libcanberra-gtk3.so.0                       libgxps.so.2.1.1                       libSM.so.6
+libcanberra-gtk3.so.0.1.9                   libhandle.so.1                         libSM.so.6.0.1
+libcanberra-gtk.so.0                        libhandle.so.1.0.3                     libsnappy.so.1
+libcanberra-gtk.so.0.1.9                    libhangul.so.1                         libsnappy.so.1.1.4
+libcanberra.so.0                            libhangul.so.1.0.0                     libsndfile.so.1
+libcanberra.so.0.2.5                        libharfbuzz-icu.so.0                   libsndfile.so.1.0.25
+libcap-ng.so.0                              libharfbuzz-icu.so.0.920.0             libsoftokn3.chk
+libcap-ng.so.0.0.0                          libharfbuzz.so.0                       libsoftokn3.so
+libcap.so.2                                 libharfbuzz.so.0.920.0                 libSoundTouch.so.1
+libcap.so.2.22                              libHBAAPI.so.2                         libSoundTouch.so.1.4.0
+libcares.so.2                               libHBAAPI.so.2.0.2                     libsoup-2.4.so.1
+libcares.so.2.1.0                           libhbalinux.so.2                       libsoup-2.4.so.1.6.0
+libcaribou.so.0                             libhbalinux.so.2.0.2                   libsoup-gnome-2.4.so.1
+libcaribou.so.0.0.0                         libhesiod.so.0                         libsoup-gnome-2.4.so.1.6.0
+libcdda_interface.so.0                      libhesiod.so.0.0.0                     libsox.so.2
+libcdda_interface.so.0.10.2                 libhgfs.so.0                           libsox.so.2.0.1
+libcdda_paranoia.so.0                       libhgfs.so.0.0.0                       libspectre.so.1
+libcdda_paranoia.so.0.10.2                  libhistory.so.6                        libspectre.so.1.1.7
+libcdio_cdda.so.1                           libhistory.so.6.2                      libspeechd.so.2
+libcdio_cdda.so.1.0.0                       libhogweed.so.2                        libspeechd.so.2.3.0
+libcdio_paranoia.so.1                       libhogweed.so.2.5                      libspeexdsp.so.1
+libcdio_paranoia.so.1.0.0                   libhpip.so.0                           libspeexdsp.so.1.5.0
+libcdio++.so.0                              libhpip.so.0.0.1                       libspeex.so.1
+libcdio++.so.0.0.2                          libhpmud.so                            libspeex.so.1.5.0
+libcdio.so.15                               libhpmud.so.0                          libspice-client-glib-2.0.so.8
+libcdio.so.15.0.0                           libhpmud.so.0.0.6                      libspice-client-glib-2.0.so.8.4.0
+libcdr-0.0.so.0                             libhunspell-1.3.so.0                   libspice-client-gtk-3.0.so.4
+libcdr-0.0.so.0.0.14                        libhunspell-1.3.so.0.0.0               libspice-client-gtk-3.0.so.4.0.0
+libcelt051.so.0                             libhyphen.so.0                         libspice-controller.so.0
+libcelt051.so.0.0.0                         libhyphen.so.0.2.1                     libspice-controller.so.0.0.0
+libcgroup.so.1                              libibus-1.0.so.5                       libspice-server.so.1
+libcgroup.so.1.0.41                         libibus-1.0.so.5.0.503                 libspice-server.so.1.8.0
+libchamplain-0.12.so.0                      libibverbs.so.1                        libsqlite3.so.0
+libchamplain-0.12.so.0.2.2                  libibverbs.so.1.0.0                    libsqlite3.so.0.8.6
+libchamplain-gtk-0.12.so.0                  libical.so.0                           libssh2.so.1
+libchamplain-gtk-0.12.so.0.2.2              libical.so.0.48.0                      libssh2.so.1.0.1
+libcheese-gtk.so.23                         libicalss.so.0                         libssl3.so
+libcheese-gtk.so.23.0.9                     libicalss.so.0.48.0                    libssl.so.10
+libcheese.so.7                              libicalvcal.so.0                       libssl.so.1.0.1e
+libcheese.so.7.0.9                          libicalvcal.so.0.48.0                  libsss_idmap.so.0
+libchewing                                  libICE.so.6                            libsss_idmap.so.0.4.0
+libchewing.so.3                             libICE.so.6.3.0                        libss.so.2
+libchewing.so.3.0.1                         libicudata.so.50                       libss.so.2.0
+libcidn-2.17.so                             libicudata.so.50.1.2                   libsss_sudo.so
+libcidn.so                                  libicui18n.so.50                       libstartup-notification-1.so.0
+libcidn.so.1                                libicui18n.so.50.1.2                   libstartup-notification-1.so.0.0.0
+libclucene-contribs-lib.so.1                libicuio.so.50                         libstdc++.so.6
+libclucene-contribs-lib.so.2.3.3.4          libicuio.so.50.1.2                     libstdc++.so.6.0.19
+libclucene-core.so.1                        libicule.so.50                         libstoragemgmt.so.0
+libclucene-core.so.2.3.3.4                  libicule.so.50.1.2                     libstoragemgmt.so.0.0.0
+libclucene-shared.so.1                      libiculx.so.50                         libsysfs.so.2
+libclucene-shared.so.2.3.3.4                libiculx.so.50.1.2                     libsysfs.so.2.0.1
+libclutter-1.0.so.0                         libicutest.so.50                       libsystemd-daemon.so.0
+libclutter-1.0.so.0.1404.0                  libicutest.so.50.1.2                   libsystemd-daemon.so.0.0.10
+libclutter-glx-1.0.so.0                     libicutu.so.50                         libsystemd-id128.so.0
+libclutter-gst-2.0.so.0                     libicutu.so.50.1.2                     libsystemd-id128.so.0.0.26
+libclutter-gst-2.0.so.0.4.0                 libicuuc.so.50                         libsystemd-journal.so.0
+libclutter-gtk-1.0.so.0                     libicuuc.so.50.1.2                     libsystemd-journal.so.0.11.3
+libclutter-gtk-1.0.so.0.0.0                 libidn.so.11                           libsystemd-login.so.0
+libcmis-0.3.so.3                            libidn.so.11.6.11                      libsystemd-login.so.0.9.1
+libcmis-0.3.so.3.0.1                        libiec61883.so.0                       libtag_c.so.0
+libcmis-c-0.3.so.3                          libiec61883.so.0.1.1                   libtag_c.so.0.0.0
+libcmis-c-0.3.so.3.0.1                      libieee1284.so.3                       libtag.so.1
+libc_nonshared.a                            libieee1284.so.3.2.2                   libtag.so.1.12.0
+libcogl-pango.so.12                         libieee.a                              libtalloc.so.2
+libcogl-pango.so.12.1.1                     libijs-0.35.so                         libtalloc.so.2.0.8
+libcogl.so.12                               libimobiledevice.so.4                  libtar.so.1
+libcogl.so.12.1.1                           libimobiledevice.so.4.0.1              libtar.so.1.2.11
+libcollection.so.2                          libimsettings.so.5                     libtasn1.so.6
+libcollection.so.2.1.0                      libimsettings.so.5.4.1                 libtasn1.so.6.1.1
+libcolord-gtk.so.1                          libini_config.so.3                     libtdb.so.1
+libcolord-gtk.so.1.0.2                      libini_config.so.3.1.0                 libtdb.so.1.2.12
+libcolordprivate.so.1                       libIntelXvMC.so.1                      libteamdctl.so.0
+libcolordprivate.so.1.0.21                  libIntelXvMC.so.1.0.0                  libteamdctl.so.0.1.0
+libcolord.so.1                              libip4tc.so.0                          libteam.so.5
+libcolord.so.1.0.21                         libip4tc.so.0.1.0                      libteam.so.5.0.0
+libcolorhug.so.1                            libip6tc.so.0                          libtelepathy-farstream.so.3
+libcolorhug.so.1.0.21                       libip6tc.so.0.1.0                      libtelepathy-farstream.so.3.0.0
+libcom_err.so.2                             libipa_hbac.so.0                       libtelepathy-glib.so.0
+libcom_err.so.2.1                           libipa_hbac.so.0.0.1                   libtelepathy-glib.so.0.78.4
+libconfig.so.9                              libiptcdata.so.0                       libtelepathy-logger.so.3
+libconfig++.so.9                            libiptcdata.so.0.3.3                   libtelepathy-logger.so.3.3.0
+libconfig.so.9.1.3                          libiptc.so.0                           libtevent.so.0
+libconfig++.so.9.1.3                        libiptc.so.0.0.0                       libtevent.so.0.9.18
+libcpupower.so.0                            libirs-export.so.90                    libtevent-util.so.0
+libcpupower.so.0.0.0                        libirs-export.so.90.0.1                libtevent-util.so.0.0.1
+libcrack.so.2                               libisccc.so.90                         libthai.so.0
+libcrack.so.2.9.0                           libisccc.so.90.0.4                     libthai.so.0.1.6
+libcroco-0.6.so.3                           libisccfg-export.so.90                 libtheoradec.so.1
+libcroco-0.6.so.3.0.1                       libisccfg-export.so.90.0.7             libtheoradec.so.1.1.4
+libcrypt-2.17.so                            libisccfg.so.90                        libtheoraenc.so.1
+libcrypto.so.10                             libisccfg.so.90.0.7                    libtheoraenc.so.1.1.2
+libcrypto.so.1.0.1e                         libisc-export.so.95                    libtheora.so.0
+libcryptsetup.so.4                          libisc-export.so.95.2.1                libtheora.so.0.3.10
+libcryptsetup.so.4.5.0                      libiscsi.so.0                          libthread_db-1.0.so
+libcrypt.so                                 libisc.so.95                           libthread_db.so
+libcrypt.so.1                               libisc.so.95.2.1                       libthread_db.so.1
+libc.so                                     libiso9660++.so.0                      libtic.so.5
+libc.so.6                                   libiso9660++.so.0.0.0                  libtic.so.5.9
+libcupscgi.so.1                             libiso9660.so.9                        libtiff.so.5
+libcupsfilters.so.1                         libiso9660.so.9.0.0                    libtiff.so.5.2.0
+libcupsfilters.so.1.0.0                     libjansson.so.4                        libtiffxx.so.5
+libcupsimage.so.2                           libjansson.so.4.4.0                    libtiffxx.so.5.2.0
+libcupsmime.so.1                            libjasper.so.1                         libtinfo.so.5
+libcupsppdc.so.1                            libjasper.so.1.0.0                     libtinfo.so.5.9
+libcups.so.2                                libjavascriptcoregtk-3.0.so.0          libtirpc.so.1
+libcurl.so.4                                libjavascriptcoregtk-3.0.so.0.13.16    libtirpc.so.1.0.10
+libcurl.so.4.3.0                            libjbig85.so.2.0                       libtotem-plparser-mini.so.17
+libdaemon.so.0                              libjbig.so.2.0                         libtotem-plparser-mini.so.17.0.4
+libdaemon.so.0.5.0                          libjpeg.so.62                          libtotem-plparser.so.17
+libdb-5.3.so                                libjpeg.so.62.1.0                      libtotem-plparser.so.17.0.4
+libdb-5.so                                  libjson-c.so.2                         libtotem.so.0
+libdbus-1.so.3                              libjson-c.so.2.0.1                     libtotem.so.0.0.0
+libdbus-1.so.3.7.4                          libjson-glib-1.0.so.0                  libtracker-extract-0.16.so.0
+libdbus-glib-1.so.2                         libjson-glib-1.0.so.0.1600.0           libtracker-extract-0.16.so.0.1600.2
+libdbus-glib-1.so.2.2.2                     libjson.so.0                           libtracker-miner-0.16.so.0
+libdcerpc-atsvc.so.0                        libjson.so.0.1.0                       libtracker-miner-0.16.so.0.1600.2
+libdcerpc-atsvc.so.0.0.1                    libjs.so.1                             libtracker-sparql-0.16.so.0
+libdcerpc-binding.so.0                      libk5crypto.so.3                       libtracker-sparql-0.16.so.0.1600.2
+libdcerpc-binding.so.0.0.1                  libk5crypto.so.3.1                     libudev.so.1
+libdcerpc-samr.so.0                         libkadm5clnt_mit.so.8                  libudev.so.1.4.0
+libdcerpc-samr.so.0.0.1                     libkadm5clnt_mit.so.8.0                libudf.so.0
+libdcerpc.so.0                              libkadm5srv_mit.so.8                   libudf.so.0.0.0
+libdcerpc.so.0.0.1                          libkadm5srv_mit.so.8.0                 libudisks2.so.0
+libdconf-dbus-1.so.0                        libkdb5.so.7                           libudisks2.so.0.0.0
+libdconf-dbus-1.so.0.0.0                    libkdb5.so.7.0                         libulockmgr.so.1
+libdconf.so.1                               libkeybinder-3.0.so.0                  libulockmgr.so.1.0.1
+libdconf.so.1.0.0                           libkeybinder-3.0.so.0.0.0              libunbound.so.2
+libdevmapper-event-lvm2mirror.so            libkeyutils.so.1                       libunbound.so.2.1.5
+libdevmapper-event-lvm2raid.so              libkeyutils.so.1.5                     libungif.so.4
+libdevmapper-event-lvm2snapshot.so          libkkc                                 libungif.so.4.1.6
+libdevmapper-event-lvm2.so.2.02             libkkc.so.2                            libuniconf.so.4.6
+libdevmapper-event-lvm2thin.so              libkkc.so.2.0.0                        libunistring.so.0
+libdevmapper-event.so.1.02                  libkmod.so.2                           libunistring.so.0.1.2
+libdevmapper.so.1.02                        libkmod.so.2.2.4                       libupower-glib.so.1
+libdhash.so.1                               libkms.so.1                            libupower-glib.so.1.0.2
+libdhash.so.1.0.1                           libkms.so.1.0.0                        libusal.so.0
+libdhcpctl.so.0                             libkrad.so.0                           libusal.so.0.0.1
+libdhcpctl.so.0.0.0                         libkrad.so.0.0                         libusb-0.1.so.4
+libdl-2.17.so                               libkrb5.so.3                           libusb-0.1.so.4.4.4
+libdl.so                                    libkrb5.so.3.3                         libusb-1.0.so.0
+libdl.so.2                                  libkrb5support.so.0                    libusb-1.0.so.0.1.0
+libdmapsharing-3.0.so.2                     libkrb5support.so.0.1                  libusbmuxd.so.1.0.8
+libdmapsharing-3.0.so.2.9.16                liblangtag                             libusbmuxd.so.2
+libdmraid-events-isw.so                     liblangtag.so.1                        libusbredirhost.so.1
+libdmraid-events-isw.so.1                   liblangtag.so.1.2.0                    libusbredirhost.so.1.0.0
+libdmraid-events-isw.so.1.0.0.rc16          liblber-2.4.so.2                       libusbredirparser.so.1
+libdmraid.so                                liblber-2.4.so.2.10.2                  libusbredirparser.so.1.0.0
+libdmraid.so.1                              liblcms2.so.2                          libuser
+libdmraid.so.1.0.0.rc16                     liblcms2.so.2.0.5                      libuser.so.1
+libdmx.so.1                                 libldap-2.4.so.2                       libuser.so.1.5.0
+libdmx.so.1.0.0                             libldap-2.4.so.2.10.2                  libustr-1.0.so.1
+libdnet.so.1                                libldap_r-2.4.so.2                     libustr-1.0.so.1.0.4
+libdnet.so.1.0.1                            libldap_r-2.4.so.2.10.2                libutempter.so.0
+libdns-export.so.100                        libldb.so.1                            libutempter.so.1.1.6
+libdns-export.so.100.1.1                    libldb.so.1.1.16                       libutil-2.17.so
+libdns.so.100                               libldns.so.1                           libutil.so
+libdns.so.100.1.1                           libldns.so.1.6.16                      libutil.so.1
+libdotconf.so.0                             liblldp_clif.so.1                      libuuid.so.1
+libdotconf.so.0.0.1                         liblldp_clif.so.1.0.0                  libuuid.so.1.3.0
+libdricore9.2.5.so                          libLLVM-3.3-mesa.so                    libv4l
+libdricore9.2.5.so.1                        liblockdev.so.1                        libv4l1.so.0
+libdricore9.2.5.so.1.0.0                    liblockdev.so.1.0.0                    libv4l1.so.0.0.0
+libdrm_intel.so.1                           liblouis.so.2                          libv4l2rds.so.0
+libdrm_intel.so.1.0.0                       liblouis.so.2.3.2                      libv4l2rds.so.0.0.0
+libdrm_nouveau.so.2                         liblpsolve55.so                        libv4l2.so.0
+libdrm_nouveau.so.2.0.0                     libltdl.so.7                           libv4l2.so.0.0.0
+libdrm_radeon.so.1                          libltdl.so.7.3.0                       libv4lconvert.so.0
+libdrm_radeon.so.1.0.1                      liblua-5.1.so                          libv4lconvert.so.0.0.0
+libdrm.so.2                                 liblvm2app.so.2.2                      libverto.so.1
+libdrm.so.2.4.0                             liblvm2cmd.so.2.02                     libverto.so.1.0.0
+libdvbv5.so.0                               liblwres.so.90                         libverto-tevent.so.1
+libdvbv5.so.0.0.0                           liblwres.so.90.0.5                     libverto-tevent.so.1.0.0
+libdvdnavmini.so.4                          liblzma.so.5                           libvirt
+libdvdnavmini.so.4.2.0                      liblzma.so.5.0.99                      libvirt-gconfig-1.0.so.0
+libdvdnav.so.4                              liblzo2.so.2                           libvirt-gconfig-1.0.so.0.1.7
+libdvdnav.so.4.2.0                          liblzo2.so.2.0.0                       libvirt-glib-1.0.so.0
+libdvdread.so.4                             libm17n-core.so.0                      libvirt-glib-1.0.so.0.1.7
+libdvdread.so.4.2.0                         libm17n-core.so.0.4.0                  libvirt-gobject-1.0.so.0
+libdv.so.4                                  libm17n-flt.so.0                       libvirt-gobject-1.0.so.0.1.7
+libdv.so.4.0.3                              libm17n-flt.so.0.4.0                   libvirt-lxc.so.0
+libdw-0.158.so                              libm17n.so.0                           libvirt-lxc.so.0.1001.1
+libdwarf.so.0                               libm17n.so.0.4.0                       libvirt-qemu.so.0
+libdwarf.so.0.20130207.0                    libm-2.17.so                           libvirt-qemu.so.0.1001.1
+libdw.so.1                                  libmagic.so.1                          libvirt.so.0
+libe2p.so.2                                 libmagic.so.1.0.0                      libvirt.so.0.1001.1
+libe2p.so.2.3                               libmarisa.so.0                         libvisio-0.0.so.0
+libebackend-1.2.so.6                        libmarisa.so.0.0.0                     libvisio-0.0.so.0.0.31
+libebackend-1.2.so.6.0.0                    libmbim-glib.so.0                      libvisual-0.4.so.0
+libebook-1.2.so.14                          libmbim-glib.so.0.2.0                  libvisual-0.4.so.0.0.0
+libebook-1.2.so.14.3.1                      libmcheck.a                            libvmtools.so.0
+libebook-contacts-1.2.so.0                  libmeanwhile.so.1                      libvmtools.so.0.0.0
+libebook-contacts-1.2.so.0.0.0              libmeanwhile.so.1.1.0                  libvorbisenc.so.2
+libebtc.so                                  libmemusage.so                         libvorbisenc.so.2.0.9
+libecal-1.2.so.15                           libmenu.so.5                           libvorbisfile.so.3
+libecal-1.2.so.15.0.0                       libmenu.so.5.9                         libvorbisfile.so.3.3.5
+libedata-book-1.2.so.17                     libmenuw.so.5                          libvorbis.so.0
+libedata-book-1.2.so.17.0.0                 libmenuw.so.5.9                        libvorbis.so.0.4.6
+libedata-cal-1.2.so.20                      libmetacity-private.so.0               libvpx.so.1
+libedata-cal-1.2.so.20.0.0                  libmetacity-private.so.0.0.0           libvpx.so.1.2
+libedataserver-1.2.so.17                    libmission-control-plugins.so.0        libvpx.so.1.2.0
+libedataserver-1.2.so.17.0.0                libmission-control-plugins.so.0.4.2    libvte2_90.so.9
+libedit.so.0                                libmm-glib.so.0                        libvte2_90.so.9.3400.6
+libedit.so.0.0.42                           libmm-glib.so.0.0.0                    libwacom.so.2
+libEGL.so.1                                 libmnl.so.0                            libwacom.so.2.1.0
+libEGL.so.1.0.0                             libmnl.so.0.1.0                        libwavpack.so.1
+libelf-0.158.so                             libmodman.so.1                         libwavpack.so.1.1.4
+libelf.so.1                                 libmodman.so.1.0.0                     libwbclient.so.0
+libenchant.so.1                             libmount.so.1                          libwbclient.so.0.11
+libenchant.so.1.6.0                         libmount.so.1.1.0                      libwebkitgtk-3.0.so.0
+libespeak.so.1                              libmozjs-17.0.so                       libwebkitgtk-3.0.so.0.18.9
+libespeak.so.1.1.47                         libmozjs185.so.1.0                     libwebpmux.so.0
+libestbase.so.1.2.96.1                      libmozjs185.so.1.0.0                   libwebpmux.so.0.0.0
+libestools.so.1.2.96.1                      libmozjs.so.1                          libwebp.so.4
+libestr.so.0                                libmpathpersist.so                     libwebp.so.4.0.2
+libestr.so.0.0.0                            libmpathpersist.so.0                   libwebrtc_audio_processing.so.0
+libeststring.so.1.2                         libmpcdec.so.5                         libwebrtc_audio_processing.so.0.0.0
+libevdocument3.so.4                         libmpcdec.so.5.0.2                     libwnck-3.so.0
+libevdocument3.so.4.0.0                     libmpc.so.3                            libwnck-3.so.0.2.2
+libevent-2.0.so.5                           libmpc.so.3.0.0                        libwpd-0.9.so.9
+libevent-2.0.so.5.1.9                       libmpfr.so.4                           libwpd-0.9.so.9.0.9
+libevent_core-2.0.so.5                      libmpfr.so.4.1.1                       libwpd-stream-0.9.so.9
+libevent_core-2.0.so.5.1.9                  libm.so                                libwpd-stream-0.9.so.9.0.9
+libevent_extra-2.0.so.5                     libm.so.6                              libwpg-0.2.so.2
+libevent_extra-2.0.so.5.1.9                 libmspub-0.0.so.0                      libwpg-0.2.so.2.0.2
+libevent_openssl-2.0.so.5                   libmspub-0.0.so.0.0.6                  libwps-0.2.so.2
+libevent_openssl-2.0.so.5.1.9               libmtdev.so.1                          libwps-0.2.so.2.0.9
+libevent_pthreads-2.0.so.5                  libmtdev.so.1.0.0                      libwrap.so.0
+libevent_pthreads-2.0.so.5.1.9              libmtp.so.9                            libwrap.so.0.7.6
+libevview3.so.3                             libmtp.so.9.1.0                        libwvbase.so.4.6
+libevview3.so.3.0.0                         libmultipath.so                        libwvdbus.so.4.6
+libexempi.so.3                              libmultipath.so.0                      libwvstreams.so.4.6
+libexempi.so.3.2.2                          libmusicbrainz5.so.0                   libwvutils.so.4.6
+libexif.so.12                               libmusicbrainz5.so.0.0.1               libX11.so.6
+libexif.so.12.3.3                           libmutter.so.0                         libX11.so.6.3.0
+libexiv2.so.12                              libmutter.so.0.0.0                     libX11-xcb.so.1
+libexiv2.so.12.0.0                          libmwaw-0.1.so.1                       libX11-xcb.so.1.0.0
+libexpat.so.1                               libmwaw-0.1.so.1.0.11                  libxatracker.so.1
+libexpat.so.1.6.0                           libmythes-1.2.so.0                     libxatracker.so.1.0.0
+libexslt.so.0                               libmythes-1.2.so.0.0.0                 libXau.so.6
+libexslt.so.0.8.17                          libnautilus-extension.so.1             libXau.so.6.0.0
+libext2fs.so.2                              libnautilus-extension.so.1.4.0         libxcb-composite.so.0
+libext2fs.so.2.4                            libncurses.so.5                        libxcb-composite.so.0.0.0
+libexttextcat-2.0.so.0                      libncurses++.so.5                      libxcb-damage.so.0
+libexttextcat-2.0.so.0.0.0                  libncurses.so.5.9                      libxcb-damage.so.0.0.0
+libfarstream-0.1.so.0                       libncurses++.so.5.9                    libxcb-dpms.so.0
+libfarstream-0.1.so.0.0.1                   libncurses++w.so.5                     libxcb-dpms.so.0.0.0
+libfarstream-0.2.so.2                       libncursesw.so.5                       libxcb-dri2.so.0
+libfarstream-0.2.so.2.1.0                   libncurses++w.so.5.9                   libxcb-dri2.so.0.0.0
+libfa.so.1                                  libncursesw.so.5.9                     libxcb-glx.so.0
+libfa.so.1.4.0                              libndp.so.0                            libxcb-glx.so.0.0.0
+libFestival.so.1.96.0                       libndp.so.0.0.0                        libxcb-randr.so.0
+libffi.so.6                                 libndr-krb5pac.so.0                    libxcb-randr.so.0.1.0
+libffi.so.6.0.1                             libndr-krb5pac.so.0.0.1                libxcb-record.so.0
+libfftw3_omp.so.3                           libndr-nbt.so.0                        libxcb-record.so.0.0.0
+libfftw3_omp.so.3.3.2                       libndr-nbt.so.0.0.1                    libxcb-render.so.0
+libfftw3.so.3                               libndr.so.0                            libxcb-render.so.0.0.0
+libfftw3.so.3.3.2                           libndr.so.0.0.2                        libxcb-res.so.0
+libfftw3_threads.so.3                       libndr-standard.so.0                   libxcb-res.so.0.0.0
+libfftw3_threads.so.3.3.2                   libndr-standard.so.0.0.1               libxcb-screensaver.so.0
+libfipscheck.so.1                           libneon.so.27                          libxcb-screensaver.so.0.0.0
+libfipscheck.so.1.2.1                       libneon.so.27.3.0                      libxcb-shape.so.0
+libFLAC++.so.6                              libnetapi.so.0                         libxcb-shape.so.0.0.0
+libFLAC++.so.6.3.0                          libnetcf.so.1                          libxcb-shm.so.0
+libFLAC.so.8                                libnetcf.so.1.4.0                      libxcb-shm.so.0.0.0
+libFLAC.so.8.3.0                            libnetfilter_conntrack.so.3            libxcb.so.1
+libflite_cmulex.so.1                        libnetfilter_conntrack.so.3.5.0        libxcb.so.1.1.0
+libflite_cmulex.so.1.3                      libnetsnmp.so.31                       libxcb-sync.so.0
+libflite_cmu_time_awb.so.1                  libnetsnmp.so.31.0.2                   libxcb-sync.so.0.0.0
+libflite_cmu_time_awb.so.1.3                libnettle.so.4                         libxcb-util.so.1
+libflite_cmu_us_kal16.so.1                  libnettle.so.4.7                       libxcb-util.so.1.0.0
+libflite_cmu_us_kal16.so.1.3                libnewt.so.0.52                        libxcb-xevie.so.0
+libflite_cmu_us_kal.so.1                    libnewt.so.0.52.15                     libxcb-xevie.so.0.0.0
+libflite_cmu_us_kal.so.1.3                  libnfnetlink.so.0                      libxcb-xf86dri.so.0
+libflite.so.1                               libnfnetlink.so.0.2.0                  libxcb-xf86dri.so.0.0.0
+libflite.so.1.3                             libnfsidmap                            libxcb-xfixes.so.0
+libflite_usenglish.so.1                     libnfsidmap.so.0                       libxcb-xfixes.so.0.0.0
+libflite_usenglish.so.1.3                   libnfsidmap.so.0.3.0                   libxcb-xinerama.so.0
+libfolks-eds.so.25                          libnice.so.10                          libxcb-xinerama.so.0.0.0
+libfolks-eds.so.25.14.0                     libnice.so.10.1.0                      libxcb-xkb.so.0
+libfolks.so.25                              libnl                                  libxcb-xkb.so.0.0.0
+libfolks.so.25.14.0                         libnl-3.so.200                         libxcb-xselinux.so.0
+libfolks-telepathy.so.25                    libnl-3.so.200.16.1                    libxcb-xselinux.so.0.0.0
+libfolks-telepathy.so.25.14.0               libnl-cli-3.so.200                     libxcb-xtest.so.0
+libfontconfig.so.1                          libnl-cli-3.so.200.16.1                libxcb-xtest.so.0.0.0
+libfontconfig.so.1.7.0                      libnl-genl-3.so.200                    libxcb-xvmc.so.0
+libfontembed.so.1                           libnl-genl-3.so.200.16.1               libxcb-xvmc.so.0.0.0
+libfontembed.so.1.0.0                       libnl-nf-3.so.200                      libxcb-xv.so.0
+libfontenc.so.1                             libnl-nf-3.so.200.16.1                 libxcb-xv.so.0.0.0
+libfontenc.so.1.0.0                         libnl-route-3.so.200                   libXcomposite.so.1
+libform.so.5                                libnl-route-3.so.200.16.1              libXcomposite.so.1.0.0
+libform.so.5.9                              libnl.so.1                             libXcursor.so.1
+libformw.so.5                               libnl.so.1.1.4                         libXcursor.so.1.0.2
+libformw.so.5.9                             libnm-glib.so.4                        libXdamage.so.1
+libfprint.so.0                              libnm-glib.so.4.7.0                    libXdamage.so.1.1.0
+libfprint.so.0.0.0                          libnm-glib-vpn.so.1                    libXdmcp.so.6
+libfreebl3.chk                              libnm-glib-vpn.so.1.1.0                libXdmcp.so.6.0.0
+libfreebl3.so                               libnm-gtk.so.0                         libXevie.so.1
+libfreerdp-cache.so.1.0                     libnm-gtk.so.0.0.0                     libXevie.so.1.0.0
+libfreerdp-cache.so.1.0.2                   libnm-util.so.2                        libXext.so.6
+libfreerdp-channels.so.1.0                  libnm-util.so.2.5.0                    libXext.so.6.4.0
+libfreerdp-channels.so.1.0.2                libnotify.so.4                         libXfixes.so.3
+libfreerdp-codec.so.1.0                     libnotify.so.4.0.0                     libXfixes.so.3.1.0
+libfreerdp-codec.so.1.0.2                   libnsl-2.17.so                         libXfont.so.1
+libfreerdp-core.so.1.0                      libnsl.so                              libXfont.so.1.4.1
+libfreerdp-core.so.1.0.2                    libnsl.so.1                            libXft.so.2
+libfreerdp-gdi.so.1.0                       libnspr4.so                            libXft.so.2.3.1
+libfreerdp-gdi.so.1.0.2                     libnss3.so                             libXinerama.so.1
+libfreerdp-kbd.so.1.0                       libnssckbi.so                          libXinerama.so.1.0.0
+libfreerdp-kbd.so.1.0.2                     libnss_compat-2.17.so                  libXi.so.6
+libfreerdp-rail.so.1.0                      libnss_compat.so                       libXi.so.6.1.0
+libfreerdp-rail.so.1.0.2                    libnss_compat.so.2                     libxkbfile.so.1
+libfreerdp-utils.so.1.0                     libnss_db-2.17.so                      libxkbfile.so.1.0.2
+libfreerdp-utils.so.1.0.2                   libnssdbm3.chk                         libxklavier.so.16
+libfreetype.so.6                            libnssdbm3.so                          libxklavier.so.16.3.0
+libfreetype.so.6.10.0                       libnss_db.so                           libxml2.so.2
+libfuse.so.2                                libnss_db.so.2                         libxml2.so.2.9.1
+libfuse.so.2.9.2                            libnss_dns-2.17.so                     libxmlrpc_abyss.so.3
+libg.a                                      libnss_dns.so                          libxmlrpc_abyss.so.3.32
+libgailutil-3.so.0                          libnss_dns.so.2                        libxmlrpc_client.so.3
+libgailutil-3.so.0.0.0                      libnss_files-2.17.so                   libxmlrpc_client.so.3.32
+libgailutil.so.18                           libnss_files.so                        libxmlrpc_server_abyss.so.3
+libgailutil.so.18.0.1                       libnss_files.so.2                      libxmlrpc_server_abyss.so.3.32
+libgavl.so.1                                libnss_hesiod-2.17.so                  libxmlrpc_server_cgi.so.3
+libgavl.so.1.0.0                            libnss_hesiod.so                       libxmlrpc_server_cgi.so.3.32
+libgbm.so.1                                 libnss_hesiod.so.2                     libxmlrpc_server.so.3
+libgbm.so.1.0.0                             libnss_myhostname.so.2                 libxmlrpc_server.so.3.32
+libgcc_s-4.8.5-20150702.so.1                libnss_nis-2.17.so                     libxmlrpc.so.3
+libgcc_s.so.1                               libnss_nisplus-2.17.so                 libxmlrpc.so.3.32
+libgck-1.so.0                               libnss_nisplus.so                      libxmlrpc_util.so.3
+libgck-1.so.0.0.0                           libnss_nisplus.so.2                    libxmlrpc_util.so.3.32
+libgconf-2.so.4                             libnss_nis.so                          libXmu.so.6
+libgconf-2.so.4.1.5                         libnss_nis.so.2                        libXmu.so.6.2.0
+libgcr-3.so.1                               libnsspem.so                           libXmuu.so.1
+libgcr-3.so.1.0.0                           libnss_sss.so.2                        libXmuu.so.1.0.0
+libgcr-base-3.so.1                          libnsssysinit.so                       libXpm.so.4
+libgcr-base-3.so.1.0.0                      libnssutil3.so                         libXpm.so.4.11.0
+libgcr-ui-3.so.1                            libnuma.so.1                           libXrandr.so.2
+libgcr-ui-3.so.1.0.0                        liboauth.so.0                          libXrandr.so.2.2.0
+libgcrypt.so.11                             liboauth.so.0.8.4                      libXrender.so.1
+libgcrypt.so.11.8.2                         libodfgen-0.0.so.0                     libXrender.so.1.3.0
+libgdata.so.13                              libodfgen-0.0.so.0.0.2                 libXRes.so.1
+libgdata.so.13.5.0                          libofa.so.0                            libXRes.so.1.0.0
+libgdbm_compat.so.4                         libofa.so.0.0.0                        libxslt-plugins
+libgdbm_compat.so.4.0.0                     libogg.so.0                            libxslt.so.1
+libgdbm.so.4                                libogg.so.0.8.0                        libxslt.so.1.1.28
+libgdbm.so.4.0.0                            libomapi.so.0                          libxtables.so.10
+libgdict-1.0.so.6                           libomapi.so.0.0.0                      libxtables.so.10.0.0
+libgdict-1.0.so.6.0.7                       libopcodes-2.23.52.0.1-16.el7.so       libXt.so.6
+libgdither.so.1                             libopencc.so.1                         libXt.so.6.0.0
+libgdither.so.1.0                           libopencc.so.1.0.0                     libXtst.so.6
+libgdk-3.so.0                               libopenjpeg.so.1                       libXtst.so.6.1.0
+libgdk-3.so.0.800.8                         libopenjpeg.so.1.5.1                   libXvMC.so.1
+libgdkmm-2.4.so.1                           libopts.so.25                          libXvMC.so.1.0.0
+libgdkmm-2.4.so.1.1.0                       libopts.so.25.15.0                     libXvMCW.so.1
+libgdkmm-3.0.so.1                           libopus.so.0                           libXvMCW.so.1.0.0
+libgdkmm-3.0.so.1.1.0                       libopus.so.0.3.0                       libXv.so.1
+libgdk_pixbuf-2.0.so.0                      liborc-0.4.so.0                        libXv.so.1.0.0
+libgdk_pixbuf-2.0.so.0.2800.2               liborc-0.4.so.0.17.0                   libXxf86dga.so.1
+libgdk_pixbuf_xlib-2.0.so.0                 liborc-test-0.4.so.0                   libXxf86dga.so.1.0.0
+libgdk_pixbuf_xlib-2.0.so.0.2800.2          liborc-test-0.4.so.0.17.0              libXxf86misc.so.1
+libgdk-x11-2.0.so.0                         liborcus-0.6.so.0                      libXxf86misc.so.1.1.0
+libgdk-x11-2.0.so.0.2400.22                 liborcus-0.6.so.0.0.0                  libXxf86vm.so.1
+libgdm.so                                   liborcus-mso-0.6.so.0                  libXxf86vm.so.1.0.0
+libgdm.so.1                                 liborcus-mso-0.6.so.0.0.0              libyajl.so.2
+libgdm.so.1.0.0                             liborcus-parser-0.6.so.0               libyajl.so.2.0.4
+libgd.so.2                                  liborcus-parser-0.6.so.0.0.0           libyelp.so.0
+libgd.so.2.0.0                              libosinfo-1.0.so.0                     libyelp.so.0.0.0
+libgee-0.8.so.2                             libosinfo-1.0.so.0.2.7                 libzapojit-0.0.so.0
+libgee-0.8.so.2.2.0                         libp11-kit.so.0                        libzapojit-0.0.so.0.0.0
+libgee.so.2                                 libp11-kit.so.0.0.0                    libz.so.1
+libgee.so.2.0.0                             libpackagekit-glib2.so.16              libz.so.1.2.7
+libgensec.so.0                              libpackagekit-glib2.so.16.0.5          lua
+libgensec.so.0.0.1                          libpakchois.so.0                       m17n
+libgeoclue.so.0                             libpakchois.so.0.1.0                   man-db
+libgeoclue.so.0.0.0                         libpamc.so.0                           Mcrt1.o
+libgettextlib-0.18.2.so                     libpamc.so.0.82.1                      mission-control-plugins.0
+libgettextpo.so.0                           libpam_misc.so.0                       ModemManager
+libgettextpo.so.0.5.2                       libpam_misc.so.0.82.0                  mozilla
+libgettextsrc-0.18.2.so                     libpam.so.0                            multipath
+libgfapi.so.0                               libpam.so.0.83.1                       mutter
+libgfapi.so.0.0.0                           libpanel.so.5                          mysql
+libgfchangelog.so.0                         libpanel.so.5.9                        nautilus
+libgfchangelog.so.0.0.0                     libpanelw.so.5                         NetworkManager
+libgfrpc.so.0                               libpanelw.so.5.9                       nss
+libgfrpc.so.0.0.0                           libpango-1.0.so.0                      openssl
+libgfxdr.so.0                               libpango-1.0.so.0.3400.1               open-vm-tools
+libgfxdr.so.0.0.0                           libpangocairo-1.0.so.0                 p11-kit
+libgif.so.4                                 libpangocairo-1.0.so.0.3400.1          p11-kit-proxy.so
+libgif.so.4.1.6                             libpangoft2-1.0.so.0                   p11-kit-trust.so
+libgio-2.0.so.0                             libpangoft2-1.0.so.0.3400.1            packagekit-backend
+libgio-2.0.so.0.3600.3                      libpangomm-1.4.so.1                    packagekit-plugins
+libgiomm-2.4.so.1                           libpangomm-1.4.so.1.0.30               pango
+libgiomm-2.4.so.1.3.0                       libpangoxft-1.0.so.0                   perl5
+libgirepository-1.0.so.1                    libpangoxft-1.0.so.0.3400.1            pkcs11
+libgirepository-1.0.so.1.0.0                libpaps.so.0                           pkgconfig
+libgjs.so.0                                 libpaps.so.0.0.0                       plymouth
+libgjs.so.0.0.0                             libparted-fs-resize.so                 pm-utils
+libglade                                    libparted-fs-resize.so.0               pppd
+libglade-2.0.so.0                           libparted-fs-resize.so.0.0.0           pulse-3.0
+libglade-2.0.so.0.0.7                       libparted.so.2                         pulseaudio
+libgladeui-2.so.4                           libparted.so.2.0.0                     purple-2
+libgladeui-2.so.4.1.0                       libpath_utils.so.1                     pygtk
+libglamor.so.0                              libpath_utils.so.1.0.0                 python2.7
+libglamor.so.0.0.0                          libpcap.so.1                           realmd
+libglapi.so.0                               libpcap.so.1.5.3                       redland
+libglapi.so.0.0.0                           libpciaccess.so.0                      rsocket
+libglib-2.0.so.0                            libpciaccess.so.0.11.1                 rsyslog
+libglib-2.0.so.0.3600.3                     libpci.so.3                            rtkaio
+libglibmm-2.4.so.1                          libpci.so.3.2.1                        sa
+libglibmm-2.4.so.1.3.0                      libpcprofile.so                        samba
+libglibmm_generate_extra_defs-2.4.so.1      libpcre16.so.0                         sane
+libglibmm_generate_extra_defs-2.4.so.1.3.0  libpcre16.so.0.2.0                     sasl2
+libGL.so.1                                  libpcre32.so.0                         Scrt1.o
+libGL.so.1.2.0                              libpcre32.so.0.0.0                     seahorse
+libglusterfs.so.0                           libpcrecpp.so.0                        security
+libglusterfs.so.0.0.0                       libpcrecpp.so.0.0.0                    setools
+libgmodule-2.0.so.0                         libpcreposix.so.0                      sox
+libgmodule-2.0.so.0.3600.3                  libpcreposix.so.0.0.1                  speech-dispatcher
+libgmp.so.10                                libpcre.so.1                           speech-dispatcher-modules
+libgmp.so.10.1.1                            libpcre.so.1.2.0                       sse2
+libgmpxx.so.4                               libpcsclite.so.1                       sssd
+libgmpxx.so.4.3.1                           libpcsclite.so.1.0.0                   sushi
+libgnome-bluetooth.so.11                    libpdb.so.0                            systemtap
+libgnome-bluetooth.so.11.0.0                libpdb.so.0.1.0                        tc
+libgnome-desktop-3.so.7                     libpeas-1.0                            telepathy
+libgnome-desktop-3.so.7.0.0                 libpeas-1.0.so.0                       tls
+libgnomekbd.so.8                            libpeas-1.0.so.0.800.0                 totem
+libgnomekbd.so.8.0.0                        libpeas-gtk-1.0.so.0                   tracker-0.16
+libgnomekbdui.so.8                          libpeas-gtk-1.0.so.0.800.0             vte-2.90
+libgnomekbdui.so.8.0.0                      libpinyin                              X11
+libgnome-keyring.so.0                       libpinyin.so.4                         xorg
+libgnome-keyring.so.0.2.0                   libpinyin.so.4.0.0                     xtables
+libgnome-menu-3.so.0                        libpipeline.so.1
+libgnome-menu-3.so.0.0.1                    libpipeline.so.1.2.3
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ ls -l
+total 24
+-rw-rw-r--. 1 shangqi shangqi 115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi 421 Dec 19 06:26 Test2.c
+-rw-rw-r--. 1 shangqi shangqi 112 Dec 20 07:16 Test3.c
+-rw-rw-r--. 1 shangqi shangqi 104 Dec 21 18:31 Test4.c
+-rw-rw-r--. 1 shangqi shangqi 326 Dec 20 07:56 Test5.c
+-rwxrwxr-x. 1 shangqi shangqi 156 Dec 21 18:07 Test6.c
+[shangqi@localhost c ‘¡∂]$ gcc -static Test2.c -o Test2
+bash: gcc: command not found...
+[shangqi@localhost c ‘¡∂]$ gcc -v
+bash: gcc: command not found...
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o test
+bash: gcc: command not found...
+[shangqi@localhost c ‘¡∂]$ whereis gcc
+gcc: /usr/libexec/gcc
+[shangqi@localhost c ‘¡∂]$ ln -s /usr/libexec/gcc /bin/gcc
+ln: failed to create symbolic link °Æ/bin/gcc°Ø: Permission denied
+[shangqi@localhost c ‘¡∂]$ sudo ln -s /usr/libexec/gcc /bin/gcc
+[sudo] password for shangqi: 
+[shangqi@localhost c ‘¡∂]$ gcc -v
+bash: gcc: command not found...
+Similar command is: 'gcc'
+[shangqi@localhost c ‘¡∂]$ /usr/libexec/gcc -v
+bash: /usr/libexec/gcc: Is a directory
+[shangqi@localhost c ‘¡∂]$ /usr/libexec/gcc/x86_64-redhat-linux/4.8.
+4.8.2/ 4.8.5/ 
+[shangqi@localhost c ‘¡∂]$ /usr/libexec/gcc/x86_64-redhat-linux/4.8.
+4.8.2/ 4.8.5/ 
+[shangqi@localhost c ‘¡∂]$ /usr/libexec/gcc/x86_64-redhat-linux/4.8.
+4.8.2/ 4.8.5/ 
+[shangqi@localhost c ‘¡∂]$ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 
+Test1.c       Test2.c       Test3.c       Test4.c       Test5.c       .Test5.c.swp  Test6.c       
+[shangqi@localhost c ‘¡∂]$ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 
+Test1.c       Test2.c       Test3.c       Test4.c       Test5.c       .Test5.c.swp  Test6.c       
+[shangqi@localhost c ‘¡∂]$ /usr/libexec/gcc/x86_64-redhat-linux/4.8.5/cc1 -v
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include-fixed"
+ignoring nonexistent directory "/usr/lib/../x86_64-redhat-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/include
+ /usr/include
+End of search list.
+^C
+[shangqi@localhost c ‘¡∂]$ sudo yum install gcc
+Loaded plugins: fastestmirror, langpacks
+http://mirrors.shu.edu.cn/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.shu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.aliyun.com/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.aliyun.com; Unknown error"
+Trying other mirror.
+http://mirror.lzu.edu.cn/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirror.lzu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.nwsuaf.edu.cn/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.nwsuaf.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.njupt.edu.cn/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.njupt.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.tuna.tsinghua.edu.cn/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.tuna.tsinghua.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.163.com/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+http://mirrors.huaweicloud.com/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.huaweicloud.com; Unknown error"
+Trying other mirror.
+http://mirrors.zju.edu.cn/centos/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.cqu.edu.cn/CentOS/7.6.1810/os/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.cqu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.shu.edu.cn/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.shu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.nju.edu.cn/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.nju.edu.cn; Unknown error"
+Trying other mirror.
+http://ftp.sjtu.edu.cn/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: ftp.sjtu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.aliyun.com/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.aliyun.com; Unknown error"
+Trying other mirror.
+http://mirror.lzu.edu.cn/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirror.lzu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.nwsuaf.edu.cn/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.nwsuaf.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.njupt.edu.cn/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.njupt.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.163.com/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+http://mirrors.huaweicloud.com/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.huaweicloud.com; Unknown error"
+Trying other mirror.
+http://mirrors.zju.edu.cn/centos/7.6.1810/extras/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.cn99.com/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.cn99.com; Unknown error"
+Trying other mirror.
+http://mirrors.tuna.tsinghua.edu.cn/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.tuna.tsinghua.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.cqu.edu.cn/CentOS/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.cqu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.nju.edu.cn/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.nju.edu.cn; Unknown error"
+Trying other mirror.
+http://ftp.sjtu.edu.cn/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: ftp.sjtu.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.nwsuaf.edu.cn/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.nwsuaf.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.njupt.edu.cn/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.njupt.edu.cn; Unknown error"
+Trying other mirror.
+http://mirrors.163.com/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+http://mirrors.huaweicloud.com/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.huaweicloud.com; Unknown error"
+Trying other mirror.
+http://mirrors.zju.edu.cn/centos/7.6.1810/updates/x86_64/repodata/repomd.xml: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"
+Trying other mirror.
+Loading mirror speeds from cached hostfile
+ * base: mirror.lzu.edu.cn
+ * extras: mirror.lzu.edu.cn
+ * updates: mirrors.nwsuaf.edu.cn
+Resolving Dependencies
+--> Running transaction check
+---> Package gcc.x86_64 0:4.8.5-36.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================
+ Package                       Arch                             Version                                Repository                      Size
+============================================================================================================================================
+Installing:
+ gcc                           x86_64                           4.8.5-36.el7                           base                            16 M
+
+Transaction Summary
+============================================================================================================================================
+Install  1 Package
+
+Total download size: 16 M
+Installed size: 37 M
+Is this ok [y/d/N]: y
+Downloading packages:
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.shu.edu.cn/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.shu.edu.cn; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.aliyun.com/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.aliyun.com; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirror.lzu.edu.cn/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirror.lzu.edu.cn; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.tuna.tsinghua.edu.cn/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.tuna.tsinghua.edu.cn; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.cqu.edu.cn/CentOS/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.cqu.edu.cn; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.nwsuaf.edu.cn/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.nwsuaf.edu.cn; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.njupt.edu.cn/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.njupt.edu.cn; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.163.com/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.huaweicloud.com/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.huaweicloud.com; Unknown error"
+Trying other mirror.
+gcc-4.8.5-36.el7.x86_64.rpm    FAILED                                          
+http://mirrors.zju.edu.cn/centos/7.6.1810/os/x86_64/Packages/gcc-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#6 - "Could not resolve host: mirrors.zju.edu.cn; Unknown error"
+Trying other mirror.
+
+
+Error downloading packages:
+  gcc-4.8.5-36.el7.x86_64: [Errno 256] No more mirrors to try.
+
+[shangqi@localhost c ‘¡∂]$ sudo yum install gcc
+Loaded plugins: fastestmirror, langpacks
+base                                                                                                                 | 3.6 kB  00:00:08     
+extras                                                                                                               | 3.4 kB  00:00:06     
+updates                                                                                                              | 3.4 kB  00:00:12     
+updates/7/x86_64/primary_db    FAILED                                                                     ]  0.0 B/s | 9.4 kB  --:--:-- ETA 
+http://mirrors.cn99.com/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 12] Timeout on http://mirrors.cn99.com/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                          
+http://ftp.sjtu.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 14] HTTP Error 404 - Not Found
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                           
+http://mirrors.nju.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 12] Timeout on http://mirrors.nju.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                          
+http://mirrors.tuna.tsinghua.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 12] Timeout on http://mirrors.tuna.tsinghua.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: (28, 'Connection timed out after 30415 milliseconds')
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                          
+http://mirrors.cqu.edu.cn/CentOS/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cqu.edu.cn; Unknown error"
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                          
+http://mirrors.nwsuaf.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.nwsuaf.edu.cn; Unknown error"
+Trying other mirror.
+Traceback (most recent call last):=-            ]  179 B/s | 315 kB   99:28 ETA 
+  File "/usr/libexec/urlgrabber-ext-down", line 75, in <module>
+    main()
+  File "/usr/libexec/urlgrabber-ext-down", line 61, in main
+    fo = PyCurlFileObject(opts.url, opts.filename, opts)
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1258, in __init__
+    self._do_open()imary_d 23% [===-            ]  163 B/s | 315 kB  109:28 ETA 
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1589, in _do_open
+    self._do_grab()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1723, in _do_grab
+    self._do_perform()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1517, in _do_perform
+    raise KeyboardInterrupt
+KeyboardInterrupt
+
+
+Exiting on user cancel
+[shangqi@localhost c ‘¡∂]$ sudo yum install gcc
+[sudo] password for shangqi: 
+Sorry, try again.
+[sudo] password for shangqi: 
+Sorry, try again.
+[sudo] password for shangqi: 
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirror.lzu.edu.cn
+ * extras: mirror.lzu.edu.cn
+ * updates: mirrors.nwsuaf.edu.cn
+updates/7/x86_64/primary_db    FAILED                                          
+http://ftp.sjtu.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: ftp.sjtu.edu.cn; Unknown error"
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                          
+http://mirrors.cn99.com/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cn99.com; Unknown error"
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                          
+http://mirrors.njupt.edu.cn/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.njupt.edu.cn; Unknown error"
+Trying other mirror.
+updates/7/x86_64/primary_db    FAILED                                          
+http://mirrors.163.com/centos/7.6.1810/updates/x86_64/repodata/df229794df6a47361ad720d2f2cfb70da0007eb048f34e18bcc72c7617c6d2ae-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.163.com; Unknown error"
+Trying other mirror.
+updates/7/x86_64/primary_db                                | 1.3 MB   00:08     
+Resolving Dependencies
+--> Running transaction check
+---> Package gcc.x86_64 0:4.8.5-36.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package        Arch              Version                 Repository       Size
+================================================================================
+Installing:
+ gcc            x86_64            4.8.5-36.el7            base             16 M
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 16 M
+Installed size: 37 M
+Is this ok [y/d/N]: y
+Downloading packages:
+No Presto metadata available for base
+gcc-4.8.5-36.el7.x86_64.rpm                                |  16 MB   00:30     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : gcc-4.8.5-36.el7.x86_64                                      1/1 
+  Verifying  : gcc-4.8.5-36.el7.x86_64                                      1/1 
+
+Installed:
+  gcc.x86_64 0:4.8.5-36.el7                                                     
+
+Complete!
+[shangqi@localhost c ‘¡∂]$ gcc -v 
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) 
+[shangqi@localhost c ‘¡∂]$ Xshell 6 (Build 0095)
+bash: syntax error near unexpected token `('
+[shangqi@localhost c ‘¡∂]$ Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+bash: syntax error near unexpected token `c'
+[shangqi@localhost c ‘¡∂]$ 
+[shangqi@localhost c ‘¡∂]$ Type `help' to learn how to use Xshell prompt.
+> [C:\~]$ 
