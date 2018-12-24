@@ -1,0 +1,88 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Dec 21 17:25:36 2018 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Test6.c
+[shangqi@localhost c ‘¡∂]$ ls -l
+total 24
+-rw-rw-r--. 1 shangqi shangqi 115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi 421 Dec 19 06:26 Test2.c
+-rw-rw-r--. 1 shangqi shangqi 112 Dec 20 07:16 Test3.c
+-rw-rw-r--. 1 shangqi shangqi 104 Dec 20 07:43 Test4.c
+-rw-rw-r--. 1 shangqi shangqi 326 Dec 20 07:56 Test5.c
+-rw-rw-r--. 1 shangqi shangqi  40 Dec 21 17:49 Test6.c
+[shangqi@localhost c ‘¡∂]$ su root
+Password: 
+[root@localhost c ‘¡∂]# ls -l
+total 24
+-rw-rw-r--. 1 shangqi shangqi 115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi 421 Dec 19 06:26 Test2.c
+-rw-rw-r--. 1 shangqi shangqi 112 Dec 20 07:16 Test3.c
+-rw-rw-r--. 1 shangqi shangqi 104 Dec 20 07:43 Test4.c
+-rw-rw-r--. 1 shangqi shangqi 326 Dec 20 07:56 Test5.c
+-rw-rw-r--. 1 shangqi shangqi  40 Dec 21 17:49 Test6.c
+[root@localhost c ‘¡∂]# chown shangqi Te
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 09:51:11.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Dec 21 19:35:26 2018
+[shangqi@localhost ~]$ ls -l
+total 0
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Downloads
+drwxrwxr-x. 4 shangqi shangqi 35 Dec 18 07:38 Linux ‘¡∂1
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Pictures
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Test1.c  Test2.c  Test3.c  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Test3.C
+[shangqi@localhost c ‘¡∂]$ vim Makefile
+[shangqi@localhost c ‘¡∂]$ make
+make: *** No rule to make target `main.c', needed by `main'.  Stop.
+[shangqi@localhost c ‘¡∂]$ vim Makefile 
+[shangqi@localhost c ‘¡∂]$ vim Makefile 
+[shangqi@localhost c ‘¡∂]$ vim Makefile 
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Makefile 
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 12:34:44.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
