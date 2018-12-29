@@ -1,0 +1,377 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Dec 28 02:31:29 2018 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Test6.c
+[shangqi@localhost c ‘¡∂]$ vim Test3.c
+[shangqi@localhost c ‘¡∂]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 18:51:45.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Could not connect to '192.168.166.130' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Fri Dec 28 02:41:34 2018 from 192.168.166.1
+[shangqi@localhost ~]$ cd ~
+[shangqi@localhost ~]$ vi makefile
+[shangqi@localhost ~]$ vi Makefile
+[shangqi@localhost ~]$ su root
+Password: 
+[root@localhost shangqi]# vi Makefile
+[root@localhost shangqi]# su shangqi
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls -l
+total 4
+drwxrwxr-x. 2 shangqi shangqi 4096 Dec 28 02:44 c ‘¡∂
+drwxrwxr-x. 2 shangqi shangqi   76 Dec 19 06:46 FileTest
+-rw-r--r--. 1 root    root       0 Dec 28 02:40 Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd FileTest/
+[shangqi@localhost FileTest]$ ls
+first.txt  main.c  passmainfirst.tar.bz2  passwd
+[shangqi@localhost FileTest]$ cd ../
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ ls -l
+total 28
+-rw-rw-r--. 1 shangqi shangqi 1402 Dec 21 20:33 Makefile
+-rw-rw-r--. 1 shangqi shangqi  115 Dec 18 07:03 Test1.c
+-rw-rw-r--. 1 shangqi shangqi  421 Dec 19 06:26 Test2.c
+-rw-rw-r--. 1 shangqi shangqi  112 Dec 20 07:16 Test3.c
+-rw-rw-r--. 1 shangqi shangqi    0 Dec 21 19:39 Test3.C
+-rw-rw-r--. 1 shangqi shangqi  104 Dec 21 18:31 Test4.c
+-rw-rw-r--. 1 shangqi shangqi  326 Dec 20 07:56 Test5.c
+-rwxrwxr-x. 1 shangqi shangqi  156 Dec 28 02:42 Test6.c
+[shangqi@localhost c ‘¡∂]$ vi Makefile 
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ cd ~
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  makefile  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ vi makefile 
+[shangqi@localhost ~]$ rm makefile 
+[shangqi@localhost ~]$ vi M
+[shangqi@localhost ~]$ rm M
+M         Makefile  Music/    
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  M  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ rm M
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ touch mak
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  mak  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd mak
+bash: cd: mak: Not a directory
+[shangqi@localhost ~]$ vim mak
+[shangqi@localhost ~]$ vim Makefile
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  mak  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o main
+[shangqi@localhost c ‘¡∂]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/Linux ‘¡∂1/c ‘¡∂/main...(no debugging symbols found)...done.
+(gdb) n
+The program is not being run.
+(gdb) s
+The program is not being run.
+(gdb) ^CQuit
+(gdb) ^CQuit
+(gdb) ^CQuit
+(gdb) run
+Starting program: /home/shangqi/Linux ‘¡∂1/c ‘¡∂/./main 
+120
+78
+–°∂Àƒ£ Ω
+*****µ⁄∂˛÷÷∑Ω∑®**********
+–°∂Àƒ£ Ω
+[Inferior 1 (process 6117) exited normally]
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) q
+[shangqi@localhost c ‘¡∂]$ ls
+main  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/Linux ‘¡∂1/c ‘¡∂/main...(no debugging symbols found)...done.
+(gdb) bt
+No stack.
+(gdb) n
+The program is not being run.
+(gdb) q
+[shangqi@localhost c ‘¡∂]$ make
+make: *** No rule to make target `main.c', needed by `main'.  Stop.
+[shangqi@localhost c ‘¡∂]$ ls
+main  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/Linux ‘¡∂1/c ‘¡∂/main...(no debugging symbols found)...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400584
+Starting program: /home/shangqi/Linux ‘¡∂1/c ‘¡∂/./main 
+
+Temporary breakpoint 1, 0x0000000000400584 in main ()
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) n
+Single stepping until exit from function main,
+which has no line number information.
+120
+78
+–°∂Àƒ£ Ω
+*****µ⁄∂˛÷÷∑Ω∑®**********
+–°∂Àƒ£ Ω
+0x00007ffff7a3caf5 in __libc_start_main () from /lib64/libc.so.6
+(gdb) n
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 6259) exited normally]
+(gdb) q
+[shangqi@localhost c ‘¡∂]$ gdb ./main 
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/Linux ‘¡∂1/c ‘¡∂/main...(no debugging symbols found)...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400584
+Starting program: /home/shangqi/Linux ‘¡∂1/c ‘¡∂/./main 
+
+Temporary breakpoint 1, 0x0000000000400584 in main ()
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) l 8
+No symbol table is loaded.  Use the "file" command.
+(gdb) l
+No symbol table is loaded.  Use the "file" command.
+(gdb) s
+Single stepping until exit from function main,
+which has no line number information.
+120
+78
+–°∂Àƒ£ Ω
+*****µ⁄∂˛÷÷∑Ω∑®**********
+–°∂Àƒ£ Ω
+0x00007ffff7a3caf5 in __libc_start_main () from /lib64/libc.so.6
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 6284] will be killed.
+
+Quit anyway? (y or n) n
+Not confirmed.
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 6284] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost c ‘¡∂]$ ls
+main  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ rm main
+[shangqi@localhost c ‘¡∂]$ cd ..
+[shangqi@localhost Linux ‘¡∂1]$ cd..
+bash: cd..: command not found...
+[shangqi@localhost Linux ‘¡∂1]$ cd ..
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  mak  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ cd
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  mak  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim testc
+[shangqi@localhost c ‘¡∂]$ ls
+Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c  testc
+[shangqi@localhost c ‘¡∂]$ rm testc
+[shangqi@localhost c ‘¡∂]$ vim Test2.c
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o main
+[shangqi@localhost c ‘¡∂]$ rm main
+[shangqi@localhost c ‘¡∂]$ gcc Test2.c -o main2
+[shangqi@localhost c ‘¡∂]$ gdb ./main2 
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/Linux ‘¡∂1/c ‘¡∂/main2...(no debugging symbols found)...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400584
+Starting program: /home/shangqi/Linux ‘¡∂1/c ‘¡∂/./main2 
+
+Temporary breakpoint 1, 0x0000000000400584 in main ()
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) n
+Single stepping until exit from function main,
+which has no line number information.
+120
+78
+–°∂Àƒ£ Ω
+*****µ⁄∂˛÷÷∑Ω∑®**********
+–°∂Àƒ£ Ω
+0x00007ffff7a3caf5 in __libc_start_main () from /lib64/libc.so.6
+(gdb) n
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 6787) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) q
+[shangqi@localhost c ‘¡∂]$ ls
+main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ vim main2 
+[shangqi@localhost c ‘¡∂]$ rm main2 
+[shangqi@localhost c ‘¡∂]$ gcc -g Test2.c -o main2
+[shangqi@localhost c ‘¡∂]$ gdb ./main2 
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/Linux ‘¡∂1/c ‘¡∂/main2...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400588: file Test2.c, line 9.
+Starting program: /home/shangqi/Linux ‘¡∂1/c ‘¡∂/./main2 
+
+Temporary breakpoint 1, main () at Test2.c:9
+9	  p.num = 0x12345678;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) n
+10	  printf("%d\n",p.a);
+(gdb) n
+120
+11	  printf("%x\n",p.a);
+(gdb) n
+78
+12	  if(p.a==0x78)
+(gdb) s
+14	   printf("–°∂Àƒ£ Ω\n");
+(gdb) n
+–°∂Àƒ£ Ω
+20	 int nums = 1;
+(gdb) l
+15	 }
+16	 else
+17	 {
+18	   printf("¥Û∂Àƒ£ Ω\n");
+19	 }
+20	 int nums = 1;
+21	 int num2 = (*(char*) &nums);
+22	 printf("*****µ⁄∂˛÷÷∑Ω∑®**********\n");
+23	 if(num2 == 1)
+24	 { 
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 6838] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost c ‘¡∂]$ cd ..
+[shangqi@localhost Linux ‘¡∂1]$ cd ..
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  mak  Makefile  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ vim mak
+[shangqi@localhost ~]$ vim Makefile
+[shangqi@localhost ~]$ rm Makefile
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  mak  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ rm mak 
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  Test1
+[shangqi@localhost Linux ‘¡∂1]$ mkdir system
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ vim Test1 
+[shangqi@localhost Linux ‘¡∂1]$ rm Test1 
+rm: remove write-protected regular empty file °ÆTest1°Ø? ^C
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 00:47:52.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
