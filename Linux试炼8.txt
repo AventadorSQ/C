@@ -1,0 +1,1064 @@
+    COMPREPLY+=($( compgen -W         "$( sed -ne 's/^\([^[:space:]#|]\{2,\}\)|.*/\1/p' /etc/termcap             2>/dev/null )" -- "$cur" ));
+    COMPREPLY+=($( compgen -W "$( { toe -a 2>/dev/null || toe 2>/dev/null; }         | awk '{ print $1 }' | sort -u )" -- "$cur" ))
+}
+_tilde () 
+{ 
+    local result=0;
+    if [[ $1 == \~* && $1 != */* ]]; then
+        COMPREPLY=($( compgen -P '~' -u "${1#\~}" ));
+        result=${#COMPREPLY[@]};
+        [[ $result -gt 0 ]] && compopt -o filenames 2> /dev/null;
+    fi;
+    return $result
+}
+_tuned_adm () 
+{ 
+    local commands="active list off profile recommend";
+    local current="${COMP_WORDS[$COMP_CWORD]}";
+    local previous="${COMP_WORDS[$COMP_CWORD-1]}";
+    if [[ $COMP_CWORD -eq 1 ]]; then
+        COMPREPLY=($(compgen -W "$commands" -- "$current" ));
+    else
+        if [[ $COMP_CWORD -eq 2 && "$previous" == "profile" ]]; then
+            COMPREPLY=($(compgen -W "$(command find /usr/lib/tuned /etc/tuned -mindepth 1 -maxdepth 1 -type d -printf "%f\n")" -- "$current" ));
+        else
+            COMPREPLY=();
+        fi;
+    fi;
+    return 0
+}
+_uids () 
+{ 
+    if type getent &>/dev/null; then
+        COMPREPLY=($( compgen -W '$( getent passwd | cut -d: -f3 )' -- "$cur" ));
+    else
+        if type perl &>/dev/null; then
+            COMPREPLY=($( compgen -W '$( perl -e '"'"'while (($uid) = (getpwent)[2]) { print $uid . "\n" }'"'"' )' -- "$cur" ));
+        else
+            COMPREPLY=($( compgen -W '$( cut -d: -f3 /etc/passwd )' -- "$cur" ));
+        fi;
+    fi
+}
+_upvar () 
+{ 
+    if unset -v "$1"; then
+        if (( $# == 2 )); then
+            eval $1=\"\$2\";
+        else
+            eval $1=\(\"\${@:2}\"\);
+        fi;
+    fi
+}
+_upvars () 
+{ 
+    if ! (( $# )); then
+        echo "${FUNCNAME[0]}: usage: ${FUNCNAME[0]} [-v varname" "value] | [-aN varname [value ...]] ..." 1>&2;
+        return 2;
+    fi;
+    while (( $# )); do
+        case $1 in 
+            -a*)
+                [[ -n ${1#-a} ]] || { 
+                    echo "bash: ${FUNCNAME[0]}: \`$1': missing" "number specifier" 1>&2;
+                    return 1
+                };
+                printf %d "${1#-a}" &>/dev/null || { 
+                    echo "bash:" "${FUNCNAME[0]}: \`$1': invalid number specifier" 1>&2;
+                    return 1
+                };
+                [[ -n "$2" ]] && unset -v "$2" && eval $2=\(\"\${@:3:${1#-a}}\"\) && shift $((${1#-a} + 2)) || { 
+                    echo "bash: ${FUNCNAME[0]}:" "\`$1${2+ }$2': missing argument(s)" 1>&2;
+                    return 1
+                }
+            ;;
+            -v)
+                [[ -n "$2" ]] && unset -v "$2" && eval $2=\"\$3\" && shift 3 || { 
+                    echo "bash: ${FUNCNAME[0]}: $1: missing" "argument(s)" 1>&2;
+                    return 1
+                }
+            ;;
+            *)
+                echo "bash: ${FUNCNAME[0]}: $1: invalid option" 1>&2;
+                return 1
+            ;;
+        esac;
+    done
+}
+_usb_ids () 
+{ 
+    COMPREPLY+=($( compgen -W         "$( PATH="$PATH:/sbin" lsusb | awk '{print $6}' )" -- "$cur" ))
+}
+_user_at_host () 
+{ 
+    local cur prev words cword;
+    _init_completion -n : || return;
+    if [[ $cur == *@* ]]; then
+        _known_hosts_real "$cur";
+    else
+        COMPREPLY=($( compgen -u -- "$cur" ));
+    fi;
+    return 0
+}
+_usergroup () 
+{ 
+    if [[ $cur = *\\\\* || $cur = *:*:* ]]; then
+        return;
+    else
+        if [[ $cur = *\\:* ]]; then
+            local prefix;
+            prefix=${cur%%*([^:])};
+            prefix=${prefix//\\};
+            local mycur="${cur#*[:]}";
+            if [[ $1 == -u ]]; then
+                _allowed_groups "$mycur";
+            else
+                local IFS='
+';
+                COMPREPLY=($( compgen -g -- "$mycur" ));
+            fi;
+            COMPREPLY=($( compgen -P "$prefix" -W "${COMPREPLY[@]}" ));
+        else
+            if [[ $cur = *:* ]]; then
+                local mycur="${cur#*:}";
+                if [[ $1 == -u ]]; then
+                    _allowed_groups "$mycur";
+                else
+                    local IFS='
+';
+                    COMPREPLY=($( compgen -g -- "$mycur" ));
+                fi;
+            else
+                if [[ $1 == -u ]]; then
+                    _allowed_users "$cur";
+                else
+                    local IFS='
+';
+                    COMPREPLY=($( compgen -u -- "$cur" ));
+                fi;
+            fi;
+        fi;
+    fi
+}
+_userland () 
+{ 
+    local userland=$( uname -s );
+    [[ $userland == @(Linux|GNU/*) ]] && userland=GNU;
+    [[ $userland == $1 ]]
+}
+_variables () 
+{ 
+    if [[ $cur =~ ^(\$\{?)([A-Za-z0-9_]*)$ ]]; then
+        [[ $cur == *{* ]] && local suffix=} || local suffix=;
+        COMPREPLY+=($( compgen -P ${BASH_REMATCH[1]} -S "$suffix" -v --             "${BASH_REMATCH[2]}" ));
+        return 0;
+    fi;
+    return 1
+}
+_xfunc () 
+{ 
+    set -- "$@";
+    local srcfile=$1;
+    shift;
+    declare -F $1 &>/dev/null || { 
+        local compdir=./completions;
+        [[ $BASH_SOURCE == */* ]] && compdir="${BASH_SOURCE%/*}/completions";
+        . "$compdir/$srcfile"
+    };
+    "$@"
+}
+_xinetd_services () 
+{ 
+    local xinetddir=/etc/xinetd.d;
+    if [[ -d $xinetddir ]]; then
+        local restore_nullglob=$(shopt -p nullglob);
+        shopt -s nullglob;
+        local -a svcs=($( printf '%s\n' $xinetddir/!($_backup_glob) ));
+        $restore_nullglob;
+        COMPREPLY+=($( compgen -W '${svcs[@]#$xinetddir/}' -- "$cur" ));
+    fi
+}
+_yu_builddep () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    _yum_complete_baseopts "$cur" "$prev" && return 0;
+    case $prev in 
+        --target)
+            declare -F _rpm_buildarchs &>/dev/null && _rpm_buildarchs;
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    if [[ $cur == -* ]]; then
+        COMPREPLY=($( compgen -W '$( _yum_baseopts 2>/dev/null )' -- "$cur" ));
+        return 0;
+    fi;
+    COMPREPLY=($( compgen -f -o plusdirs -X "!*.spec" -- "$cur" ));
+    [[ $cur != */* && $cur != ~* ]] && _yum_list all "$cur" 2> /dev/null
+}
+_yu_debug_dump () 
+{ 
+    COMPREPLY=();
+    case $3 in 
+        -h | --help)
+            return 0
+        ;;
+    esac;
+    if [[ $2 == -* ]]; then
+        COMPREPLY=($( compgen -W '--help --norepos' -- "$2" ));
+        return 0;
+    fi;
+    COMPREPLY=($( compgen -f -o plusdirs -- "$cur" ))
+}
+_yu_debuginfo_install () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    _yum_complete_baseopts "$cur" "$prev" && return 0;
+    $split && return 0;
+    if [[ $cur == -* ]]; then
+        COMPREPLY=($( compgen -W '$( _yum_baseopts 2>/dev/null )
+            --no-debuginfo-plugin' -- "$cur" ));
+        return 0;
+    fi;
+    _yum_list all "$cur"
+}
+_yu_init_completion () 
+{ 
+    if declare -F _get_comp_words_by_ref &>/dev/null; then
+        _get_comp_words_by_ref -n = cur prev words;
+    else
+        cur=$1 prev=$2 words=("${COMP_WORDS[@]}");
+    fi;
+    declare -F _split_longopt &>/dev/null && _split_longopt && split=true
+}
+_yu_package_cleanup () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    _yum_complete_baseopts "$cur" "$prev" 2> /dev/null && return 0;
+    case $prev in 
+        --leaf-regex | --qf | --queryformat)
+            return 0
+        ;;
+        --count)
+            COMPREPLY=($( compgen -W '1 2 3 4 5 6 7 8 9' -- "$cur" ));
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    COMPREPLY=($( compgen -W '$( _yum_baseopts 2>/dev/null ) --problems
+        --queryformat --orphans --dupes --cleandupes --noscripts --leaves --all
+        --leaf-regex --exclude-devel --exclude-bin --oldkernels --count
+        --keepdevel' -- "$cur" ))
+}
+_yu_repo_graph () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    case $prev in 
+        -h | --help)
+            return 0
+        ;;
+        --repoid)
+            _yum_helper repolist all "$cur" 2> /dev/null;
+            return 0
+        ;;
+        -c)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.conf' -- "$cur" ));
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    COMPREPLY=($( compgen -W '--help --repoid -c' -- "$cur" ))
+}
+_yu_repo_rss () 
+{ 
+    COMPREPLY=();
+    case $3 in 
+        -h | --help | -l | -t | -d | -r | -a)
+            return 0
+        ;;
+        -f)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.xml' -- "$cur" ));
+            return 0
+        ;;
+        -c)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.conf' -- "$cur" ));
+            return 0
+        ;;
+    esac;
+    COMPREPLY=($( compgen -W '--help -f -l -t -d -r --tempcache -g -a -c'         -- "$2" ));
+    [[ $2 == -* ]] || _yum_helper repolist all "$2" 2> /dev/null || return 0
+}
+_yu_repoclosure () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    case $prev in 
+        -h | --help | -a | --arch | --basearch | --repofrompath)
+            return 0
+        ;;
+        -c | --config)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.conf' -- "$cur" ));
+            return 0
+        ;;
+        -l | --lookaside | -r | --repoid)
+            _yum_helper repolist all "$cur" 2> /dev/null;
+            return 0
+        ;;
+        -p | --pkg)
+            _yum_list all "$cur" 2> /dev/null;
+            return 0
+        ;;
+        -g | --group)
+            _yum_helper groups list all "$cur" 2> /dev/null;
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    COMPREPLY=($( compgen -W '--help --config --arch --basearch --builddeps
+        --lookaside --repoid --tempcache --quiet --newest --repofrompath --pkg
+        --group' -- "$cur" ))
+}
+_yu_repodiff () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    case $prev in 
+        -h | --help | --version | -n | --new | -o | --old | -a | --archlist)
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    COMPREPLY=($( compgen -W '--version --help --new --old --quiet --archlist
+        --compare-arch --size --downgrade --simple' -- "$cur" ))
+}
+_yu_repomanage () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    case $prev in 
+        -h | --help)
+            return 0
+        ;;
+        -k | --keep)
+            COMPREPLY=($( compgen -W '1 2 3 4 5 6 7 8 9' -- "$cur" ));
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    if [[ $cur == -* ]]; then
+        COMPREPLY=($( compgen -W '--old --new --space --keep --nocheck
+            --help' -- "$cur" ));
+        return 0;
+    fi;
+    COMPREPLY=($( compgen -d -- "$cur" ))
+}
+_yu_repoquery () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    local word groupmode=false;
+    for word in "${words[@]}";
+    do
+        case $word in 
+            -g | --group)
+                groupmode=true;
+                break
+            ;;
+        esac;
+    done;
+    case $prev in 
+        -h | --help | --version | --qf | --queryformat | --archlist | --repofrompath | --setopt)
+            return 0
+        ;;
+        -f | --file)
+            COMPREPLY=($( compgen -f -o plusdirs -- "$cur" ));
+            return 0
+        ;;
+        -l | --list | -i | --info | -R | --requires)
+            if $groupmode; then
+                _yum_helper groups list all "$cur" 2> /dev/null;
+            else
+                declare -F _yum_atgroups &>/dev/null && _yum_atgroups "$cur" || _yum_list all "$cur" 2> /dev/null;
+            fi;
+            return 0
+        ;;
+        --grouppkgs)
+            COMPREPLY=($( compgen -W 'all default optional mandatory'                 -- "$cur" ));
+            return 0
+        ;;
+        --pkgnarrow)
+            COMPREPLY=($( compgen -W 'all available updates installed extras
+                obsoletes recent repos' -- "$cur" ));
+            return 0
+        ;;
+        --repoid)
+            _yum_helper repolist all "$cur" 2> /dev/null;
+            return 0
+        ;;
+        --enablerepo)
+            _yum_helper repolist disabled "$cur" 2> /dev/null;
+            return 0
+        ;;
+        --disablerepo)
+            _yum_helper repolist enabled "$cur" 2> /dev/null;
+            return 0
+        ;;
+        -c | --config)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.conf' -- "$cur" ));
+            return 0
+        ;;
+        --level)
+            COMPREPLY=($( compgen -W '{1..9} all' -- "$cur" ));
+            return 0
+        ;;
+        --output)
+            COMPREPLY=($( compgen -W 'text ascii-tree dot-tree' -- "$cur" ));
+            return 0
+        ;;
+        --search-fields)
+            COMPREPLY=($( compgen -W 'name summary description' -- "$cur" ));
+            return 0
+        ;;
+        --installroot)
+            COMPREPLY=($( compgen -d -- "$cur" ));
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    if [[ $cur == -* ]]; then
+        COMPREPLY=($( compgen -W '--version --help --list --info --file
+            --queryformat --groupmember --all --requires --provides --obsoletes
+            --conflicts --changelog --location --nevra --envra --nvr --source
+            --srpm --resolve --exactdeps --recursive --whatprovides
+            --whatrequires --whatobsoletes --whatconflicts --group --grouppkgs
+            --archlist --pkgnarrow --installed --show-duplicates --repoid
+            --enablerepo --disablerepo --repofrompath --plugins --quiet
+            --verbose --cache --tempcache --querytags --config --level --output
+            --search --search-fields --setopt --installroot' -- "$cur" ));
+        return 0;
+    fi;
+    declare -F _yum_atgroups &>/dev/null && _yum_atgroups "$cur" || _yum_list all "$cur" 2> /dev/null
+}
+_yu_verifytree () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    case $prev in 
+        -h | --help | -t | --testopia)
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    if [[ $cur == -* ]]; then
+        COMPREPLY=($( compgen -W '--help --checkall --testopia --treeinfo'             -- "$cur" ));
+        return 0;
+    fi;
+    COMPREPLY=($( compgen -d -- "$cur" ))
+}
+_yu_yumdb () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    case $prev in 
+        -h | --help | -version)
+            return 0
+        ;;
+        -c | --config)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.conf' -- "$cur" ));
+            return 0
+        ;;
+        shell)
+            COMPREPLY=($( compgen -f -o plusdirs -- "$cur" ));
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    if [ $COMP_CWORD -le 1 ]; then
+        COMPREPLY=($( compgen -W 'get set del rename rename-force copy search
+            exist unset info sync undeleted shell --version --help --noplugins
+            --config' -- "$cur" ));
+    fi
+}
+_yu_yumdownloader () 
+{ 
+    local cur prev words=() split=false;
+    _yu_init_completion "$2" "$3";
+    _yum_complete_baseopts "$cur" "$prev" 2> /dev/null && return 0;
+    case $prev in 
+        --destdir)
+            COMPREPLY=($( compgen -d -- "$cur" ));
+            return 0
+        ;;
+        --archlist)
+            return 0
+        ;;
+    esac;
+    $split && return 0;
+    if [[ $cur == -* ]]; then
+        COMPREPLY=($( compgen -W '$( _yum_baseopts 2>/dev/null ) --destdir
+            --urls --resolve --source --archlist' -- "$cur" ));
+        return 0;
+    fi;
+    _yum_list all "$cur"
+}
+_yum () 
+{ 
+    COMPREPLY=();
+    local yum=$1 cur=$2 prev=$3 words=("${COMP_WORDS[@]}");
+    declare -F _get_comp_words_by_ref &>/dev/null && _get_comp_words_by_ref -n = cur prev words;
+    local cmds=(check check-update clean deplist distro-sync downgrade groups help history info install list load-transaction makecache provides reinstall remove repolist search shell update upgrade version);
+    local i c cmd subcmd;
+    for ((i=1; i < ${#words[@]}-1; i++ ))
+    do
+        [[ -n $cmd ]] && subcmd=${words[i]} && break;
+        for c in ${cmds[@]} check-rpmdb distribution-synchronization erase group groupinfo groupinstall grouplist groupremove groupupdate grouperase install-na load-ts localinstall localupdate whatprovides;
+        do
+            [[ ${words[i]} == $c ]] && cmd=$c && break;
+        done;
+    done;
+    case $cmd in 
+        check | check-rpmdb)
+            COMPREPLY=($( compgen -W 'dependencies duplicates all'                 -- "$cur" ));
+            return 0
+        ;;
+        check-update | makecache | resolvedep)
+            return 0
+        ;;
+        clean)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -W 'expire-cache packages headers
+                    metadata cache dbcache all' -- "$cur" ));
+            return 0
+        ;;
+        deplist)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.[rs]pm' -- "$cur" ));
+            _yum_list all "$cur";
+            return 0
+        ;;
+        distro-sync | distribution-synchronization)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -W 'full different' -- "$cur" ));
+            _yum_list installed "$cur";
+            return 0
+        ;;
+        downgrade | reinstall)
+            if ! _yum_atgroups "$cur"; then
+                _yum_binrpmfiles "$cur";
+                _yum_list installed "$cur";
+            fi;
+            return 0
+        ;;
+        erase | remove)
+            _yum_atgroups "$cur" || _yum_list installed "$cur";
+            return 0
+        ;;
+        group*)
+            if [[ ( $cmd == groups || $cmd == group ) && $prev == $cmd ]]; then
+                COMPREPLY=($( compgen -W 'info install list remove summary'                     -- "$cur" ));
+            else
+                _yum_helper groups list all "$cur";
+            fi;
+            return 0
+        ;;
+        help)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -W '${cmds[@]}' -- "$cur" ));
+            return 0
+        ;;
+        history)
+            if [[ $prev == $cmd ]]; then
+                COMPREPLY=($( compgen -W 'info list packages-list
+                    packages-info summary addon-info redo undo rollback new
+                    sync stats' -- "$cur" ));
+                return 0;
+            fi;
+            case $subcmd in 
+                undo | repeat | addon | addon-info | rollback)
+                    if [[ $prev == $subcmd ]]; then
+                        COMPREPLY=($( compgen -W "last" -- "$cur" ));
+                        _yum_transactions;
+                    fi
+                ;;
+                redo)
+                    case $prev in 
+                        redo)
+                            COMPREPLY=($( compgen -W "force-reinstall
+                                force-remove last" -- "$cur" ));
+                            _yum_transactions
+                        ;;
+                        reinstall | force-reinstall | remove | force-remove)
+                            COMPREPLY=($( compgen -W "last" -- "$cur" ));
+                            _yum_transactions
+                        ;;
+                    esac
+                ;;
+                package-list | pkg | pkgs | pkg-list | pkgs-list | package | packages | packages-list | pkg-info | pkgs-info | package-info | packages-info)
+                    _yum_list available "$cur"
+                ;;
+                info | list | summary)
+                    if [[ $subcmd != info ]]; then
+                        COMPREPLY=($( compgen -W "all" -- "$cur" ));
+                        [[ $cur != all ]] && _yum_list available "$cur";
+                    else
+                        _yum_list available "$cur";
+                    fi;
+                    _yum_transactions
+                ;;
+                sync | synchronize)
+                    _yum_list installed "$cur"
+                ;;
+            esac;
+            return 0
+        ;;
+        info)
+            _yum_list all "$cur";
+            return 0
+        ;;
+        install)
+            if ! _yum_atgroups "$cur"; then
+                _yum_binrpmfiles "$cur";
+                _yum_list available "$cur";
+            fi;
+            return 0
+        ;;
+        install-na)
+            _yum_list available "$cur";
+            return 0
+        ;;
+        list)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -W 'all available updates installed
+                    extras obsoletes recent' -- "$cur" ));
+            return 0
+        ;;
+        load-transaction | load-ts)
+            COMPREPLY=($( compgen -f -o plusdirs -X '!*.yumtx' -- "$cur" ));
+            return 0
+        ;;
+        localinstall | localupdate)
+            _yum_binrpmfiles "$cur";
+            return 0
+        ;;
+        provides | whatprovides)
+            COMPREPLY=($( compgen -f -o plusdirs -- "$cur" ));
+            return 0
+        ;;
+        repolist)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -W 'all enabled disabled' -- "$cur" ));
+            return 0
+        ;;
+        search)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -W 'all' -- "$cur" ));
+            return 0
+        ;;
+        shell)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -f -o plusdirs -- "$cur" ));
+            return 0
+        ;;
+        update | upgrade)
+            if ! _yum_atgroups "$cur"; then
+                _yum_binrpmfiles "$cur";
+                _yum_list updates "$cur";
+            fi;
+            return 0
+        ;;
+        version)
+            [[ $prev == $cmd ]] && COMPREPLY=($( compgen -W 'all installed available nogroups
+                    grouplist groupinfo' -- "$cur" ));
+            return 0
+        ;;
+    esac;
+    local split=false;
+    declare -F _split_longopt &>/dev/null && _split_longopt && split=true;
+    _yum_complete_baseopts "$cur" "$prev" && return 0;
+    $split && return 0;
+    if [[ $cur == -* ]]; then
+        COMPREPLY=($( compgen -W '$( _yum_baseopts )' -- "$cur" ));
+        return 0;
+    fi;
+    COMPREPLY=($( compgen -W '${cmds[@]}' -- "$cur" ))
+}
+_yum_atgroups () 
+{ 
+    if [[ $1 == \@* ]]; then
+        _yum_helper groups list all "${1:1}";
+        COMPREPLY=("${COMPREPLY[@]/#/@}");
+        return 0;
+    fi;
+    return 1
+}
+_yum_baseopts () 
+{ 
+    local opts='--help --tolerant --cacheonly --config --randomwait
+        --debuglevel --showduplicates --errorlevel --rpmverbosity --quiet
+        --verbose --assumeyes --assumeno --version --installroot --enablerepo
+        --disablerepo --exclude --disableexcludes --obsoletes --noplugins
+        --nogpgcheck --skip-broken --color --releasever --setopt --downloadonly
+        --downloaddir --disableincludes';
+    [[ $COMP_LINE == *--noplugins* ]] || opts+=" --disableplugin --enableplugin";
+    printf %s "$opts"
+}
+_yum_binrpmfiles () 
+{ 
+    COMPREPLY+=($( compgen -f -o plusdirs -X '!*.rpm' -- "$1" ));
+    COMPREPLY=($( compgen -W '"${COMPREPLY[@]}"' -X '*.src.rpm' ));
+    COMPREPLY=($( compgen -W '"${COMPREPLY[@]}"' -X '*.nosrc.rpm' ))
+}
+_yum_complete_baseopts () 
+{ 
+    case $2 in 
+        -d | --debuglevel | -e | --errorlevel)
+            COMPREPLY=($( compgen -W '0 1 2 3 4 5 6 7 8 9 10' -- "$1" ));
+            return 0
+        ;;
+        --rpmverbosity)
+            COMPREPLY=($( compgen -W 'info critical emergency error warn
+                debug' -- "$1" ));
+            return 0
+        ;;
+        -c | --config)
+            COMPREPLY=($( compgen -f -o plusdirs -X "!*.conf" -- "$1" ));
+            return 0
+        ;;
+        --installroot | --downloaddir)
+            COMPREPLY=($( compgen -d -- "$1" ));
+            return 0
+        ;;
+        --enablerepo)
+            _yum_helper repolist disabled "$1";
+            return 0
+        ;;
+        --disablerepo)
+            _yum_helper repolist enabled "$1";
+            return 0
+        ;;
+        --disableexcludes | --disableincludes)
+            _yum_helper repolist all "$1";
+            local main=;
+            [[ $2 == *excludes ]] && main=main;
+            COMPREPLY=($( compgen -W '${COMPREPLY[@]} all $main' -- "$1" ));
+            return 0
+        ;;
+        --enableplugin)
+            _yum_plugins 0 "$1";
+            return 0
+        ;;
+        --disableplugin)
+            _yum_plugins 1 "$1";
+            return 0
+        ;;
+        --color)
+            COMPREPLY=($( compgen -W 'always auto never' -- "$1" ));
+            return 0
+        ;;
+        -R | --randomwait | -x | --exclude | -h | --help | --version | --releasever | --cve | --bz | --advisory | --tmprepo | --verify-filenames | --setopt)
+            return 0
+        ;;
+        --download-order)
+            COMPREPLY=($( compgen -W 'default smallestfirst largestfirst'                 -- "$1" ));
+            return 0
+        ;;
+        --override-protection)
+            _yum_list installed "$1";
+            return 0
+        ;;
+        --verify-configuration-files)
+            COMPREPLY=($( compgen -W '1 0' -- "$1" ));
+            return 0
+        ;;
+    esac;
+    return 1
+}
+_yum_helper () 
+{ 
+    local IFS='
+';
+    if [[ -n "$YUM_CACHEDIR" && "$1 $2" == "list available" ]]; then
+        for db in $(find "$YUM_CACHEDIR" -name primary_db.sqlite);
+        do
+            COMPREPLY+=($( sqlite3 "$db"                 "SELECT name||'.'||arch FROM packages WHERE name LIKE '$3%'"
+            ));
+        done;
+        return;
+    fi;
+    COMPREPLY+=($(
+        /usr/share/yum-cli/completion-helper.py -d 0 -C "$@" 2>/dev/null ))
+}
+_yum_list () 
+{ 
+    [[ $2 == */* || $2 == [.~-]* ]] && return;
+    [[ $1 != "installed" && ${#2} -lt 1 ]] && return;
+    _yum_helper list "$@"
+}
+_yum_plugins () 
+{ 
+    local val;
+    [[ $1 -eq 1 ]] && val='\(1\|yes\|true\|on\)' || val='\(0\|no\|false\|off\)';
+    COMPREPLY+=($( compgen -W '$( command grep -il "^\s*enabled\s*=\s*$val" \
+        /etc/yum/pluginconf.d/*.conf 2>/dev/null \
+        | sed -ne "s|^.*/\([^/]\{1,\}\)\.conf$|\1|p" )' -- "$2" ))
+}
+_yum_transactions () 
+{ 
+    COMPREPLY+=($( compgen -W "$( $yum -d 0 -C history 2>/dev/null |         sed -ne 's/^[[:space:]]*\([0-9]\{1,\}\).*/\1/p' )" -- "$cur" ))
+}
+command_not_found_handle () 
+{ 
+    runcnf=1;
+    retval=127;
+    [ ! -S /var/run/dbus/system_bus_socket ] && runcnf=0;
+    [ ! -x /usr/libexec/packagekitd ] && runcnf=0;
+    if [ $runcnf -eq 1 ]; then
+        /usr/libexec/pk-command-not-found $@;
+        retval=$?;
+    else
+        echo "bash: $1: command not found";
+    fi;
+    return $retval
+}
+dequote () 
+{ 
+    eval printf %s "$1" 2> /dev/null
+}
+quote () 
+{ 
+    local quoted=${1//\'/\'\\\'\'};
+    printf "'%s'" "$quoted"
+}
+quote_readline () 
+{ 
+    local quoted;
+    _quote_readline_by_ref "$1" ret;
+    printf %s "$ret"
+}
+[shangqi@localhost Linux ‘¡∂1]$ set≤Èø¥ª∑æ≥±‰¡ø^C
+[shangqi@localhost Linux ‘¡∂1]$ echo PWD
+PWD
+[shangqi@localhost Linux ‘¡∂1]$ echo $PWD
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ echo≤Èø¥ª∑æ≥±‰¡ø^C
+[shangqi@localhost Linux ‘¡∂1]$ MYVAL=1000
+[shangqi@localhost Linux ‘¡∂1]$ ENV |grep MYVAL
+bash: ENV: command not found...
+Similar command is: 'env'
+[shangqi@localhost Linux ‘¡∂1]$ export MYVAL=1000
+[shangqi@localhost Linux ‘¡∂1]$ env | grep MYVAL
+MYVAL=1000
+[shangqi@localhost Linux ‘¡∂1]$ export…˘√˜^C
+bash: export…˘√˜: command not found...
+[shangqi@localhost Linux ‘¡∂1]$ unset MYVAL
+[shangqi@localhost Linux ‘¡∂1]$ env | grep MYVAL
+[shangqi@localhost Linux ‘¡∂1]$ unset“∆≥˝ª∑æ≥±‰¡ø^C
+[shangqi@localhost Linux ‘¡∂1]$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin
+[shangqi@localhost Linux ‘¡∂1]$ pwd
+/home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ echo $PATH ^C
+[shangqi@localhost Linux ‘¡∂1]$ echo $PATH /home/shangqi/Linux ‘¡∂1
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin /home/shangqi/Linux ‘¡∂1
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ main.c
+bash: main.c: command not found...
+[shangqi@localhost Linux ‘¡∂1]$ vim Test1
+
+/bin/bash: q: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+/bin/bash: q: command not found
+
+shell returned 127
+
+Press ENTER or type command to continue
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ echo $PATH ^C
+[shangqi@localhost c ‘¡∂]$ pwd
+/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ echo $PATH /home/shangqi/Linux ‘¡∂1/c ‘¡∂
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin /home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ main2
+bash: main2: command not found...
+[shangqi@localhost c ‘¡∂]$ vim main2
+[shangqi@localhost c ‘¡∂]$ gcc Test1.c -o main
+[shangqi@localhost c ‘¡∂]$ main
+bash: main: command not found...
+[shangqi@localhost c ‘¡∂]$ ./main
+hello world
+hello world
+[shangqi@localhost c ‘¡∂]$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin
+[shangqi@localhost c ‘¡∂]$ pwd
+/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ echo $PATH /home/shangqi/Linux ‘¡∂1/c ‘¡∂
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin /home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ main
+bash: main: command not found...
+[shangqi@localhost c ‘¡∂]$ echo $PATH=/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin=/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ main
+bash: main: command not found...
+[shangqi@localhost c ‘¡∂]$ echo $PATH /home/shangqi/Linux ‘¡∂1/c ‘¡∂
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin /home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ export PATH=$PATH:/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin:/home/shangqi/Linux ‘¡∂1/c ‘¡∂
+[shangqi@localhost c ‘¡∂]$ main
+hello world
+hello world
+[shangqi@localhost c ‘¡∂]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 16:25:04.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Could not connect to '192.168.166.130' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Could not connect to '192.168.166.130' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sat Dec 29 22:29:11 2018 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$  cd git
+[shangqi@localhost git]$ git clone https://github.com/AventadorSQ/Linux.git
+bash: git: command not found...
+[shangqi@localhost git]$ yu
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 17:57:12.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Dec 30 01:24:48 2018 from 192.168.166.1
+[shangqi@localhost ~]$ yum install git
+Loaded plugins: fastestmirror, langpacks
+You need to be root to perform this command.
+[shangqi@localhost ~]$ sudo yum install git
+[sudo] password for shangqi: 
+Loaded plugins: fastestmirror, langpacks
+base                                                                                                                                                                | 3.6 kB  00:00:00     
+extras                                                                                                                                                              | 3.4 kB  00:00:00     
+updates                                                                                                                                                             | 3.4 kB  00:00:00     
+Loading mirror speeds from cached hostfile
+ * base: mirror.lzu.edu.cn
+ * extras: ftp.sjtu.edu.cn
+ * updates: ftp.sjtu.edu.cn
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:1.8.3.1-20.el7 will be installed
+--> Processing Dependency: perl-Git = 1.8.3.1-20.el7 for package: git-1.8.3.1-20.el7.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-1.8.3.1-20.el7.x86_64
+--> Processing Dependency: perl(Git) for package: git-1.8.3.1-20.el7.x86_64
+--> Processing Dependency: perl(Error) for package: git-1.8.3.1-20.el7.x86_64
+--> Running transaction check
+---> Package perl-Error.noarch 1:0.17020-2.el7 will be installed
+---> Package perl-Git.noarch 0:1.8.3.1-20.el7 will be installed
+---> Package perl-TermReadKey.x86_64 0:2.30-20.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================================================
+ Package                                           Arch                                    Version                                          Repository                                Size
+===========================================================================================================================================================================================
+Installing:
+ git                                               x86_64                                  1.8.3.1-20.el7                                   updates                                  4.4 M
+Installing for dependencies:
+ perl-Error                                        noarch                                  1:0.17020-2.el7                                  base                                      32 k
+ perl-Git                                          noarch                                  1.8.3.1-20.el7                                   updates                                   55 k
+ perl-TermReadKey                                  x86_64                                  2.30-20.el7                                      base                                      31 k
+
+Transaction Summary
+===========================================================================================================================================================================================
+Install  1 Package (+3 Dependent packages)
+
+Total download size: 4.5 M
+Installed size: 22 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/4): perl-Git-1.8.3.1-20.el7.noarch.rpm                                                                                                                           |  55 kB  00:00:00     
+(2/4): perl-Error-0.17020-2.el7.noarch.rpm                                                                                                                          |  32 kB  00:00:00     
+git-1.8.3.1-20.el7.x86_64.rpm  FAILED                                          
+http://ftp.sjtu.edu.cn/centos/7.6.1810/updates/x86_64/Packages/git-1.8.3.1-20.el7.x86_64.rpm: [Errno 14] curl#7 - "Failed to connect to 2001:da8:8000:6023::230: Network is unreachable"TA 
+Trying other mirror.
+perl-TermReadKey-2.30-20.el7.x FAILED                                          16% [===========-                                                         ]  66 kB/s | 779 kB  00:00:58 ETA 
+http://mirrors.shu.edu.cn/centos/7.6.1810/os/x86_64/Packages/perl-TermReadKey-2.30-20.el7.x86_64.rpm: [Errno 14] curl#7 - "Failed connect to mirrors.shu.edu.cn:80; Connection refused"ETA 
+Trying other mirror.
+(3/4): perl-TermReadKey-2.30-20.el7.x86_64.rpm                                                                                                                      |  31 kB  00:00:00     
+(4/4): git-1.8.3.1-20.el7.x86_64.rpm                                                                                                                                | 4.4 MB  00:00:36     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                       87 kB/s | 4.5 MB  00:00:53     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:perl-Error-0.17020-2.el7.noarch                                                                                                                                       1/4 
+  Installing : perl-TermReadKey-2.30-20.el7.x86_64                                                                                                                                     2/4 
+  Installing : git-1.8.3.1-20.el7.x86_64                                                                                                                                               3/4 
+  Installing : perl-Git-1.8.3.1-20.el7.noarch                                                                                                                                          4/4 
+  Verifying  : perl-Git-1.8.3.1-20.el7.noarch                                                                                                                                          1/4 
+  Verifying  : 1:perl-Error-0.17020-2.el7.noarch                                                                                                                                       2/4 
+  Verifying  : git-1.8.3.1-20.el7.x86_64                                                                                                                                               3/4 
+  Verifying  : perl-TermReadKey-2.30-20.el7.x86_64                                                                                                                                     4/4 
+
+Installed:
+  git.x86_64 0:1.8.3.1-20.el7                                                                                                                                                              
+
+Dependency Installed:
+  perl-Error.noarch 1:0.17020-2.el7                            perl-Git.noarch 0:1.8.3.1-20.el7                            perl-TermReadKey.x86_64 0:2.30-20.el7                           
+
+Complete!
+[shangqi@localhost ~]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd git
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost git]$ git add Test1.c
+fatal: Not a git repository (or any of the parent directories): .git
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost git]$ git --version
+git version 1.8.3.1
+[shangqi@localhost git]$ 
+[shangqi@localhost git]$ 
