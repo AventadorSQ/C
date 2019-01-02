@@ -1,0 +1,516 @@
+[shangqi@localhost ~]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost ~]$ ls
+Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd git
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost git]$ git add Test1.c
+fatal: Not a git repository (or any of the parent directories): .git
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost git]$ git --version
+git version 1.8.3.1
+[shangqi@localhost git]$ 
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ git git config --global http.sslVerify false
+git: 'git' is not a git command. See 'git --help'.
+
+Did you mean this?
+	init
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ git clone git://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+warning: You appear to have cloned an empty repository.
+[shangqi@localhost git]$ ks
+bash: ks: command not found...
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ git add Test1
+fatal: Not a git repository (or any of the parent directories): .git
+[shangqi@localhost git]$ cd ..
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cp Test1 main.c git/Linux/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd git/Linux/
+[shangqi@localhost Linux]$ ls
+main.c  Test1
+[shangqi@localhost Linux]$ git add ./*
+[shangqi@localhost Linux]$ git commit -m "Text1" https://github.com/AventadorSQ/Linux.git
+error: pathspec 'https:/github.com/AventadorSQ/Linux.git' did not match any file(s) known to git.
+[shangqi@localhost Linux]$ ls -a
+.  ..  .git  main.c  Test1
+[shangqi@localhost Linux]$ ls -a -git/
+ls: invalid option -- '/'
+Try 'ls --help' for more information.
+[shangqi@localhost Linux]$ ls -a .git/
+.  ..  branches  config  description  HEAD  hooks  index  info  objects  refs
+[shangqi@localhost Linux]$ ls -a .git/
+.  ..  branches  config  description  HEAD  hooks  index  info  objects  refs
+[shangqi@localhost Linux]$ vi .git/config
+[shangqi@localhost Linux]$ ls
+main.c  Test1
+[shangqi@localhost Linux]$ git commit -m "TestLinux"
+[master (root-commit) 155b371] TestLinux
+ Committer: Linux <shangqi@localhost.localdomain>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 6 insertions(+)
+ create mode 100644 Test1
+ create mode 100644 main.c
+[shangqi@localhost Linux]$ git push origin master
+fatal: remote error: 
+  You can't push to git://github.com/AventadorSQ/Linux.git
+  Use https://github.com/AventadorSQ/Linux.git
+[shangqi@localhost Linux]$ 
+[shangqi@localhost Linux]$ 
+[shangqi@localhost Linux]$ 
+[shangqi@localhost Linux]$ 
+[shangqi@localhost Linux]$ cd ..
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ cd ..
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost c ‘¡∂]$ git -v
+Unknown option: -v
+usage: git [--version] [--help] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+[shangqi@localhost c ‘¡∂]$ git --version
+git version 1.8.3.1
+[shangqi@localhost c ‘¡∂]$ git clone https://github.com/AventadorSQ/Linux.git^C
+[shangqi@localhost c ‘¡∂]$ ls
+main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ 
+[shangqi@localhost c ‘¡∂]$ 
+[shangqi@localhost c ‘¡∂]$ cd ..
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd git/
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ cd ..
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  FileTest  git  main.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd c ‘¡∂/
+[shangqi@localhost c ‘¡∂]$ ls
+main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ ;ls -a
+-bash: syntax error near unexpected token `;'
+[shangqi@localhost c ‘¡∂]$ ls -a
+.  ..  main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  .Test5.c.swp  Test6.c
+[shangqi@localhost c ‘¡∂]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost c ‘¡∂]$ sudo yum list|grep git
+[sudo] password for shangqi: 
+Sorry, try again.
+[sudo] password for shangqi: 
+ModemManager.x86_64                        1.1.0-6.git20130913.el7     @anaconda
+ModemManager-glib.x86_64                   1.1.0-6.git20130913.el7     @anaconda
+NetworkManager.x86_64                      1:0.9.9.1-13.git20140326.4dba720.el7
+NetworkManager-glib.x86_64                 1:0.9.9.1-13.git20140326.4dba720.el7
+NetworkManager-tui.x86_64                  1:0.9.9.1-13.git20140326.4dba720.el7
+crontabs.noarch                            1.11-6.20121102git.el7      @anaconda
+git.x86_64                                 1.8.3.1-20.el7              @updates 
+ipxe-roms-qemu.noarch                      20130517-5.gitc4bce43.el7   @anaconda
+libertas-sd8686-firmware.noarch            20140213-0.3.git4164c23.el7 @anaconda
+libertas-sd8787-firmware.noarch            20140213-0.3.git4164c23.el7 @anaconda
+libertas-usb8388-firmware.noarch           2:20140213-0.3.git4164c23.el7
+libmbim.x86_64                             1.5.0-3.20130815git.el7     @anaconda
+libnm-gtk.x86_64                           0.9.9.0-15.git20140307.el7  @anaconda
+linux-firmware.noarch                      20140213-0.3.git4164c23.el7 @anaconda
+lockdev.x86_64                             1.0.4-0.13.20111007git.el7  @anaconda
+net-tools.x86_64                           2.0-0.17.20131004git.el7    @anaconda
+nm-connection-editor.x86_64                0.9.9.0-15.git20140307.el7  @anaconda
+numad.x86_64                               0.5-13.20140225git.el7      @anaconda
+taglib.x86_64                              1.8-7.20130218git.el7       @anaconda
+xdg-utils.noarch                           1.1.0-0.16.20120809git.el7  @anaconda
+xorg-x11-drv-ati.x86_64                    7.2.0-9.20140113git3213df1.el7
+xorg-x11-glamor.x86_64                     0.5.1-4.20140115gitfb4d046c.el7
+LibRaw.i686                                0.14.8-5.el7.20120830git98d925
+LibRaw.x86_64                              0.14.8-5.el7.20120830git98d925
+LibRaw-devel.i686                          0.14.8-5.el7.20120830git98d925
+LibRaw-devel.x86_64                        0.14.8-5.el7.20120830git98d925
+LibRaw-static.i686                         0.14.8-5.el7.20120830git98d925
+LibRaw-static.x86_64                       0.14.8-5.el7.20120830git98d925
+OVMF.noarch                                20180508-3.gitee3198e672e2.el7
+atomic.x86_64                              1:1.22.1-26.gitb507039.el7.centos
+atomic-registries.x86_64                   1:1.22.1-26.gitb507039.el7.centos
+booth.x86_64                               1.0-8.ef769ef.git.el7       base     
+booth-arbitrator.noarch                    1.0-8.ef769ef.git.el7       base     
+booth-core.x86_64                          1.0-8.ef769ef.git.el7       base     
+booth-site.noarch                          1.0-8.ef769ef.git.el7       base     
+booth-test.noarch                          1.0-8.ef769ef.git.el7       base     
+buildah.x86_64                             1.4-3.gitc8ed967.el7        extras   
+cadvisor.x86_64                            0.4.1-0.3.git6906a8ce.el7   extras   
+container-storage-setup.noarch             0.11.0-2.git5eaf76c.el7     extras   
+containers-common.x86_64                   1:0.1.31-7.gitb0b750d.el7.centos
+docker.x86_64                              2:1.13.1-88.git07f3374.el7.centos
+docker-client.x86_64                       2:1.13.1-88.git07f3374.el7.centos
+docker-client-latest.x86_64                1.13.1-58.git87f2fab.el7.centos
+docker-common.x86_64                       2:1.13.1-88.git07f3374.el7.centos
+docker-distribution.x86_64                 2.6.2-2.git48294d9.el7      extras   
+docker-latest.x86_64                       1.13.1-58.git87f2fab.el7.centos
+docker-latest-logrotate.x86_64             1.13.1-58.git87f2fab.el7.centos
+docker-latest-v1.10-migrator.x86_64        1.13.1-58.git87f2fab.el7.centos
+docker-logrotate.x86_64                    2:1.13.1-88.git07f3374.el7.centos
+docker-lvm-plugin.x86_64                   2:1.13.1-88.git07f3374.el7.centos
+docker-novolume-plugin.x86_64              2:1.13.1-88.git07f3374.el7.centos
+docker-v1.10-migrator.x86_64               2:1.13.1-88.git07f3374.el7.centos
+emacs-git.noarch                           1.8.3.1-20.el7              updates  
+emacs-git-el.noarch                        1.8.3.1-20.el7              updates  
+git-all.noarch                             1.8.3.1-20.el7              updates  
+git-bzr.noarch                             1.8.3.1-20.el7              updates  
+git-cvs.noarch                             1.8.3.1-20.el7              updates  
+git-daemon.x86_64                          1.8.3.1-20.el7              updates  
+git-email.noarch                           1.8.3.1-20.el7              updates  
+git-gnome-keyring.x86_64                   1.8.3.1-20.el7              updates  
+git-gui.noarch                             1.8.3.1-20.el7              updates  
+git-hg.noarch                              1.8.3.1-20.el7              updates  
+git-instaweb.noarch                        1.8.3.1-20.el7              updates  
+git-p4.noarch                              1.8.3.1-20.el7              updates  
+git-svn.x86_64                             1.8.3.1-20.el7              updates  
+gitk.noarch                                1.8.3.1-20.el7              updates  
+gitweb.noarch                              1.8.3.1-20.el7              updates  
+gomtree.x86_64                             0.5.0-0.2.git16da0f8.el7    extras   
+hyperv-daemons.x86_64                      0-0.34.20180415git.el7      base     
+hyperv-daemons-license.noarch              0-0.34.20180415git.el7      base     
+hyperv-tools.noarch                        0-0.34.20180415git.el7      base     
+hypervfcopyd.x86_64                        0-0.34.20180415git.el7      base     
+hypervkvpd.x86_64                          0-0.34.20180415git.el7      base     
+hypervvssd.x86_64                          0-0.34.20180415git.el7      base     
+ipxe-bootimgs.noarch                       20170123-1.git4e85b27.el7_4.1
+ipxe-roms.noarch                           20170123-1.git4e85b27.el7_4.1
+ipxe-roms-qemu.noarch                      20170123-1.git4e85b27.el7_4.1
+jboss-annotations-1.1-api.noarch           1.0.1-0.6.20120212git76e1a2.el7
+jboss-annotations-1.1-api-javadoc.noarch   1.0.1-0.6.20120212git76e1a2.el7
+jboss-el-2.2-api.noarch                    1.0.1-0.7.20120212git2fabd8.el7
+jboss-el-2.2-api-javadoc.noarch            1.0.1-0.7.20120212git2fabd8.el7
+jboss-interceptors-1.1-api.noarch          1.0.2-0.9.20120319git49a904.el7
+jboss-interceptors-1.1-api-javadoc.noarch  1.0.2-0.9.20120319git49a904.el7
+kacst-digital-fonts.noarch                 2.0-12.el7                  base     
+kubernetes.x86_64                          1.5.2-0.7.git269f928.el7    extras   
+kubernetes-client.x86_64                   1.5.2-0.7.git269f928.el7    extras   
+kubernetes-master.x86_64                   1.5.2-0.7.git269f928.el7    extras   
+kubernetes-node.x86_64                     1.5.2-0.7.git269f928.el7    extras   
+libgit2.x86_64                             0.26.6-1.el7                extras   
+libgit2-devel.x86_64                       0.26.6-1.el7                extras   
+libgit2-glib.x86_64                        0.26.4-8.el7                extras   
+libgit2-glib-devel.x86_64                  0.26.4-8.el7                extras   
+libglvnd.i686                              1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd.x86_64                            1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-core-devel.i686                   1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-core-devel.x86_64                 1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-devel.i686                        1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-devel.x86_64                      1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-egl.i686                          1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-egl.x86_64                        1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-gles.i686                         1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-gles.x86_64                       1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-glx.i686                          1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-glx.x86_64                        1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-opengl.i686                       1:1.0.1-0.8.git5baa1e5.el7  base     
+libglvnd-opengl.x86_64                     1:1.0.1-0.8.git5baa1e5.el7  base     
+libwsman-devel.i686                        2.6.3-4.git4391e5c.el7      base     
+libwsman-devel.x86_64                      2.6.3-4.git4391e5c.el7      base     
+libwsman1.i686                             2.6.3-4.git4391e5c.el7      base     
+libwsman1.x86_64                           2.6.3-4.git4391e5c.el7      base     
+linux-firmware.noarch                      20180911-69.git85c5d90.el7  base     
+lldpad.i686                                1.0.1-3.git036e314.el7      base     
+lldpad.x86_64                              1.0.1-3.git036e314.el7      base     
+lldpad-devel.i686                          1.0.1-3.git036e314.el7      base     
+lldpad-devel.x86_64                        1.0.1-3.git036e314.el7      base     
+lm_sensors.x86_64                          3.4.0-6.20160601gitf9185e5.el7
+lm_sensors-devel.i686                      3.4.0-6.20160601gitf9185e5.el7
+lm_sensors-devel.x86_64                    3.4.0-6.20160601gitf9185e5.el7
+lm_sensors-libs.i686                       3.4.0-6.20160601gitf9185e5.el7
+lm_sensors-libs.x86_64                     3.4.0-6.20160601gitf9185e5.el7
+lm_sensors-sensord.x86_64                  3.4.0-6.20160601gitf9185e5.el7
+lockdev.i686                               1.0.4-0.13.20111007git.el7  base     
+lockdev-devel.i686                         1.0.4-0.13.20111007git.el7  base     
+lockdev-devel.x86_64                       1.0.4-0.13.20111007git.el7  base     
+net-tools.x86_64                           2.0-0.24.20131004git.el7    base     
+numad.x86_64                               0.5-18.20150602git.el7      base     
+ocaml-camlp4.x86_64                        4.05.0-0.4.gitfc12d8c7.el7  base     
+ocaml-camlp4-devel.x86_64                  4.05.0-0.4.gitfc12d8c7.el7  base     
+oci-register-machine.x86_64                1:0-6.git2b44233.el7        extras   
+oci-systemd-hook.x86_64                    1:0.1.18-2.git3efe246.el7   extras   
+oci-umount.x86_64                          2:2.3.4-2.git87f9237.el7    extras   
+opensc.i686                                0.16.0-10.20170227git777e2a3.el7
+opensc.x86_64                              0.16.0-10.20170227git777e2a3.el7
+openwsman-client.i686                      2.6.3-4.git4391e5c.el7      base     
+openwsman-client.x86_64                    2.6.3-4.git4391e5c.el7      base     
+openwsman-perl.x86_64                      2.6.3-4.git4391e5c.el7      base     
+openwsman-python.x86_64                    2.6.3-4.git4391e5c.el7      base     
+openwsman-ruby.x86_64                      2.6.3-4.git4391e5c.el7      base     
+openwsman-server.i686                      2.6.3-4.git4391e5c.el7      base     
+openwsman-server.x86_64                    2.6.3-4.git4391e5c.el7      base     
+podman.x86_64                              0.11.1.1-3.git594495d.el7.centos
+podman-docker.noarch                       0.11.1.1-3.git594495d.el7.centos
+polkit-kde.x86_64                          0.99.1-4.20130311git.el7    base     
+pps-tools.x86_64                           0-0.9.20120407git0deb9c.el7 base     
+pps-tools-devel.i686                       0-0.9.20120407git0deb9c.el7 base     
+pps-tools-devel.x86_64                     0-0.9.20120407git0deb9c.el7 base     
+python-dns.noarch                          1.12.0-4.20150617git465785f.el7
+python-pillow.i686                         2.0.0-19.gitd1c6db8.el7     base     
+python-pillow.x86_64                       2.0.0-19.gitd1c6db8.el7     base     
+python-pillow-devel.i686                   2.0.0-19.gitd1c6db8.el7     base     
+python-pillow-devel.x86_64                 2.0.0-19.gitd1c6db8.el7     base     
+python-pillow-doc.x86_64                   2.0.0-19.gitd1c6db8.el7     base     
+python-pillow-qt.x86_64                    2.0.0-19.gitd1c6db8.el7     base     
+python-pillow-sane.x86_64                  2.0.0-19.gitd1c6db8.el7     base     
+python-pillow-tk.x86_64                    2.0.0-19.gitd1c6db8.el7     base     
+python-pyelftools.noarch                   0.22-0.5.git20130619.a1d9681.el7
+python-pytoml.noarch                       0.1.14-1.git7dea353.el7     extras   
+runc.x86_64                                1.0.0-57.dev.git2abd837.el7.centos
+screen.x86_64                              4.1.0-0.25.20120314git3c2946.el7
+skopeo.x86_64                              1:0.1.31-7.gitb0b750d.el7.centos
+skopeo-containers.x86_64                   1:0.1.31-1.dev.gitae64ff7.el7.centos
+squashfs-tools.x86_64                      4.3-0.21.gitaae0aff4.el7    base     
+taglib.i686                                1.8-7.20130218git.el7       base     
+taglib-devel.i686                          1.8-7.20130218git.el7       base     
+taglib-devel.x86_64                        1.8-7.20130218git.el7       base     
+taglib-doc.noarch                          1.8-7.20130218git.el7       base     
+urlview.x86_64                             0.9-15.20121210git6cfcad.el7
+xdg-utils.noarch                           1.1.0-0.17.20120809git.el7  base     
+[shangqi@localhost c ‘¡∂]$ 
+[shangqi@localhost c ‘¡∂]$ 
+[shangqi@localhost c ‘¡∂]$ 
+[shangqi@localhost c ‘¡∂]$ ls
+main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Peer reports incompatible or unsupported protocol version.
+[shangqi@localhost c ‘¡∂]$ sudo yum update -y nss curl libcurl
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirror.lzu.edu.cn
+ * extras: ftp.sjtu.edu.cn
+ * updates: ftp.sjtu.edu.cn
+Resolving Dependencies
+--> Running transaction check
+---> Package curl.x86_64 0:7.29.0-19.el7 will be updated
+---> Package curl.x86_64 0:7.29.0-51.el7 will be an update
+---> Package libcurl.x86_64 0:7.29.0-19.el7 will be updated
+---> Package libcurl.x86_64 0:7.29.0-51.el7 will be an update
+--> Processing Dependency: nss-pem(x86-64) >= 1.0.3-5 for package: libcurl-7.29.0-51.el7.x86_64
+---> Package nss.x86_64 0:3.15.4-6.el7 will be updated
+--> Processing Dependency: nss = 3.15.4-6.el7 for package: nss-sysinit-3.15.4-6.el7.x86_64
+--> Processing Dependency: nss(x86-64) = 3.15.4-6.el7 for package: nss-tools-3.15.4-6.el7.x86_64
+---> Package nss.x86_64 0:3.36.0-7.el7_5 will be an update
+--> Processing Dependency: nss-util >= 3.36.0-1 for package: nss-3.36.0-7.el7_5.x86_64
+--> Processing Dependency: nss-softokn(x86-64) >= 3.36.0-1 for package: nss-3.36.0-7.el7_5.x86_64
+--> Processing Dependency: nspr >= 4.19.0 for package: nss-3.36.0-7.el7_5.x86_64
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.31)(64bit) for package: nss-3.36.0-7.el7_5.x86_64
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.24)(64bit) for package: nss-3.36.0-7.el7_5.x86_64
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.21)(64bit) for package: nss-3.36.0-7.el7_5.x86_64
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.17.1)(64bit) for package: nss-3.36.0-7.el7_5.x86_64
+--> Running transaction check
+---> Package nspr.x86_64 0:4.10.2-4.el7 will be updated
+---> Package nspr.x86_64 0:4.19.0-1.el7_5 will be an update
+---> Package nss-pem.x86_64 0:1.0.3-5.el7 will be installed
+---> Package nss-softokn.x86_64 0:3.15.4-2.el7 will be updated
+---> Package nss-softokn.x86_64 0:3.36.0-5.el7_5 will be an update
+--> Processing Dependency: nss-softokn-freebl(x86-64) >= 3.36.0-5.el7_5 for package: nss-softokn-3.36.0-5.el7_5.x86_64
+---> Package nss-sysinit.x86_64 0:3.15.4-6.el7 will be updated
+---> Package nss-sysinit.x86_64 0:3.36.0-7.el7_5 will be an update
+---> Package nss-tools.x86_64 0:3.15.4-6.el7 will be updated
+---> Package nss-tools.x86_64 0:3.36.0-7.el7_5 will be an update
+---> Package nss-util.x86_64 0:3.15.4-2.el7 will be updated
+---> Package nss-util.x86_64 0:3.36.0-1.el7_5 will be an update
+--> Running transaction check
+---> Package nss-softokn-freebl.x86_64 0:3.15.4-2.el7 will be updated
+---> Package nss-softokn-freebl.x86_64 0:3.36.0-5.el7_5 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================================================================================================================
+ Package                                             Arch                                    Version                                           Repository                             Size
+===========================================================================================================================================================================================
+Updating:
+ curl                                                x86_64                                  7.29.0-51.el7                                     base                                  269 k
+ libcurl                                             x86_64                                  7.29.0-51.el7                                     base                                  221 k
+ nss                                                 x86_64                                  3.36.0-7.el7_5                                    base                                  835 k
+Installing for dependencies:
+ nss-pem                                             x86_64                                  1.0.3-5.el7                                       base                                   74 k
+Updating for dependencies:
+ nspr                                                x86_64                                  4.19.0-1.el7_5                                    base                                  127 k
+ nss-softokn                                         x86_64                                  3.36.0-5.el7_5                                    base                                  315 k
+ nss-softokn-freebl                                  x86_64                                  3.36.0-5.el7_5                                    base                                  222 k
+ nss-sysinit                                         x86_64                                  3.36.0-7.el7_5                                    base                                   62 k
+ nss-tools                                           x86_64                                  3.36.0-7.el7_5                                    base                                  515 k
+ nss-util                                            x86_64                                  3.36.0-1.el7_5                                    base                                   78 k
+
+Transaction Summary
+===========================================================================================================================================================================================
+Install             ( 1 Dependent package)
+Upgrade  3 Packages (+6 Dependent packages)
+
+Total size: 2.7 M
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : nspr-4.19.0-1.el7_5.x86_64                                                                                                                                             1/19 
+  Updating   : nss-util-3.36.0-1.el7_5.x86_64                                                                                                                                         2/19 
+  Updating   : nss-softokn-freebl-3.36.0-5.el7_5.x86_64                                                                                                                               3/19 
+  Updating   : nss-softokn-3.36.0-5.el7_5.x86_64                                                                                                                                      4/19 
+  Installing : nss-pem-1.0.3-5.el7.x86_64                                                                                                                                             5/19 
+  Updating   : nss-3.36.0-7.el7_5.x86_64                                                                                                                                              6/19 
+  Updating   : nss-sysinit-3.36.0-7.el7_5.x86_64                                                                                                                                      7/19 
+  Updating   : libcurl-7.29.0-51.el7.x86_64                                                                                                                                           8/19 
+  Updating   : curl-7.29.0-51.el7.x86_64                                                                                                                                              9/19 
+  Updating   : nss-tools-3.36.0-7.el7_5.x86_64                                                                                                                                       10/19 
+  Cleanup    : nss-tools-3.15.4-6.el7.x86_64                                                                                                                                         11/19 
+  Cleanup    : curl-7.29.0-19.el7.x86_64                                                                                                                                             12/19 
+  Cleanup    : libcurl-7.29.0-19.el7.x86_64                                                                                                                                          13/19 
+  Cleanup    : nss-3.15.4-6.el7.x86_64                                                                                                                                               14/19 
+  Cleanup    : nss-sysinit-3.15.4-6.el7.x86_64                                                                                                                                       15/19 
+  Cleanup    : nss-softokn-3.15.4-2.el7.x86_64                                                                                                                                       16/19 
+  Cleanup    : nss-util-3.15.4-2.el7.x86_64                                                                                                                                          17/19 
+  Cleanup    : nspr-4.10.2-4.el7.x86_64                                                                                                                                              18/19 
+  Cleanup    : nss-softokn-freebl-3.15.4-2.el7.x86_64                                                                                                                                19/19 
+  Verifying  : nss-sysinit-3.36.0-7.el7_5.x86_64                                                                                                                                      1/19 
+  Verifying  : nss-util-3.36.0-1.el7_5.x86_64                                                                                                                                         2/19 
+  Verifying  : nspr-4.19.0-1.el7_5.x86_64                                                                                                                                             3/19 
+  Verifying  : nss-pem-1.0.3-5.el7.x86_64                                                                                                                                             4/19 
+  Verifying  : curl-7.29.0-51.el7.x86_64                                                                                                                                              5/19 
+  Verifying  : nss-tools-3.36.0-7.el7_5.x86_64                                                                                                                                        6/19 
+  Verifying  : libcurl-7.29.0-51.el7.x86_64                                                                                                                                           7/19 
+  Verifying  : nss-3.36.0-7.el7_5.x86_64                                                                                                                                              8/19 
+  Verifying  : nss-softokn-3.36.0-5.el7_5.x86_64                                                                                                                                      9/19 
+  Verifying  : nss-softokn-freebl-3.36.0-5.el7_5.x86_64                                                                                                                              10/19 
+  Verifying  : nss-tools-3.15.4-6.el7.x86_64                                                                                                                                         11/19 
+  Verifying  : nss-softokn-3.15.4-2.el7.x86_64                                                                                                                                       12/19 
+  Verifying  : curl-7.29.0-19.el7.x86_64                                                                                                                                             13/19 
+  Verifying  : nss-util-3.15.4-2.el7.x86_64                                                                                                                                          14/19 
+  Verifying  : nss-softokn-freebl-3.15.4-2.el7.x86_64                                                                                                                                15/19 
+  Verifying  : nss-3.15.4-6.el7.x86_64                                                                                                                                               16/19 
+  Verifying  : nspr-4.10.2-4.el7.x86_64                                                                                                                                              17/19 
+  Verifying  : libcurl-7.29.0-19.el7.x86_64                                                                                                                                          18/19 
+  Verifying  : nss-sysinit-3.15.4-6.el7.x86_64                                                                                                                                       19/19 
+
+Dependency Installed:
+  nss-pem.x86_64 0:1.0.3-5.el7                                                                                                                                                             
+
+Updated:
+  curl.x86_64 0:7.29.0-51.el7                                  libcurl.x86_64 0:7.29.0-51.el7                                  nss.x86_64 0:3.36.0-7.el7_5                                 
+
+Dependency Updated:
+  nspr.x86_64 0:4.19.0-1.el7_5     nss-softokn.x86_64 0:3.36.0-5.el7_5 nss-softokn-freebl.x86_64 0:3.36.0-5.el7_5 nss-sysinit.x86_64 0:3.36.0-7.el7_5 nss-tools.x86_64 0:3.36.0-7.el7_5
+  nss-util.x86_64 0:3.36.0-1.el7_5
+
+Complete!
+[shangqi@localhost c ‘¡∂]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+warning: You appear to have cloned an empty repository.
+[shangqi@localhost c ‘¡∂]$ ls
+Linux  main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ ls Linux/
+[shangqi@localhost c ‘¡∂]$ cd Linux/
+[shangqi@localhost Linux]$ ls
+[shangqi@localhost Linux]$ cd ..
+[shangqi@localhost c ‘¡∂]$ ls
+Linux  main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost c ‘¡∂]$ cp * Linux/
+cp: omitting directory °ÆLinux°Ø
+[shangqi@localhost c ‘¡∂]$ cd Linux/
+[shangqi@localhost Linux]$ ls
+main  main2  Makefile  Test1.c  Test2.c  Test3.c  Test3.C  Test4.c  Test5.c  Test6.c
+[shangqi@localhost Linux]$ git add ./*
+[shangqi@localhost Linux]$ git commit -m "modify"
+[master (root-commit) f65eceb] modify
+ Committer: Linux <shangqi@localhost.localdomain>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 10 files changed, 130 insertions(+)
+ create mode 100644 Makefile
+ create mode 100644 Test1.c
+ create mode 100644 Test2.c
+ create mode 100644 Test3.C
+ create mode 100644 Test3.c
+ create mode 100644 Test4.c
+ create mode 100644 Test5.c
+ create mode 100755 Test6.c
+ create mode 100755 main
+ create mode 100755 main2
+[shangqi@localhost Linux]$ git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Username for 'https://github.com': AventadorSQ
+Password for 'https://AventadorSQ@github.com': 
+No refs in common and none specified; doing nothing.
+Perhaps you should specify a branch such as 'master'.
+Everything up-to-date
+[shangqi@localhost Linux]$ git push origin master
+Username for 'https://github.com': AventadorSQ
+Password for 'https://AventadorSQ@github.com': 
+Counting objects: 12, done.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (12/12), 6.08 KiB | 0 bytes/s, done.
+Total 12 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/AventadorSQ/Linux.git
+ * [new branch]      master -> master
+[shangqi@localhost Linux]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 18:53:32.
+
+Type `help' to learn how to use Xshell prompt.
