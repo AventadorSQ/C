@@ -15,7 +15,7 @@ int main()
 	//int QingkongPage = 0;//用来清理上层输出
 	//system("cls");
 	srand((unsigned int)time(NULL));
-	menu(count);
+	menu(&count);
 
 	printf("抽奖方式分为2种，输入1抽1次，输入5出5次,输入0结束抽奖\n");
 	printf("输入其它数字请重新输入。\n");
@@ -27,7 +27,7 @@ int main()
 		if (integral_1 == 0)
 		{
 			printf("本次抽奖结束\n");
-			menu(count);
+			menu(&count);
 			break;
 		}
 		if (integral_1 == 1)
@@ -35,8 +35,8 @@ int main()
 			if (integral >= 45)
 			{
 				count++;
-				count = probability(count);//调用抽奖函数1
-				menu(count);
+				count = probability(&count);//调用抽奖函数1
+				menu(&count);
 				integral -= 45;
 			}
 			else
@@ -52,8 +52,8 @@ int main()
 			if (integral >= 200)
 			{
 				count = count + 5;
-				probability_1(count);
-				menu(count);
+				probability_1(&count);
+				menu(&count);
 				integral -= 200;
 			}
 			else
@@ -71,7 +71,7 @@ int main()
 			printf("******荣耀水晶******\n");
 			printf("********************\n");
 			count = 0;
-			menu(count);
+			menu(&count);
 		}
 	}
 	system("pause");

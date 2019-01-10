@@ -9,7 +9,7 @@
 #include"KingCrystal.h"
 
 //打印菜单
-void menu(int count)
+void menu(int* count)
 {
 	printf("=======================================================================================\n");
 	printf("***************************************************************************************\n");
@@ -20,7 +20,7 @@ void menu(int count)
 	printf("***** ┣   荣耀水晶  ┫┣     李白    ┫┣ 铭文碎片(80)┫┣ 4级铭文:荆棘┫┣   钻石(50)  ┫ *****\n");
 	printf("***** ┗┻┻┻┻┻┻┻┻┻┻┻┻┻┛┗┻┻┻┻┻┻┻┻┻┻┻┻┻┛┗┻┻┻┻┻┻┻┻┻┻┻┻┻┛┗┻┻┻┻┻┻┻┻┻┻┻┻┻┛┗┻┻┻┻┻┻┻┻┻┻┻┻┻┛ *****\n");
 	printf("***** ┏┳┳┳┳┳┳┳┳┳┳┳┳┳┓   ┏┳┳┳┳┳┳┳┳┳┳┳┳┓                            ┏┳┳┳┳┳┳┳┳┳┳┳┳┳┓ *****\n");
-	printf("***** ┣   死神来了  ┫   ┣  幸运值:%3d┫                            ┣  英雄碎片(5)┫ *****\n", count);
+	printf("***** ┣   死神来了  ┫   ┣  幸运值:%3d┫                            ┣  英雄碎片(5)┫ *****\n", *count);
 	printf("***** ┗┻┻┻┻┻┻┻┻┻┻┻┻┻┛   ┗┻┻┻┻┻┻┻┻┻┻┻┻┛                            ┗┻┻┻┻┻┻┻┻┻┻┻┻┻┛ *****\n");
 	printf("***** ┏┳┳┳┳┳┳┳┳┳┳┳┳┳┓  ┏┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┓┏┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┳┓  ┏┳┳┳┳┳┳┳┳┳┳┳┳┳┓ *****\n");
 	printf("***** ┣     杨戬    ┫  ┣   积45买1次        ┫┣     积200买5次  ┫  ┣ 3级铭文:致命┫ *****\n");
@@ -40,7 +40,7 @@ void Clean()
 	printf("**                                                                                   **\n");
 }
 //方式1抽奖
-int probability(int count)
+int probability(int* count)
 {
 	Clean();
 	int num;
@@ -49,7 +49,7 @@ int probability(int count)
 	int static k = 0;
 MZ:
 	num = rand() % 361;
-	if (count != 360)
+	if (*count != 360)
 	{
 		if (num == 228)
 		{
@@ -126,10 +126,10 @@ MZ:
 			printf("3级铭文:致命\n");
 		}
 	}
-	return count;
+	return *count;
 }
 //方式2抽奖
-int probability_1(int count)
+int probability_1(int* count)
 {
 	Clean();
 	int i;
@@ -223,7 +223,7 @@ int probability_1(int count)
 		}
 	}
 	printf("\n");
-	return count;
+	return *count;
 }
 //充值函数
 int VoucherCenter()
