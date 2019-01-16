@@ -7,7 +7,7 @@
 //定义二叉树
 typedef struct Node
 {
-	int data;
+	char data;
 	struct Node* left;
 	struct Node* right;
 }Node;
@@ -24,8 +24,20 @@ void PostorderTraversal(Node* root);
 //4.二叉树的结点数
 int CountNode(Node* root);
 
+////4.1二叉树的节点数
+//int CountNodeS(Node* root);
+
 //5.二叉树的高度
 int BinaryHeight(Node* root);
+
+//6.求叶子结点个数
+int GetLeafSize(Node* root);
+
+//7.求第K层节点个数
+int LeaveK(Node* root, int k);
+
+//8.在树中找data，data不重复
+Node* FindData(Node* root, char data);
 
 //*****************************************************
 //2.1
@@ -47,4 +59,37 @@ bool IsBalanced(Node* root);
 //*********************************************************
 
 //3.1已知前序遍历构造二叉树（例如：A B # # D E #）
-void CreateTree(char preorder[], int size);
+
+typedef struct
+{
+	Node* root;
+	int UseCount;
+}Result;
+
+Result CreateTree(char preorder[], int size);
+
+//Node* Find(Node* root, int val)
+//{
+//	if (root == NULL)
+//	{
+//		return NULL;
+//	}
+//
+//	if (root->data == val)
+//	{
+//		return root;
+//	}
+//
+//	Node* Left = Find(root->left, val);
+//	if (Left != NULL)
+//	{
+//		return Left;
+//	}
+//
+//	Node* Right = Find(root->right, val);
+//	if (Right != NULL)
+//	{
+//		return Right;
+//	}
+//	return NULL;
+//}
