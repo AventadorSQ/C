@@ -1,5 +1,6 @@
 #include"LinkList.h"
 
+//创建新节点
 LinkNode* CreateNode(DataType Data)
 {
 	LinkNode* NewNode = (LinkNode*)malloc(sizeof(LinkNode));
@@ -10,6 +11,7 @@ LinkNode* CreateNode(DataType Data)
 	return NewNode;
 }
 
+//初步复制链表结点且合并为一条链表
 void CopyNewNode(LinkNode* Head)
 {
 	LinkNode* ptr = Head;
@@ -25,6 +27,7 @@ void CopyNewNode(LinkNode* Head)
 
 }
 
+//将新链表的随机指针进行相应指向
 void CopyRandom(LinkNode* Head)
 {
 	LinkNode* Ptr = Head;
@@ -41,6 +44,7 @@ void CopyRandom(LinkNode* Head)
 	}
 }
 
+//拆分得到新链表
 LinkNode* SpLit(LinkNode* Head)
 {
 	LinkNode* NewHead = Head->Next;
