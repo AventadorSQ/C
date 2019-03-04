@@ -1,21 +1,18 @@
-#include<stdlib.h>
+#include"QuickSort.h"
+#include<stdio.h>
 #include<time.h>
-#include"Sort.h"
+#include<stdlib.h>
 #define SIZE 100000
 
 int main()
 {
-	//int array[] = { 5,6,1,2,3,7,4,9,6 };
-	//int k = sizeof(array) / sizeof(array[0]);
-	////ShellSort(array, k);
-	////SelectSort(array, k);
-	//HeapSort(array, k);
 	srand((unsigned int)time(NULL));
 	int array[SIZE];
 	for (int i = 0; i < SIZE; i++)
 	{
 		array[i] = rand() % 100;
 	}
+	/*int array[] = { 62,62,2,79,0,15};*/
 	int Left = 0;
 	int Right = sizeof(array) / sizeof(array[0]) - 1;
 	printf("Î´ ÅÅ Ðò£º");
@@ -24,9 +21,12 @@ int main()
 		printf("%d ", array[i]);
 	}
 	printf("\n");
-	printf("\n");
-	printf("Ï£¶ûÅÅÐò£º");
-	ShellSort(array, Right + 1);
+	QuickSort(array, Left, Right);
+	printf("¿ìËÙÅÅÐò£º");
+	for (int i = 0; i <= Right; i++)
+	{
+		printf("%d ", array[i]);
+	}
 	printf("\n");
 	system("pause");
 	return 0;

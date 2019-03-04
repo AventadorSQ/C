@@ -11,3 +11,5 @@ void SelectSort(int array[], int size);
 
 //4.∂—≈≈–Ú
 void HeapSort(int array[], int size);
+
+void ShellSort(int array[], int length);
