@@ -1,0 +1,407 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.130:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Mon Mar  4 15:30:30 2019
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd 40/
+[shangqi@localhost 40]$ ls
+pctrl
+[shangqi@localhost 40]$ cd pctrl/
+[shangqi@localhost pctrl]$ ls
+Makefile  mshell.c
+[shangqi@localhost pctrl]$ cd~
+bash: cd~: command not found...
+[shangqi@localhost pctrl]$ cd ~
+[shangqi@localhost ~]$ ls -a
+.   40             .bash_logout   .bashrc  .config  Documents  .esd_auth      .lesshst    .local    Music     .pki    Templates  .vim      .viminfo.tmp  .viminfz.tmp
+..  .bash_history  .bash_profile  .cache   Desktop  Downloads  .ICEauthority  Linux ‘¡∂1  .mozilla  Pictures  Public  Videos     .viminfo  .viminfy.tmp  .Xauthority
+[shangqi@localhost ~]$ ls -l
+total 4
+drwxrwxr-x. 3 shangqi shangqi   18 Mar  2 17:48 40
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Downloads
+drwxrwxr-x. 6 shangqi shangqi 4096 Mar  2 16:09 Linux ‘¡∂1
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Pictures
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Videos
+[shangqi@localhost ~]$ dƒø¬º–ÕŒƒº˛ -∆’Õ®Œƒº˛^C
+[shangqi@localhost ~]$ ls -l /
+total 32
+lrwxrwxrwx.   1 root root    7 Nov 24 12:51 bin -> usr/bin
+dr-xr-xr-x.   4 root root 4096 Nov 30 00:39 boot
+drwxr-xr-x.  19 root root 3220 Mar  4 15:30 dev
+drwxr-xr-x. 136 root root 8192 Mar  4 15:30 etc
+drwxr-xr-x.   4 root root   31 Dec 15 23:58 home
+lrwxrwxrwx.   1 root root    7 Nov 24 12:51 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Nov 24 12:51 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root    6 Jun  9  2014 media
+drwxr-xr-x.   2 root root    6 Jun  9  2014 mnt
+drwxr-xr-x.   3 root root   15 Nov 24 13:00 opt
+dr-xr-xr-x. 421 root root    0 Mar  4 15:29 proc
+dr-xr-x---.   4 root root 4096 Dec 28 03:01 root
+drwxr-xr-x.  35 root root 1160 Mar  4 15:34 run
+lrwxrwxrwx.   1 root root    8 Nov 24 12:51 sbin -> usr/sbin
+drwxr-xr-x.   2 root root    6 Jun  9  2014 srv
+dr-xr-xr-x.  13 root root    0 Mar  4 15:29 sys
+drwxrwxrwt.  54 root root 4096 Mar  4 15:37 tmp
+drwxr-xr-x.  13 root root 4096 Nov 24 12:51 usr
+drwxr-xr-x.  22 root root 4096 Mar  4 15:29 var
+[shangqi@localhost ~]$ ls /
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[shangqi@localhost ~]$ ls /dev
+agpgart        core             full       loop-control  mqueue              ptmx    sda2      stdin   tty14  tty22  tty30  tty39  tty47  tty55  tty63  uinput   vcs4   vcsa6
+autofs         cpu              fuse       lp0           net                 pts     sda3      stdout  tty15  tty23  tty31  tty4   tty48  tty56  tty7   urandom  vcs5   vfio
+block          cpu_dma_latency  hidraw0    lp1           network_latency     random  sg0       tty     tty16  tty24  tty32  tty40  tty49  tty57  tty8   usbmon0  vcs6   vga_arbiter
+bsg            crash            hpet       lp2           network_throughput  raw     sg1       tty0    tty17  tty25  tty33  tty41  tty5   tty58  tty9   usbmon1  vcsa   vhost-net
+btrfs-control  disk             hugepages  lp3           null                rfkill  shm       tty1    tty18  tty26  tty34  tty42  tty50  tty59  ttyS0  usbmon2  vcsa1  vmci
+bus            dmmidi           initctl    mapper        nvram               rtc     snapshot  tty10   tty19  tty27  tty35  tty43  tty51  tty6   ttyS1  vcs      vcsa2  zero
+cdrom          dri              input      mcelog        oldmem              rtc0    snd       tty11   tty2   tty28  tty36  tty44  tty52  tty60  ttyS2  vcs1     vcsa3
+char           fb0              kmsg       mem           port                sda     sr0       tty12   tty20  tty29  tty37  tty45  tty53  tty61  ttyS3  vcs2     vcsa4
+console        fd               log        midi          ppp                 sda1    stderr    tty13   tty21  tty3   tty38  tty46  tty54  tty62  uhid   vcs3     vcsa5
+[shangqi@localhost ~]$ ls -l /dev
+total 0
+crw-rw----. 1 root video    10, 175 Mar  4 15:29 agpgart
+crw-------. 1 root root     10, 235 Mar  4 15:29 autofs
+drwxr-xr-x. 2 root root         140 Mar  4 15:29 block
+drwxr-xr-x. 2 root root          80 Mar  4 15:29 bsg
+crw-------. 1 root root     10, 234 Mar  4 15:29 btrfs-control
+drwxr-xr-x. 3 root root          60 Mar  4 15:29 bus
+lrwxrwxrwx. 1 root root           3 Mar  4 15:29 cdrom -> sr0
+drwxr-xr-x. 2 root root        2980 Mar  4 15:30 char
+crw-------. 1 root root      5,   1 Mar  4 15:30 console
+lrwxrwxrwx. 1 root root          11 Mar  4 15:29 core -> /proc/kcore
+drwxr-xr-x. 3 root root          80 Mar  4 15:29 cpu
+crw-------. 1 root root     10,  61 Mar  4 15:29 cpu_dma_latency
+crw-------. 1 root root     10,  62 Mar  4 15:29 crash
+drwxr-xr-x. 5 root root         100 Mar  4 15:29 disk
+crw-rw----+ 1 root audio    14,   9 Mar  4 15:29 dmmidi
+drwxr-xr-x. 2 root root          80 Mar  4 15:29 dri
+crw-rw----. 1 root video    29,   0 Mar  4 15:29 fb0
+lrwxrwxrwx. 1 root root          13 Mar  4 15:29 fd -> /proc/self/fd
+crw-rw-rw-. 1 root root      1,   7 Mar  4 15:29 full
+crw-rw-rw-. 1 root root     10, 229 Mar  4 15:30 fuse
+crw-------. 1 root root    250,   0 Mar  4 15:29 hidraw0
+crw-------. 1 root root     10, 228 Mar  4 15:29 hpet
+drwxr-xr-x. 3 root root           0 Mar  4 15:30 hugepages
+prw-------. 1 root root           0 Mar  4 15:29 initctl
+drwxr-xr-x. 4 root root         240 Mar  4 15:29 input
+crw-r--r--. 1 root root      1,  11 Mar  4 15:29 kmsg
+srw-rw-rw-. 1 root root           0 Mar  4 15:29 log
+crw-------. 1 root root     10, 237 Mar  4 15:29 loop-control
+crw-rw----. 1 root lp        6,   0 Mar  4 15:29 lp0
+crw-rw----. 1 root lp        6,   1 Mar  4 15:29 lp1
+crw-rw----. 1 root lp        6,   2 Mar  4 15:29 lp2
+crw-rw----. 1 root lp        6,   3 Mar  4 15:29 lp3
+drwxr-xr-x. 2 root root          60 Mar  4 15:29 mapper
+crw-------. 1 root root     10, 227 Mar  4 15:29 mcelog
+crw-r-----. 1 root kmem      1,   1 Mar  4 15:29 mem
+crw-rw----+ 1 root audio    14,   2 Mar  4 15:29 midi
+drwxrwxrwt. 2 root root          40 Mar  4 15:29 mqueue
+drwxr-xr-x. 2 root root          60 Mar  4 15:29 net
+crw-------. 1 root root     10,  60 Mar  4 15:29 network_latency
+crw-------. 1 root root     10,  59 Mar  4 15:29 network_throughput
+crw-rw-rw-. 1 root root      1,   3 Mar  4 15:29 null
+crw-------. 1 root root     10, 144 Mar  4 15:29 nvram
+crw-------. 1 root root      1,  12 Mar  4 15:29 oldmem
+crw-r-----. 1 root kmem      1,   4 Mar  4 15:29 port
+crw-------. 1 root root    108,   0 Mar  4 15:29 ppp
+crw-rw-rw-. 1 root tty       5,   2 Mar  4 15:58 ptmx
+drwxr-xr-x. 2 root root           0 Mar  4 15:29 pts
+crw-rw-rw-. 1 root root      1,   8 Mar  4 15:29 random
+drwxr-xr-x. 2 root root          60 Mar  4 15:29 raw
+crw-rw-r--+ 1 root root     10,  57 Mar  4 15:30 rfkill
+lrwxrwxrwx. 1 root root           4 Mar  4 15:29 rtc -> rtc0
+crw-------. 1 root root    254,   0 Mar  4 15:29 rtc0
+brw-rw----. 1 root disk      8,   0 Mar  4 15:29 sda
+brw-rw----. 1 root disk      8,   1 Mar  4 15:29 sda1
+brw-rw----. 1 root disk      8,   2 Mar  4 15:29 sda2
+brw-rw----. 1 root disk      8,   3 Mar  4 15:29 sda3
+crw-rw----. 1 root disk     21,   0 Mar  4 15:29 sg0
+crw-rw----+ 1 root cdrom    21,   1 Mar  4 15:29 sg1
+drwxrwxrwt. 2 root root         180 Mar  4 15:30 shm
+crw-------. 1 root root     10, 231 Mar  4 15:29 snapshot
+drwxr-xr-x. 3 root root         200 Mar  4 15:29 snd
+brw-rw----+ 1 root cdrom    11,   0 Mar  4 15:29 sr0
+lrwxrwxrwx. 1 root root          15 Mar  4 15:29 stderr -> /proc/self/fd/2
+lrwxrwxrwx. 1 root root          15 Mar  4 15:29 stdin -> /proc/self/fd/0
+lrwxrwxrwx. 1 root root          15 Mar  4 15:29 stdout -> /proc/self/fd/1
+crw-rw-rw-. 1 root tty       5,   0 Mar  4 15:29 tty
+crw--w----. 1 root tty       4,   0 Mar  4 15:29 tty0
+crw--w----. 1 root tty       4,   1 Mar  4 15:29 tty1
+crw--w----. 1 root tty       4,  10 Mar  4 15:29 tty10
+crw--w----. 1 root tty       4,  11 Mar  4 15:29 tty11
+crw--w----. 1 root tty       4,  12 Mar  4 15:29 tty12
+crw--w----. 1 root tty       4,  13 Mar  4 15:29 tty13
+crw--w----. 1 root tty       4,  14 Mar  4 15:29 tty14
+crw--w----. 1 root tty       4,  15 Mar  4 15:29 tty15
+crw--w----. 1 root tty       4,  16 Mar  4 15:29 tty16
+crw--w----. 1 root tty       4,  17 Mar  4 15:29 tty17
+crw--w----. 1 root tty       4,  18 Mar  4 15:29 tty18
+crw--w----. 1 root tty       4,  19 Mar  4 15:29 tty19
+crw--w----. 1 root tty       4,   2 Mar  4 15:29 tty2
+crw--w----. 1 root tty       4,  20 Mar  4 15:29 tty20
+crw--w----. 1 root tty       4,  21 Mar  4 15:29 tty21
+crw--w----. 1 root tty       4,  22 Mar  4 15:29 tty22
+crw--w----. 1 root tty       4,  23 Mar  4 15:29 tty23
+crw--w----. 1 root tty       4,  24 Mar  4 15:29 tty24
+crw--w----. 1 root tty       4,  25 Mar  4 15:29 tty25
+crw--w----. 1 root tty       4,  26 Mar  4 15:29 tty26
+crw--w----. 1 root tty       4,  27 Mar  4 15:29 tty27
+crw--w----. 1 root tty       4,  28 Mar  4 15:29 tty28
+crw--w----. 1 root tty       4,  29 Mar  4 15:29 tty29
+crw--w----. 1 root tty       4,   3 Mar  4 15:29 tty3
+crw--w----. 1 root tty       4,  30 Mar  4 15:29 tty30
+crw--w----. 1 root tty       4,  31 Mar  4 15:29 tty31
+crw--w----. 1 root tty       4,  32 Mar  4 15:29 tty32
+crw--w----. 1 root tty       4,  33 Mar  4 15:29 tty33
+crw--w----. 1 root tty       4,  34 Mar  4 15:29 tty34
+crw--w----. 1 root tty       4,  35 Mar  4 15:29 tty35
+crw--w----. 1 root tty       4,  36 Mar  4 15:29 tty36
+crw--w----. 1 root tty       4,  37 Mar  4 15:29 tty37
+crw--w----. 1 root tty       4,  38 Mar  4 15:29 tty38
+crw--w----. 1 root tty       4,  39 Mar  4 15:29 tty39
+crw--w----. 1 root tty       4,   4 Mar  4 15:29 tty4
+crw--w----. 1 root tty       4,  40 Mar  4 15:29 tty40
+crw--w----. 1 root tty       4,  41 Mar  4 15:29 tty41
+crw--w----. 1 root tty       4,  42 Mar  4 15:29 tty42
+crw--w----. 1 root tty       4,  43 Mar  4 15:29 tty43
+crw--w----. 1 root tty       4,  44 Mar  4 15:29 tty44
+crw--w----. 1 root tty       4,  45 Mar  4 15:29 tty45
+crw--w----. 1 root tty       4,  46 Mar  4 15:29 tty46
+crw--w----. 1 root tty       4,  47 Mar  4 15:29 tty47
+crw--w----. 1 root tty       4,  48 Mar  4 15:29 tty48
+crw--w----. 1 root tty       4,  49 Mar  4 15:29 tty49
+crw--w----. 1 root tty       4,   5 Mar  4 15:29 tty5
+crw--w----. 1 root tty       4,  50 Mar  4 15:29 tty50
+crw--w----. 1 root tty       4,  51 Mar  4 15:29 tty51
+crw--w----. 1 root tty       4,  52 Mar  4 15:29 tty52
+crw--w----. 1 root tty       4,  53 Mar  4 15:29 tty53
+crw--w----. 1 root tty       4,  54 Mar  4 15:29 tty54
+crw--w----. 1 root tty       4,  55 Mar  4 15:29 tty55
+crw--w----. 1 root tty       4,  56 Mar  4 15:29 tty56
+crw--w----. 1 root tty       4,  57 Mar  4 15:29 tty57
+crw--w----. 1 root tty       4,  58 Mar  4 15:29 tty58
+crw--w----. 1 root tty       4,  59 Mar  4 15:29 tty59
+crw--w----. 1 root tty       4,   6 Mar  4 15:29 tty6
+crw--w----. 1 root tty       4,  60 Mar  4 15:29 tty60
+crw--w----. 1 root tty       4,  61 Mar  4 15:29 tty61
+crw--w----. 1 root tty       4,  62 Mar  4 15:29 tty62
+crw--w----. 1 root tty       4,  63 Mar  4 15:29 tty63
+crw--w----. 1 root tty       4,   7 Mar  4 15:29 tty7
+crw--w----. 1 root tty       4,   8 Mar  4 15:29 tty8
+crw--w----. 1 root tty       4,   9 Mar  4 15:29 tty9
+crw-rw----. 1 root dialout   4,  64 Mar  4 15:29 ttyS0
+crw-rw----. 1 root dialout   4,  65 Mar  4 15:29 ttyS1
+crw-rw----. 1 root dialout   4,  66 Mar  4 15:29 ttyS2
+crw-rw----. 1 root dialout   4,  67 Mar  4 15:29 ttyS3
+crw-------. 1 root root     10, 239 Mar  4 15:29 uhid
+crw-------. 1 root root     10, 223 Mar  4 15:29 uinput
+crw-rw-rw-. 1 root root      1,   9 Mar  4 15:29 urandom
+crw-------. 1 root root    251,   0 Mar  4 15:29 usbmon0
+crw-------. 1 root root    251,   1 Mar  4 15:29 usbmon1
+crw-------. 1 root root    251,   2 Mar  4 15:29 usbmon2
+crw-rw----. 1 root tty       7,   0 Mar  4 15:29 vcs
+crw-rw----. 1 root tty       7,   1 Mar  4 15:29 vcs1
+crw-rw----. 1 root tty       7,   2 Mar  4 15:29 vcs2
+crw-rw----. 1 root tty       7,   3 Mar  4 15:29 vcs3
+crw-rw----. 1 root tty       7,   4 Mar  4 15:29 vcs4
+crw-rw----. 1 root tty       7,   5 Mar  4 15:29 vcs5
+crw-rw----. 1 root tty       7,   6 Mar  4 15:29 vcs6
+crw-rw----. 1 root tty       7, 128 Mar  4 15:29 vcsa
+crw-rw----. 1 root tty       7, 129 Mar  4 15:29 vcsa1
+crw-rw----. 1 root tty       7, 130 Mar  4 15:29 vcsa2
+crw-rw----. 1 root tty       7, 131 Mar  4 15:29 vcsa3
+crw-rw----. 1 root tty       7, 132 Mar  4 15:29 vcsa4
+crw-rw----. 1 root tty       7, 133 Mar  4 15:29 vcsa5
+crw-rw----. 1 root tty       7, 134 Mar  4 15:29 vcsa6
+drwxr-xr-x. 2 root root          60 Mar  4 15:29 vfio
+crw-------. 1 root root     10,  63 Mar  4 15:29 vga_arbiter
+crw-------. 1 root root     10, 238 Mar  4 15:29 vhost-net
+crw-------. 1 root root     10,  58 Mar  4 15:29 vmci
+crw-rw-rw-. 1 root root      1,   5 Mar  4 15:29 zero
+[shangqi@localhost ~]$ ls -l
+total 4
+drwxrwxr-x. 3 shangqi shangqi   18 Mar  2 17:48 40
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Downloads
+drwxrwxr-x. 6 shangqi shangqi 4096 Mar  2 16:09 Linux ‘¡∂1
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Pictures
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Videos
+[shangqi@localhost ~]$ ls -a
+.   40             .bash_logout   .bashrc  .config  Documents  .esd_auth      .lesshst    .local    Music     .pki    Templates  .vim      .viminfo.tmp  .viminfz.tmp
+..  .bash_history  .bash_profile  .cache   Desktop  Downloads  .ICEauthority  Linux ‘¡∂1  .mozilla  Pictures  Public  Videos     .viminfo  .viminfy.tmp  .Xauthority
+[shangqi@localhost ~]$ ls .
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ ls ..
+8848  shangqi
+[shangqi@localhost ~]$ ls ./..
+8848  shangqi
+[shangqi@localhost ~]$ ls ../shangqi/
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ ls -S
+Linux ‘¡∂1  40  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ ls -s
+total 4
+0 40  0 Desktop  0 Documents  0 Downloads  4 Linux ‘¡∂1  0 Music  0 Pictures  0 Public  0 Templates  0 Videos
+[shangqi@localhost ~]$ ls -Sl
+total 4
+drwxrwxr-x. 6 shangqi shangqi 4096 Mar  2 16:09 Linux ‘¡∂1
+drwxrwxr-x. 3 shangqi shangqi   18 Mar  2 17:48 40
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Downloads
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Pictures
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Videos
+[shangqi@localhost ~]$ ls -l
+total 4
+drwxrwxr-x. 3 shangqi shangqi   18 Mar  2 17:48 40
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Downloads
+drwxrwxr-x. 6 shangqi shangqi 4096 Mar  2 16:09 Linux ‘¡∂1
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Pictures
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi    6 Nov 24 05:06 Videos
+[shangqi@localhost ~]$ S∞¥’’Œƒº˛¥Û–°Ω¯––≈≈–Ú^C
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ ls -t
+40  Linux ‘¡∂1  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ ls -r
+Videos  Templates  Public  Pictures  Music  Linux ‘¡∂1  Downloads  Documents  Desktop  40
+[shangqi@localhost ~]$ pwd
+/home/shangqi
+[shangqi@localhost ~]$ ls /home/
+8848  shangqi
+[shangqi@localhost ~]$ ls ./..
+8848  shangqi
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ mkdir Sq
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq  Templates  Videos
+[shangqi@localhost ~]$ rmdir Sq
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ mkdir Sq666
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ mkdir -p haha/abc
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  haha  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ rmdir -p haha/abc/
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ mkdir -p haha/abc
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  haha  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ rm -r haha/
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ rm -f^C
+[shangqi@localhost ~]$ ∫ˆ¬‘Ã· æ–≈œ¢^C
+[shangqi@localhost ~]$ ÷±Ω”…æ≥˝^C
+[shangqi@localhost ~]$ rm -rf ./*^C
+[shangqi@localhost ~]$ cp 40 Sq666
+cp: omitting directory °Æ40°Ø
+[shangqi@localhost ~]$ cp 40/ Sq666
+cp: omitting directory °Æ40/°Ø
+[shangqi@localhost ~]$ cp -r 40/ Sq666
+[shangqi@localhost ~]$ ls Sq666/
+40
+[shangqi@localhost ~]$ cd 40/
+[shangqi@localhost 40]$ cd ..
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ cd Sq666/
+[shangqi@localhost Sq666]$ ls
+40
+[shangqi@localhost Sq666]$ rm -r 40/
+[shangqi@localhost Sq666]$ ls
+[shangqi@localhost Sq666]$ cd ~
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ mv Sq666 40/
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ cd 40/
+[shangqi@localhost 40]$ ls
+pctrl  Sq666
+[shangqi@localhost 40]$ mv Sq666 ..
+[shangqi@localhost 40]$ ls
+pctrl
+[shangqi@localhost 40]$ cd ~
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ cp Sq666 40/
+cp: omitting directory °ÆSq666°Ø
+[shangqi@localhost ~]$ cp -r Sq666 40/
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ cd 40/
+[shangqi@localhost 40]$ ls
+pctrl  Sq666
+[shangqi@localhost 40]$ cd ~
+[shangqi@localhost ~]$ mv Sq666 40/
+[shangqi@localhost ~]$ ls 40/
+pctrl  Sq666
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ mkdir Sq666
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ mv -i Sq666 40/
+mv: overwrite °Æ40/Sq666°Ø? ^C
+[shangqi@localhost ~]$ mv Sq666 40/
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ ls 40/
+pctrl  Sq666
+[shangqi@localhost ~]$ mkdir Sq666
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ mv -i Sq666 40/
+mv: overwrite °Æ40/Sq666°Ø? y
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos
+[shangqi@localhost ~]$ mv 40/Sq666 .
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Sq666  Templates  Videos
+[shangqi@localhost ~]$ ls 40/
+pctrl
+[shangqi@localhost ~]$ -i ÃÌº”Ã· æ–≈œ¢^C
+[shangqi@localhost ~]$ cd -
+/home/shangqi/40
+[shangqi@localhost 40]$ cd -
+/home/shangqi
+[shangqi@localhost ~]$ -Ω¯»Î…œ“ª¥ŒÀ˘‘⁄ƒø¬º^C
+[shangqi@localhost ~]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(SQ1) at 09:13:39.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
