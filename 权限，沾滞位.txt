@@ -1,0 +1,749 @@
+
+Last login: Tue Mar  5 16:33:07 2019 from 192.168.166.1
+[shangqi@localhost ~]$ cd workspace/Sq666/cmd/
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+[shangqi@localhost cmd]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.132) at 09:04:51.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Could not connect to '192.168.166.132' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last failed login: Tue Mar  5 17:13:10 PST 2019 from :0 on :0
+There was 1 failed login attempt since the last successful login.
+Last login: Tue Mar  5 16:42:26 2019 from 192.168.166.1
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ ls
+cmd
+[shangqi@localhost Sq666]$ cd cmd/
+[shangqi@localhost cmd]$ touch test.c
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ umask -S
+u=rwx,g=rwx,o=rx
+[shangqi@localhost cmd]$ umask
+0002
+[shangqi@localhost cmd]$ umask 022
+[shangqi@localhost cmd]$ umak
+bash: umak: command not found...
+[shangqi@localhost cmd]$ umask
+0022
+[shangqi@localhost cmd]$ umask 002
+[shangqi@localhost cmd]$ umask
+0002
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ umask 022
+[shangqi@localhost cmd]$ umask
+0022
+[shangqi@localhost cmd]$ touch test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-r--r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ umask 002
+[shangqi@localhost cmd]$ umask
+0002
+[shangqi@localhost cmd]$ chmod g+w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ cd test
+-bash: cd: test: Not a directory
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ chmod u-w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-r--rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ chmod u-r test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+----rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ chmod o-r test
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+----rw----. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ chmod u+r test
+[shangqi@localhost cmd]$ chmod o+r test
+[shangqi@localhost cmd]$ chmod o+w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-r--rw-rw-. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ chmod o-w test
+[shangqi@localhost cmd]$ chmod u+w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ chmod u-w test
+[shangqi@localhost cmd]$ rm test
+rm: remove write-protected regular empty file °Ætest°Ø? y
+[shangqi@localhost cmd]$ ls
+aa.txt  cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+[shangqi@localhost cmd]$ mkdir test
+[shangqi@localhost cmd]$ chmod u-w test
+[shangqi@localhost cmd]$ mkdir test/tes
+mkdir: cannot create directory °Ætest/tes°Ø: Permission denied
+[shangqi@localhost cmd]$ chmod u+w test
+[shangqi@localhost cmd]$ mkdir test/ndc
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+drwxrwxr-x. 3 shangqi shangqi        16 Mar  5 17:38 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ ls test/
+ndc
+[shangqi@localhost cmd]$ rm test/ndc
+rm: cannot remove °Ætest/ndc°Ø: Is a directory
+[shangqi@localhost cmd]$ rm -i test/ndc
+rm: cannot remove °Ætest/ndc°Ø: Is a directory
+[shangqi@localhost cmd]$ rm -r test
+[shangqi@localhost cmd]$ ls
+aa.txt  cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+[shangqi@localhost cmd]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.132) at 09:50:30.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Mar  5 17:14:20 2019 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd workspace/Sq666/cmd/
+[shangqi@localhost cmd]$ ls
+aa.txt  cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+[shangqi@localhost cmd]$ cd ~
+[shangqi@localhost ~]$ su root
+Password: 
+[root@localhost shangqi]# useradd -m shangqi1
+[root@localhost shangqi]# passwd shangqi1
+Changing password for user shangqi1.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[root@localhost shangqi]# su shangqi1
+[shangqi1@localhost shangqi]$ cd /home/
+[shangqi1@localhost home]$ ls
+8848  shangqi  shangqi1
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwx------. 19 shangqi  shangqi  4096 Mar  6 00:08 shangqi
+drwx------.  5 shangqi1 shangqi1 4096 Mar  6 00:10 shangqi1
+[shangqi1@localhost home]$ su 8848
+Password: 
+
+su: Authentication failure
+[shangqi1@localhost home]$ 
+[shangqi1@localhost home]$ su shangqi
+Password: 
+[shangqi@localhost home]$ cd ~
+[shangqi@localhost ~]$ cd workspace/Sq666/cmd/
+[shangqi@localhost cmd]$ su shangqi1
+Password: 
+[shangqi1@localhost cmd]$ cd ~
+[shangqi1@localhost ~]$ touch aa.txt
+[shangqi1@localhost ~]$ ls
+aa.txt
+[shangqi1@localhost ~]$ ls -l
+total 0
+-rw-rw-r--. 1 shangqi1 shangqi1 0 Mar  6 00:20 aa.txt
+[shangqi1@localhost ~]$ cd ..
+[shangqi1@localhost home]$ ls
+8848  shangqi  shangqi1
+[shangqi1@localhost home]$ chmod +t shangqi1/
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwx------. 19 shangqi  shangqi  4096 Mar  6 00:27 shangqi
+drwx-----T.  5 shangqi1 shangqi1 4096 Mar  6 00:20 shangqi1
+[shangqi1@localhost home]$ chmod 0777 shangqi1
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwx------. 19 shangqi  shangqi  4096 Mar  6 00:27 shangqi
+drwxrwxrwx.  5 shangqi1 shangqi1 4096 Mar  6 00:20 shangqi1
+[shangqi1@localhost home]$ ls
+8848  shangqi  shangqi1
+[shangqi1@localhost home]$ ls
+8848  shangqi  shangqi1
+[shangqi1@localhost home]$ cd ~
+[shangqi1@localhost ~]$ ls
+[shangqi1@localhost ~]$ touch bb.txt
+[shangqi1@localhost ~]$ ls
+bb.txt
+[shangqi1@localhost ~]$ ls -l
+total 0
+-rw-rw-r--. 1 shangqi1 shangqi1 0 Mar  6 00:36 bb.txt
+[shangqi1@localhost ~]$ cd ..
+[shangqi1@localhost home]$ chmod +t shangqi1/
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi  4096 Mar  6 00:27 shangqi
+drwxrwxrwt.  5 shangqi1 shangqi1 4096 Mar  6 00:37 shangqi1
+[shangqi1@localhost home]$ cd ~
+[shangqi1@localhost ~]$ ls
+[shangqi1@localhost ~]$ touch aa.txt
+[shangqi1@localhost ~]$ ls -l
+total 0
+-rw-rw-r--. 1 shangqi1 shangqi1 0 Mar  6 00:39 aa.txt
+[shangqi1@localhost ~]$ ls
+aa.txt
+[shangqi1@localhost ~]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.132) at 16:49:18.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Wed Mar  6 00:18:41 2019
+/usr/bin/xauth:  file /home/shangqi1/.Xauthority does not exist
+[shangqi1@localhost ~]$ ls
+aa.txt
+[shangqi1@localhost ~]$ cd ..
+[shangqi1@localhost home]$ chmod 0700 shangqi1
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi  4096 Mar  6 00:50 shangqi
+drwx------.  5 shangqi1 shangqi1 4096 Mar  6 00:52 shangqi1
+[shangqi1@localhost home]$ chmod +t shangqi1
+[shangqi1@localhost home]$ 
+[shangqi1@localhost home]$ 
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi  4096 Mar  6 00:50 shangqi
+drwx-----T.  5 shangqi1 shangqi1 4096 Mar  6 00:52 shangqi1
+[shangqi1@localhost home]$ chmod +x shangqi1
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi  4096 Mar  6 00:50 shangqi
+drwx--x--t.  5 shangqi1 shangqi1 4096 Mar  6 00:52 shangqi1
+[shangqi1@localhost home]$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+unbound:x:998:996:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+saslauth:x:996:76:"Saslauthd user":/run/saslauthd:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+libstoragemgmt:x:995:994:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+shangqi:x:1000:1000:Linux:/home/shangqi:/bin/bash
+8848:x:1001:1001::/home/8848:/bin/bash
+shangqi1:x:1002:1002::/home/shangqi1:/bin/bash
+[shangqi1@localhost home]$ ls
+8848  shangqi  shangqi1
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     8848       74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi  4096 Mar  6 00:50 shangqi
+drwx--x--t.  5 shangqi1 shangqi1 4096 Mar  6 00:52 shangqi1
+[shangqi1@localhost home]$ su root
+Password: 
+[root@localhost home]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+unbound:x:998:996:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+saslauth:x:996:76:"Saslauthd user":/run/saslauthd:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+libstoragemgmt:x:995:994:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+shangqi:x:1000:1000:Linux:/home/shangqi:/bin/bash
+8848:x:1001:1001::/home/8848:/bin/bash
+shangqi1:x:1002:1002::/home/shangqi1:/bin/bash
+[root@localhost home]# chgrp 8848 shangqi1
+[root@localhost home]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+unbound:x:998:996:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+saslauth:x:996:76:"Saslauthd user":/run/saslauthd:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+libstoragemgmt:x:995:994:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+shangqi:x:1000:1000:Linux:/home/shangqi:/bin/bash
+8848:x:1001:1001::/home/8848:/bin/bash
+shangqi1:x:1002:1002::/home/shangqi1:/bin/bash
+[root@localhost home]# chgrp 8848 1002
+chgrp: cannot access °Æ1002°Ø: No such file or directory
+[root@localhost home]# usermod -g 8848 8848 shangqi1
+usermod: group '8848' does not exist
+[root@localhost home]# usermod -g 8848 shangqi1
+usermod: group '8848' does not exist
+[root@localhost home]# usermod -g 1001 8848 1002
+Usage: usermod [options] LOGIN
+
+Options:
+  -c, --comment COMMENT         new value of the GECOS field
+  -d, --home HOME_DIR           new home directory for the user account
+  -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -g, --gid GROUP               force use GROUP as new primary group
+  -G, --groups GROUPS           new list of supplementary GROUPS
+  -a, --append                  append the user to the supplemental GROUPS
+                                mentioned by the -G option without removing
+                                him/her from other groups
+  -h, --help                    display this help message and exit
+  -l, --login NEW_LOGIN         new value of the login name
+  -L, --lock                    lock the user account
+  -m, --move-home               move contents of the home directory to the
+                                new location (use only with -d)
+  -o, --non-unique              allow using duplicate (non-unique) UID
+  -p, --password PASSWORD       use encrypted password for the new password
+  -R, --root CHROOT_DIR         directory to chroot into
+  -s, --shell SHELL             new login shell for the user account
+  -u, --uid UID                 new UID for the user account
+  -U, --unlock                  unlock the user account
+  -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+
+[root@localhost home]# man usermod
+[root@localhost home]# ls -l
+total 8
+drwx------.  3 8848     8848      74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi 4096 Mar  6 00:50 shangqi
+drwx--x--t.  5 shangqi1 8848    4096 Mar  6 01:01 shangqi1
+[root@localhost home]# usermod -a -G 1002 8848
+[root@localhost home]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+unbound:x:998:996:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+saslauth:x:996:76:"Saslauthd user":/run/saslauthd:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+libstoragemgmt:x:995:994:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+shangqi:x:1000:1000:Linux:/home/shangqi:/bin/bash
+8848:x:1001:1001::/home/8848:/bin/bash
+shangqi1:x:1002:1002::/home/shangqi1:/bin/bash
+[root@localhost home]# usermod -g 1002 8848
+[root@localhost home]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+unbound:x:998:996:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+saslauth:x:996:76:"Saslauthd user":/run/saslauthd:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+libstoragemgmt:x:995:994:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+shangqi:x:1000:1000:Linux:/home/shangqi:/bin/bash
+8848:x:1001:1002::/home/8848:/bin/bash
+shangqi1:x:1002:1002::/home/shangqi1:/bin/bash
+[root@localhost home]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+unbound:x:998:996:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+saslauth:x:996:76:"Saslauthd user":/run/saslauthd:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+libstoragemgmt:x:995:994:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+shangqi:x:1000:1000:Linux:/home/shangqi:/bin/bash
+8848:x:1001:1002::/home/8848:/bin/bash
+shangqi1:x:1002:1002::/home/shangqi1:/bin/bash
+[root@localhost home]# usermod -g 1000 8848
+[root@localhost home]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+unbound:x:998:996:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+saslauth:x:996:76:"Saslauthd user":/run/saslauthd:/sbin/nologin
+qemu:x:107:107:qemu user:/:/sbin/nologin
+libstoragemgmt:x:995:994:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+chrony:x:994:993::/var/lib/chrony:/sbin/nologin
+radvd:x:75:75:radvd user:/:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+shangqi:x:1000:1000:Linux:/home/shangqi:/bin/bash
+8848:x:1001:1000::/home/8848:/bin/bash
+shangqi1:x:1002:1002::/home/shangqi1:/bin/bash
+[root@localhost home]# ls -l
+total 8
+drwx------.  3 8848     shangqi   74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi 4096 Mar  6 00:50 shangqi
+drwx--x--t.  5 shangqi1 8848    4096 Mar  6 01:01 shangqi1
+[root@localhost home]# chmod 0777 shangqi1
+[root@localhost home]# ls -l
+total 8
+drwx------.  3 8848     shangqi   74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi 4096 Mar  6 00:50 shangqi
+drwxrwxrwx.  5 shangqi1 8848    4096 Mar  6 01:01 shangqi1
+[root@localhost home]# chmod +t shangqi1
+[root@localhost home]# ls -l
+total 8
+drwx------.  3 8848     shangqi   74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi 4096 Mar  6 00:50 shangqi
+drwxrwxrwt.  5 shangqi1 8848    4096 Mar  6 01:01 shangqi1
+[root@localhost home]# cd ~
+[root@localhost ~]# su shangqi1
+[shangqi1@localhost root]$ cd ~
+[shangqi1@localhost ~]$ ls -l
+total 0
+-rw-rw-r--. 1 shangqi1 shangqi1 0 Mar  6 00:39 aa.txt
+[shangqi1@localhost ~]$ cd ..
+[shangqi1@localhost home]$ 
+[shangqi1@localhost home]$ ls -l
+total 8
+drwx------.  3 8848     shangqi   74 Dec 15 23:58 8848
+drwxrwxrwx. 19 shangqi  shangqi 4096 Mar  6 00:50 shangqi
+drwxrwxrwt.  5 shangqi1 8848    4096 Mar  6 01:01 shangqi1
+[shangqi1@localhost home]$ cd ~
+[shangqi1@localhost ~]$ touch abc.doc
+[shangqi1@localhost ~]$ ls
+aa.txt  abc.doc
+[shangqi1@localhost ~]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.132) at 17:31:58.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Wed Mar  6 01:34:07 2019 from 192.168.166.1
+[shangqi@localhost ~]$ 
+Channel(Socket) closed from remote host(192.168.166.132) at 17:44:54.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Could not connect to '192.168.166.132' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
