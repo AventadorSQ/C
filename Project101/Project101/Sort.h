@@ -13,3 +13,5 @@ void SelectSort(int array[], int size);
 void HeapSort(int array[], int size);
 
 void ShellSort(int array[], int length);
+
+void SelectMaxMin(int array[], int size);

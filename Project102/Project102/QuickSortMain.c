@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
-#define SIZE 100000
+#define SIZE 100
 
 int main()
 {

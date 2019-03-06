@@ -1,0 +1,184 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Wed Mar  6 02:05:02 2019
+[shangqi@localhost ~]$ su root
+Password: 
+[root@localhost shangqi]# yum install gcc gcc-c++
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: ap.stykers.moe
+ * extras: centos.ustc.edu.cn
+ * updates: ftp.sjtu.edu.cn
+Package gcc-4.8.5-36.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package gcc-c++.x86_64 0:4.8.5-36.el7 will be installed
+--> Processing Dependency: libstdc++-devel = 4.8.5-36.el7 for package: gcc-c++-4.8.5-36.el7.x86_64
+--> Processing Dependency: libstdc++ = 4.8.5-36.el7 for package: gcc-c++-4.8.5-36.el7.x86_64
+--> Running transaction check
+---> Package libstdc++.x86_64 0:4.8.2-16.el7 will be updated
+---> Package libstdc++.x86_64 0:4.8.5-36.el7 will be an update
+---> Package libstdc++-devel.x86_64 0:4.8.5-36.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=========================================================================================================
+ Package                       Arch                 Version                     Repository          Size
+=========================================================================================================
+Installing:
+ gcc-c++                       x86_64               4.8.5-36.el7                base               7.2 M
+Installing for dependencies:
+ libstdc++-devel               x86_64               4.8.5-36.el7                base               1.5 M
+Updating for dependencies:
+ libstdc++                     x86_64               4.8.5-36.el7                base               304 k
+
+Transaction Summary
+=========================================================================================================
+Install  1 Package  (+1 Dependent package)
+Upgrade             ( 1 Dependent package)
+
+Total size: 9.0 M
+Total download size: 8.7 M
+Is this ok [y/d/N]: y
+Downloading packages:
+No Presto metadata available for base
+libstdc++-devel-4.8.5-36.el7.x FAILED                                          /s | 130 kB  03:16:06 ETA 
+http://ap.stykers.moe/centos/7.6.1810/os/x86_64/Packages/libstdc%2B%2B-devel-4.8.5-36.el7.x86_64.rpm: [Errno 12] Timeout on http://ap.stykers.moe/centos/7.6.1810/os/x86_64/Packages/libstdc++-devel-4.8.5-36.el7.x86_64.rpm: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
+Trying other mirror.
+gcc-c++-4.8.5-36.el7.x86_64.rp FAILED                                          /s |  83 kB  --:--:-- ETA 
+http://mirrors.aliyun.com/centos/7.6.1810/os/x86_64/Packages/gcc-c%2B%2B-4.8.5-36.el7.x86_64.rpm: [Errno 12] Timeout on http://mirrors.aliyun.com/centos/7.6.1810/os/x86_64/Packages/gcc-c++-4.8.5-36.el7.x86_64.rpm: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
+Trying other mirror.
+libstdc++-devel-4.8.5-36.el7.x FAILED                                          /s | 890 kB  00:04:35 ETA 
+http://mirrors.aliyun.com/centos/7.6.1810/os/x86_64/Packages/libstdc%2B%2B-devel-4.8.5-36.el7.x86_64.rpm: [Errno 14] curl#18 - "transfer closed with 1061664 bytes remaining to read"
+Trying other mirror.
+(1/2): libstdc++-devel-4.8.5-36.el7.x86_64.rpm                                    | 1.5 MB  00:00:11     
+Traceback (most recent call last):.rp 42% [===========-                ]  12 kB/s | 3.7 MB  00:07:02 ETA 
+  File "/usr/libexec/urlgrabber-ext-down", line 75, in <module>
+    main()
+  File "/usr/libexec/urlgrabber-ext-down", line 61, in main
+    fo = PyCurlFileObject(opts.url, opts.filename, opts)
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1258, in __init__
+    self._do_open()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1589, in _do_open
+    self._do_grab()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1723, in _do_grab
+    self._do_perform()
+  File "/usr/lib/python2.7/site-packages/urlgrabber/grabber.py", line 1517, in _do_perform
+    raise KeyboardInterrupt
+KeyboardInterrupt
+
+
+Exiting on user cancel
+[root@localhost shangqi]# yum install gcc gcc-c++
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: ap.stykers.moe
+ * extras: centos.ustc.edu.cn
+ * updates: ftp.sjtu.edu.cn
+Package gcc-4.8.5-36.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package gcc-c++.x86_64 0:4.8.5-36.el7 will be installed
+--> Processing Dependency: libstdc++-devel = 4.8.5-36.el7 for package: gcc-c++-4.8.5-36.el7.x86_64
+--> Processing Dependency: libstdc++ = 4.8.5-36.el7 for package: gcc-c++-4.8.5-36.el7.x86_64
+--> Running transaction check
+---> Package libstdc++.x86_64 0:4.8.2-16.el7 will be updated
+---> Package libstdc++.x86_64 0:4.8.5-36.el7 will be an update
+---> Package libstdc++-devel.x86_64 0:4.8.5-36.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=========================================================================================================
+ Package                       Arch                 Version                     Repository          Size
+=========================================================================================================
+Installing:
+ gcc-c++                       x86_64               4.8.5-36.el7                base               7.2 M
+Installing for dependencies:
+ libstdc++-devel               x86_64               4.8.5-36.el7                base               1.5 M
+Updating for dependencies:
+ libstdc++                     x86_64               4.8.5-36.el7                base               304 k
+
+Transaction Summary
+=========================================================================================================
+Install  1 Package  (+1 Dependent package)
+Upgrade             ( 1 Dependent package)
+
+Total size: 9.0 M
+Total download size: 7.2 M
+Is this ok [y/d/N]: y
+Downloading packages:
+No Presto metadata available for base
+gcc-c++-4.8.5-36.el7.x86_64.rpm                                                   | 7.2 MB  00:00:02     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : libstdc++-4.8.5-36.el7.x86_64                                                         1/4 
+  Installing : libstdc++-devel-4.8.5-36.el7.x86_64                                                   2/4 
+  Installing : gcc-c++-4.8.5-36.el7.x86_64                                                           3/4 
+  Cleanup    : libstdc++-4.8.2-16.el7.x86_64                                                         4/4 
+  Verifying  : gcc-c++-4.8.5-36.el7.x86_64                                                           1/4 
+  Verifying  : libstdc++-4.8.5-36.el7.x86_64                                                         2/4 
+  Verifying  : libstdc++-devel-4.8.5-36.el7.x86_64                                                   3/4 
+  Verifying  : libstdc++-4.8.2-16.el7.x86_64                                                         4/4 
+
+Installed:
+  gcc-c++.x86_64 0:4.8.5-36.el7                                                                          
+
+Dependency Installed:
+  libstdc++-devel.x86_64 0:4.8.5-36.el7                                                                  
+
+Dependency Updated:
+  libstdc++.x86_64 0:4.8.5-36.el7                                                                        
+
+Complete!
+[root@localhost shangqi]# gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) 
+[root@localhost shangqi]# gdb -v
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+[root@localhost shangqi]# rz                                               [root@localhost shangqi]# ^C
+[root@localhost shangqi]# yum install lrzsz^C
+[root@localhost shangqi]# sz ∑¢ÀÕ rz Ω” ’^C
+[root@localhost shangqi]# yum install lrzsz
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: ap.stykers.moe
+ * extras: centos.ustc.edu.cn
+ * updates: ftp.sjtu.edu.cn
+Package lrzsz-0.12.20-36.el7.x86_64 already installed and latest version
+Nothing to do
+[root@localhost shangqi]# su shangqi
+[shangqi@localhost ~]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.132) at 18:22:36.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 

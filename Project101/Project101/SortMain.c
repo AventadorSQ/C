@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include"Sort.h"
-#define SIZE 100000
+#define SIZE 10
 
 int main()
 {
@@ -26,7 +26,9 @@ int main()
 	printf("\n");
 	printf("\n");
 	printf("Ï£¶ûÅÅÐò£º");
-	ShellSort(array, Right + 1);
+	SelectMaxMin(array, Right + 1);
+	//BubbleSort(array, Right + 1);
+	//ShellSort(array, Right + 1);
 	printf("\n");
 	system("pause");
 	return 0;

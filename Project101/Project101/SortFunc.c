@@ -1,5 +1,12 @@
 #include"Sort.h"
 
+void Swap(int* num1, int* num2)
+{
+	int temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
+}
+
 //0.冒泡排序
 void BubbleSort(int array[], int size)
 {
@@ -31,6 +38,7 @@ void BubbleSort(int array[], int size)
 
 //1.直接插入排序（打牌插牌的过程）
 //5,6,1,2,3,7,4,9,6 
+//在n比较小，大概率有序
 void InsertSort(int array[],int length)
 {
 	int i = 0;
@@ -97,6 +105,7 @@ void InsertSortNum(int array[], int length,int Num)
 	}
 }
 
+//平均(O(n^1.3))
 void ShellSort(int array[], int length)
 {
 	int k = length;
@@ -112,6 +121,7 @@ void ShellSort(int array[], int length)
 }
 
 //3.选择排序  每次找到最小的或最大的放在最终的位置上
+//直接选择排序
 void SelectSort(int array[], int size)
 {
 	int i, j;
@@ -126,9 +136,7 @@ void SelectSort(int array[], int size)
 				MIN = i;
 			}
 		}
-		int temp = array[MIN];
-		array[MIN] = array[j];
-		array[j] = temp;
+		Swap(&array[MIN], &array[j]);
 	}
 	for (i = 0; i < size; i++)
 	{
@@ -136,6 +144,33 @@ void SelectSort(int array[], int size)
 	}
 }
 
+void SelectMaxMin(int array[], int size)
+{
+	int Max = 0;
+	int Min = 0;
+	for (int i = 0; i <= (size - 1)/2; i++)
+	{
+		Max = (size - 1) / 2;
+		Min = Max;
+		for (int j = i; j <= size - 1 - i; j++)
+		{
+			if (array[Max] < array[j])
+			{
+				Max = j;
+			}
+			if (array[Min] > array[j])
+			{
+				Min = j;
+			}
+		}
+		Swap(&array[Min], &array[i]);
+		Swap(&array[Max], &array[size - 1 - i]);
+	}
+	for (int i = 0; i < size; i++)
+	{
+		printf("%d ", array[i]);
+	}
+}
 //5.堆排序
 //root表示要调整的结点下标
 

@@ -38,28 +38,17 @@ void QuickSort(int array[], int left, int right)
 	//3 6 2
 	if (right - left > 1)
 	{
-		while (1)
+		if (array[mid] > array[j])
 		{
-			int k = 1;
-			if (array[mid] > array[j])
-			{
-				Swap(&array[mid], &array[j]);
-				k = 0;
-			}
-			if (array[i] > array[j])
-			{
-				Swap(&array[i], &array[j]);
-				k = 0;
-			}
-			if (array[i] > array[mid])
-			{
-				Swap(&array[i], &array[mid]);
-				k = 0;
-			}
-			if (k == 1)
-			{
-				break;
-			}
+			Swap(&array[mid], &array[j]);
+		}
+		if (array[i] > array[j])
+		{
+			Swap(&array[i], &array[j]);
+		}
+		if (array[i] > array[mid])
+		{
+			Swap(&array[i], &array[mid]);
 		}
 	}
 
@@ -102,3 +91,20 @@ void QuickSort(int array[], int left, int right)
 		QuickSort(array, mid + 1, right);
 	}
 }
+
+
+//int Sma = 0;
+//int Big = 0;
+//while(1)
+//{
+//	if (array[Big] < array[size - 1])
+//	{
+//		Big++;
+//	}
+//	if (array[Sma] > array[size - 1])
+//	{
+//		Sma++;
+//	}
+//	Swap(&array[Big], &array[Sma]);
+//}
+
