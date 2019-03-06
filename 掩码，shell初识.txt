@@ -1,0 +1,208 @@
+
+Last login: Tue Mar  5 16:33:07 2019 from 192.168.166.1
+[shangqi@localhost ~]$ cd workspace/Sq666/cmd/
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+[shangqi@localhost cmd]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.132) at 09:04:51.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Could not connect to '192.168.166.132' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last failed login: Tue Mar  5 17:13:10 PST 2019 from :0 on :0
+There was 1 failed login attempt since the last successful login.
+Last login: Tue Mar  5 16:42:26 2019 from 192.168.166.1
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ ls
+cmd
+[shangqi@localhost Sq666]$ cd cmd/
+[shangqi@localhost cmd]$ touch test.c
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ umask -S
+u=rwx,g=rwx,o=rx
+[shangqi@localhost cmd]$ umask
+0002
+[shangqi@localhost cmd]$ umask 022
+[shangqi@localhost cmd]$ umak
+bash: umak: command not found...
+[shangqi@localhost cmd]$ umask
+0022
+[shangqi@localhost cmd]$ umask 002
+[shangqi@localhost cmd]$ umask
+0002
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ umask 022
+[shangqi@localhost cmd]$ umask
+0022
+[shangqi@localhost cmd]$ touch test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-r--r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ umask 002
+[shangqi@localhost cmd]$ umask
+0002
+[shangqi@localhost cmd]$ chmod g+w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ cd test
+-bash: cd: test: Not a directory
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ chmod u-w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-r--rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ chmod u-r test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+----rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ chmod o-r test
+[shangqi@localhost cmd]$ ls test
+test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+----rw----. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ chmod u+r test
+[shangqi@localhost cmd]$ chmod o+r test
+[shangqi@localhost cmd]$ chmod o+w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-r--rw-rw-. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ chmod o-w test
+[shangqi@localhost cmd]$ chmod u+w test
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:30 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ chmod u-w test
+[shangqi@localhost cmd]$ rm test
+rm: remove write-protected regular empty file ¡®test¡¯? y
+[shangqi@localhost cmd]$ ls
+aa.txt  cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+[shangqi@localhost cmd]$ mkdir test
+[shangqi@localhost cmd]$ chmod u-w test
+[shangqi@localhost cmd]$ mkdir test/tes
+mkdir: cannot create directory ¡®test/tes¡¯: Permission denied
+[shangqi@localhost cmd]$ chmod u+w test
+[shangqi@localhost cmd]$ mkdir test/ndc
+[shangqi@localhost cmd]$ ls -l
+total 102620
+-rw-rw-r--. 1 shangqi shangqi         7 Mar  4 18:37 aa.txt
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:08 cmd.tar.bz2
+-rw-rw-r--. 1 shangqi shangqi      3674 Mar  4 19:06 cmd.tar.gz
+-rw-rw-r--. 1 shangqi shangqi    103486 Mar  4 18:58 hello.tar
+-rw-rw-r--. 1 shangqi shangqi 104857600 Mar  4 18:45 hello.txt
+-rw-rw-r--. 1 shangqi shangqi    101941 Mar  4 18:46 hello.zip
+-rw-r--r--. 1 shangqi shangqi      2008 Mar  5 00:00 passwd
+drwxrwxr-x. 3 shangqi shangqi        16 Mar  5 17:38 test
+-rw-rw-r--. 1 shangqi shangqi         0 Mar  5 17:15 test.c
+[shangqi@localhost cmd]$ ls test/
+ndc
+[shangqi@localhost cmd]$ rm test/ndc
+rm: cannot remove ¡®test/ndc¡¯: Is a directory
+[shangqi@localhost cmd]$ rm -i test/ndc
+rm: cannot remove ¡®test/ndc¡¯: Is a directory
+[shangqi@localhost cmd]$ rm -r test
+[shangqi@localhost cmd]$ ls
+aa.txt  cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+[shangqi@localhost cmd]$ 
