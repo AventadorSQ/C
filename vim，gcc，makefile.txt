@@ -1,0 +1,1034 @@
+ Display information from object <file(s)>.
+ At least one of the following switches must be given:
+  -a, --archive-headers    Display archive header information
+  -f, --file-headers       Display the contents of the overall file header
+  -p, --private-headers    Display object format specific file header contents
+  -P, --private=OPT,OPT... Display object format specific contents
+  -h, --[section-]headers  Display the contents of the section headers
+  -x, --all-headers        Display the contents of all headers
+  -d, --disassemble        Display assembler contents of executable sections
+  -D, --disassemble-all    Display assembler contents of all sections
+  -S, --source             Intermix source code with disassembly
+  -s, --full-contents      Display the full contents of all sections requested
+  -g, --debugging          Display debug information in object file
+  -e, --debugging-tags     Display debug information using ctags style
+  -G, --stabs              Display (in raw form) any STABS info in the file
+  -W[lLiaprmfFsoRt] or
+  --dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,
+          =frames-interp,=str,=loc,=Ranges,=pubtypes,
+          =gdb_index,=trace_info,=trace_abbrev,=trace_aranges,
+          =addr,=cu_index]
+                           Display DWARF info in the file
+  -t, --syms               Display the contents of the symbol table(s)
+  -T, --dynamic-syms       Display the contents of the dynamic symbol table
+  -r, --reloc              Display the relocation entries in the file
+  -R, --dynamic-reloc      Display the dynamic relocation entries in the file
+  @<file>                  Read options from <file>
+  -v, --version            Display this program's version number
+  -i, --info               List object formats and architectures supported
+  -H, --help               Display this information
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ objdump -S test.o
+
+test.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <printf_test>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	bf 00 00 00 00       	mov    $0x0,%edi
+   9:	e8 00 00 00 00       	callq  e <printf_test+0xe>
+   e:	5d                   	pop    %rbp
+   f:	c3                   	retq   
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ vim main.s
+[shangqi@localhost tools]$ gcc main.o test.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ gcc main.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ rm test.o
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.py
+[shangqi@localhost tools]$ vim test.c
+[shangqi@localhost tools]$ gcc -c test.c -o test.o
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ gcc main.o test.o -o main
+[shangqi@localhost tools]$ ./main
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+666
+[shangqi@localhost tools]$ ls
+main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ ls /lib
+alsa      dracut     java        jvm          kernel          polkit-1          sysctl.d    yum-plugins
+binfmt.d  firewalld  java-1.5.0  jvm-commmon  locale          python2.7         systemd
+cpp       firmware   java-1.6.0  jvm-exports  modprobe.d      rpm               tmpfiles.d
+crda      games      java-1.7.0  jvm-private  modules         sendmail          tuned
+cups      gcc        java-1.8.0  kbd          modules-load.d  sendmail.postfix  udev
+debug     grub       java-ext    kdump        mozilla         sse2              udisks2
+[shangqi@localhost tools]$ ls
+main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ ldd main
+	linux-vdso.so.1 =>  (0x00007fff9ed21000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f8fdaeca000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f8fdb29e000)
+[shangqi@localhost tools]$ ls
+main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ rm main main.i main.o main.s test.o
+[shangqi@localhost tools]$ rm
+rm: missing operand
+Try 'rm --help' for more information.
+[shangqi@localhost tools]$ ls
+main.c  test.c  test.py
+[shangqi@localhost tools]$ vim Makefile
+[shangqi@localhost tools]$ vim ~/.bashrc
+[shangqi@localhost tools]$ vi main.c 
+[shangqi@localhost tools]$ vi main.c 
+[shangqi@localhost tools]$ vi Makefile
+[shangqi@localhost tools]$ make
+Makefile:5: *** missing separator.  Stop.
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+Makefile:5: *** missing separator.  Stop.
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ make
+Makefile:5: *** missing separator.  Stop.
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ make
+Makefile:5: *** missing separator.  Stop.
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+[shangqi@localhost tools]$ ./main
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+666
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ make
+make: `main' is up to date.
+[shangqi@localhost tools]$ rm main
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ make
+gcc -o mian main.c test.c
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  mian  test.c  test.py
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ rm main mian
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main1
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+make: `main' is up to date.
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+make: `main' is up to date.
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main main1
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+make: Nothing to be done for `ALL'.
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main main1
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ ls -a
+.  ..  main.c  .main.c.swo  Makefile  .Makefile.swp  test.c  test.py
+[shangqi@localhost tools]$ rm .Makefile.swp 
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -static -o main1 main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+make: *** [main1] Error 1
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+gcc -static -o main1 main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+make: *** [main1] Error 1
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ alhost ~]$ cd 
+bash: alhost: command not found...
+[shangqi@localhost tools]$ alhost ~]$ cd 
+bash: alhost: command not found...
+[shangqi@localhost tools]$ 
+[shangqi@localhost tools]$ Last login: Thu Mar  7 01:06:07 2019 from 192.168.166.1
+bash: Last: command not found...
+Similar command is: 'last'
+[shangqi@localhost tools]$ [shangqi@localhost ~]$ 
+bash: [shangqi@localhost: command not found...
+`help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.128:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu Mar  7 01:06:19 2019 from 192.168.166.1
+[shangqi@localhost ~]$ cd workspace/Sq666[shangqi@localhost tools]$ Socket error Event: 32 Error: 10053.
+bash: Socket: command not found...
+/cmd/
+[shangqi@localhost cmd]$ ls
+cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+[shangqi@localhost cmd]$ wc passwd
+  43   75 2008 passwd
+[shangqi@localhost cmd]$ vi passwd 
+[shangqi@localhost cmd]$ 
+Socket error Event: 32 Error: [shangqi@localhost tools]$ Connection closing...Socket close.
+bash: Connection: command not found...
+10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.128) at 18:24:43.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.128:22...
+Connection established.[shangqi@localhost tools]$ 
+[shangqi@localhost tools]$ Connection closed by foreign host.
+bash: Connection: command not found...
+
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu Mar  7 02:03:12 2019 from 192.168.166.1
+[shangqi@localhost ~]$ umask
+0002
+[shangqi@localhost ~]$ cd workspace/Sq666/tools/
+[shangqi@localhost tools]$ ls
+main.c
+[shangqi@localhost tools]$ vi ma[shangqi@localhost tools]$ 
+[shangqi@localhost tools]$ Disconnected from remote host(192.168.166.128) at 17:55:56.
+-bash: syntax error near unexpected token `('
+[shangqi@localhost tools]$ 
+[shangqi@localhost tools]$ Type `help' to learn how to use Xshell prompt.
+> [C:\~]$ 
+> 
+> Connecting to 192.168.166.128:22...
+> Connection established.
+> To escape to local shell, press 'Ctrl+Alt+]'.
+> 
+> Last login: Thu Mar  7 01:06:19 2019 from 192.168.166.1
+> [shangqi@localhost ~]$ cd workspace/Sq666/cmd/
+> [shangqi@localhost cmd]$ ls
+> cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+> [shangqi@localhost cmd]$ wc passwd
+>   43   75 2008 passwd
+> [shangqi@localhost cmd]$ vi passwd 
+> [shangqi@localhost cmd]$ 
+> Socket error Event: 32 Error: 10053.
+> Connection closing...Socket close.
+> 
+> Connection closed by foreign host.
+> 
+> Disconnected from remote host(192.168.166.128) at 18:24:43.
+> 
+> Type `help' to learn how to use Xshell prompt.
+> [C:\~]$ 
+> 
+> Connecting to 192.168.166.128:22...
+> Connection established.
+> To escape to local shell, press 'Ctrl+Alt+]'.
+> 
+> Last login: Thu Mar  7 02:03:12 2019 from 192.168.166.1
+> [shangqi@localhost ~]$ umask
+> 0002
+> [shangqi@localhost ~]$ cd workspace/Sq666/tools/
+> [shangqi@localhost tools]$ ls
+> main.c
+> [shangqi@localhost tools]$ vi main.c 
+> 
+> /home/shangqi/workspace/Sq666/tools
+> 
+> Press ENTER or type command to continue
+> [shangqi@localhost tools]$ ls -l
+> total 4
+> -rw-rw-r--. 1 shangqi shangqi 82 Mar  7 03:16 main.c
+> [shangqi@localhost tools]$ chown shangqi main.c^C
+> [shangqi@localhost tools]$ chgrp shangqi main.c^C
+> [shangqi@localhost tools]$ ls /etc/sudoers -l
+> -rw-r-----. 1 root root 4023 Dec 21 18:01 /etc/sudoers
+> [shangqi@localhost tools]$ su root
+> Password: 
+> [root@localhost tools]# chmod 600 /etc/sudoers
+> [root@localhost tools]# su san
+> su: user san does not exist
+> [root@localhost tools]# su shangqi
+> [shangqi@localhost tools]$ ls /root/
+> ls: cannot open directory /root/: Permission denied
+> [shangqi@localhost tools]$ sudo ls /root/
+> [sudo] password for shangqi: 
+> anaconda-ks.cfg
+> [shangqi@localhost tools]$ su root
+> Password: 
+> [root@localhost tools]# vim /etc/sudoers
+> [root@localhost tools]# vim /etc/sudoers
+> [root@localhost tools]# ls -l /etc/sudoers
+> -rw-------. 1 root root 4023 Mar  7 03:26 /etc/sudoers
+> [root@localhost tools]# chmod u+w /etc/sudoers
+> [root@localhost tools]# ls -l
+> total 4
+> -rw-rw-r--. 1 shangqi shangqi 82 Mar  7 03:16 main.c
+> [root@localhost tools]# ls
+> main.c
+> [root@localhost tools]# su shangqi
+> [shangqi@localhost tools]$ sudo ls /root/
+> [sudo] password for shangqi: 
+> anaconda-ks.cfg
+> [shangqi@localhost tools]$ ls
+> main.c
+> [shangqi@localhost tools]$ vi main.c 
+> [shangqi@localhost tools]$ ls -a ~/
+> .              .bash_logout   .config    .esd_auth      .local    .pki       .vim          .viminfy.tmp> ..             .bash_profile  Desktop    .ICEauthority  .mozilla  Public     .viminfo      .viminfz.tmp> 40             .bashrc        Documents  .lesshst       Music     Templates  .viminfo.tmp  workspace
+> .bash_history  .cache         Downloads  LinuxÊÔÁ¶1     Pictures  Videos     .viminfx.tmp  .Xauthority
+> [shangqi@localhost tools]$ ls /etc/vimrc
+> /etc/vimrc
+> [shangqi@localhost tools]$ sudo vim /etc/vimrc
+> [sudo] password for shangqi: 
+> [shangqi@localhost tools]$ sudo vim /etc/vimrc
+> [sudo] password for shangqi: 
+> [shangqi@localhost tools]$ sudo vim /etc/vimrc
+> [shangqi@localhost tools]$ vim main.c 
+> [shangqi@localhost tools]$ cd ..
+> [shangqi@localhost Sq666]$ ls -l
+> total 4
+> drwxrwxr-x. 2 shangqi shangqi 4096 Mar  7 02:04 cmd
+> drwxrwxr-x. 2 shangqi shangqi   55 Mar  7 03:54 tools
+> [shangqi@localhost Sq666]$ cd tools/
+> [shangqi@localhost tools]$ ls
+> main.c
+> [shangqi@localhost tools]$ vi test.py
+> [shangqi@localhost tools]$ python test.py
+> hello python
+> [shangqi@localhost tools]$ ls -l
+> total 8
+> -rw-rw-r--. 1 shangqi shangqi 141 Mar  7 03:54 main.c
+> -rw-rw-r--. 1 shangqi shangqi  21 Mar  7 04:02 test.py
+> [shangqi@localhost tools]$ chmod g-w main.c 
+> [shangqi@localhost tools]$ ls -l
+> total 8
+> -rw-r--r--. 1 shangqi shangqi 141 Mar  7 03:54 main.c
+> -rw-rw-r--. 1 shangqi shangqi  21 Mar  7 04:02 test.py
+> [shangqi@localhost tools]$ chmod g+w main.c 
+> [shangqi@localhost tools]$ ls -l
+> total 8
+> -rw-rw-r--. 1 shangqi shangqi 141 Mar  7 03:54 main.c
+> -rw-rw-r--. 1 shangqi shangqi  21 Mar  7 04:02 test.py
+> [shangqi@localhost tools]$ vi main.c 
+> [shangqi@localhost tools]$ gcc main.c
+> main.c: In function ¡®main¡¯:
+> main.c:9:9: warning: missing terminating " character [enabled by default]
+>   printf("hello bit!!\n);
+>          ^
+> main.c:9:2: error: missing terminating " character
+>   printf("hello bit!!\n);
+>   ^
+> main.c:10:5: error: expected expression before ¡®}¡¯ token
+>      }
+>      ^
+> main.c:10:5: error: expected ¡®;¡¯ before ¡®}¡¯ token
+> [shangqi@localhost tools]$ vi main.c 
+> [shangqi@localhost tools]$ gcc main.c
+> /tmp/ccjvgKqL.o: In function `main':
+-bash: command substitution: line 6: unexpected EOF while looking for matching `''
+-bash: command substitution: line 24: syntax error: unexpected end of file
+bash: Type: command not found...
+[shangqi@localhost tools]$ main.c:(.text+0x32): undefined reference to `printf_Test'
+-bash: syntax error near unexpected token `.text+0x32'
+[shangqi@localhost tools]$ collect2: error: ld returned 1 exit status
+bash: collect2:: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ gcc -E main.c -o main.i
+bash: [shangqi@localhost: command not found...
+-c main.s -o main.o
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.py
+[shangqi@localhost tools]$ gcc main.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exi[shangqi@localhost tools]$ [shangqi@localhost tools]$ vim main.i
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+test.c
+[shangqi@localhost tools]$ vim test.c
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.py
+[shangqi@localhost tools]$ vim test.c
+[shangqi@localhost tools]$ gcc -c test.c -o test.o
+test.c: In function ¡®printf_test¡¯:
+test.[shangqi@localhost tools]$ main.c  main.i  test.py
+bash: main.c: command not found...
+c:3:5: warning: incompatible implicit declaration of built-in function ¡®printf¡¯ [enabled by default]
+     printf("666\n");
+     ^
+[shangqi@localhost tools]$ vim test.c
+[shangqi@localhost tools]$ !gcc
+gcc -c test.c -o test.o
+[shangqi@localhost tools]$ l[shangqi@localhost tools]$ [shangqi@localhost tools]$ gcc -S main.i -o main.s
+bash: [shangqi@localhost: command not found...
+s
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ gcc main.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tool[shangqi@localhost tools]$ [shangqi@localhost tools]$ gcc -c main.s -o main.o
+bash: [shangqi@localhost: command not found...
+s]$ gcc main.o test.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tools]$ vim test.o
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+s  test.c  test.o  test.py
+[shangqi@localhost tools]$ vim test.c
+[shangqi@localhost tools]$ rm test.o
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.py
+[shangqi@localhost tools]$ gcc -c test.c -o test.o
+[shangqi@localhost tools][shangqi@localhost tools]$ main.c  main.i  main.o  main.s  test.py
+bash: main.c: command not found...
+$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ gcc main.o test.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exit status
+[shangqi@loca[shangqi@localhost tools]$ [shangqi@localhost tools]$ gcc main.o -o main
+lhost tools]$ objdump test.o
+Usage: objdump <option(s)> <file(s)>
+ Display information from object <file(s)>.
+ At least one of the following switches must be given:
+  -a, --archive-headers    Display archive header information
+  -f, --file-headers       Dibash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main.o: In function `main':
+> main.c:(.text+0x32): undefined reference to `printf_Test'
+> collect2: error: ld returned 1 exit status
+> [shangqi@localhost tools]$ vim main.c
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.py
+> [shangqi@localhost tools]$ vim main.s
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.py
+> [shangqi@localhost tools]$ vim test.c
+> [shangqi@localhost tools]$ vim test.c
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.py
+splay the contents of the overall file header
+  -p, --private-headers    Display object format specific file header contents
+  -P, --private=OPT,OPT... Display object format specific contents
+  -h, --[section-]headers  Display the contents of the section h> [shangqi@localhost tools]$ vim test.c
+> [shangqi@localhost tools]$ gcc -c test.c -o test.o
+> test.c: In function ¡®printf_test¡¯:
+> test.c:3:5: warning: incompatible implicit declaration of built-in function ¡®printf¡¯ [enabled by default]
+>      printf("666\n");
+>      ^
+> [shangqi@localhost tools]$ vim test.c
+> [shangqi@localhost tools]$ !gcc
+> gcc -c test.c -o test.o
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ gcc main.o -o main
+> main.o: In function `main':
+-bash: command substitution: line 1: unexpected EOF while looking for matching `''
+-bash: command substitution: line 3: syntax error: unexpected end of file
+bash: main.o:: command not found...
+[shangqi@localhost tools]$ main.c:(.text+0x32): undefined reference to `printf_Test'
+-bash: syntax error near unexpected token `.text+0x32'
+[shangqi@localhost tools]$ collect2: error: ld returned 1 exit status
+bash: collect2:: command not found...
+rce code with disassembly
+  -s, --full-contents      Display the full contents of all sections requested
+  -g, --debugging          Display debug information in object file
+  -e, --debugging-tags     Display debug information using ctags style
+  -G, --stab[shangqi@localhost tools]$ [shangqi@localhost tools]$ gcc main.o test.o -o main
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main.o: In function `main':
+> main.c:(.text+0x32): undefined reference to `printf_Test'
+> collect2: error: ld returned 1 exit status
+> [shangqi@localhost tools]$ vim test.o
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ vim test.c
+> [shangqi@localhost tools]$ rm test.o
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.py
+> [shangqi@localhost tools]$ gcc -c test.c -o test.o
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ gcc main.o test.o -o main
+> main.o: In function `main':
+-bash: command substitution: line 1: unexpected EOF while looking for matching `''
+-bash: command substitution: line 3: syntax error: unexpected end of file
+bash: main.o:: command not found...
+[shangqi@localhost tools]$ main.c:(.text+0x32): undefined reference to `printf_Test'
+-bash: syntax error near unexpected token `.text+0x32'
+[shangqi@localhost tools]$ collect2: error: ld returned 1 exit status
+bash: collect2:: command not found...
+trace_abbrev,=trace_aranges,
+          =addr,=cu_index]
+                           Display DWARF info in the file
+  -t, --syms               Display the contents of the symbol table(s)
+  -T, --dynamic-syms       Display the contents of the dynamic symbol t[shangqi@localhost tools]$ [shangqi@localhost tools]$ objdump test.o
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ Usage: objdump <option(s)> <file(s)>
+-bash: syntax error near unexpected token `('
+[shangqi@localhost tools]$  Display information from object <file(s)>.
+-bash: syntax error near unexpected token `('
+[shangqi@localhost tools]$  At least one of the following switches must be given:
+bash: At: command not found...
+Similar command is: 'at'
+able
+  -r, --reloc              Display the relocation entries in the file
+  -R, --dynamic-reloc      Display the dynamic relocation entries in the file
+  @<file>                  Read options from <file>
+  -v, --version            Display this program's v[shangqi@localhost tools]$   -a, --archive-headers    Display archive header information
+bash: -a,: command not found...
+[shangqi@localhost tools]$   -f, --file-headers       Display the contents of the overall file header
+ersion number
+  -i, --info               List object formats and architectures supported
+  -H, --help               Display this information
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ obbash: -f,: command not found...
+[shangqi@localhost tools]$   -p, --private-headers    Display object format specific file header contentsbash: -p,: command not found...
+jdump -S test.o
+
+test.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <printf_test>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	bf 00 00 00 00       	mov    $0x0,%edi
+   9:	e[shangqi@localhost tools]$   -P, --private=OPT,OPT... Display object format specific contents
+bash: -P,: command not found...
+[shangqi@localhost tools]$   -h, --[section-]headers  Display the contents of the section headers
+bash: -h,: command not found...
+[shangqi@localhost tools]$   -x, --all-headers        Display the contents of all headers
+bash: -x,: command not found...
+@localhost tools]$ gcc main.o test.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o  test[shangqi@localhost tools]$   -d, --disassemble        Display assembler contents of executable sections
+bash: -d,: command not found...
+.py
+[shangqi@localhost tools]$ gcc main.o -o main
+main.o: In function `main':
+main.c:(.text+0x32): undefined reference to `printf_Test'
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.o [shangqi@localhost tools]$   -D, --disassemble-all    Display assembler contents of all sections
+ test.py
+[shangqi@localhost tools]$ rm test.o
+[shangqi@localhost tools]$ ls
+main.c  main.i  main.o  main.s  test.c  test.py
+[shangqi@localhost tools]$ vim test.c
+[shangqi@localhost tools]$ gcc -c test.c -o test.o
+[shangqi@localhost tools]$ ls
+main.c  main.bash: -D,: command not found...
+[shangqi@localhost tools]$   -S, --source             Intermix source code with disassembly
+bash: -S,: command not found...
+i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ gcc main.o test.o -o main
+[shangqi@localhost tools]$ ./main
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+hello bit!!
+666
+[s[shangqi@localhost tools]$   -s, --full-contents      Display the full contents of all sections requesdbash: -s,: command not found...
+hangqi@localhost tools]$ ls
+main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@localhost tools]$ ls /lib
+alsa      dracut     java        jvm          kernel          polkit-1          sysctl.d    yum-plugins
+binfmt.d  firewalld  java-1[shangqi@localhost tools]$   -g, --debugging          Display debug information in object file
+bash: -g,: command not found...
+.5.0  jvm-commmon  locale          python2.7         systemd
+cpp       firmware   java-1.6.0  jvm-exports  modprobe.d      rpm               tmpfiles.d
+crda      games      java-1.7.0  jvm-private  modules         sendmail          tuned
+cups      gcc     [shangqi@localhost tools]$   -e, --debugging-tags     Display debug information using ctags style
+   java-1.8.0  kbd          modules-load.d  sendmail.postfix  udev
+debug     grub       java-ext    kdump        mozilla         sse2              udisks2
+[shangqi@localhost tools]$ ls
+main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+[shangqi@bash: -e,: command not found...
+[shangqi@localhost tools]$   -G, --stabs              Display (in raw form) any STABS info in the file
+-bash: syntax error near unexpected token `('
+[shangqi@localhost tools]$   -W[lLiaprmfFsoRt] or
+bash: -W[lLiaprmfFsoRt]: command not found...
+localhost tools]$ ldd main
+	linux-vdso.so.1 =>  (0x00007fff9ed21000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007f8fdaeca000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f8fdb29e000)
+[shangqi@localhost tools]$ ls
+main  main.c  main.i  main.o  main.s  test.c  test.o  t[shangqi@localhost tools]$   --dwarf[=rawline,=decs,edline,=info,=abbrev,=pubnames,=aranges,=macro,=frame 
+bash: --dwarf[=rawline,=decodedline,=info,=abbrev,=pubnames,=aranges,=macro,=frames,: command not found...
+[shangqi@localhost tools]$           =frames-interp,=str,=loc,=Ranges,=pubtypes,
+est.py
+[shangqi@localhost tools]$ rm main main.i main.o main.s test.o
+[shangqi@localhost tools]$ rm
+rm: missing operand
+Try 'rm --help' for more information.
+[shangqi@localhost tools]$ ls
+main.c  test.c  test.py
+[shangqi@localhost tools]$ vim Makefile
+[shabash: =frames-interp,=str,=loc,=Ranges,=pubtypes,: command not found...
+ngqi@localhost tools]$ vim ~/.bashrc
+[shangqi@localhost tools]$ vi main.c 
+[shangqi@localhost tools]$ vi main.c 
+[shangqi@localhost tools]$ vi Makefile
+[shangqi@localhost tools]$ make
+Makefile:5: *** missing separator.  Stop.
+[shangqi@localhost tools]$ ls
+[shangqi@localhost tools]$           =gdb_index,=trace_info,=trace_abbrev,=trace_aranges,
+bash: =gdb_index,=trace_info,=trace_abbrev,=trace_aranges,: command not found...
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+Makefile:5: *** missing separator.  Stop.
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ vim Makefile 
+[shangqi@localhost tools]$ [shangqi@localhost tools]$           =addr,=cu_index]
+make
+Makefile:5: *** missing separator.  Stop.
+[shangqibash: =addr,=cu_index]: command not found...
+[shangqi@localhost tools]$                            Display DWARF info in the file
+]
+bash: Display: command not found...
+[shangqi@localhost tools]$   -t, --syms               Display the contents of the symbol table(s)
+-bash: syntax error near unexpected token `('
+[shangqi@localhost tools]$   -T, --dynamic-syms       Display the contents of the dynamic symbol table
+e
+bash: -T,: command not found...
+[shangqi@localhost tools]$   -r, --reloc              Display the relocation entries in the file
+t
+bash: -r,: command not found...
+[shangqi@localhost tools]$   -R, --dynamic-reloc      Display the dynamic relocation entries in the file
+o
+bash: -R,: command not found...
+[shangqi@localhost tools]$   @<file>                  Read options from <file>
+-bash: syntax error near unexpected token `newline'
+[shangqi@localhost tools]$   -v, --version            Display this program's version number
+>   -i, --info               List object formats and architectures supported
+>   -H, --help               Display this information
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ objdump -S test.o
+> 
+> test.o:     file format elf64-x86-64
+> 
+> 
+> Disassembly of section .text:
+> 
+> 0000000000000000 <printf_test>:
+>    0:55                   push   %rbp
+>    1:48 89 e5             mov    %rsp,%rbp
+>    4:bf 00 00 00 00       mov    $0x0,%edi
+>    9:e8 00 00 00 00       callq  e <printf_test+0xe>
+>    e:5d                   pop    %rbp
+>    f:c3                   retq   
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ vim main.s
+> [shangqi@localhost tools]$ gcc main.o test.o -o main
+> main.o: In function `main':
+bash: -v,: command not found...
+[shangqi@localhost tools]$ main.c:(.text+0x32): undefined reference to `printf_Test'
+-bash: syntax error near unexpected token `.text+0x32'
+[shangqi@localhost tools]$ collect2: error: ld returned 1 exit status
+bash: collect2:: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main.c  main.i  main.o  main.s  test.c  test.o  test.py
+bash: main.c: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ gcc main.o -o main
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main.o: In function `main':
+> main.c:(.text+0x32): undefined reference to `printf_Test'
+> collect2: error: ld returned 1 exit status
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ rm test.o
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.py
+> [shangqi@localhost tools]$ vim test.c
+> [shangqi@localhost tools]$ gcc -c test.c -o test.o
+> [shangqi@localhost tools]$ ls
+> main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ gcc main.o test.o -o main
+> [shangqi@localhost tools]$ ./main
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> 666
+> [shangqi@localhost tools]$ ls
+> main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ ls /lib
+> alsa      dracut     java        jvm          kernel          polkit-1          sysctl.d    yum-plugins> binfmt.d  firewalld  java-1.5.0  jvm-commmon  locale          python2.7         systemd
+> cpp       firmware   java-1.6.0  jvm-exports  modprobe.d      rpm               tmpfiles.d
+> crda      games      java-1.7.0  jvm-private  modules         sendmail          tuned
+> cups      gcc        java-1.8.0  kbd          modules-load.d  sendmail.postfix  udev
+> debug     grub       java-ext    kdump        mozilla         sse2              udisks2
+> [shangqi@localhost tools]$ ls
+> main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ ldd main
+> linux-vdso.so.1 =>  (0x00007fff9ed21000)
+> libc.so.6 => /lib64/libc.so.6 (0x00007f8fdaeca000)
+> /lib64/ld-linux-x86-64.so.2 (0x00007f8fdb29e000)
+> [shangqi@localhost tools]$ ls
+> main  main.c  main.i  main.o  main.s  test.c  test.o  test.py
+> [shangqi@localhost tools]$ rm main main.i main.o main.s test.o
+> [shangqi@localhost tools]$ rm
+> rm: missing operand
+> Try 'rm --help' for more information.
+> [shangqi@localhost tools]$ ls
+> main.c  test.c  test.py
+> [shangqi@localhost tools]$ vim Makefile
+> [shangqi@localhost tools]$ vim ~/.bashrc
+> [shangqi@localhost tools]$ vi main.c 
+> [shangqi@localhost tools]$ vi main.c 
+> [shangqi@localhost tools]$ vi Makefile
+> [shangqi@localhost tools]$ make
+> Makefile:5: *** missing separator.  Stop.
+> [shangqi@localhost tools]$ ls
+> main.c  Makefile  test.c  test.py
+> [shangqi@localhost tools]$ vi Makefile 
+> [shangqi@localhost tools]$ make
+> Makefile:5: *** missing separator.  Stop.
+> [shangqi@localhost tools]$ vi Makefile 
+> [shangqi@localhost tools]$ vim Makefile 
+> [shangqi@localhost tools]$ make
+> Makefile:5: *** missing separator.  Stop.
+> [shangqi@localhost tools]$ vim Makefile 
+> [shangqi@localhost tools]
+> [shangqi@localhost tools]$ make
+> Makefile:5: *** missing separator.  Stop.
+> [shangqi@localhost tools]$ vim Makefile 
+> [shangqi@localhost tools]$ make
+> gcc -o main main.c test.c
+> [shangqi@localhost tools]$ ./main
+> hello bit
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello bit!!
+> hello
+> hello bit!!
+> hello bit!!
+> 666
+> [shangqi@localhost tools]$ vim Makefile 
+> [shangqi@localhost tools]$ make
+> make: `main' is up to date.
+: `main' is up to date.
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+make: `main' is up to date.
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost too-bash: command substitution: line 1: unexpected EOF while looking for matching `''
+-bash: command substitution: line 3: syntax error: unexpected end of file
+bash: main.o:: command not found...
+ls]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main main1
+[shangqi@localhost tools]$ ls
+m[shangqi@localhost tools]$ [shangqi@localhost tools]$ rm main
+bash: [shangqi@localhost: command not found...
+ain.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+make: Nothing to be done for [shangqi@localhost tools]$ [shangqi@localhost tools]$ make
+bash: [shangqi@localhost: command not found...
+`ALL'.
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main main1
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ gcc -o main main.c test.c
+vi Makefile 
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ ls -a
+.  ..  main.c  .main.c.swo  Makefile  .Makefile.swp  test.c  test.py
+[shangqi@localhost tools]$ rm .Makefile.swp 
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -static -o main1 main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+make: *** [main1] Error 1
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+gcc -static -o main1 main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+make: *** [main1] Error 1
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ alhost ~]$ cd 
+bash: alhost: command not found...
+[shangqi@localhost tools]$ alhost ~]$ cd 
+bash: alhost: command not found...
+[shangqi@localhost tools]$ 
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vim Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ make
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ gcc -o mian main.c test.c
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main.c  Makefile  mian  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vim Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ rm main mian
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ make
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ gcc -o main main.c test.c
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vi Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ make
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main1  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ rm main1
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vi Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ make
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ make: `main' is up to date.
+> [shangqi@localhost tools]$ ls
+> main  main.c  Makefile  test.c  test.py
+> [shangqi@localhost tools]$ vi Makefile 
+> [shangqi@localhost tools]$ make
+> make: `main' is up to date.
+> [shangqi@localhost tools]$ vi Makefile 
+> [shangqi@localhost tools]$ ls
+> main  main.c  Makefile  test.c  test.py
+> [shangqi@localhost tools]$ make
+> gcc -o main1 main.c test.c
+> [shangqi@localhost tools]$ ls
+> main  main1  main.c  Makefile  test.c  test.py
+> [shangqi@localhost tools]$ rm main main1
+> [shangqi@localhost tools]$ ls
+> main.c  Makefile  test.c  test.py
+> [shangqi@localhost tools]$ make
+> gcc -o main main.c test.c
+> gcc -o main1 main.c test.c
+> [shangqi@localhost tools]$ ls
+> main  main1  main.c  Makefile  test.c  test.py
+> [shangqi@localhost tools]$ make
+> make: Nothing to be done for `ALL'.
+-bash: command substitution: line 1: unexpected EOF while looking for matching `''
+-bash: command substitution: line 7: syntax error: unexpected end of file
+bash: make:: command not found...
+Similar command is: 'make'
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vi Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main1  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ rm main main1
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main.c  Makefile  test.c  test.py
+bash: main.c: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vi Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vi Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main.c  Makefile  test.c  test.py
+bash: main.c: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls -a
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ .  ..  main.c  .main.c.swo  Makefile  .Makefile.swp  test.c  test.py
+-bash: .: ..: is a directory
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ rm .Makefile.swp 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vi Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ make
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ gcc -o main main.c test.c
+[shangqi@localhost tools]$ gcc -static -o main1 main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tools]$ /usr/bin/ld: cannot find -lc
+-bash: /usr/bin/ld:: No such file or directory
+[shangqi@localhost tools]$ collect2: error: ld returned 1 exit status
+bash: collect2:: command not found...
+[shangqi@localhost tools]$ make: *** [main1] Error 1
+bash: make:: command not found...
+Similar command is: 'make'
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ vi Makefile 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ make
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ gcc -static -o main1 main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+[shangqi@localhost tools]$ /usr/bin/ld: cannot find -lc
+-bash: /usr/bin/ld:: No such file or directory
+[shangqi@localhost tools]$ collect2: error: ld returned 1 exit status
+bash: collect2:: command not found...
+[shangqi@localhost tools]$ make: *** [main1] Error 1
+bash: make:: command not found...
+Similar command is: 'make'
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ ls
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ main  main.c  Makefile  test.c  test.py
+bash: main: command not found...
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ alhost ~]$ cd 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ bash: alhost: command not found...
+bash: bash:: command not found...
+Similar command is: 'bash'
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ alhost ~]$ cd 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ bash: alhost: command not found...
+bash: bash:: command not found...
+Similar command is: 'bash'
+[shangqi@localhost tools]$ [shangqi@localhost tools]$ 
+bash: [shangqi@localhost: command not found...
+[shangqi@localhost tools]$ 111111111111111111111111111111111111111111111111111111111111111
