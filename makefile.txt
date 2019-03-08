@@ -1,0 +1,111 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.128:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Thu Mar  7 15:46:50 2019
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ ls
+cmd  tools
+[shangqi@localhost Sq666]$ cd tools/
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  mian  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  mian  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  mian  test.c  test.py
+[shangqi@localhost tools]$ rm main mian
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -static -o main1 main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+make: *** [main1] Error 1
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main main1
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -static -o main main.c test.c
+/usr/bin/ld: cannot find -lc
+collect2: error: ld returned 1 exit status
+make: *** [main] Error 1
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm main main1
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make clean
+rm main main1
+[shangqi@localhost tools]$ ls
+main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ touch clean
+[shangqi@localhost tools]$ ls
+clean  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make clean
+make: `clean' is up to date.
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ ls
+clean  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make clean
+rm main main1
+rm: cannot remove °Æmain°Ø: No such file or directory
+rm: cannot remove °Æmain1°Ø: No such file or directory
+make: *** [clean] Error 1
+[shangqi@localhost tools]$ make
+gcc -o main main.c test.c
+gcc -o main1 main.c test.c
+[shangqi@localhost tools]$ ls
+clean  main  main1  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ make clean
+rm main main1
+[shangqi@localhost tools]$ ls
+clean  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ ls
+clean  main.c  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi makefile
+[shangqi@localhost tools]$ ls
+clean  main.c  makefile  Makefile  test.c  test.py
+[shangqi@localhost tools]$ rm clean 
+[shangqi@localhost tools]$ make
+gcc main.c test.c -o main
+[shangqi@localhost tools]$ ls
+main  main.c  makefile  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ 
