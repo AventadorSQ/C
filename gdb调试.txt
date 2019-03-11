@@ -1,0 +1,890 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.128:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Mar 10 17:01:43 2019
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tools
+[shangqi@localhost Sq666]$ cd tools/
+[shangqi@localhost tools]$ ls
+main  main.c  makefile  Makefile  test.c  test.py
+[shangqi@localhost tools]$ vi makefile 
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make clean
+rm -f ./main.c ./test.c main
+[shangqi@localhost tools]$ ls
+makefile  Makefile  test.py
+[shangqi@localhost tools]$ ls
+makefile  Makefile  test.py
+[shangqi@localhost tools]$ ls
+makefile  Makefile  test.py
+[shangqi@localhost tools]$ make
+gcc  -o main
+gcc: fatal error: no input files
+compilation terminated.
+make: *** [main] Error 4
+[shangqi@localhost tools]$ cd //
+[shangqi@localhost //]$ cd ~
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tools
+[shangqi@localhost Sq666]$ cd tools/
+[shangqi@localhost tools]$ ls
+makefile  Makefile  test.py
+[shangqi@localhost tools]$ vi makefile 
+[shangqi@localhost tools]$ ls
+makefile  Makefile  test.py
+[shangqi@localhost tools]$ cd -
+/home/shangqi/workspace/Sq666
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tools
+[shangqi@localhost Sq666]$ cd cmd/
+[shangqi@localhost cmd]$ ls
+cmd.tar.bz2  cmd.tar.gz  hello.tar  hello.txt  hello.zip  passwd  test.c
+[shangqi@localhost cmd]$ vi test.c 
+[shangqi@localhost cmd]$ cd -
+/home/shangqi/workspace/Sq666
+[shangqi@localhost Sq666]$ cd fork/
+[shangqi@localhost fork]$ ls
+fork  fork.c  jiang.c  jiangshi  makefile
+[shangqi@localhost fork]$ vi fork.c
+[shangqi@localhost fork]$ cp fork.c ../tool
+[shangqi@localhost fork]$ ls
+fork  fork.c  jiang.c  jiangshi  makefile
+[shangqi@localhost fork]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tool  tools
+[shangqi@localhost Sq666]$ vi tool
+[shangqi@localhost Sq666]$ cp tool ./tools/fork.c
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tool  tools
+[shangqi@localhost Sq666]$ cd tools/
+[shangqi@localhost tools]$ ls
+fork.c  makefile  Makefile  test.py
+[shangqi@localhost tools]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tool  tools
+[shangqi@localhost Sq666]$ rm tool
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tools
+[shangqi@localhost Sq666]$ cd tools/
+[shangqi@localhost tools]$ ls
+fork.c  makefile  Makefile  test.py
+[shangqi@localhost tools]$ vi Makefile 
+[shangqi@localhost tools]$ make Makefile 
+make: Nothing to be done for `Makefile'.
+[shangqi@localhost tools]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tools
+[shangqi@localhost Sq666]$ cd fork/
+[shangqi@localhost fork]$ ls
+fork  fork.c  jiang.c  jiangshi  makefile
+[shangqi@localhost fork]$ vi makefile 
+[shangqi@localhost fork]$ cd ..
+[shangqi@localhost Sq666]$ cd tools/
+[shangqi@localhost tools]$ ls
+fork.c  makefile  Makefile  test.py
+[shangqi@localhost tools]$ vi makefile 
+[shangqi@localhost tools]$ ls
+fork.c  makefile  Makefile  test.py
+[shangqi@localhost tools]$ vi main.c
+[shangqi@localhost tools]$ ls
+fork.c  main.c  makefile  Makefile  test.py
+[shangqi@localhost tools]$ sp main.c ../fork/
+bash: sp: command not found...
+Similar commands are::
+'ps'
+'cp'
+[shangqi@localhost tools]$ cp main.c ../fork/
+[shangqi@localhost tools]$ ls
+fork.c  main.c  makefile  Makefile  test.py
+[shangqi@localhost tools]$ make
+gcc -c main.c -o main.o
+gcc -c fork.c -o fork.o
+gcc main.o fork.o -o main
+fork.o: In function `main':
+fork.c:(.text+0x0): multiple definition of `main'
+main.o:main.c:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [main] Error 1
+[shangqi@localhost tools]$ rm fork.c
+[shangqi@localhost tools]$ ls
+fork.o  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ rm fork.o 
+[shangqi@localhost tools]$ ls
+main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ make
+gcc main.o -o main
+[shangqi@localhost tools]$ vi makefile 
+[shangqi@localhost tools]$ make
+make: `main' is up to date.
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ rm main
+[shangqi@localhost tools]$ make
+gcc main.o -o main
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ rm main mian.o
+rm: cannot remove °Æmian.o°Ø: No such file or directory
+[shangqi@localhost tools]$ ls
+main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ rm main.o
+[shangqi@localhost tools]$ make
+gcc -g -c main.c -o main.o
+gcc main.o -o main
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400584: file main.c, line 7.
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+
+Temporary breakpoint 1, main () at main.c:7
+7		printf("hello 666!!!\n");
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) l 7
+2	#include<unistd.h>
+3	int main()
+4	{
+5	    while(1)
+6	    {
+7		printf("hello 666!!!\n");
+8		sleep(1);
+9	    }
+10	    return 0;
+11	}
+(gdb) n
+hello 666!!!
+8		sleep(1);
+(gdb) n
+9	    }
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 4078] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) strat
+Undefined command: "strat".  Try "help".
+(gdb) start
+Temporary breakpoint 1 at 0x400584: file main.c, line 7.
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+
+Temporary breakpoint 1, main () at main.c:7
+7		printf("hello 666!!!\n");
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) n
+hello 666!!!
+8		sleep(1);
+(gdb) n
+9	    }
+(gdb) n
+7		printf("hello 666!!!\n");
+(gdb) n
+hello 666!!!
+8		sleep(1);
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 4210] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ vi main.c
+[shangqi@localhost tools]$ make
+gcc -g -c main.c -o main.o
+gcc main.o -o main
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) start
+Temporary breakpoint 1 at 0x4005b2: file main.c, line 20.
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+
+Temporary breakpoint 1, main () at main.c:20
+20		printf("hello 666!!!\n");
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) l 20
+15	{
+16	
+17	    while(1)
+18	    {
+19	
+20		printf("hello 666!!!\n");
+21		sleep(1);
+22		func();
+23	    }
+24	    return 0;
+(gdb) until 23
+hello 666!!!
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+main () at main.c:23
+23	    }
+(gdb) n
+20		printf("hello 666!!!\n");
+(gdb) until 21
+hello 666!!!
+main () at main.c:21
+21		sleep(1);
+(gdb) n
+22		func();
+(gdb) s
+func () at main.c:6
+6	    int i=0;
+(gdb) l
+1	#include<stdio.h>
+2	#include<unistd.h>
+3	
+4	void func()
+5	{
+6	    int i=0;
+7	    for(i=0;i<10;i++)
+8	    {
+9		printf("hehe\n");
+10	    }
+(gdb) n
+7	    for(i=0;i<10;i++)
+(gdb) n
+9		printf("hehe\n");
+(gdb) l
+4	void func()
+5	{
+6	    int i=0;
+7	    for(i=0;i<10;i++)
+8	    {
+9		printf("hehe\n");
+10	    }
+11	
+12	}
+13	
+(gdb) until 13
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+main () at main.c:23
+23	    }
+(gdb) n
+20		printf("hello 666!!!\n");
+(gdb) l
+15	{
+16	
+17	    while(1)
+18	    {
+19	
+20		printf("hello 666!!!\n");
+21		sleep(1);
+22		func();
+23	    }
+24	    return 0;
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 4302] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ vi main.c
+[shangqi@localhost tools]$ make
+gcc -g -c main.c -o main.o
+main.c: In function °Æmain°Ø:
+main.c:23:2: warning: incompatible implicit declaration of built-in function °Æmemcpy°Ø [enabled by default]
+  memcpy(ptr,"abcdef",6);
+  ^
+gcc main.o -o main
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400616: file main.c, line 16.
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+
+Temporary breakpoint 1, main () at main.c:16
+16	    int* ptr=NULL;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) n
+20		printf("hello 666!!!\n");
+(gdb) l
+15	{
+16	    int* ptr=NULL;
+17	    while(1)
+18	    {
+19	
+20		printf("hello 666!!!\n");
+21		sleep(1);
+22		func();
+23		memcpy(ptr,"abcdef",6);
+24	    }
+(gdb) until 22
+hello 666!!!
+main () at main.c:22
+22		func();
+(gdb) n
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+23		memcpy(ptr,"abcdef",6);
+(gdb) n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+(gdb) l
+18	    {
+19	
+20		printf("hello 666!!!\n");
+21		sleep(1);
+22		func();
+23		memcpy(ptr,"abcdef",6);
+24	    }
+25	    return 0;
+26	}
+(gdb) p ptr
+No symbol "ptr" in current context.
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+hello 666!!!
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+(gdb) until 23
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
+(gdb) until 22
+The program is not being run.
+(gdb) start
+Temporary breakpoint 2 at 0x400616: file main.c, line 16.
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+
+Temporary breakpoint 2, main () at main.c:16
+16	    int* ptr=NULL;
+(gdb) until 22
+hello 666!!!
+main () at main.c:22
+22		func();
+(gdb) n
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+23		memcpy(ptr,"abcdef",6);
+(gdb) p ptr
+$1 = (int *) 0x0
+(gdb) p *ptr
+Cannot access memory at address 0x0
+(gdb) break 23
+Breakpoint 3 at 0x40063c: file main.c, line 23.
+(gdb) n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 4570] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) b 23
+Breakpoint 1 at 0x40063c: file main.c, line 23.
+(gdb) q
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) run
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+hello 666!!!
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) bt
+#0  0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+#1  0x0000000000400652 in main () at main.c:23
+(gdb) b main.c:23
+Breakpoint 1 at 0x40063c: file main.c, line 23.
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+hello 666!!!
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+
+Breakpoint 1, main () at main.c:23
+23		memcpy(ptr,"abcdef",6);
+(gdb) p ptr
+$1 = (int *) 0x0
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+hello 666!!!
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+
+Breakpoint 1, main () at main.c:23
+23		memcpy(ptr,"abcdef",6);
+(gdb) bt
+#0  main () at main.c:23
+(gdb) b main.c:23
+Note: breakpoint 1 also set at pc 0x40063c.
+Breakpoint 2 at 0x40063c: file main.c, line 23.
+(gdb) bt
+#0  main () at main.c:23
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 4702] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) run
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+hello 666!!!
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) bt
+#0  0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+#1  0x0000000000400652 in main () at main.c:23
+(gdb) b main.c:23
+Breakpoint 1 at 0x40063c: file main.c, line 23.
+(gdb) l 23
+18	    {
+19	
+20		printf("hello 666!!!\n");
+21		sleep(1);
+22		func();
+23		memcpy(ptr,"abcdef",6);
+24	    }
+25	    return 0;
+26	}
+(gdb) p *ptr
+No symbol "ptr" in current context.
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+hello 666!!!
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+
+Breakpoint 1, main () at main.c:23
+23		memcpy(ptr,"abcdef",6);
+(gdb) p *ptr
+Cannot access memory at address 0x0
+(gdb) p ptr
+$1 = (int *) 0x0
+(gdb) b memcpy
+Breakpoint 2 at 0x7ffff7df5890
+(gdb) info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x000000000040063c in main at main.c:23
+	breakpoint already hit 1 time
+2       breakpoint     keep y   0x00007ffff7df5890 <memcpy>
+(gdb) n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7b64f96 in __memcpy_ssse3_back () from /lib64/libc.so.6
+(gdb) info break
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x000000000040063c in main at main.c:23
+	breakpoint already hit 1 time
+2       breakpoint     keep y   0x00007ffff7df5890 <memcpy>
+(gdb) d 2
+(gdb) n
+Single stepping until exit from function __memcpy_ssse3_back,
+which has no line number information.
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
+(gdb) q
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400616: file main.c, line 16.
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+
+Temporary breakpoint 1, main () at main.c:16
+16	    int* ptr=NULL;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) n
+20		printf("hello 666!!!\n");
+(gdb) n
+hello 666!!!
+21		sleep(1);
+(gdb) n
+22		func();
+(gdb) n
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+hehe
+23		memcpy(ptr,"abcdef",6);
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 4948] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost tools]$ gdb ./main
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-51.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/shangqi/workspace/Sq666/tools/main...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400616: file main.c, line 16.
+Starting program: /home/shangqi/workspace/Sq666/tools/./main 
+
+Temporary breakpoint 1, main () at main.c:16
+16	    int* ptr=NULL;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-55.el7.x86_64
+(gdb) s
+20		printf("hello 666!!!\n");
+(gdb) s
+hello 666!!!
+21		sleep(1);
+(gdb) s
+s22		func();
+(gdb) s
+func () at main.c:6
+6	    int i=0;
+(gdb) s
+7	    for(i=0;i<10;i++)
+(gdb) watch i
+Hardware watchpoint 2: i
+(gdb) c
+Continuing.
+hehe
+Hardware watchpoint 2: i
+
+Old value = 0
+New value = 1
+0x0000000000400606 in func () at main.c:7
+7	    for(i=0;i<10;i++)
+(gdb) c
+Continuing.
+hehe
+Hardware watchpoint 2: i
+
+Old value = 1
+New value = 2
+0x0000000000400606 in func () at main.c:7
+7	    for(i=0;i<10;i++)
+(gdb) p i
+$1 = 2
+(gdb) c
+Continuing.
+hehe
+Hardware watchpoint 2: i
+
+Old value = 2
+New value = 3
+0x0000000000400606 in func () at main.c:7
+7	    for(i=0;i<10;i++)
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 4990] will be killed.
+
+Quit anyway? (y or n) y
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ mkdir git
+[shangqi@localhost tools]$ ls
+git  main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ cd git/
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ cd ~
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  Linux ‘¡∂1  Music  Pictures  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd Linux ‘¡∂1/
+[shangqi@localhost Linux ‘¡∂1]$ ls
+c ‘¡∂  exec.c  FileTest  git  Makefile  shells.c  system  Test1
+[shangqi@localhost Linux ‘¡∂1]$ cd git
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ cd Linux/
+[shangqi@localhost Linux]$ ls
+[shangqi@localhost Linux]$ cd ..
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ cd Linux/
+[shangqi@localhost Linux]$ cd ..
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ cd ..
+[shangqi@localhost Linux ‘¡∂1]$ cd ..
+[shangqi@localhost ~]$ cd workspace/Sq666/tools/
+[shangqi@localhost tools]$ ls
+git  main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ rm git
+rm: cannot remove °Ægit°Ø: Is a directory
+[shangqi@localhost tools]$ rm -f git
+rm: cannot remove °Ægit°Ø: Is a directory
+[shangqi@localhost tools]$ rmdir git
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ pwd
+/home/shangqi/workspace/Sq666/tools
+[shangqi@localhost tools]$ cp /home/shangqi/Linux ‘¡∂1/git   ../tools/
+cp: omitting directory °Æ/home/shangqi/Linux ‘¡∂1/git°Ø
+[shangqi@localhost tools]$ ls
+main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ mkdir git
+[shangqi@localhost tools]$ ls
+git  main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ cd  git
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Could not resolve host: github.com; Unknown error
+[shangqi@localhost git]$ git clone https://AventadorSQ@github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://AventadorSQ@github.com/AventadorSQ/Linux.git/': Could not resolve host: github.com; Unknown error
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ mkder Linux
+bash: mkder: command not found...
+Similar command is: 'mkdir'
+[shangqi@localhost git]$ mkdir Linux
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ cd ..
+[shangqi@localhost tools]$ ls
+git  main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ cp main.c ./git/Linux/
+[shangqi@localhost tools]$ cd git/Linux/
+[shangqi@localhost Linux]$ ls
+main.c
+[shangqi@localhost Linux]$ git add ./*
+fatal: Not a git repository (or any of the parent directories): .git
+[shangqi@localhost Linux]$ ls
+main.c
+[shangqi@localhost Linux]$ cd ..
+[shangqi@localhost git]$ ls
+Linux
+[shangqi@localhost git]$ rm -f Linux/
+rm: cannot remove °ÆLinux/°Ø: Is a directory
+[shangqi@localhost git]$ rm if Linux
+rm: cannot remove °Æif°Ø: No such file or directory
+rm: cannot remove °ÆLinux°Ø: Is a directory
+[shangqi@localhost git]$ rmdir Linux/
+rmdir: failed to remove °ÆLinux/°Ø: Directory not empty
+[shangqi@localhost git]$ cd Linux/
+[shangqi@localhost Linux]$ ls
+main.c
+[shangqi@localhost Linux]$ rm main.c 
+[shangqi@localhost Linux]$ cd ..
+[shangqi@localhost git]$ rmdir Linux/
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ gir clone https://github.com/AventadorSQ/Linux.git
+bash: gir: command not found...
+[shangqi@localhost git]$ git clone https://github.com/AventadorSQ/Linux.git
+Cloning into 'Linux'...
+fatal: unable to access 'https://github.com/AventadorSQ/Linux.git/': Could not resolve host: github.com; Unknown error
+[shangqi@localhost git]$ ls
+[shangqi@localhost git]$ cd ..
+[shangqi@localhost tools]$ ls
+git  main  main.c  main.o  makefile  Makefile  test.py
+[shangqi@localhost tools]$ cd ..
+[shangqi@localhost Sq666]$ 
+[shangqi@localhost Sq666]$ ls
+cmd  fork  tools
+[shangqi@localhost Sq666]$ cd fork/
+[shangqi@localhost fork]$ ls
+fork  fork.c  jiang.c  jiangshi  main.c  makefile
+[shangqi@localhost fork]$ 
+Channel(Socket) closed from remote host(192.168.166.128) at 12:24:27.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
