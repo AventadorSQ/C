@@ -1,0 +1,985 @@
+
+Last login: Sun Mar 10 17:02:17 2019 from 192.168.166.1
+[shangqi@localhost ~]$ ls /proc/
+1    127   154   181   208  236   260   2880  3082  462   57    72   81   99           mdstat
+10   128   155   182   209  2363  261   29    31    468   58    724  813  acpi         meminfo
+100  129   156   183   21   237   262   2901  3109  469   5896  73   815  asound       misc
+101  13    157   184   210  238   263   2905  3123  47    59    74   816  buddyinfo    modules
+102  130   158   185   211  239   264   291   3129  471   5904  740  818  bus          mounts
+103  131   159   186   212  24    2640  2910  3131  48    60    75   82   cgroups      mpt
+104  132   16    187   213  240   265   2923  3135  481   6011  751  822  cmdline      mtrr
+105  133   160   188   214  241   266   2925  3139  482   6084  754  823  consoles     net
+106  134   161   189   215  242   267   293   314   484   61    756  825  cpuinfo      pagetypeinfo
+107  135   162   19    216  243   268   294   3191  486   610   759  83   crypto       partitions
+108  136   163   190   217  244   269   2957  32    488   6112  76   837  devices      sched_debug
+109  137   164   191   218  245   27    2965  3210  489   6113  760  84   diskstats    scsi
+11   138   165   192   219  246   270   2967  3253  49    6150  762  85   dma          self
+110  139   166   193   22   247   271   2975  33    492   62    763  86   driver       slabinfo
+111  14    167   194   220  248   2717  2980  3336  5     626   764  87   execdomains  softirqs
+112  140   168   1946  221  249   272   2985  3340  50    629   768  88   fb           stat
+113  141   169   195   222  25    2726  2990  3343  507   63    77   880  filesystems  swaps
+114  142   17    196   223  250   2728  2996  336   508   64    778  881  fs           sys
+115  143   170   197   224  2509  273   2999  34    509   643   78   89   interrupts   sysrq-trigger
+116  144   171   198   225  251   2736  3     35    5092  65    780  892  iomem        sysvipc
+117  145   172   199   226  2512  2737  30    36    51    66    784  9    ioports      timer_list
+118  146   173   2     227  252   274   3005  37    510   67    79   90   irq          timer_stats
+119  147   174   20    228  253   275   3017  38    511   671   793  91   kallsyms     tty
+12   1475  175   200   229  254   278   3026  39    512   672   794  92   kcore        uptime
+120  148   176   201   23   255   279   3031  40    513   673   795  93   keys         version
+121  149   177   202   230  256   28    3036  41    514   674   796  94   key-users    vmallocinfo
+122  15    178   203   231  257   280   3037  42    52    68    797  95   kmsg         vmstat
+123  150   1783  204   232  258   2802  3040  43    53    69    8    96   kpagecount   zoneinfo
+124  151   179   205   233  2587  281   3045  44    54    7     80   964  kpageflags
+125  152   18    206   234  259   282   3070  45    55    70    801  97   loadavg
+126  153   180   207   235  26    2825  3074  46    56    71    803  98   locks
+[shangqi@localhost ~]$ ls /proc/235
+ls: cannot read symbolic link /proc/235/cwd: Permission denied
+ls: cannot read symbolic link /proc/235/root: Permission denied
+ls: cannot read symbolic link /proc/235/exe: Permission denied
+attr        cmdline          environ  io        mountinfo   numa_maps      personality  smaps   syscall
+autogroup   comm             exe      limits    mounts      oom_adj        projid_map   stack   task
+auxv        coredump_filter  fd       loginuid  mountstats  oom_score      root         stat    uid_map
+cgroup      cpuset           fdinfo   maps      net         oom_score_adj  sched        statm   wchan
+clear_refs  cwd              gid_map  mem       ns          pagemap        sessionid    status
+[shangqi@localhost ~]$ ps -ef
+UID         PID   PPID  C STIME TTY          TIME CMD
+root          1      0  0 17:00 ?        00:00:02 /usr/lib/systemd/systemd --switched-root --system --des
+root          2      0  0 17:00 ?        00:00:00 [kthreadd]
+root          3      2  0 17:00 ?        00:00:00 [ksoftirqd/0]
+root          5      2  0 17:00 ?        00:00:00 [kworker/0:0H]
+root          7      2  0 17:00 ?        00:00:00 [migration/0]
+root          8      2  0 17:00 ?        00:00:00 [rcu_bh]
+root          9      2  0 17:00 ?        00:00:00 [rcuob/0]
+root         10      2  0 17:00 ?        00:00:00 [rcuob/1]
+root         11      2  0 17:00 ?        00:00:00 [rcuob/2]
+root         12      2  0 17:00 ?        00:00:00 [rcuob/3]
+root         13      2  0 17:00 ?        00:00:00 [rcuob/4]
+root         14      2  0 17:00 ?        00:00:00 [rcuob/5]
+root         15      2  0 17:00 ?        00:00:00 [rcuob/6]
+root         16      2  0 17:00 ?        00:00:00 [rcuob/7]
+root         17      2  0 17:00 ?        00:00:00 [rcuob/8]
+root         18      2  0 17:00 ?        00:00:00 [rcuob/9]
+root         19      2  0 17:00 ?        00:00:00 [rcuob/10]
+root         20      2  0 17:00 ?        00:00:00 [rcuob/11]
+root         21      2  0 17:00 ?        00:00:00 [rcuob/12]
+root         22      2  0 17:00 ?        00:00:00 [rcuob/13]
+root         23      2  0 17:00 ?        00:00:00 [rcuob/14]
+root         24      2  0 17:00 ?        00:00:00 [rcuob/15]
+root         25      2  0 17:00 ?        00:00:00 [rcuob/16]
+root         26      2  0 17:00 ?        00:00:00 [rcuob/17]
+root         27      2  0 17:00 ?        00:00:00 [rcuob/18]
+root         28      2  0 17:00 ?        00:00:00 [rcuob/19]
+root         29      2  0 17:00 ?        00:00:00 [rcuob/20]
+root         30      2  0 17:00 ?        00:00:00 [rcuob/21]
+root         31      2  0 17:00 ?        00:00:00 [rcuob/22]
+root         32      2  0 17:00 ?        00:00:00 [rcuob/23]
+root         33      2  0 17:00 ?        00:00:00 [rcuob/24]
+root         34      2  0 17:00 ?        00:00:00 [rcuob/25]
+root         35      2  0 17:00 ?        00:00:00 [rcuob/26]
+root         36      2  0 17:00 ?        00:00:00 [rcuob/27]
+root         37      2  0 17:00 ?        00:00:00 [rcuob/28]
+root         38      2  0 17:00 ?        00:00:00 [rcuob/29]
+root         39      2  0 17:00 ?        00:00:00 [rcuob/30]
+root         40      2  0 17:00 ?        00:00:00 [rcuob/31]
+root         41      2  0 17:00 ?        00:00:00 [rcuob/32]
+root         42      2  0 17:00 ?        00:00:00 [rcuob/33]
+root         43      2  0 17:00 ?        00:00:00 [rcuob/34]
+root         44      2  0 17:00 ?        00:00:00 [rcuob/35]
+root         45      2  0 17:00 ?        00:00:00 [rcuob/36]
+root         46      2  0 17:00 ?        00:00:00 [rcuob/37]
+root         47      2  0 17:00 ?        00:00:00 [rcuob/38]
+root         48      2  0 17:00 ?        00:00:00 [rcuob/39]
+root         49      2  0 17:00 ?        00:00:00 [rcuob/40]
+root         50      2  0 17:00 ?        00:00:00 [rcuob/41]
+root         51      2  0 17:00 ?        00:00:00 [rcuob/42]
+root         52      2  0 17:00 ?        00:00:00 [rcuob/43]
+root         53      2  0 17:00 ?        00:00:00 [rcuob/44]
+root         54      2  0 17:00 ?        00:00:00 [rcuob/45]
+root         55      2  0 17:00 ?        00:00:00 [rcuob/46]
+root         56      2  0 17:00 ?        00:00:00 [rcuob/47]
+root         57      2  0 17:00 ?        00:00:00 [rcuob/48]
+root         58      2  0 17:00 ?        00:00:00 [rcuob/49]
+root         59      2  0 17:00 ?        00:00:00 [rcuob/50]
+root         60      2  0 17:00 ?        00:00:00 [rcuob/51]
+root         61      2  0 17:00 ?        00:00:00 [rcuob/52]
+root         62      2  0 17:00 ?        00:00:00 [rcuob/53]
+root         63      2  0 17:00 ?        00:00:00 [rcuob/54]
+root         64      2  0 17:00 ?        00:00:00 [rcuob/55]
+root         65      2  0 17:00 ?        00:00:00 [rcuob/56]
+root         66      2  0 17:00 ?        00:00:00 [rcuob/57]
+root         67      2  0 17:00 ?        00:00:00 [rcuob/58]
+root         68      2  0 17:00 ?        00:00:00 [rcuob/59]
+root         69      2  0 17:00 ?        00:00:00 [rcuob/60]
+root         70      2  0 17:00 ?        00:00:00 [rcuob/61]
+root         71      2  0 17:00 ?        00:00:00 [rcuob/62]
+root         72      2  0 17:00 ?        00:00:00 [rcuob/63]
+root         73      2  0 17:00 ?        00:00:00 [rcuob/64]
+root         74      2  0 17:00 ?        00:00:00 [rcuob/65]
+root         75      2  0 17:00 ?        00:00:00 [rcuob/66]
+root         76      2  0 17:00 ?        00:00:00 [rcuob/67]
+root         77      2  0 17:00 ?        00:00:00 [rcuob/68]
+root         78      2  0 17:00 ?        00:00:00 [rcuob/69]
+root         79      2  0 17:00 ?        00:00:00 [rcuob/70]
+root         80      2  0 17:00 ?        00:00:00 [rcuob/71]
+root         81      2  0 17:00 ?        00:00:00 [rcuob/72]
+root         82      2  0 17:00 ?        00:00:00 [rcuob/73]
+root         83      2  0 17:00 ?        00:00:00 [rcuob/74]
+root         84      2  0 17:00 ?        00:00:00 [rcuob/75]
+root         85      2  0 17:00 ?        00:00:00 [rcuob/76]
+root         86      2  0 17:00 ?        00:00:00 [rcuob/77]
+root         87      2  0 17:00 ?        00:00:00 [rcuob/78]
+root         88      2  0 17:00 ?        00:00:00 [rcuob/79]
+root         89      2  0 17:00 ?        00:00:00 [rcuob/80]
+root         90      2  0 17:00 ?        00:00:00 [rcuob/81]
+root         91      2  0 17:00 ?        00:00:00 [rcuob/82]
+root         92      2  0 17:00 ?        00:00:00 [rcuob/83]
+root         93      2  0 17:00 ?        00:00:00 [rcuob/84]
+root         94      2  0 17:00 ?        00:00:00 [rcuob/85]
+root         95      2  0 17:00 ?        00:00:00 [rcuob/86]
+root         96      2  0 17:00 ?        00:00:00 [rcuob/87]
+root         97      2  0 17:00 ?        00:00:00 [rcuob/88]
+root         98      2  0 17:00 ?        00:00:00 [rcuob/89]
+root         99      2  0 17:00 ?        00:00:00 [rcuob/90]
+root        100      2  0 17:00 ?        00:00:00 [rcuob/91]
+root        101      2  0 17:00 ?        00:00:00 [rcuob/92]
+root        102      2  0 17:00 ?        00:00:00 [rcuob/93]
+root        103      2  0 17:00 ?        00:00:00 [rcuob/94]
+root        104      2  0 17:00 ?        00:00:00 [rcuob/95]
+root        105      2  0 17:00 ?        00:00:00 [rcuob/96]
+root        106      2  0 17:00 ?        00:00:00 [rcuob/97]
+root        107      2  0 17:00 ?        00:00:00 [rcuob/98]
+root        108      2  0 17:00 ?        00:00:00 [rcuob/99]
+root        109      2  0 17:00 ?        00:00:00 [rcuob/100]
+root        110      2  0 17:00 ?        00:00:00 [rcuob/101]
+root        111      2  0 17:00 ?        00:00:00 [rcuob/102]
+root        112      2  0 17:00 ?        00:00:00 [rcuob/103]
+root        113      2  0 17:00 ?        00:00:00 [rcuob/104]
+root        114      2  0 17:00 ?        00:00:00 [rcuob/105]
+root        115      2  0 17:00 ?        00:00:00 [rcuob/106]
+root        116      2  0 17:00 ?        00:00:00 [rcuob/107]
+root        117      2  0 17:00 ?        00:00:00 [rcuob/108]
+root        118      2  0 17:00 ?        00:00:00 [rcuob/109]
+root        119      2  0 17:00 ?        00:00:00 [rcuob/110]
+root        120      2  0 17:00 ?        00:00:00 [rcuob/111]
+root        121      2  0 17:00 ?        00:00:00 [rcuob/112]
+root        122      2  0 17:00 ?        00:00:00 [rcuob/113]
+root        123      2  0 17:00 ?        00:00:00 [rcuob/114]
+root        124      2  0 17:00 ?        00:00:00 [rcuob/115]
+root        125      2  0 17:00 ?        00:00:00 [rcuob/116]
+root        126      2  0 17:00 ?        00:00:00 [rcuob/117]
+root        127      2  0 17:00 ?        00:00:00 [rcuob/118]
+root        128      2  0 17:00 ?        00:00:00 [rcuob/119]
+root        129      2  0 17:00 ?        00:00:00 [rcuob/120]
+root        130      2  0 17:00 ?        00:00:00 [rcuob/121]
+root        131      2  0 17:00 ?        00:00:00 [rcuob/122]
+root        132      2  0 17:00 ?        00:00:00 [rcuob/123]
+root        133      2  0 17:00 ?        00:00:00 [rcuob/124]
+root        134      2  0 17:00 ?        00:00:00 [rcuob/125]
+root        135      2  0 17:00 ?        00:00:00 [rcuob/126]
+root        136      2  0 17:00 ?        00:00:00 [rcuob/127]
+root        137      2  0 17:00 ?        00:00:00 [rcu_sched]
+root        138      2  0 17:00 ?        00:00:00 [rcuos/0]
+root        139      2  0 17:00 ?        00:00:00 [rcuos/1]
+root        140      2  0 17:00 ?        00:00:00 [rcuos/2]
+root        141      2  0 17:00 ?        00:00:00 [rcuos/3]
+root        142      2  0 17:00 ?        00:00:00 [rcuos/4]
+root        143      2  0 17:00 ?        00:00:00 [rcuos/5]
+root        144      2  0 17:00 ?        00:00:00 [rcuos/6]
+root        145      2  0 17:00 ?        00:00:00 [rcuos/7]
+root        146      2  0 17:00 ?        00:00:00 [rcuos/8]
+root        147      2  0 17:00 ?        00:00:00 [rcuos/9]
+root        148      2  0 17:00 ?        00:00:00 [rcuos/10]
+root        149      2  0 17:00 ?        00:00:00 [rcuos/11]
+root        150      2  0 17:00 ?        00:00:00 [rcuos/12]
+root        151      2  0 17:00 ?        00:00:00 [rcuos/13]
+root        152      2  0 17:00 ?        00:00:00 [rcuos/14]
+root        153      2  0 17:00 ?        00:00:00 [rcuos/15]
+root        154      2  0 17:00 ?        00:00:00 [rcuos/16]
+root        155      2  0 17:00 ?        00:00:00 [rcuos/17]
+root        156      2  0 17:00 ?        00:00:00 [rcuos/18]
+root        157      2  0 17:00 ?        00:00:00 [rcuos/19]
+root        158      2  0 17:00 ?        00:00:00 [rcuos/20]
+root        159      2  0 17:00 ?        00:00:00 [rcuos/21]
+root        160      2  0 17:00 ?        00:00:00 [rcuos/22]
+root        161      2  0 17:00 ?        00:00:00 [rcuos/23]
+root        162      2  0 17:00 ?        00:00:00 [rcuos/24]
+root        163      2  0 17:00 ?        00:00:00 [rcuos/25]
+root        164      2  0 17:00 ?        00:00:00 [rcuos/26]
+root        165      2  0 17:00 ?        00:00:00 [rcuos/27]
+root        166      2  0 17:00 ?        00:00:00 [rcuos/28]
+root        167      2  0 17:00 ?        00:00:00 [rcuos/29]
+root        168      2  0 17:00 ?        00:00:00 [rcuos/30]
+root        169      2  0 17:00 ?        00:00:00 [rcuos/31]
+root        170      2  0 17:00 ?        00:00:00 [rcuos/32]
+root        171      2  0 17:00 ?        00:00:00 [rcuos/33]
+root        172      2  0 17:00 ?        00:00:00 [rcuos/34]
+root        173      2  0 17:00 ?        00:00:00 [rcuos/35]
+root        174      2  0 17:00 ?        00:00:00 [rcuos/36]
+root        175      2  0 17:00 ?        00:00:00 [rcuos/37]
+root        176      2  0 17:00 ?        00:00:00 [rcuos/38]
+root        177      2  0 17:00 ?        00:00:00 [rcuos/39]
+root        178      2  0 17:00 ?        00:00:00 [rcuos/40]
+root        179      2  0 17:00 ?        00:00:00 [rcuos/41]
+root        180      2  0 17:00 ?        00:00:00 [rcuos/42]
+root        181      2  0 17:00 ?        00:00:00 [rcuos/43]
+root        182      2  0 17:00 ?        00:00:00 [rcuos/44]
+root        183      2  0 17:00 ?        00:00:00 [rcuos/45]
+root        184      2  0 17:00 ?        00:00:00 [rcuos/46]
+root        185      2  0 17:00 ?        00:00:00 [rcuos/47]
+root        186      2  0 17:00 ?        00:00:00 [rcuos/48]
+root        187      2  0 17:00 ?        00:00:00 [rcuos/49]
+root        188      2  0 17:00 ?        00:00:00 [rcuos/50]
+root        189      2  0 17:00 ?        00:00:00 [rcuos/51]
+root        190      2  0 17:00 ?        00:00:00 [rcuos/52]
+root        191      2  0 17:00 ?        00:00:00 [rcuos/53]
+root        192      2  0 17:00 ?        00:00:00 [rcuos/54]
+root        193      2  0 17:00 ?        00:00:00 [rcuos/55]
+root        194      2  0 17:00 ?        00:00:00 [rcuos/56]
+root        195      2  0 17:00 ?        00:00:00 [rcuos/57]
+root        196      2  0 17:00 ?        00:00:00 [rcuos/58]
+root        197      2  0 17:00 ?        00:00:00 [rcuos/59]
+root        198      2  0 17:00 ?        00:00:00 [rcuos/60]
+root        199      2  0 17:00 ?        00:00:00 [rcuos/61]
+root        200      2  0 17:00 ?        00:00:00 [rcuos/62]
+root        201      2  0 17:00 ?        00:00:00 [rcuos/63]
+root        202      2  0 17:00 ?        00:00:00 [rcuos/64]
+root        203      2  0 17:00 ?        00:00:00 [rcuos/65]
+root        204      2  0 17:00 ?        00:00:00 [rcuos/66]
+root        205      2  0 17:00 ?        00:00:00 [rcuos/67]
+root        206      2  0 17:00 ?        00:00:00 [rcuos/68]
+root        207      2  0 17:00 ?        00:00:00 [rcuos/69]
+root        208      2  0 17:00 ?        00:00:00 [rcuos/70]
+root        209      2  0 17:00 ?        00:00:00 [rcuos/71]
+root        210      2  0 17:00 ?        00:00:00 [rcuos/72]
+root        211      2  0 17:00 ?        00:00:00 [rcuos/73]
+root        212      2  0 17:00 ?        00:00:00 [rcuos/74]
+root        213      2  0 17:00 ?        00:00:00 [rcuos/75]
+root        214      2  0 17:00 ?        00:00:00 [rcuos/76]
+root        215      2  0 17:00 ?        00:00:00 [rcuos/77]
+root        216      2  0 17:00 ?        00:00:00 [rcuos/78]
+root        217      2  0 17:00 ?        00:00:00 [rcuos/79]
+root        218      2  0 17:00 ?        00:00:00 [rcuos/80]
+root        219      2  0 17:00 ?        00:00:00 [rcuos/81]
+root        220      2  0 17:00 ?        00:00:00 [rcuos/82]
+root        221      2  0 17:00 ?        00:00:00 [rcuos/83]
+root        222      2  0 17:00 ?        00:00:00 [rcuos/84]
+root        223      2  0 17:00 ?        00:00:00 [rcuos/85]
+root        224      2  0 17:00 ?        00:00:00 [rcuos/86]
+root        225      2  0 17:00 ?        00:00:00 [rcuos/87]
+root        226      2  0 17:00 ?        00:00:00 [rcuos/88]
+root        227      2  0 17:00 ?        00:00:00 [rcuos/89]
+root        228      2  0 17:00 ?        00:00:00 [rcuos/90]
+root        229      2  0 17:00 ?        00:00:00 [rcuos/91]
+root        230      2  0 17:00 ?        00:00:00 [rcuos/92]
+root        231      2  0 17:00 ?        00:00:00 [rcuos/93]
+root        232      2  0 17:00 ?        00:00:00 [rcuos/94]
+root        233      2  0 17:00 ?        00:00:00 [rcuos/95]
+root        234      2  0 17:00 ?        00:00:00 [rcuos/96]
+root        235      2  0 17:00 ?        00:00:00 [rcuos/97]
+root        236      2  0 17:00 ?        00:00:00 [rcuos/98]
+root        237      2  0 17:00 ?        00:00:00 [rcuos/99]
+root        238      2  0 17:00 ?        00:00:00 [rcuos/100]
+root        239      2  0 17:00 ?        00:00:00 [rcuos/101]
+root        240      2  0 17:00 ?        00:00:00 [rcuos/102]
+root        241      2  0 17:00 ?        00:00:00 [rcuos/103]
+root        242      2  0 17:00 ?        00:00:00 [rcuos/104]
+root        243      2  0 17:00 ?        00:00:00 [rcuos/105]
+root        244      2  0 17:00 ?        00:00:00 [rcuos/106]
+root        245      2  0 17:00 ?        00:00:00 [rcuos/107]
+root        246      2  0 17:00 ?        00:00:00 [rcuos/108]
+root        247      2  0 17:00 ?        00:00:00 [rcuos/109]
+root        248      2  0 17:00 ?        00:00:00 [rcuos/110]
+root        249      2  0 17:00 ?        00:00:00 [rcuos/111]
+root        250      2  0 17:00 ?        00:00:00 [rcuos/112]
+root        251      2  0 17:00 ?        00:00:00 [rcuos/113]
+root        252      2  0 17:00 ?        00:00:00 [rcuos/114]
+root        253      2  0 17:00 ?        00:00:00 [rcuos/115]
+root        254      2  0 17:00 ?        00:00:00 [rcuos/116]
+root        255      2  0 17:00 ?        00:00:00 [rcuos/117]
+root        256      2  0 17:00 ?        00:00:00 [rcuos/118]
+root        257      2  0 17:00 ?        00:00:00 [rcuos/119]
+root        258      2  0 17:00 ?        00:00:00 [rcuos/120]
+root        259      2  0 17:00 ?        00:00:00 [rcuos/121]
+root        260      2  0 17:00 ?        00:00:00 [rcuos/122]
+root        261      2  0 17:00 ?        00:00:00 [rcuos/123]
+root        262      2  0 17:00 ?        00:00:00 [rcuos/124]
+root        263      2  0 17:00 ?        00:00:00 [rcuos/125]
+root        264      2  0 17:00 ?        00:00:00 [rcuos/126]
+root        265      2  0 17:00 ?        00:00:00 [rcuos/127]
+root        266      2  0 17:00 ?        00:00:00 [watchdog/0]
+root        267      2  0 17:00 ?        00:00:00 [khelper]
+root        268      2  0 17:00 ?        00:00:00 [kdevtmpfs]
+root        269      2  0 17:00 ?        00:00:00 [netns]
+root        270      2  0 17:00 ?        00:00:00 [writeback]
+root        271      2  0 17:00 ?        00:00:00 [kintegrityd]
+root        272      2  0 17:00 ?        00:00:00 [bioset]
+root        273      2  0 17:00 ?        00:00:00 [kblockd]
+root        274      2  0 17:00 ?        00:00:00 [khubd]
+root        275      2  0 17:00 ?        00:00:00 [md]
+root        278      2  0 17:00 ?        00:00:00 [kswapd0]
+root        279      2  0 17:00 ?        00:00:00 [ksmd]
+root        280      2  0 17:00 ?        00:00:00 [khugepaged]
+root        281      2  0 17:00 ?        00:00:00 [fsnotify_mark]
+root        282      2  0 17:00 ?        00:00:00 [crypto]
+root        291      2  0 17:00 ?        00:00:00 [kthrotld]
+root        293      2  0 17:00 ?        00:00:00 [kmpath_rdacd]
+root        294      2  0 17:00 ?        00:00:00 [kpsmoused]
+root        314      2  0 17:00 ?        00:00:00 [deferwq]
+root        336      2  0 17:00 ?        00:00:00 [kauditd]
+root        462      2  0 17:00 ?        00:00:00 [kworker/u256:2]
+root        468      2  0 17:00 ?        00:00:00 [ata_sff]
+root        469      2  0 17:00 ?        00:00:00 [mpt_poll_0]
+root        471      2  0 17:00 ?        00:00:00 [mpt/0]
+root        481      2  0 17:00 ?        00:00:00 [scsi_eh_0]
+root        482      2  0 17:00 ?        00:00:00 [scsi_tmf_0]
+root        484      2  0 17:00 ?        00:00:00 [scsi_eh_1]
+root        486      2  0 17:00 ?        00:00:00 [scsi_tmf_1]
+root        488      2  0 17:00 ?        00:00:00 [scsi_eh_2]
+root        489      2  0 17:00 ?        00:00:00 [scsi_tmf_2]
+root        492      2  0 17:00 ?        00:00:00 [ttm_swap]
+root        507      2  0 17:00 ?        00:00:00 [xfsalloc]
+root        508      2  0 17:00 ?        00:00:00 [xfs_mru_cache]
+root        509      2  0 17:00 ?        00:00:00 [xfslogd]
+root        510      2  0 17:00 ?        00:00:00 [xfs-data/sda3]
+root        511      2  0 17:00 ?        00:00:00 [xfs-conv/sda3]
+root        512      2  0 17:00 ?        00:00:00 [xfs-cil/sda3]
+root        513      2  0 17:00 ?        00:00:00 [kworker/0:1H]
+root        514      2  0 17:00 ?        00:00:01 [xfsaild/sda3]
+root        610      1  0 17:01 ?        00:00:00 /usr/lib/systemd/systemd-journald
+root        626      1  0 17:01 ?        00:00:00 /usr/sbin/lvmetad -f
+root        629      2  0 17:01 ?        00:00:00 [rpciod]
+root        643      1  0 17:01 ?        00:00:00 /usr/lib/systemd/systemd-udevd
+root        671      2  0 17:01 ?        00:00:00 [xfs-data/sda1]
+root        672      2  0 17:01 ?        00:00:00 [xfs-conv/sda1]
+root        673      2  0 17:01 ?        00:00:00 [xfs-cil/sda1]
+root        674      2  0 17:01 ?        00:00:00 [xfsaild/sda1]
+root        724      1  0 17:01 ?        00:00:00 /sbin/auditd -n
+root        740    724  0 17:01 ?        00:00:00 /sbin/audispd
+root        751    740  0 17:01 ?        00:00:00 /usr/sbin/sedispatch
+root        754      1  0 17:01 ?        00:00:00 /usr/sbin/alsactl -s -n 19 -c -E ALSA_CONFIG_PATH=/etc/
+root        756      1  0 17:01 ?        00:00:00 /usr/bin/python -Es /usr/sbin/firewalld --nofork --nopi
+root        759      1  0 17:01 ?        00:00:00 /usr/sbin/abrtd -d -s
+root        760      1  0 17:01 ?        00:00:00 /usr/bin/abrt-watch-log -F BUG: WARNING: at WARNING: CP
+root        762      1  0 17:01 ?        00:00:00 /usr/bin/abrt-watch-log -F Backtrace /var/log/Xorg.0.lo
+avahi       763      1  0 17:01 ?        00:00:00 avahi-daemon: running [linux.local]
+libstor+    764      1  0 17:01 ?        00:00:00 /usr/bin/lsmd -d
+root        768      1  0 17:01 ?        00:00:09 /usr/bin/vmtoolsd
+root        778      1  0 17:01 ?        00:00:00 /usr/sbin/rsyslogd -n
+chrony      780      1  0 17:01 ?        00:00:00 /usr/sbin/chronyd -u chrony
+root        784      1  0 17:01 ?        00:00:00 /usr/sbin/ModemManager
+root        793      1  0 17:01 ?        00:00:00 /usr/sbin/smartd -n -q never
+root        794      1  0 17:01 ?        00:00:01 /usr/bin/python -Es /usr/sbin/tuned -l -P
+root        795      1  0 17:01 ?        00:00:00 /sbin/rngd -f
+root        796      1  0 17:01 ?        00:00:00 /usr/lib/systemd/systemd-logind
+root        797      1  0 17:01 ?        00:00:00 /usr/libexec/accounts-daemon
+rtkit       801      1  0 17:01 ?        00:00:00 /usr/libexec/rtkit-daemon
+dbus        803      1  0 17:01 ?        00:00:00 /bin/dbus-daemon --system --address=systemd: --nofork -
+root        813      1  0 17:01 ?        00:00:00 /bin/bash /usr/sbin/ksmtuned
+avahi       815    763  0 17:01 ?        00:00:00 avahi-daemon: chroot helper
+root        816      1  0 17:01 ?        00:00:00 /sbin/iprupdate --daemon
+root        818      1  0 17:01 ?        00:00:00 /sbin/iprinit --daemon
+root        822      1  0 17:01 ?        00:00:00 /usr/sbin/crond -n
+root        823      1  0 17:01 ?        00:00:00 /usr/sbin/atd -f
+root        825      1  0 17:01 ?        00:00:00 /usr/sbin/gdm
+root        837      1  0 17:01 ?        00:00:00 /sbin/iprdump --daemon
+root        880    825  0 17:01 ?        00:00:00 /usr/libexec/gdm-simple-slave --display-id /org/gnome/D
+polkitd     881      1  0 17:01 ?        00:00:01 /usr/lib/polkit-1/polkitd --no-debug
+root        892    880  0 17:01 tty1     00:00:01 /usr/bin/Xorg :0 -background none -verbose -auth /run/g
+root        964      1  0 17:01 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
+root       1475      1  0 17:01 ?        00:00:00 /usr/sbin/libvirtd
+root       1783      1  0 17:01 ?        00:00:00 /usr/sbin/sshd -D
+rpc        1946      1  0 17:01 ?        00:00:00 /sbin/rpcbind -w
+rpcuser    2363      1  0 17:01 ?        00:00:00 /sbin/rpc.statd
+root       2509      1  0 17:01 ?        00:00:00 /usr/libexec/postfix/master -w
+postfix    2512   2509  0 17:01 ?        00:00:00 qmgr -l -t unix -u
+root       2587      1  0 17:01 ?        00:00:00 /usr/libexec/upowerd
+colord     2640      1  0 17:01 ?        00:00:00 /usr/libexec/colord
+root       2717    880  0 17:01 ?        00:00:00 gdm-session-worker [pam/gdm-password]
+shangqi    2726      1  0 17:01 ?        00:00:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+shangqi    2728   2717  0 17:01 ?        00:00:00 gnome-session --session gnome-classic
+shangqi    2736      1  0 17:01 ?        00:00:00 dbus-launch --sh-syntax --exit-with-session
+shangqi    2737      1  0 17:01 ?        00:00:00 /bin/dbus-daemon --fork --print-pid 4 --print-address 6
+shangqi    2802      1  0 17:01 ?        00:00:00 /usr/libexec/gvfsd
+shangqi    2825      1  0 17:01 ?        00:00:00 /usr/libexec//gvfsd-fuse /run/user/1000/gvfs -f -o big_
+shangqi    2880   2728  0 17:01 ?        00:00:00 /usr/bin/ssh-agent /bin/sh -c exec -l /bin/bash -c "env
+shangqi    2901      1  0 17:01 ?        00:00:00 /usr/libexec/at-spi-bus-launcher
+shangqi    2905   2901  0 17:01 ?        00:00:00 /bin/dbus-daemon --config-file=/etc/at-spi2/accessibili
+shangqi    2910      1  0 17:01 ?        00:00:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+shangqi    2923      1  0 17:01 ?        00:00:00 /usr/bin/pulseaudio --start
+shangqi    2925   2728  0 17:01 ?        00:00:00 /usr/libexec/gnome-settings-daemon
+root       2957      1  0 17:01 ?        00:00:00 /usr/sbin/bluetoothd -n
+shangqi    2965      1  0 17:01 ?        00:00:00 /usr/libexec/gvfs-udisks2-volume-monitor
+root       2967      1  0 17:01 ?        00:00:00 /usr/lib/udisks2/udisksd --no-debug
+shangqi    2975      1  0 17:01 ?        00:00:00 /usr/libexec/gvfs-afc-volume-monitor
+shangqi    2980      1  0 17:01 ?        00:00:00 /usr/libexec/gvfs-mtp-volume-monitor
+shangqi    2985      1  0 17:01 ?        00:00:00 /usr/libexec/gvfs-goa-volume-monitor
+shangqi    2990      1  0 17:01 ?        00:00:00 /usr/libexec/goa-daemon
+shangqi    2996      1  0 17:01 ?        00:00:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+shangqi    2999   2728  0 17:01 ?        00:00:31 /usr/bin/gnome-shell
+root       3005      1  0 17:01 ?        00:00:00 /usr/sbin/cupsd -f
+shangqi    3017      1  0 17:01 ?        00:00:00 /usr/libexec/gsd-printer
+shangqi    3026      1  0 17:01 ?        00:00:00 /usr/libexec/dconf-service
+shangqi    3031      1  0 17:01 ?        00:00:00 /usr/libexec/gnome-shell-calendar-server
+shangqi    3036      1  0 17:01 ?        00:00:00 /usr/libexec/mission-control-5
+shangqi    3037      1  0 17:01 ?        00:00:00 /usr/bin/ibus-daemon --replace --xim --panel disable
+shangqi    3040   3037  0 17:01 ?        00:00:00 /usr/libexec/ibus-dconf
+shangqi    3045      1  0 17:01 ?        00:00:00 /usr/libexec/ibus-x11 --kill-daemon
+shangqi    3070   2728  0 17:01 ?        00:00:00 nautilus --no-default-window --force-desktop
+shangqi    3074      1  0 17:01 ?        00:00:00 /usr/libexec/evolution-source-registry
+shangqi    3082   3037  0 17:01 ?        00:00:00 /usr/libexec/ibus-engine-simple
+shangqi    3109   2728  0 17:01 ?        00:00:00 /usr/bin/seapplet
+shangqi    3123      1  0 17:01 ?        00:00:09 /usr/bin/vmtoolsd -n vmusr
+shangqi    3129   2728  0 17:01 ?        00:00:00 /usr/libexec/tracker-miner-fs
+shangqi    3131      1  0 17:01 ?        00:00:00 /usr/libexec/evolution-addressbook-factory
+shangqi    3135   2728  0 17:01 ?        00:00:00 /usr/libexec/tracker-store
+shangqi    3139   2728  0 17:01 ?        00:00:00 abrt-applet
+shangqi    3191      1  0 17:01 ?        00:00:00 /usr/libexec/gconfd-2
+shangqi    3210      1  0 17:01 ?        00:00:00 /usr/libexec/gvfsd-trash --spawner :1.3 /org/gtk/gvfs/e
+shangqi    3253      1  0 17:01 ?        00:00:00 /usr/libexec/evolution-calendar-factory
+root       3336   1783  0 17:02 ?        00:00:00 sshd: shangqi [priv]
+shangqi    3340   3336  0 17:02 ?        00:00:00 sshd: shangqi@pts/0,pts/1
+shangqi    3343   3340  0 17:02 pts/0    00:00:00 -bash
+postfix    5092   2509  0 18:41 ?        00:00:00 pickup -l -t unix -u
+root       5896      2  0 19:39 ?        00:00:01 [kworker/0:1]
+root       5904      2  0 19:40 ?        00:00:00 [kworker/u256:1]
+root       6084      2  0 19:54 ?        00:00:00 [kworker/0:0]
+shangqi    6113   3340  0 19:57 pts/1    00:00:00 -bash
+root       6167      2  0 19:59 ?        00:00:00 [kworker/0:2]
+root       6207    813  0 20:00 ?        00:00:00 sleep 60
+shangqi    6208   6113  0 20:00 pts/1    00:00:00 ps -ef
+[shangqi@localhost ~]$ ps -ef | wc -l
+408
+[shangqi@localhost ~]$ tty
+/dev/pts/1
+[shangqi@localhost ~]$ ps -aux
+USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root          1  0.0  0.7  53688  7524 ?        Ss   17:00   0:02 /usr/lib/systemd/systemd --switched-roo
+root          2  0.0  0.0      0     0 ?        S    17:00   0:00 [kthreadd]
+root          3  0.0  0.0      0     0 ?        S    17:00   0:00 [ksoftirqd/0]
+root          5  0.0  0.0      0     0 ?        S<   17:00   0:00 [kworker/0:0H]
+root          7  0.0  0.0      0     0 ?        S    17:00   0:00 [migration/0]
+root          8  0.0  0.0      0     0 ?        S    17:00   0:00 [rcu_bh]
+root          9  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/0]
+root         10  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/1]
+root         11  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/2]
+root         12  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/3]
+root         13  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/4]
+root         14  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/5]
+root         15  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/6]
+root         16  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/7]
+root         17  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/8]
+root         18  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/9]
+root         19  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/10]
+root         20  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/11]
+root         21  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/12]
+root         22  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/13]
+root         23  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/14]
+root         24  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/15]
+root         25  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/16]
+root         26  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/17]
+root         27  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/18]
+root         28  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/19]
+root         29  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/20]
+root         30  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/21]
+root         31  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/22]
+root         32  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/23]
+root         33  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/24]
+root         34  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/25]
+root         35  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/26]
+root         36  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/27]
+root         37  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/28]
+root         38  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/29]
+root         39  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/30]
+root         40  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/31]
+root         41  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/32]
+root         42  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/33]
+root         43  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/34]
+root         44  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/35]
+root         45  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/36]
+root         46  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/37]
+root         47  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/38]
+root         48  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/39]
+root         49  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/40]
+root         50  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/41]
+root         51  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/42]
+root         52  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/43]
+root         53  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/44]
+root         54  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/45]
+root         55  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/46]
+root         56  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/47]
+root         57  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/48]
+root         58  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/49]
+root         59  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/50]
+root         60  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/51]
+root         61  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/52]
+root         62  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/53]
+root         63  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/54]
+root         64  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/55]
+root         65  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/56]
+root         66  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/57]
+root         67  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/58]
+root         68  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/59]
+root         69  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/60]
+root         70  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/61]
+root         71  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/62]
+root         72  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/63]
+root         73  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/64]
+root         74  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/65]
+root         75  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/66]
+root         76  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/67]
+root         77  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/68]
+root         78  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/69]
+root         79  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/70]
+root         80  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/71]
+root         81  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/72]
+root         82  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/73]
+root         83  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/74]
+root         84  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/75]
+root         85  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/76]
+root         86  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/77]
+root         87  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/78]
+root         88  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/79]
+root         89  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/80]
+root         90  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/81]
+root         91  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/82]
+root         92  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/83]
+root         93  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/84]
+root         94  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/85]
+root         95  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/86]
+root         96  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/87]
+root         97  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/88]
+root         98  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/89]
+root         99  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/90]
+root        100  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/91]
+root        101  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/92]
+root        102  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/93]
+root        103  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/94]
+root        104  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/95]
+root        105  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/96]
+root        106  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/97]
+root        107  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/98]
+root        108  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/99]
+root        109  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/100]
+root        110  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/101]
+root        111  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/102]
+root        112  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/103]
+root        113  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/104]
+root        114  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/105]
+root        115  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/106]
+root        116  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/107]
+root        117  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/108]
+root        118  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/109]
+root        119  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/110]
+root        120  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/111]
+root        121  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/112]
+root        122  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/113]
+root        123  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/114]
+root        124  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/115]
+root        125  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/116]
+root        126  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/117]
+root        127  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/118]
+root        128  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/119]
+root        129  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/120]
+root        130  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/121]
+root        131  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/122]
+root        132  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/123]
+root        133  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/124]
+root        134  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/125]
+root        135  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/126]
+root        136  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuob/127]
+root        137  0.0  0.0      0     0 ?        S    17:00   0:00 [rcu_sched]
+root        138  0.0  0.0      0     0 ?        R    17:00   0:00 [rcuos/0]
+root        139  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/1]
+root        140  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/2]
+root        141  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/3]
+root        142  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/4]
+root        143  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/5]
+root        144  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/6]
+root        145  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/7]
+root        146  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/8]
+root        147  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/9]
+root        148  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/10]
+root        149  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/11]
+root        150  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/12]
+root        151  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/13]
+root        152  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/14]
+root        153  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/15]
+root        154  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/16]
+root        155  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/17]
+root        156  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/18]
+root        157  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/19]
+root        158  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/20]
+root        159  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/21]
+root        160  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/22]
+root        161  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/23]
+root        162  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/24]
+root        163  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/25]
+root        164  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/26]
+root        165  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/27]
+root        166  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/28]
+root        167  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/29]
+root        168  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/30]
+root        169  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/31]
+root        170  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/32]
+root        171  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/33]
+root        172  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/34]
+root        173  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/35]
+root        174  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/36]
+root        175  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/37]
+root        176  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/38]
+root        177  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/39]
+root        178  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/40]
+root        179  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/41]
+root        180  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/42]
+root        181  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/43]
+root        182  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/44]
+root        183  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/45]
+root        184  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/46]
+root        185  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/47]
+root        186  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/48]
+root        187  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/49]
+root        188  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/50]
+root        189  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/51]
+root        190  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/52]
+root        191  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/53]
+root        192  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/54]
+root        193  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/55]
+root        194  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/56]
+root        195  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/57]
+root        196  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/58]
+root        197  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/59]
+root        198  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/60]
+root        199  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/61]
+root        200  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/62]
+root        201  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/63]
+root        202  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/64]
+root        203  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/65]
+root        204  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/66]
+root        205  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/67]
+root        206  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/68]
+root        207  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/69]
+root        208  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/70]
+root        209  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/71]
+root        210  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/72]
+root        211  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/73]
+root        212  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/74]
+root        213  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/75]
+root        214  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/76]
+root        215  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/77]
+root        216  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/78]
+root        217  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/79]
+root        218  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/80]
+root        219  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/81]
+root        220  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/82]
+root        221  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/83]
+root        222  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/84]
+root        223  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/85]
+root        224  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/86]
+root        225  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/87]
+root        226  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/88]
+root        227  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/89]
+root        228  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/90]
+root        229  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/91]
+root        230  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/92]
+root        231  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/93]
+root        232  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/94]
+root        233  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/95]
+root        234  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/96]
+root        235  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/97]
+root        236  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/98]
+root        237  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/99]
+root        238  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/100]
+root        239  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/101]
+root        240  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/102]
+root        241  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/103]
+root        242  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/104]
+root        243  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/105]
+root        244  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/106]
+root        245  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/107]
+root        246  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/108]
+root        247  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/109]
+root        248  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/110]
+root        249  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/111]
+root        250  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/112]
+root        251  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/113]
+root        252  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/114]
+root        253  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/115]
+root        254  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/116]
+root        255  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/117]
+root        256  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/118]
+root        257  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/119]
+root        258  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/120]
+root        259  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/121]
+root        260  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/122]
+root        261  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/123]
+root        262  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/124]
+root        263  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/125]
+root        264  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/126]
+root        265  0.0  0.0      0     0 ?        S    17:00   0:00 [rcuos/127]
+root        266  0.0  0.0      0     0 ?        S    17:00   0:00 [watchdog/0]
+root        267  0.0  0.0      0     0 ?        S<   17:00   0:00 [khelper]
+root        268  0.0  0.0      0     0 ?        S    17:00   0:00 [kdevtmpfs]
+root        269  0.0  0.0      0     0 ?        S<   17:00   0:00 [netns]
+root        270  0.0  0.0      0     0 ?        S<   17:00   0:00 [writeback]
+root        271  0.0  0.0      0     0 ?        S<   17:00   0:00 [kintegrityd]
+root        272  0.0  0.0      0     0 ?        S<   17:00   0:00 [bioset]
+root        273  0.0  0.0      0     0 ?        S<   17:00   0:00 [kblockd]
+root        274  0.0  0.0      0     0 ?        S    17:00   0:00 [khubd]
+root        275  0.0  0.0      0     0 ?        S<   17:00   0:00 [md]
+root        278  0.0  0.0      0     0 ?        S    17:00   0:00 [kswapd0]
+root        279  0.0  0.0      0     0 ?        SN   17:00   0:00 [ksmd]
+root        280  0.0  0.0      0     0 ?        SN   17:00   0:00 [khugepaged]
+root        281  0.0  0.0      0     0 ?        S    17:00   0:00 [fsnotify_mark]
+root        282  0.0  0.0      0     0 ?        S<   17:00   0:00 [crypto]
+root        291  0.0  0.0      0     0 ?        S<   17:00   0:00 [kthrotld]
+root        293  0.0  0.0      0     0 ?        S<   17:00   0:00 [kmpath_rdacd]
+root        294  0.0  0.0      0     0 ?        S<   17:00   0:00 [kpsmoused]
+root        314  0.0  0.0      0     0 ?        S<   17:00   0:00 [deferwq]
+root        336  0.0  0.0      0     0 ?        S    17:00   0:00 [kauditd]
+root        462  0.0  0.0      0     0 ?        S    17:00   0:00 [kworker/u256:2]
+root        468  0.0  0.0      0     0 ?        S<   17:00   0:00 [ata_sff]
+root        469  0.0  0.0      0     0 ?        S<   17:00   0:00 [mpt_poll_0]
+root        471  0.0  0.0      0     0 ?        S<   17:00   0:00 [mpt/0]
+root        481  0.0  0.0      0     0 ?        S    17:00   0:00 [scsi_eh_0]
+root        482  0.0  0.0      0     0 ?        S<   17:00   0:00 [scsi_tmf_0]
+root        484  0.0  0.0      0     0 ?        S    17:00   0:00 [scsi_eh_1]
+root        486  0.0  0.0      0     0 ?        S<   17:00   0:00 [scsi_tmf_1]
+root        488  0.0  0.0      0     0 ?        S    17:00   0:00 [scsi_eh_2]
+root        489  0.0  0.0      0     0 ?        S<   17:00   0:00 [scsi_tmf_2]
+root        492  0.0  0.0      0     0 ?        S<   17:00   0:00 [ttm_swap]
+root        507  0.0  0.0      0     0 ?        S<   17:00   0:00 [xfsalloc]
+root        508  0.0  0.0      0     0 ?        S<   17:00   0:00 [xfs_mru_cache]
+root        509  0.0  0.0      0     0 ?        S<   17:00   0:00 [xfslogd]
+root        510  0.0  0.0      0     0 ?        S<   17:00   0:00 [xfs-data/sda3]
+root        511  0.0  0.0      0     0 ?        S<   17:00   0:00 [xfs-conv/sda3]
+root        512  0.0  0.0      0     0 ?        S<   17:00   0:00 [xfs-cil/sda3]
+root        513  0.0  0.0      0     0 ?        S<   17:00   0:00 [kworker/0:1H]
+root        514  0.0  0.0      0     0 ?        S    17:00   0:01 [xfsaild/sda3]
+root        610  0.0  0.3  41072  3284 ?        Ss   17:01   0:00 /usr/lib/systemd/systemd-journald
+root        626  0.0  0.4 107224  4208 ?        Ss   17:01   0:00 /usr/sbin/lvmetad -f
+root        629  0.0  0.0      0     0 ?        S<   17:01   0:00 [rpciod]
+root        643  0.0  0.2  43152  2920 ?        Ss   17:01   0:00 /usr/lib/systemd/systemd-udevd
+root        671  0.0  0.0      0     0 ?        S<   17:01   0:00 [xfs-data/sda1]
+root        672  0.0  0.0      0     0 ?        S<   17:01   0:00 [xfs-conv/sda1]
+root        673  0.0  0.0      0     0 ?        S<   17:01   0:00 [xfs-cil/sda1]
+root        674  0.0  0.0      0     0 ?        S    17:01   0:00 [xfsaild/sda1]
+root        724  0.0  0.1  51136  1600 ?        S<sl 17:01   0:00 /sbin/auditd -n
+root        740  0.0  0.0  80220   800 ?        S<sl 17:01   0:00 /sbin/audispd
+root        751  0.0  0.0  26188   924 ?        S<   17:01   0:00 /usr/sbin/sedispatch
+root        754  0.0  0.1  16748  1364 ?        SNs  17:01   0:00 /usr/sbin/alsactl -s -n 19 -c -E ALSA_C
+root        756  0.0  2.0 327348 21028 ?        Ssl  17:01   0:00 /usr/bin/python -Es /usr/sbin/firewalld
+root        759  0.0  0.5 212208  5424 ?        Ss   17:01   0:00 /usr/sbin/abrtd -d -s
+root        760  0.0  0.4 209692  4428 ?        Ss   17:01   0:00 /usr/bin/abrt-watch-log -F BUG: WARNING
+root        762  0.0  0.4 209692  4428 ?        Ss   17:01   0:00 /usr/bin/abrt-watch-log -F Backtrace /v
+avahi       763  0.0  0.1  30028  1528 ?        Ss   17:01   0:00 avahi-daemon: running [linux.local]
+libstor+    764  0.0  0.0   4336   368 ?        Ss   17:01   0:00 /usr/bin/lsmd -d
+root        768  0.0  0.4 266660  4176 ?        Ssl  17:01   0:09 /usr/bin/vmtoolsd
+root        778  0.0  1.0 271612 10056 ?        Ssl  17:01   0:00 /usr/sbin/rsyslogd -n
+chrony      780  0.0  0.1  24768  1476 ?        S    17:01   0:00 /usr/sbin/chronyd -u chrony
+root        784  0.0  0.4 326408  4596 ?        Ssl  17:01   0:00 /usr/sbin/ModemManager
+root        793  0.0  0.2 130048  2224 ?        Ss   17:01   0:00 /usr/sbin/smartd -n -q never
+root        794  0.0  1.8 550012 18124 ?        Ssl  17:01   0:01 /usr/bin/python -Es /usr/sbin/tuned -l 
+root        795  0.0  0.0   4304   576 ?        Ss   17:01   0:00 /sbin/rngd -f
+root        796  0.0  0.1  34684  1780 ?        Ss   17:01   0:00 /usr/lib/systemd/systemd-logind
+root        797  0.0  0.3 371020  3872 ?        Ssl  17:01   0:00 /usr/libexec/accounts-daemon
+rtkit       801  0.0  0.1 164620  1284 ?        SNsl 17:01   0:00 /usr/libexec/rtkit-daemon
+dbus        803  0.0  0.3  38488  3164 ?        Ssl  17:01   0:00 /bin/dbus-daemon --system --address=sys
+root        813  0.0  0.0 115216   944 ?        S    17:01   0:00 /bin/bash /usr/sbin/ksmtuned
+avahi       815  0.0  0.0  30028   448 ?        S    17:01   0:00 avahi-daemon: chroot helper
+root        816  0.0  0.0   6484   340 ?        Ss   17:01   0:00 /sbin/iprupdate --daemon
+root        818  0.0  0.0   6484   332 ?        Ss   17:01   0:00 /sbin/iprinit --daemon
+root        822  0.0  0.1 126300  1704 ?        Ss   17:01   0:00 /usr/sbin/crond -n
+root        823  0.0  0.0  25928   968 ?        Ss   17:01   0:00 /usr/sbin/atd -f
+root        825  0.0  0.3 299152  3212 ?        Ssl  17:01   0:00 /usr/sbin/gdm
+root        837  0.0  0.0  39124    88 ?        Ss   17:01   0:00 /sbin/iprdump --daemon
+root        880  0.0  0.6 382680  6036 ?        Sl   17:01   0:00 /usr/libexec/gdm-simple-slave --display
+polkitd     881  0.0  1.5 518664 15200 ?        Ssl  17:01   0:01 /usr/lib/polkit-1/polkitd --no-debug
+root        892  0.0  2.8 176044 28400 tty1     Ss+  17:01   0:01 /usr/bin/Xorg :0 -background none -verb
+root        964  0.0  1.1 453772 11228 ?        Ssl  17:01   0:00 /usr/sbin/NetworkManager --no-daemon
+root       1475  0.0  1.4 478948 14284 ?        Ssl  17:01   0:00 /usr/sbin/libvirtd
+root       1783  0.0  0.3  82424  3572 ?        Ss   17:01   0:00 /usr/sbin/sshd -D
+rpc        1946  0.0  0.1  39900  1224 ?        Ss   17:01   0:00 /sbin/rpcbind -w
+rpcuser    2363  0.0  0.1  46556  1804 ?        Ss   17:01   0:00 /sbin/rpc.statd
+root       2509  0.0  0.2  93252  2128 ?        Ss   17:01   0:00 /usr/libexec/postfix/master -w
+postfix    2512  0.0  0.3  93424  3928 ?        S    17:01   0:00 qmgr -l -t unix -u
+root       2587  0.0  0.4 236284  4560 ?        Ssl  17:01   0:00 /usr/libexec/upowerd
+colord     2640  0.0  0.5 332692  5772 ?        Ssl  17:01   0:00 /usr/libexec/colord
+root       2717  0.0  0.5 371108  5916 ?        Sl   17:01   0:00 gdm-session-worker [pam/gdm-password]
+shangqi    2726  0.0  0.3 399660  3728 ?        Sl   17:01   0:00 /usr/bin/gnome-keyring-daemon --daemoni
+shangqi    2728  0.0  1.2 702928 12328 ?        Ssl  17:01   0:00 gnome-session --session gnome-classic
+shangqi    2736  0.0  0.0  13944   620 ?        S    17:01   0:00 dbus-launch --sh-syntax --exit-with-ses
+shangqi    2737  0.0  0.2  38112  2236 ?        Ssl  17:01   0:00 /bin/dbus-daemon --fork --print-pid 4 -
+shangqi    2802  0.0  0.3 304276  3280 ?        Sl   17:01   0:00 /usr/libexec/gvfsd
+shangqi    2825  0.0  0.3 352288  3348 ?        Sl   17:01   0:00 /usr/libexec//gvfsd-fuse /run/user/1000
+shangqi    2880  0.0  0.0  52788   576 ?        Ss   17:01   0:00 /usr/bin/ssh-agent /bin/sh -c exec -l /
+shangqi    2901  0.0  0.3 339832  3236 ?        Sl   17:01   0:00 /usr/libexec/at-spi-bus-launcher
+shangqi    2905  0.0  0.1  36836  1736 ?        Sl   17:01   0:00 /bin/dbus-daemon --config-file=/etc/at-
+shangqi    2910  0.0  0.3 129520  3448 ?        Sl   17:01   0:00 /usr/libexec/at-spi2-registryd --use-gn
+shangqi    2923  0.0  0.6 490160  6576 ?        S<l  17:01   0:00 /usr/bin/pulseaudio --start
+shangqi    2925  0.0  2.3 1000164 23616 ?       Sl   17:01   0:00 /usr/libexec/gnome-settings-daemon
+root       2957  0.0  0.1  30188  1988 ?        Ss   17:01   0:00 /usr/sbin/bluetoothd -n
+shangqi    2965  0.0  0.4 321820  4580 ?        Sl   17:01   0:00 /usr/libexec/gvfs-udisks2-volume-monito
+root       2967  0.0  0.6 362304  6228 ?        Ssl  17:01   0:00 /usr/lib/udisks2/udisksd --no-debug
+shangqi    2975  0.0  0.3 402628  3620 ?        Sl   17:01   0:00 /usr/libexec/gvfs-afc-volume-monitor
+shangqi    2980  0.0  0.3 305700  3088 ?        Sl   17:01   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+shangqi    2985  0.0  0.3 299524  3236 ?        Sl   17:01   0:00 /usr/libexec/gvfs-goa-volume-monitor
+shangqi    2990  0.0  1.6 550984 16452 ?        Sl   17:01   0:00 /usr/libexec/goa-daemon
+shangqi    2996  0.0  0.5 314776  5640 ?        Sl   17:01   0:00 /usr/libexec/gvfs-gphoto2-volume-monito
+shangqi    2999  0.2 23.9 1560556 240560 ?      Sl   17:01   0:31 /usr/bin/gnome-shell
+root       3005  0.0  0.4 179488  4024 ?        Ss   17:01   0:00 /usr/sbin/cupsd -f
+shangqi    3017  0.0  0.5 505952  5792 ?        Sl   17:01   0:00 /usr/libexec/gsd-printer
+shangqi    3026  0.0  0.2 180500  2544 ?        Sl   17:01   0:00 /usr/libexec/dconf-service
+shangqi    3031  0.0  0.9 496820  9424 ?        Sl   17:01   0:00 /usr/libexec/gnome-shell-calendar-serve
+shangqi    3036  0.0  0.7 320988  7124 ?        Sl   17:01   0:00 /usr/libexec/mission-control-5
+shangqi    3037  0.0  0.7 461352  7520 ?        Sl   17:01   0:00 /usr/bin/ibus-daemon --replace --xim --
+shangqi    3040  0.0  0.3 310436  3612 ?        Sl   17:01   0:00 /usr/libexec/ibus-dconf
+shangqi    3045  0.0  0.7 359000  7792 ?        Sl   17:01   0:00 /usr/libexec/ibus-x11 --kill-daemon
+shangqi    3070  0.0  2.4 1053972 24184 ?       Sl   17:01   0:00 nautilus --no-default-window --force-de
+shangqi    3074  0.0  1.2 667848 12476 ?        Sl   17:01   0:00 /usr/libexec/evolution-source-registry
+shangqi    3082  0.0  0.3 236668  3492 ?        Sl   17:01   0:00 /usr/libexec/ibus-engine-simple
+shangqi    3109  0.0  0.8 291804  8544 ?        S    17:01   0:00 /usr/bin/seapplet
+shangqi    3123  0.0  1.6 345676 16236 ?        S    17:01   0:09 /usr/bin/vmtoolsd -n vmusr
+shangqi    3129  0.0  1.0 603260 10260 ?        SNl  17:01   0:00 /usr/libexec/tracker-miner-fs
+shangqi    3131  0.0  1.1 869912 11808 ?        Sl   17:01   0:00 /usr/libexec/evolution-addressbook-fact
+shangqi    3135  0.0  1.3 424816 13324 ?        Sl   17:01   0:00 /usr/libexec/tracker-store
+shangqi    3139  0.0  1.3 447736 13844 ?        Sl   17:01   0:00 abrt-applet
+shangqi    3191  0.0  0.2 149628  2400 ?        S    17:01   0:00 /usr/libexec/gconfd-2
+shangqi    3210  0.0  0.3 386740  3728 ?        Sl   17:01   0:00 /usr/libexec/gvfsd-trash --spawner :1.3
+shangqi    3253  0.0  1.3 898384 13504 ?        Sl   17:01   0:00 /usr/libexec/evolution-calendar-factory
+root       3336  0.0  0.4 135148  4860 ?        Ss   17:02   0:00 sshd: shangqi [priv]
+shangqi    3340  0.0  0.2 135284  2344 ?        S    17:02   0:00 sshd: shangqi@pts/0,pts/1
+shangqi    3343  0.0  0.3 116668  3568 pts/0    Ss+  17:02   0:00 -bash
+postfix    5092  0.0  0.3  93356  3896 ?        S    18:41   0:00 pickup -l -t unix -u
+root       5896  0.0  0.0      0     0 ?        S    19:39   0:01 [kworker/0:1]
+root       5904  0.0  0.0      0     0 ?        S    19:40   0:00 [kworker/u256:1]
+root       6084  0.0  0.0      0     0 ?        S    19:54   0:00 [kworker/0:0]
+shangqi    6113  0.0  0.3 116536  3252 pts/1    Ss   19:57   0:00 -bash
+root       6167  0.0  0.0      0     0 ?        S    19:59   0:00 [kworker/0:2]
+root       6245  0.0  0.0      0     0 ?        R    20:01   0:00 [kworker/0:3]
+root       6279  0.0  0.5 403776  5764 ?        Sl   20:01   0:00 /usr/libexec/packagekitd
+root       6304  0.0  0.0 107892   624 ?        S    20:03   0:00 sleep 60
+shangqi    6305  0.0  0.1 125440  1424 pts/1    R+   20:03   0:00 ps -aux
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  LinuxÊÔÁ¶1  Music  Pictures  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ mkdir process
+[shangqi@localhost Sq666]$ ls
+cmd  fork  process  tools
+[shangqi@localhost Sq666]$ cd process/
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ cd ..
+[shangqi@localhost Sq666]$ cd fork/
+[shangqi@localhost fork]$ ls
+fork  fork.c  jiang.c  jiangshi  main.c  makefile
+[shangqi@localhost fork]$ vi main.c
+[shangqi@localhost fork]$ vi fork.c
+[shangqi@localhost fork]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  fork  process  tools
+[shangqi@localhost Sq666]$ cd process/
+[shangqi@localhost process]$ ls
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ ls
+main.c
+[shangqi@localhost process]$ vi makefile
+[shangqi@localhost process]$ make
+gcc main.c -o main
+main.c:4:18: fatal error: unstd.h: No such file or directory
+ #include<unstd.h>
+                  ^
+compilation terminated.
+make: *** [main] Error 1
+[shangqi@localhost process]$ vi main.c 
+[shangqi@localhost process]$ vi makefile 
+[shangqi@localhost process]$ vi main.c 
+[shangqi@localhost process]$ make
+gcc main.c -o main
+[shangqi@localhost process]$ ./main
+pid: 6689
+^C
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ make
+gcc main.c -o main
+[shangqi@localhost process]$ ./main
+pid: 6722
+^C
+[shangqi@localhost process]$ ls
+main  main.c  makefile
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ make
+gcc main.c -o main
+[shangqi@localhost process]$ ./main
+pid: 6914
+pid: 6915
+^C
+[shangqi@localhost process]$ ./main
+pid: 6924
+pid: 6925
+^C
+[shangqi@localhost process]$ ls
+main  main.c  makefile
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ make
+gcc main.c -o main
+[shangqi@localhost process]$ ./main
+pid: 7079
+pid: 7080
+------
+------
+------
+------
+------
+------
+------
+------
+------
+------
+------
+------
+------
+------
+^C
+[shangqi@localhost process]$ vls
+bash: vls: command not found...
+Similar command is: 'lvs'
+[shangqi@localhost process]$ ls
+main  main.c  makefile
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ make
+gcc main.c -o main
+[shangqi@localhost process]$ ./main
+pid: 7101
+pid: 7102
+------
+------
+------
+------
+------
+------
+------
+------
+^C
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ make
+gcc main.c -o main
+[shangqi@localhost process]$ ./main
+Parent
+pid: 7274
+I am child!!
+pid: 7275
+------
+------
+------
+------
+------
+------
+------
+------
+^C
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ vi main.c
+[shangqi@localhost process]$ 
+Channel(Socket) closed from remote host(192.168.166.128) at 12:24:27.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
