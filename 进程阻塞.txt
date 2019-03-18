@@ -1,0 +1,995 @@
+       --disableplugin)
+            _yum_plugins 1 "$1";
+            return 0
+        ;;
+        --color)
+            COMPREPLY=($( compgen -W 'always auto never' -- "$1" ));
+            return 0
+        ;;
+        -R | --randomwait | -x | --exclude | -h | --help | --version | --releasever | --cve | --bz | --advisory | --tmprepo | --verify-filenames | --setopt)
+            return 0
+        ;;
+        --download-order)
+            COMPREPLY=($( compgen -W 'default smallestfirst largestfirst'                 -- "$1" ));
+            return 0
+        ;;
+        --override-protection)
+            _yum_list installed "$1";
+            return 0
+        ;;
+        --verify-configuration-files)
+            COMPREPLY=($( compgen -W '1 0' -- "$1" ));
+            return 0
+        ;;
+    esac;
+    return 1
+}
+_yum_helper () 
+{ 
+    local IFS='
+';
+    if [[ -n "$YUM_CACHEDIR" && "$1 $2" == "list available" ]]; then
+        for db in $(find "$YUM_CACHEDIR" -name primary_db.sqlite);
+        do
+            COMPREPLY+=($( sqlite3 "$db"                 "SELECT name||'.'||arch FROM packages WHERE name LIKE '$3%'"
+            ));
+        done;
+        return;
+    fi;
+    COMPREPLY+=($(
+        /usr/share/yum-cli/completion-helper.py -d 0 -C "$@" 2>/dev/null ))
+}
+_yum_list () 
+{ 
+    [[ $2 == */* || $2 == [.~-]* ]] && return;
+    [[ $1 != "installed" && ${#2} -lt 1 ]] && return;
+    _yum_helper list "$@"
+}
+_yum_plugins () 
+{ 
+    local val;
+    [[ $1 -eq 1 ]] && val='\(1\|yes\|true\|on\)' || val='\(0\|no\|false\|off\)';
+    COMPREPLY+=($( compgen -W '$( command grep -il "^\s*enabled\s*=\s*$val" \
+        /etc/yum/pluginconf.d/*.conf 2>/dev/null \
+        | sed -ne "s|^.*/\([^/]\{1,\}\)\.conf$|\1|p" )' -- "$2" ))
+}
+_yum_transactions () 
+{ 
+    COMPREPLY+=($( compgen -W "$( $yum -d 0 -C history 2>/dev/null |         sed -ne 's/^[[:space:]]*\([0-9]\{1,\}\).*/\1/p' )" -- "$cur" ))
+}
+command_not_found_handle () 
+{ 
+    runcnf=1;
+    retval=127;
+    [ ! -S /var/run/dbus/system_bus_socket ] && runcnf=0;
+    [ ! -x /usr/libexec/packagekitd ] && runcnf=0;
+    if [ $runcnf -eq 1 ]; then
+        /usr/libexec/pk-command-not-found $@;
+        retval=$?;
+    else
+        echo "bash: $1: command not found";
+    fi;
+    return $retval
+}
+dequote () 
+{ 
+    eval printf %s "$1" 2> /dev/null
+}
+quote () 
+{ 
+    local quoted=${1//\'/\'\\\'\'};
+    printf "'%s'" "$quoted"
+}
+quote_readline () 
+{ 
+    local quoted;
+    _quote_readline_by_ref "$1" ret;
+    printf %s "$ret"
+}
+[shangqi@localhost process]$ echo $PWD
+/home/shangqi/workspace/Sq666/process
+[shangqi@localhost process]$ echo PWD
+PWD
+[shangqi@localhost process]$ MYVAL=1000
+[shangqi@localhost process]$ enc|grep MYVAL
+bash: enc: command not found...
+[shangqi@localhost process]$ enV|grep MYVAL
+bash: enV: command not found...
+Similar command is: 'env'
+[shangqi@localhost process]$ env|grep MYVAL
+[shangqi@localhost process]$ export MYVAL=1000
+[shangqi@localhost process]$ env|grep MYVAL
+MYVAL=1000
+[shangqi@localhost process]$ unset MYVAL
+[shangqi@localhost process]$ env|grep MYVAL
+[shangqi@localhost process]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  fork  process  tools
+[shangqi@localhost Sq666]$ mkdir env
+[shangqi@localhost Sq666]$ cd env/
+[shangqi@localhost env]$ vi env.c
+[shangqi@localhost env]$ ls
+env.c
+[shangqi@localhost env]$ vi makefile
+[shangqi@localhost env]$ make
+gcc env.c -o main
+[shangqi@localhost env]$ ./main
+MYVAL:(null)
+[shangqi@localhost env]$ make
+make: `main' is up to date.
+[shangqi@localhost env]$ ./main
+MYVAL:(null)
+[shangqi@localhost env]$ echo $MYVAL
+
+[shangqi@localhost env]$ ./main
+MYVAL:(null)
+[shangqi@localhost env]$ export MYVAL
+[shangqi@localhost env]$ ./main
+MYVAL:(null)
+[shangqi@localhost env]$ make
+make: `main' is up to date.
+[shangqi@localhost env]$ ./main
+MYVAL:(null)
+[shangqi@localhost env]$ vi env.c 
+[shangqi@localhost env]$ make
+gcc env.c -o main
+[shangqi@localhost env]$ ./main
+MYVAL:(null)
+env[0]:[XDG_SESSION_ID=1]
+env[1]:[HOSTNAME=localhost.localdomain]
+env[2]:[SELINUX_ROLE_REQUESTED=]
+env[3]:[TERM=xterm]
+env[4]:[SHELL=/bin/bash]
+env[5]:[HISTSIZE=1000]
+env[6]:[SSH_CLIENT=192.168.166.1 55640 22]
+env[7]:[SELINUX_USE_CURRENT_RANGE=]
+env[8]:[OLDPWD=/home/shangqi/workspace/Sq666]
+env[9]:[SSH_TTY=/dev/pts/0]
+env[10]:[USER=shangqi]
+env[11]:[LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:]
+env[12]:[MAIL=/var/spool/mail/shangqi]
+env[13]:[PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin]
+env[14]:[PWD=/home/shangqi/workspace/Sq666/env]
+env[15]:[LANG=en_US.UTF-8]
+env[16]:[SELINUX_LEVEL_REQUESTED=]
+env[17]:[HISTCONTROL=ignoredups]
+env[18]:[SHLVL=1]
+env[19]:[HOME=/home/shangqi]
+env[20]:[LOGNAME=shangqi]
+env[21]:[SSH_CONNECTION=192.168.166.1 55640 192.168.166.132 22]
+env[22]:[LESSOPEN=||/usr/bin/lesspipe.sh %s]
+env[23]:[XDG_RUNTIME_DIR=/run/user/1000]
+env[24]:[DISPLAY=localhost:10.0]
+env[25]:[_=./main]
+env[0]:[XDG_SESSION_ID=1]
+env[1]:[HOSTNAME=localhost.localdomain]
+env[2]:[SELINUX_ROLE_REQUESTED=]
+env[3]:[TERM=xterm]
+env[4]:[SHELL=/bin/bash]
+env[5]:[HISTSIZE=1000]
+env[6]:[SSH_CLIENT=192.168.166.1 55640 22]
+env[7]:[SELINUX_USE_CURRENT_RANGE=]
+env[8]:[OLDPWD=/home/shangqi/workspace/Sq666]
+env[9]:[SSH_TTY=/dev/pts/0]
+env[10]:[USER=shangqi]
+env[11]:[LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:]
+env[12]:[MAIL=/var/spool/mail/shangqi]
+env[13]:[PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin]
+env[14]:[PWD=/home/shangqi/workspace/Sq666/env]
+env[15]:[LANG=en_US.UTF-8]
+env[16]:[SELINUX_LEVEL_REQUESTED=]
+env[17]:[HISTCONTROL=ignoredups]
+env[18]:[SHLVL=1]
+env[19]:[HOME=/home/shangqi]
+env[20]:[LOGNAME=shangqi]
+env[21]:[SSH_CONNECTION=192.168.166.1 55640 192.168.166.132 22]
+env[22]:[LESSOPEN=||/usr/bin/lesspipe.sh %s]
+env[23]:[XDG_RUNTIME_DIR=/run/user/1000]
+env[24]:[DISPLAY=localhost:10.0]
+env[25]:[_=./main]
+[shangqi@localhost env]$ vi env.c
+[shangqi@localhost env]$ make
+gcc env.c -o main
+[shangqi@localhost env]$ ./main
+MYVAL:(null)
+env[0]:[XDG_SESSION_ID=1]
+env[1]:[HOSTNAME=localhost.localdomain]
+env[2]:[SELINUX_ROLE_REQUESTED=]
+env[3]:[TERM=xterm]
+env[4]:[SHELL=/bin/bash]
+env[5]:[HISTSIZE=1000]
+env[6]:[SSH_CLIENT=192.168.166.1 55640 22]
+env[7]:[SELINUX_USE_CURRENT_RANGE=]
+env[8]:[OLDPWD=/home/shangqi/workspace/Sq666]
+env[9]:[SSH_TTY=/dev/pts/0]
+env[10]:[USER=shangqi]
+env[11]:[LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:]
+env[12]:[MAIL=/var/spool/mail/shangqi]
+env[13]:[PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin]
+env[14]:[PWD=/home/shangqi/workspace/Sq666/env]
+env[15]:[LANG=en_US.UTF-8]
+env[16]:[SELINUX_LEVEL_REQUESTED=]
+env[17]:[HISTCONTROL=ignoredups]
+env[18]:[SHLVL=1]
+env[19]:[HOME=/home/shangqi]
+env[20]:[LOGNAME=shangqi]
+env[21]:[SSH_CONNECTION=192.168.166.1 55640 192.168.166.132 22]
+env[22]:[LESSOPEN=||/usr/bin/lesspipe.sh %s]
+env[23]:[XDG_RUNTIME_DIR=/run/user/1000]
+env[24]:[DISPLAY=localhost:10.0]
+env[25]:[_=./main]
+environ[0]:[XDG_SESSION_ID=1]
+environ[1]:[HOSTNAME=localhost.localdomain]
+environ[2]:[SELINUX_ROLE_REQUESTED=]
+environ[3]:[TERM=xterm]
+environ[4]:[SHELL=/bin/bash]
+environ[5]:[HISTSIZE=1000]
+environ[6]:[SSH_CLIENT=192.168.166.1 55640 22]
+environ[7]:[SELINUX_USE_CURRENT_RANGE=]
+environ[8]:[OLDPWD=/home/shangqi/workspace/Sq666]
+environ[9]:[SSH_TTY=/dev/pts/0]
+environ[10]:[USER=shangqi]
+environ[11]:[LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:]
+environ[12]:[MAIL=/var/spool/mail/shangqi]
+environ[13]:[PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin]
+environ[14]:[PWD=/home/shangqi/workspace/Sq666/env]
+environ[15]:[LANG=en_US.UTF-8]
+environ[16]:[SELINUX_LEVEL_REQUESTED=]
+environ[17]:[HISTCONTROL=ignoredups]
+environ[18]:[SHLVL=1]
+environ[19]:[HOME=/home/shangqi]
+environ[20]:[LOGNAME=shangqi]
+environ[21]:[SSH_CONNECTION=192.168.166.1 55640 192.168.166.132 22]
+environ[22]:[LESSOPEN=||/usr/bin/lesspipe.sh %s]
+environ[23]:[XDG_RUNTIME_DIR=/run/user/1000]
+environ[24]:[DISPLAY=localhost:10.0]
+environ[25]:[_=./main]
+[shangqi@localhost env]$ ls
+env.c  main  makefile
+[shangqi@localhost env]$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/shangqi/.local/bin:/home/shangqi/bin
+[shangqi@localhost env]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  process  tools
+[shangqi@localhost Sq666]$ mkidr zone318
+bash: mkidr: command not found...
+Similar command is: 'mkdir'
+[shangqi@localhost Sq666]$ mkdir zone318C++
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  process  tools  zone318C++
+[shangqi@localhost Sq666]$ cd zone318C++/
+[shangqi@localhost zone318C++]$ vi zone.cpp
+[shangqi@localhost zone318C++]$ vi makefile
+[shangqi@localhost zone318C++]$ make
+g++ zone.cpp -o main
+zone.cpp:4:18: fatal error: iostrem: No such file or directory
+ #include<iostrem>
+                  ^
+compilation terminated.
+make: *** [main] Error 1
+[shangqi@localhost zone318C++]$ ls
+makefile  zone.cpp
+[shangqi@localhost zone318C++]$ vi zone.cpp 
+[shangqi@localhost zone318C++]$ make
+g++ zone.cpp -o main
+zone.cpp: In function ‘int main()’:
+zone.cpp:10:14: error: ‘fork’ was not declared in this scope
+ int pid=fork();
+              ^
+make: *** [main] Error 1
+[shangqi@localhost zone318C++]$ ls
+makefile  zone.cpp
+[shangqi@localhost zone318C++]$ vi zone.cpp 
+[shangqi@localhost zone318C++]$ make
+g++ zone.cpp -o main
+[shangqi@localhost zone318C++]$ ./main
+parent val:1000x601074
+[shangqi@localhost zone318C++]$ child val:2000x601074
+^C
+[shangqi@localhost zone318C++]$ vi zone.cpp 
+[shangqi@localhost zone318C++]$ make
+g++ zone.cpp -o main
+[shangqi@localhost zone318C++]$ ./main
+parent val:100 0x601074
+[shangqi@localhost zone318C++]$ child val:200 0x601074
+
+[shangqi@localhost zone318C++]$ ls -l
+total 20
+-rwxrwxr-x. 1 shangqi shangqi 9364 Mar 17 19:21 main
+-rw-rw-r--. 1 shangqi shangqi   28 Mar 17 19:17 makefile
+-rw-rw-r--. 1 shangqi shangqi  318 Mar 17 19:21 zone.cpp
+[shangqi@localhost zone318C++]$ ls
+main  makefile  zone.cpp
+[shangqi@localhost zone318C++]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  process  tools  zone318C++
+[shangqi@localhost Sq666]$ mkdir pctrl
+[shangqi@localhost Sq666]$ 
+Channel(Socket) closed from remote host(192.168.166.132) at 12:45:30.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Mar 17 17:34:52 2019 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  git  Linux试炼1  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  pctrl  process  tools  zone318C++
+[shangqi@localhost Sq666]$ cd pctrl/
+[shangqi@localhost pctrl]$ ls
+[shangqi@localhost pctrl]$ vi exit.c
+[shangqi@localhost pctrl]$ vi makefile
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+exit.c:6:1: error: ‘unsing’ does not name a type
+ unsing namespace std;
+ ^
+exit.c: In function ‘int main()’:
+exit.c:10:8: error: ‘a’ was not declared in this scope
+     if(a==1)
+        ^
+exit.c:20:2: error: ‘cout’ was not declared in this scope
+  cout<<"haha<--->hehe"<<endl;
+  ^
+exit.c:20:2: note: suggested alternative:
+In file included from exit.c:5:0:
+/usr/include/c++/4.8.2/iostream:61:18: note:   ‘std::cout’
+   extern ostream cout;  /// Linked to standard output
+                  ^
+exit.c:20:25: error: ‘endl’ was not declared in this scope
+  cout<<"haha<--->hehe"<<endl;
+                         ^
+exit.c:20:25: note: suggested alternative:
+In file included from /usr/include/c++/4.8.2/iostream:39:0,
+                 from exit.c:5:
+/usr/include/c++/4.8.2/ostream:564:5: note:   ‘std::endl’
+     endl(basic_ostream<_CharT, _Traits>& __os)
+     ^
+make: *** [main] Error 1
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+exit.c: In function ‘int main()’:
+exit.c:10:8: error: ‘a’ was not declared in this scope
+     if(a==1)
+        ^
+make: *** [main] Error 1
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+[shangqi@localhost pctrl]$ ./
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(192.168.166.132) at 13:27:04.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.132:22...
+Could not connect to '192.168.166.132' (port 22): Connection failed.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.133:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(新建会话) at 13:28:17.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.133:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Sun Mar 17 22:20:04 2019
+[shangqi@localhost ~]$ cd workspace/Sq666/
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  pctrl  process  tools  zone318C++
+[shangqi@localhost Sq666]$ cd p
+pctrl/   process/ 
+[shangqi@localhost Sq666]$ cd pctrl/
+[shangqi@localhost pctrl]$ ls
+exit.c  main  makefile
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+make: `main' is up to date.
+[shangqi@localhost pctrl]$ ./main
+[shangqi@localhost pctrl]$ echo $?
+66
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+[shangqi@localhost pctrl]$ ./main
+[shangqi@localhost pctrl]$ !echo
+echo $?
+255
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+[shangqi@localhost pctrl]$ ./main
+[shangqi@localhost pctrl]$ !ec
+echo $?
+0
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+[shangqi@localhost pctrl]$ ./main
+errno:0:Success
+errno:1:Operation not permitted
+errno:2:No such file or directory
+errno:3:No such process
+errno:4:Interrupted system call
+errno:5:Input/output error
+errno:6:No such device or address
+errno:7:Argument list too long
+errno:8:Exec format error
+errno:9:Bad file descriptor
+errno:10:No child processes
+errno:11:Resource temporarily unavailable
+errno:12:Cannot allocate memory
+errno:13:Permission denied
+errno:14:Bad address
+errno:15:Block device required
+errno:16:Device or resource busy
+errno:17:File exists
+errno:18:Invalid cross-device link
+errno:19:No such device
+errno:20:Not a directory
+errno:21:Is a directory
+errno:22:Invalid argument
+errno:23:Too many open files in system
+errno:24:Too many open files
+errno:25:Inappropriate ioctl for device
+errno:26:Text file busy
+errno:27:File too large
+errno:28:No space left on device
+errno:29:Illegal seek
+errno:30:Read-only file system
+errno:31:Too many links
+errno:32:Broken pipe
+errno:33:Numerical argument out of domain
+errno:34:Numerical result out of range
+errno:35:Resource deadlock avoided
+errno:36:File name too long
+errno:37:No locks available
+errno:38:Function not implemented
+errno:39:Directory not empty
+errno:40:Too many levels of symbolic links
+errno:41:Unknown error 41
+errno:42:No message of desired type
+errno:43:Identifier removed
+errno:44:Channel number out of range
+errno:45:Level 2 not synchronized
+errno:46:Level 3 halted
+errno:47:Level 3 reset
+errno:48:Link number out of range
+errno:49:Protocol driver not attached
+errno:50:No CSI structure available
+errno:51:Level 2 halted
+errno:52:Invalid exchange
+errno:53:Invalid request descriptor
+errno:54:Exchange full
+errno:55:No anode
+errno:56:Invalid request code
+errno:57:Invalid slot
+errno:58:Unknown error 58
+errno:59:Bad font file format
+errno:60:Device not a stream
+errno:61:No data available
+errno:62:Timer expired
+errno:63:Out of streams resources
+errno:64:Machine is not on the network
+errno:65:Package not installed
+errno:66:Object is remote
+errno:67:Link has been severed
+errno:68:Advertise error
+errno:69:Srmount error
+errno:70:Communication error on send
+errno:71:Protocol error
+errno:72:Multihop attempted
+errno:73:RFS specific error
+errno:74:Bad message
+errno:75:Value too large for defined data type
+errno:76:Name not unique on network
+errno:77:File descriptor in bad state
+errno:78:Remote address changed
+errno:79:Can not access a needed shared library
+errno:80:Accessing a corrupted shared library
+errno:81:.lib section in a.out corrupted
+errno:82:Attempting to link in too many shared libraries
+errno:83:Cannot exec a shared library directly
+errno:84:Invalid or incomplete multibyte or wide character
+errno:85:Interrupted system call should be restarted
+errno:86:Streams pipe error
+errno:87:Too many users
+errno:88:Socket operation on non-socket
+errno:89:Destination address required
+errno:90:Message too long
+errno:91:Protocol wrong type for socket
+errno:92:Protocol not available
+errno:93:Protocol not supported
+errno:94:Socket type not supported
+errno:95:Operation not supported
+errno:96:Protocol family not supported
+errno:97:Address family not supported by protocol
+errno:98:Address already in use
+errno:99:Cannot assign requested address
+errno:100:Network is down
+errno:101:Network is unreachable
+errno:102:Network dropped connection on reset
+errno:103:Software caused connection abort
+errno:104:Connection reset by peer
+errno:105:No buffer space available
+errno:106:Transport endpoint is already connected
+errno:107:Transport endpoint is not connected
+errno:108:Cannot send after transport endpoint shutdown
+errno:109:Too many references: cannot splice
+errno:110:Connection timed out
+errno:111:Connection refused
+errno:112:Host is down
+errno:113:No route to host
+errno:114:Operation already in progress
+errno:115:Operation now in progress
+errno:116:Stale file handle
+errno:117:Structure needs cleaning
+errno:118:Not a XENIX named type file
+errno:119:No XENIX semaphores available
+errno:120:Is a named type file
+errno:121:Remote I/O error
+errno:122:Disk quota exceeded
+errno:123:No medium found
+errno:124:Wrong medium type
+errno:125:Operation canceled
+errno:126:Required key not available
+errno:127:Key has expired
+errno:128:Key has been revoked
+errno:129:Key was rejected by service
+errno:130:Owner died
+errno:131:State not recoverable
+errno:132:Operation not possible due to RF-kill
+errno:133:Memory page has hardware error
+errno:134:Unknown error 134
+errno:135:Unknown error 135
+errno:136:Unknown error 136
+errno:137:Unknown error 137
+errno:138:Unknown error 138
+errno:139:Unknown error 139
+errno:140:Unknown error 140
+errno:141:Unknown error 141
+errno:142:Unknown error 142
+errno:143:Unknown error 143
+errno:144:Unknown error 144
+errno:145:Unknown error 145
+errno:146:Unknown error 146
+errno:147:Unknown error 147
+errno:148:Unknown error 148
+errno:149:Unknown error 149
+errno:150:Unknown error 150
+errno:151:Unknown error 151
+errno:152:Unknown error 152
+errno:153:Unknown error 153
+errno:154:Unknown error 154
+errno:155:Unknown error 155
+errno:156:Unknown error 156
+errno:157:Unknown error 157
+errno:158:Unknown error 158
+errno:159:Unknown error 159
+errno:160:Unknown error 160
+errno:161:Unknown error 161
+errno:162:Unknown error 162
+errno:163:Unknown error 163
+errno:164:Unknown error 164
+errno:165:Unknown error 165
+errno:166:Unknown error 166
+errno:167:Unknown error 167
+errno:168:Unknown error 168
+errno:169:Unknown error 169
+errno:170:Unknown error 170
+errno:171:Unknown error 171
+errno:172:Unknown error 172
+errno:173:Unknown error 173
+errno:174:Unknown error 174
+errno:175:Unknown error 175
+errno:176:Unknown error 176
+errno:177:Unknown error 177
+errno:178:Unknown error 178
+errno:179:Unknown error 179
+errno:180:Unknown error 180
+errno:181:Unknown error 181
+errno:182:Unknown error 182
+errno:183:Unknown error 183
+errno:184:Unknown error 184
+errno:185:Unknown error 185
+errno:186:Unknown error 186
+errno:187:Unknown error 187
+errno:188:Unknown error 188
+errno:189:Unknown error 189
+errno:190:Unknown error 190
+errno:191:Unknown error 191
+errno:192:Unknown error 192
+errno:193:Unknown error 193
+errno:194:Unknown error 194
+errno:195:Unknown error 195
+errno:196:Unknown error 196
+errno:197:Unknown error 197
+errno:198:Unknown error 198
+errno:199:Unknown error 199
+errno:200:Unknown error 200
+errno:201:Unknown error 201
+errno:202:Unknown error 202
+errno:203:Unknown error 203
+errno:204:Unknown error 204
+errno:205:Unknown error 205
+errno:206:Unknown error 206
+errno:207:Unknown error 207
+errno:208:Unknown error 208
+errno:209:Unknown error 209
+errno:210:Unknown error 210
+errno:211:Unknown error 211
+errno:212:Unknown error 212
+errno:213:Unknown error 213
+errno:214:Unknown error 214
+errno:215:Unknown error 215
+errno:216:Unknown error 216
+errno:217:Unknown error 217
+errno:218:Unknown error 218
+errno:219:Unknown error 219
+errno:220:Unknown error 220
+errno:221:Unknown error 221
+errno:222:Unknown error 222
+errno:223:Unknown error 223
+errno:224:Unknown error 224
+errno:225:Unknown error 225
+errno:226:Unknown error 226
+errno:227:Unknown error 227
+errno:228:Unknown error 228
+errno:229:Unknown error 229
+errno:230:Unknown error 230
+errno:231:Unknown error 231
+errno:232:Unknown error 232
+errno:233:Unknown error 233
+errno:234:Unknown error 234
+errno:235:Unknown error 235
+errno:236:Unknown error 236
+errno:237:Unknown error 237
+errno:238:Unknown error 238
+errno:239:Unknown error 239
+errno:240:Unknown error 240
+errno:241:Unknown error 241
+errno:242:Unknown error 242
+errno:243:Unknown error 243
+errno:244:Unknown error 244
+errno:245:Unknown error 245
+errno:246:Unknown error 246
+errno:247:Unknown error 247
+errno:248:Unknown error 248
+errno:249:Unknown error 249
+errno:250:Unknown error 250
+errno:251:Unknown error 251
+errno:252:Unknown error 252
+errno:253:Unknown error 253
+errno:254:Unknown error 254
+errno:255:Unknown error 255
+errno:256:Unknown error 256
+errno:257:Unknown error 257
+errno:258:Unknown error 258
+errno:259:Unknown error 259
+errno:260:Unknown error 260
+errno:261:Unknown error 261
+errno:262:Unknown error 262
+errno:263:Unknown error 263
+errno:264:Unknown error 264
+errno:265:Unknown error 265
+errno:266:Unknown error 266
+errno:267:Unknown error 267
+errno:268:Unknown error 268
+errno:269:Unknown error 269
+errno:270:Unknown error 270
+errno:271:Unknown error 271
+errno:272:Unknown error 272
+errno:273:Unknown error 273
+errno:274:Unknown error 274
+errno:275:Unknown error 275
+errno:276:Unknown error 276
+errno:277:Unknown error 277
+errno:278:Unknown error 278
+errno:279:Unknown error 279
+errno:280:Unknown error 280
+errno:281:Unknown error 281
+errno:282:Unknown error 282
+errno:283:Unknown error 283
+errno:284:Unknown error 284
+errno:285:Unknown error 285
+errno:286:Unknown error 286
+errno:287:Unknown error 287
+errno:288:Unknown error 288
+errno:289:Unknown error 289
+errno:290:Unknown error 290
+errno:291:Unknown error 291
+errno:292:Unknown error 292
+errno:293:Unknown error 293
+errno:294:Unknown error 294
+errno:295:Unknown error 295
+errno:296:Unknown error 296
+errno:297:Unknown error 297
+errno:298:Unknown error 298
+errno:299:Unknown error 299
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+[shangqi@localhost pctrl]$ ./main
+[shangqi@localhost pctrl]$ echo $?
+253
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+[shangqi@localhost pctrl]$ ./main
+[shangqi@localhost pctrl]$ vi exit.c 
+[shangqi@localhost pctrl]$ make
+g++ exit.c -o main
+[shangqi@localhost pctrl]$ ./main
+hehehe@@@[shangqi@localhost pctrl]$ 
+[shangqi@localhost pctrl]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  pctrl  process  tools  zone318C++
+[shangqi@localhost Sq666]$ mkidr wait318
+bash: mkidr: command not found...
+Similar command is: 'mkdir'
+[shangqi@localhost Sq666]$ mkdir wait318
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  pctrl  process  tools  wait318  zone318C++
+[shangqi@localhost Sq666]$ cd wait318/
+[shangqi@localhost wait318]$ vi wait.cpp
+[shangqi@localhost wait318]$ make
+make: *** No targets specified and no makefile found.  Stop.
+[shangqi@localhost wait318]$ ls
+wait.cpp
+[shangqi@localhost wait318]$ vi makefile
+[shangqi@localhost wait318]$ vi makefile 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o mian
+wait.cpp: In function ‘int main()’:
+wait.cpp:11:16: error: ‘fork’ was not declared in this scope
+ int pid = fork();
+                ^
+wait.cpp:14:20: error: ‘perror’ was not declared in this scope
+ perror("fork error");
+                    ^
+wait.cpp:19:8: error: ‘sleep’ was not declared in this scope
+ sleep(3);
+        ^
+wait.cpp:26:10: error: no matching function for call to ‘wait::wait(NULL)’
+ wait(NULL);
+          ^
+wait.cpp:26:10: note: candidates are:
+In file included from /usr/include/stdlib.h:42:0,
+                 from wait.cpp:6:
+/usr/include/bits/waitstatus.h:66:7: note: wait::wait()
+ union wait
+       ^
+/usr/include/bits/waitstatus.h:66:7: note:   candidate expects 0 arguments, 1 provided
+/usr/include/bits/waitstatus.h:66:7: note: wait::wait(const wait&)
+/usr/include/bits/waitstatus.h:66:7: note:   no known conversion for argument 1 from ‘long int’ to ‘const wait&’
+make: *** [mian] Error 1
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o mian
+wait.cpp: In function ‘int main()’:
+wait.cpp:15:20: error: ‘perror’ was not declared in this scope
+ perror("fork error");
+                    ^
+make: *** [mian] Error 1
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o mian
+[shangqi@localhost wait318]$ ./main
+-bash: ./main: No such file or directory
+[shangqi@localhost wait318]$ ls
+makefile  mian  wait.cpp
+[shangqi@localhost wait318]$ ./mian
+child exit
+[shangqi@localhost wait318]$ ./main
+-bash: ./main: No such file or directory
+[shangqi@localhost wait318]$ ./mian
+child exit
+[shangqi@localhost wait318]$ vi makefile 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait
+child exit
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child exit
+^M^C
+
+^M^Hq^[Terminated
+[shangqi@localhost wait318]$ 
+[shangqi@localhost wait318]$ 
+[shangqi@localhost wait318]$ 
+[shangqi@localhost wait318]$ 
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child exit
+^C
+[shangqi@localhost wait318]$ ./wait 
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+wait.cpp: In function ‘int main()’:
+wait.cpp:49:45: error: invalid operands of types ‘int’ and ‘<unresolved overloaded function type>’ to binary ‘operator<<’
+     cout<<"child exit code"<<status&0xff00<<endl;
+                                             ^
+make: *** [wait] Error 1
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait
+child not exit
+child not exit
+child not exit
+child not exit
+child exit code0
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child not exit
+child exit code :50944
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child not exit
+child exit code :0
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child exit code :199
+child exit
+^X^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child exit code :13041664
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child not exit
+child exit code :0
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child not exit
+child exit code :199
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait 
+child not exit
+child not exit
+child not exit
+child not exit
+child exit code :199
+child exit code :199
+child exit
+^C
+[shangqi@localhost wait318]$ vi wait.cpp 
+[shangqi@localhost wait318]$ make
+g++ wait.cpp -o wait
+[shangqi@localhost wait318]$ ./wait
+child not exit
+child not exit
+child not exit
+child not exit
+child exit code :199
+child exit code :199
+child exit
+^C
+[shangqi@localhost wait318]$ cd ..
+[shangqi@localhost Sq666]$ ls
+cmd  env  fork  pctrl  process  tools  wait318  zone318C++
+[shangqi@localhost Sq666]$ mkdir tihuan318
+[shangqi@localhost Sq666]$ cd tihuan318/
+[shangqi@localhost tihuan318]$ vi exec.c
+
+  1 /*程序替换
+  2  */
+  3 
+  4 
+Socket error Event: 32 Error: 10053.                                                                                                        
+Connection closing...Socket close.                                                                                                          
+~                                                                                                                                           
+Connection closed by foreign host.                                                                                                          
+~                                                                                                                                           
+Disconnected from remote host(新建会话) at 16:51:26.                                                                                        
+~                                                                                                                                           
+Type `help' to learn how to use Xshell prompt.                                                                                              
+[C:\~]$ 

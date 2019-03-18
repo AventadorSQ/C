@@ -20,8 +20,8 @@ using namespace std;
 
 namespace N1
 {
-	int a = 10;
-	int b = 20;
+	int a = 66;
+	int b = 98;
 
 	int Add(int left, int right)
 	{
@@ -262,5 +262,7 @@ void TestFunc(int, char)
 
 int main()
 {
+	printf("%d,%lf\n", 10, "hehe");
+	system("pause");
 	return 0;
 }
