@@ -1,0 +1,354 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.134:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Apr  2 03:11:01 2019
+[shangqi@localhost ~]$ ls
+40  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ mkdir baseio
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd baseio/
+[shangqi@localhost baseio]$ cd ..
+[shangqi@localhost ~]$ ls -i
+ 36072207 40           24807 Documents   36071386 Music     102906527 Public      36072210 workspace
+ 36384082 baseio    36071385 Downloads   71795978 Pictures   71795977 Templates
+    24805 Desktop   68352309 git         36380780 practice  102906528 Videos
+[shangqi@localhost ~]$ 文件名，inode号^C
+[shangqi@localhost ~]$ ls -l
+total 0
+drwxrwxr-x. 5 shangqi shangqi 48 Mar 28 02:25 40
+drwxrwxr-x. 2 shangqi shangqi  6 Apr  2 03:44 baseio
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Desktop
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Documents
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Downloads
+drwxrwxr-x. 3 shangqi shangqi 44 Mar 25 03:41 git
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Music
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Pictures
+drwxrwxr-x. 6 shangqi shangqi 58 Mar 15 23:41 practice
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Public
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Templates
+drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Videos
+drwxrwxr-x. 3 shangqi shangqi 18 Mar  4 17:39 workspace
+[shangqi@localhost ~]$ ls -l -i
+total 0
+ 36072207 drwxrwxr-x. 5 shangqi shangqi 48 Mar 28 02:25 40
+ 36384082 drwxrwxr-x. 2 shangqi shangqi  6 Apr  2 03:44 baseio
+    24805 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Desktop
+    24807 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Documents
+ 36071385 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Downloads
+ 68352309 drwxrwxr-x. 3 shangqi shangqi 44 Mar 25 03:41 git
+ 36071386 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Music
+ 71795978 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Pictures
+ 36380780 drwxrwxr-x. 6 shangqi shangqi 58 Mar 15 23:41 practice
+102906527 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Public
+ 71795977 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Templates
+102906528 drwxr-xr-x. 2 shangqi shangqi  6 Nov 24 05:06 Videos
+ 36072210 drwxrwxr-x. 3 shangqi shangqi 18 Mar  4 17:39 workspace
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd baseio/
+[shangqi@localhost baseio]$ touch aaa.txt
+[shangqi@localhost baseio]$ touch bbb.txt
+[shangqi@localhost baseio]$ ln aaa.txt bbb.txt
+ln: failed to create hard link ‘bbb.txt’: File exists
+[shangqi@localhost baseio]$ rm bbb.txt
+[shangqi@localhost baseio]$ ln aaa.txt bbb.txt
+[shangqi@localhost baseio]$ ls -i
+36384076 aaa.txt  36384076 bbb.txt
+[shangqi@localhost baseio]$ ls ~
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost baseio]$ ls
+aaa.txt  bbb.txt
+[shangqi@localhost baseio]$ cd ~
+[shangqi@localhost ~]$ cd ..
+[shangqi@localhost home]$ cd ~
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ find -RadixSort
+find: unknown predicate `-RadixSort'
+[shangqi@localhost ~]$ find -RadixSort.c
+find: unknown predicate `-RadixSort.c'
+[shangqi@localhost ~]$ find -RadixSort.cpp
+find: unknown predicate `-RadixSort.cpp'
+[shangqi@localhost ~]$ cd P
+Pictures/ Public/   
+[shangqi@localhost ~]$ cd Pictures/
+[shangqi@localhost Pictures]$ ls
+[shangqi@localhost Pictures]$ cd ~
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ mkdir workhome
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workhome  workspace
+[shangqi@localhost ~]$ cd workhome/
+[shangqi@localhost workhome]$ sz
+sz: need at least one file to send
+Try `sz --help' for more information.
+[shangqi@localhost workhome]$ rz                                                                               [shangqi@localhost workhome]$ CCCCCCCCCC 
+^C
+[shangqi@localhost workhome]$ rz
+
+[shangqi@localhost workhome]$ ls
+基数排序.txt
+[shangqi@localhost workhome]$ ln 基数排序.txt radixsort.cpp
+[shangqi@localhost workhome]$ ls
+radixsort.cpp  基数排序.txt
+[shangqi@localhost workhome]$ rm 基数排序.txt 
+[shangqi@localhost workhome]$ ls
+radixsort.cpp
+[shangqi@localhost workhome]$ vi radixsort.cpp 
+[shangqi@localhost workhome]$ vi radixsort.cpp 
+[shangqi@localhost workhome]$ man ls
+[shangqi@localhost workhome]$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/sda3       18555904 6416648  12139256  35% /
+devtmpfs          493268       0    493268   0% /dev
+tmpfs             501716      92    501624   1% /dev/shm
+tmpfs             501716    7152    494564   2% /run
+tmpfs             501716       0    501716   0% /sys/fs/cgroup
+/dev/sda1         303788  107964    195824  36% /boot
+[shangqi@localhost workhome]$ fdisk -l
+[shangqi@localhost workhome]$ cd ~
+[shangqi@localhost ~]$ fdisk -l
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workhome  workspace
+[shangqi@localhost ~]$ cd workspace/
+[shangqi@localhost workspace]$ du
+102620	./Sq666/cmd
+0	./Sq666/tools/git
+48	./Sq666/tools
+40	./Sq666/fork
+20	./Sq666/process
+8	./Sq666/env
+20	./Sq666/zone318C++
+20	./Sq666/pctrl
+36	./Sq666/wait318
+12	./Sq666/tihuan318
+24	./Sq666/finlw
+24	./Sq666/reversal
+102876	./Sq666
+102876	.
+[shangqi@localhost workspace]$ 
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(134) at 21:56:02.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.134:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Apr  2 03:43:20 2019 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workhome  workspace
+[shangqi@localhost ~]$ cd workspace/
+[shangqi@localhost workspace]$ ls
+Sq666
+[shangqi@localhost workspace]$ cd ..
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workhome  workspace
+[shangqi@localhost ~]$ rm -f workhome
+rm: cannot remove ‘workhome’: Is a directory
+[shangqi@localhost ~]$ cd workhome/
+[shangqi@localhost workhome]$ ls
+radixsort.cpp
+[shangqi@localhost workhome]$ rm ./*
+[shangqi@localhost workhome]$ cd ..
+[shangqi@localhost ~]$ rmdir workhome
+[shangqi@localhost ~]$ ls
+40  baseio  Desktop  Documents  Downloads  git  Music  Pictures  practice  Public  Templates  Videos  workspace
+[shangqi@localhost ~]$ cd 40
+[shangqi@localhost 40]$ ls
+malloc0  NumSort.c  pctrl
+[shangqi@localhost 40]$ mkdir practice
+[shangqi@localhost 40]$ mv malloc0 NumSort.c pctrl ./practice/
+[shangqi@localhost 40]$ ls
+practice
+[shangqi@localhost 40]$ mkdir lib
+[shangqi@localhost 40]$ ls
+lib  practice
+[shangqi@localhost 40]$ cd lib
+[shangqi@localhost lib]$ vi a.c
+[shangqi@localhost lib]$ ls
+a.c
+[shangqi@localhost lib]$ vi b.c
+[shangqi@localhost lib]$ ls
+a.c  b.c  filename
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+a.c: In function ‘int main()’:
+a.c:6:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ g++ -c b.c -o b.o
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.o  filename
+[shangqi@localhost lib]$ rm filename 
+[shangqi@localhost lib]$ vi b.c
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+a.c: In function ‘int main()’:
+a.c:6:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ g++ -fPIC -c b.c -o b.o
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o
+[shangqi@localhost lib]$ g++ --share b.o -o libmy_b.so
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o  libmy_b.so
+[shangqi@localhost lib]$ ar -cr libmy_b.a b.o
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ g++ a.c -o a -L ./ -lmy_b
+a.c: In function ‘int main()’:
+a.c:6:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ vi a.c
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+In file included from a.c:1:0:
+b.h:1:8: error: expected constructor, destructor, or type conversion before ‘;’ token
+ Print();
+        ^
+a.c: In function ‘int main()’:
+a.c:7:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ g++ a.c -o a -L ./ -lmy_b
+In file included from a.c:1:0:
+b.h:1:8: error: expected constructor, destructor, or type conversion before ‘;’ token
+ Print();
+        ^
+a.c: In function ‘int main()’:
+a.c:7:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ vi a.c
+[shangqi@localhost lib]$ vi b.h
+[shangqi@localhost lib]$ vi b.c
+[shangqi@localhost lib]$ vi b.h
+[shangqi@localhost lib]$ vi b.c
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+In file included from a.c:1:0:
+b.h:1:8: error: expected constructor, destructor, or type conversion before ‘;’ token
+ Print();
+        ^
+a.c: In function ‘int main()’:
+a.c:7:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ rm libmy_b.so 
+[shangqi@localhost lib]$ rm libmy_b.a 
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+In file included from a.c:1:0:
+b.h:1:8: error: expected constructor, destructor, or type conversion before ‘;’ token
+ Print();
+        ^
+a.c: In function ‘int main()’:
+a.c:7:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ g++ --share b.o -o libmy_b.so
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o  libmy_b.so
+[shangqi@localhost lib]$ ar -cr libmy_b.a b.o
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ g++ a.c -o a -L ./ -lmy_b
+In file included from a.c:1:0:
+b.h:1:8: error: expected constructor, destructor, or type conversion before ‘;’ token
+ Print();
+        ^
+a.c: In function ‘int main()’:
+a.c:7:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ vi a.c
+[shangqi@localhost lib]$ ls
+a.c  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ g++ -c a.c -a.o
+g++: error: unrecognized command line option ‘-a.o’
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+In file included from a.c:1:0:
+b.h:1:8: error: expected constructor, destructor, or type conversion before ‘;’ token
+ Print();
+        ^
+a.c: In function ‘int main()’:
+a.c:7:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ vi b.h
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+In file included from a.c:1:0:
+b.h:1:8: error: expected constructor, destructor, or type conversion before ‘;’ token
+ Print();
+        ^
+a.c: In function ‘int main()’:
+a.c:7:8: error: ‘Print’ was not declared in this scope
+  Print();
+        ^
+[shangqi@localhost lib]$ vi b.h
+[shangqi@localhost lib]$ g++ -c a.c -o a.o
+[shangqi@localhost lib]$ ls
+a.c  a.o  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ rm ./lib*
+[shangqi@localhost lib]$ ls
+a.c  a.o  b.c  b.h  b.o
+[shangqi@localhost lib]$ g++ --share b.o -o libmy_b.so
+[shangqi@localhost lib]$ ls
+a.c  a.o  b.c  b.h  b.o  libmy_b.so
+[shangqi@localhost lib]$ g++ -fPIC -c b.c -o b.o
+[shangqi@localhost lib]$ ls
+a.c  a.o  b.c  b.h  b.o  libmy_b.so
+[shangqi@localhost lib]$ g++ --share b.o -o libmy_b.so
+[shangqi@localhost lib]$ ls
+a.c  a.o  b.c  b.h  b.o  libmy_b.so
+[shangqi@localhost lib]$ 
+[shangqi@localhost lib]$ 
+[shangqi@localhost lib]$ ar -cr libmy_b.a b.o
+[shangqi@localhost lib]$ ls
+a.c  a.o  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ cp libmy_b.so /lib64/
+cp: cannot create regular file ‘/lib64/libmy_b.so’: Permission denied
+[shangqi@localhost lib]$ sudo cp libmy_b.so /lib64/
+[sudo] password for shangqi: 
+[shangqi@localhost lib]$ g++ a.c -o -lmy_b
+/tmp/ccooMY9n.o: In function `main':
+a.c:(.text+0x5): undefined reference to `Print()'
+collect2: error: ld returned 1 exit status
+[shangqi@localhost lib]$ g++ a.c -o -L ./ -lmy_b
+./: file not recognized: Is a directory
+collect2: error: ld returned 1 exit status
+[shangqi@localhost lib]$ g++ a.c -o -a -lmy_b
+[shangqi@localhost lib]$ ls
+-a  a.c  a.o  b.c  b.h  b.o  libmy_b.a  libmy_b.so
+[shangqi@localhost lib]$ ./-a
+qige666~~~
+666---
+[shangqi@localhost lib]$ g++ a.c -o main -L ./ -lmy_b
+[shangqi@localhost lib]$ ./main
+qige666~~~
+666---
+[shangqi@localhost lib]$ ar -cr libmy_b.a b.o
+[shangqi@localhost lib]$ ar -cr libmy_b.a b.o
+[shangqi@localhost lib]$ ar -cr libmy_b.a b.o
+[shangqi@localhost lib]$ 
