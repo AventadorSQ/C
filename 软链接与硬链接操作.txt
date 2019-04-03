@@ -1,0 +1,104 @@
+Xshell 6 (Build 0095)
+Copyright (c) 2002 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 192.168.166.134:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Last login: Tue Apr  2 19:00:40 2019 from 192.168.166.1
+[shangqi@localhost ~]$ ls
+40      Desktop    Downloads  Music     practice  Templates  workspace
+baseio  Documents  git        Pictures  Public    Videos
+[shangqi@localhost ~]$ cd 40/
+[shangqi@localhost 40]$ ls
+lib  practice  string
+[shangqi@localhost 40]$ cd lib/
+[shangqi@localhost lib]$ ls
+-a  a.c  a.o  b.c  b.h  b.o  libmy_b.a  libmy_b.so  main
+[shangqi@localhost lib]$ cd ..
+[shangqi@localhost 40]$ mkdir pract
+[shangqi@localhost 40]$ ls
+lib  pract  practice  string
+[shangqi@localhost 40]$ cd pract
+[shangqi@localhost pract]$ vi hero.txt
+[shangqi@localhost pract]$ ln hero.txt abc.txt
+[shangqi@localhost pract]$ ls
+abc.txt  hero.txt
+[shangqi@localhost pract]$ cat hero.txt 
+"QiGe666"
+
+[shangqi@localhost pract]$ cat abc.txt 
+"QiGe666"
+
+[shangqi@localhost pract]$ ln -s hero.txt ./abc.txt 
+ln: failed to create symbolic link ¡®./abc.txt¡¯: File exists
+[shangqi@localhost pract]$ ln -s hero.txt ./xxx.txt 
+[shangqi@localhost pract]$ ls
+abc.txt  hero.txt  xxx.txt
+[shangqi@localhost pract]$ ls /bin/*sh
+/bin/alsa-info.sh  /bin/lchsh                    /bin/sh
+/bin/amuFormat.sh  /bin/ldns-nsec3-hash          /bin/ssh
+/bin/bash          /bin/lesspipe.sh              /bin/stapsh
+/bin/chsh          /bin/lprsetup.sh              /bin/tcsh
+/bin/crash         /bin/nettle-hash              /bin/unix-lpr.sh
+/bin/csh           /bin/packagekit-bugreport.sh  /bin/virsh
+/bin/gettext.sh    /bin/pax11publish             /bin/xrefresh
+/bin/gvfs-trash    /bin/setup-nsssysinit.sh
+[shangqi@localhost pract]$ ls -l
+total 8
+-rw-rw-r--. 2 shangqi shangqi 11 Apr  3 04:56 abc.txt
+-rw-rw-r--. 2 shangqi shangqi 11 Apr  3 04:56 hero.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 04:57 xxx.txt -> hero.txt
+[shangqi@localhost pract]$ cat xxx.txt 
+"QiGe666"
+
+[shangqi@localhost pract]$ ls -i
+9568143 abc.txt  9568143 hero.txt  9568134 xxx.txt
+[shangqi@localhost pract]$ ls hero.txt ./hero.soft
+ls: cannot access ./hero.soft: No such file or directory
+hero.txt
+[shangqi@localhost pract]$ ls
+abc.txt  hero.txt  xxx.txt
+[shangqi@localhost pract]$ ls -s hero.txt ./hero.soft
+ls: cannot access ./hero.soft: No such file or directory
+4 hero.txt
+[shangqi@localhost pract]$ ln -s hero.txt ./hero.soft
+[shangqi@localhost pract]$ ls
+abc.txt  hero.soft  hero.txt  xxx.txt
+[shangqi@localhost pract]$ ls -l
+total 8
+-rw-rw-r--. 2 shangqi shangqi 11 Apr  3 04:56 abc.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 05:01 hero.soft -> hero.txt
+-rw-rw-r--. 2 shangqi shangqi 11 Apr  3 04:56 hero.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 04:57 xxx.txt -> hero.txt
+[shangqi@localhost pract]$ rm hero.txt 
+[shangqi@localhost pract]$ ls
+abc.txt  hero.soft  xxx.txt
+[shangqi@localhost pract]$ ls -l
+total 4
+-rw-rw-r--. 1 shangqi shangqi 11 Apr  3 04:56 abc.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 05:01 hero.soft -> hero.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 04:57 xxx.txt -> hero.txt
+[shangqi@localhost pract]$ cat hero.soft
+cat: hero.soft: No such file or directory
+[shangqi@localhost pract]$ cat abc.txt
+"QiGe666"
+
+[shangqi@localhost pract]$ ls -i
+ 9568143 abc.txt  10134802 hero.soft   9568134 xxx.txt
+[shangqi@localhost pract]$ ls -l
+total 4
+-rw-rw-r--. 1 shangqi shangqi 11 Apr  3 04:56 abc.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 05:01 hero.soft -> hero.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 04:57 xxx.txt -> hero.txt
+[shangqi@localhost pract]$ touch hero.txt
+[shangqi@localhost pract]$ ls -l
+total 4
+-rw-rw-r--. 1 shangqi shangqi 11 Apr  3 04:56 abc.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 05:01 hero.soft -> hero.txt
+-rw-rw-r--. 1 shangqi shangqi  0 Apr  3 05:39 hero.txt
+lrwxrwxrwx. 1 shangqi shangqi  8 Apr  3 04:57 xxx.txt -> hero.txt
+[shangqi@localhost pract]$ l
